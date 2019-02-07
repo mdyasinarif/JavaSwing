@@ -28,23 +28,15 @@
               <Component id="et" min="-2" pref="79" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" pref="283" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="683" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="cl" min="-2" pref="125" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="a" min="-2" pref="55" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="at" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="e" min="-2" pref="55" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="i" min="-2" pref="55" max="-2" attributes="0"/>
+                          <Component id="e" min="-2" pref="55" max="-2" attributes="0"/>
                           <Component id="o" min="-2" pref="55" max="-2" attributes="0"/>
                           <Component id="u" min="-2" pref="55" max="-2" attributes="0"/>
+                          <Component id="i" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                          <Component id="a" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -69,22 +61,16 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="cl" min="-2" pref="23" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="a" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="at" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="a" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="e" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="e" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="i" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="o" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="u" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace pref="191" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -137,6 +123,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="A ="/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="e">
       <Properties>
@@ -157,16 +146,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="U ="/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="at">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>
