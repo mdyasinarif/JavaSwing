@@ -5,6 +5,9 @@
  */
 package Tutrial.VewalCount;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 /**
  *
  * @author Md Yasin Arif
@@ -21,7 +24,48 @@ public class VowelCounter extends javax.swing.JFrame {
     
     public VowelCounter() {
         initComponents();
-        ta.setText("Bangladesh...........");
+       ta.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent ke) {
+                if (ke.getSource() == ta) {
+                    if (ke.VK_A == ke.getKeyCode()) {
+                        letter_a++;
+                        totalVowel++;
+                    }
+                    if (ke.VK_E == ke.getKeyCode()) {
+                        letter_e++;
+                        totalVowel++;
+                    }
+                    if (ke.VK_I == ke.getKeyCode()) {
+                        letter_i++;
+                        totalVowel++;
+                    }
+                    if (ke.VK_O == ke.getKeyCode()) {
+                        letter_o++;
+                        totalVowel++;
+                    }
+                    if (ke.VK_U == ke.getKeyCode()) {
+                        letter_u++;
+                        totalVowel++;
+                    }
+                }
+                lebVowel.setText("Total Number of vowels = "+totalVowel);
+                lebA.setText("Total Number of A = "+letter_a);
+                lebE.setText("Total Number of E = "+letter_e);
+                lebI.setText("Total Number of I = "+letter_i);
+                lebO.setText("Total Number of O = "+letter_o);
+                lebU.setText("Total Number of U = "+letter_u);
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+            }
+        });
+       
     }
 
     /**
@@ -36,12 +80,12 @@ public class VowelCounter extends javax.swing.JFrame {
         et = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ta = new javax.swing.JTextArea();
-        cl = new javax.swing.JLabel();
-        a = new javax.swing.JButton();
-        e = new javax.swing.JButton();
-        i = new javax.swing.JButton();
-        o = new javax.swing.JButton();
-        u = new javax.swing.JButton();
+        lebVowel = new javax.swing.JLabel();
+        lebA = new javax.swing.JLabel();
+        lebE = new javax.swing.JLabel();
+        lebI = new javax.swing.JLabel();
+        lebO = new javax.swing.JLabel();
+        lebU = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,25 +97,22 @@ public class VowelCounter extends javax.swing.JFrame {
 
         ta.setColumns(20);
         ta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ta.setLineWrap(true);
         ta.setRows(5);
+        ta.setWrapStyleWord(true);
         jScrollPane1.setViewportView(ta);
 
-        cl.setText("Total Number of Vewel");
+        lebVowel.setText("Total Number of Vowel");
 
-        a.setText("A =");
-        a.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aActionPerformed(evt);
-            }
-        });
+        lebA.setText("A = ");
 
-        e.setText("E =");
+        lebE.setText("E = ");
 
-        i.setText("I =");
+        lebI.setText("I = ");
 
-        o.setText("O =");
+        lebO.setText("O = ");
 
-        u.setText("U =");
+        lebU.setText("E = ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,13 +125,16 @@ public class VowelCounter extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cl, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(e, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(o, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(u, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(i, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(a, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lebVowel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lebE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lebA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lebI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lebO, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                                    .addComponent(lebU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -105,26 +149,22 @@ public class VowelCounter extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cl, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lebVowel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(a)
+                .addComponent(lebA, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(e)
+                .addComponent(lebE, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(i)
+                .addComponent(lebI, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(o)
+                .addComponent(lebO, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(u)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addComponent(lebU, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_aActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,14 +205,14 @@ public class VowelCounter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton a;
-    private javax.swing.JLabel cl;
-    private javax.swing.JButton e;
     private javax.swing.JLabel et;
-    private javax.swing.JButton i;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton o;
+    private javax.swing.JLabel lebA;
+    private javax.swing.JLabel lebE;
+    private javax.swing.JLabel lebI;
+    private javax.swing.JLabel lebO;
+    private javax.swing.JLabel lebU;
+    private javax.swing.JLabel lebVowel;
     private javax.swing.JTextArea ta;
-    private javax.swing.JButton u;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,14 +29,19 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" pref="683" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cl" min="-2" pref="125" max="-2" attributes="0"/>
-                          <Component id="e" min="-2" pref="55" max="-2" attributes="0"/>
-                          <Component id="o" min="-2" pref="55" max="-2" attributes="0"/>
-                          <Component id="u" min="-2" pref="55" max="-2" attributes="0"/>
-                          <Component id="i" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-                          <Component id="a" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="lebVowel" alignment="0" pref="268" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lebE" max="32767" attributes="0"/>
+                                  <Component id="lebA" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lebI" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lebO" alignment="0" pref="258" max="32767" attributes="0"/>
+                                  <Component id="lebU" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -59,18 +64,18 @@
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="cl" min="-2" pref="23" max="-2" attributes="0"/>
+              <Component id="lebVowel" min="-2" pref="23" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="a" min="-2" max="-2" attributes="0"/>
+              <Component id="lebA" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="e" min="-2" max="-2" attributes="0"/>
+              <Component id="lebE" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="i" min="-2" max="-2" attributes="0"/>
+              <Component id="lebI" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="o" min="-2" max="-2" attributes="0"/>
+              <Component id="lebO" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="u" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="191" max="32767" attributes="0"/>
+              <Component id="lebU" min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace pref="176" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -109,42 +114,41 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="1"/>
             </Property>
+            <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
+            <Property name="wrapStyleWord" type="boolean" value="true"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="cl">
+    <Component class="javax.swing.JLabel" name="lebVowel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Total Number of Vewel"/>
+        <Property name="text" type="java.lang.String" value="Total Number of Vowel"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="a">
+    <Component class="javax.swing.JLabel" name="lebA">
       <Properties>
-        <Property name="text" type="java.lang.String" value="A ="/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="e">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="E ="/>
+        <Property name="text" type="java.lang.String" value="A = "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="i">
+    <Component class="javax.swing.JLabel" name="lebE">
       <Properties>
-        <Property name="text" type="java.lang.String" value="I ="/>
+        <Property name="text" type="java.lang.String" value="E = "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="o">
+    <Component class="javax.swing.JLabel" name="lebI">
       <Properties>
-        <Property name="text" type="java.lang.String" value="O ="/>
+        <Property name="text" type="java.lang.String" value="I = "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="u">
+    <Component class="javax.swing.JLabel" name="lebO">
       <Properties>
-        <Property name="text" type="java.lang.String" value="U ="/>
+        <Property name="text" type="java.lang.String" value="O = "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lebU">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="E = "/>
       </Properties>
     </Component>
   </SubComponents>
