@@ -1,0 +1,25 @@
+suver sid only
+host address localhost:3306
+username:root;
+search mySql comand line
+
+
+id always auto increment;
+
+pasword 1234
+
+create database yasin;
+use yasin;
+show tables;
+create table test(id int(11) primary key auto_increment, name varchar(50) not null );
+
+show tables;
+
+desc test;
+
+show databases;
+
+
+
+
+
