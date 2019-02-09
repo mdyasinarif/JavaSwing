@@ -406,13 +406,13 @@ public class StudentResult extends javax.swing.JFrame {
                                     .addComponent(jLabel16)
                                     .addComponent(jTextFieldTotalScore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jTextFieldAverage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldAverage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jTextFieldRanking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldRanking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
                                 .addGap(3, 3, 3))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -457,7 +457,7 @@ public class StudentResult extends javax.swing.JFrame {
     private void jBtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDeleteActionPerformed
         JTextField temp = null;
         for (Component c : jPanel1.getComponents()) {
-            if (c.getClass().toString().contains("javax.swing.JTextField")) {
+            if (c.getClass().toString().contains("JTextField")) {
                 temp = (JTextField) c;
                 temp.setText(null);
             }
@@ -499,11 +499,11 @@ public class StudentResult extends javax.swing.JFrame {
         R[8] = (R[0] + R[1] + R[2] + R[3] + R[4] + R[5] + R[6] + R[7]);
         R[9] = ((R[0] + R[1] + R[2] + R[3] + R[4] + R[5] + R[6] + R[7]) / 8);
 
-        String average = String.format("%.0f", R[8]);
-        jTextFieldTotalScore.setText(average);
+        String total = String.format("%.0f", R[8]);
+        jTextFieldTotalScore.setText(total);
 
-        String total = String.format("%.0f", R[9]);
-        jTextFieldAverage.setText(total);
+        String average = String.format("%.0f", R[9]);
+        jTextFieldAverage.setText(average);
 
         if (R[8] >= 600) {
             jTextFieldRanking.setText("1st");
@@ -610,7 +610,7 @@ public class StudentResult extends javax.swing.JFrame {
                 + " -------------------------------\n"
                 + " TotalScore:\t" + jTextFieldTotalScore.getText() + "\n"
                 + " Average:\t" + jTextFieldAverage.getText() + "\n"
-                + " Ranking:\t" + jTextFieldRanking.getText()
+                + " Ranking:\t" + jTextFieldRanking.getText()+ "\n\n"
         );
     }//GEN-LAST:event_jBtnTranscriptActionPerformed
 
