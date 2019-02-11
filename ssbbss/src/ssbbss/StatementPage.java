@@ -5,12 +5,15 @@
  */
 package ssbbss;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Md Yasin Arif
  */
 public class StatementPage extends javax.swing.JFrame {
-
+private JFrame frame;
     /**
      * Creates new form LoginPage
      */
@@ -40,6 +43,8 @@ public class StatementPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextFielduserName = new javax.swing.JTextField();
+        jLabelACT1 = new javax.swing.JLabel();
+        AccountType1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -173,6 +178,24 @@ public class StatementPage extends javax.swing.JFrame {
         jPanel1.add(jTextFielduserName);
         jTextFielduserName.setBounds(660, 380, 340, 40);
 
+        jLabelACT1.setBackground(new java.awt.Color(153, 255, 0));
+        jLabelACT1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabelACT1.setForeground(new java.awt.Color(0, 153, 0));
+        jLabelACT1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT1.setText("Account Type");
+        jLabelACT1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabelACT1);
+        jLabelACT1.setBounds(370, 310, 270, 50);
+
+        AccountType1.setBackground(new java.awt.Color(0, 102, 0));
+        AccountType1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        AccountType1.setForeground(new java.awt.Color(255, 255, 255));
+        AccountType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Saving Account", "Share Account", "Investment Account" }));
+        AccountType1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(AccountType1);
+        AccountType1.setBounds(660, 310, 230, 50);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
@@ -200,27 +223,35 @@ public class StatementPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetCAActionPerformed
 
     private void btnExitCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitCA1ActionPerformed
-        // TODO add your handling code here:
+      frame = new JFrame("Exit");
+        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "SSBBSS System", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnExitCA1ActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
-        // TODO add your handling code here:
+       new CreateAccountPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnCAActionPerformed
 
     private void btnSAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSAActionPerformed
-        // TODO add your handling code here:
+       new SavingAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnSAActionPerformed
 
     private void btnSHAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSHAActionPerformed
-        // TODO add your handling code here:
+       new ShareAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnSHAActionPerformed
 
     private void btnIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIAActionPerformed
-        // TODO add your handling code here:
+         new InvestmentAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnIAActionPerformed
 
     private void btnWF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWF1ActionPerformed
-        // TODO add your handling code here:
+        new WelfareFundAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnWF1ActionPerformed
 
     private void jTextFielduserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserNameActionPerformed
@@ -294,6 +325,7 @@ public class StatementPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> AccountType1;
     private javax.swing.JButton btnCA;
     private javax.swing.JButton btnExitCA1;
     private javax.swing.JButton btnIA;
@@ -305,6 +337,7 @@ public class StatementPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelACT1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFielduserName;
     // End of variables declaration//GEN-END:variables

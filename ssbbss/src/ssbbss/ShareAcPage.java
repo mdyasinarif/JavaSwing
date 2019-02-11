@@ -5,12 +5,17 @@
  */
 package ssbbss;
 
+import java.awt.Component;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Md Yasin Arif
  */
 public class ShareAcPage extends javax.swing.JFrame {
-
+private JFrame frame;
     /**
      * Creates new form LoginPage
      */
@@ -37,16 +42,21 @@ public class ShareAcPage extends javax.swing.JFrame {
         btnSA = new javax.swing.JButton();
         btnSHA = new javax.swing.JButton();
         btnIA = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextFielduserName = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextFielduserName1 = new javax.swing.JTextField();
+        btnStatement = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jTextFielduserName2 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextFielduserName1 = new javax.swing.JTextField();
+        jTextFielduserName = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextFielduserName3 = new javax.swing.JTextField();
-        btnWF1 = new javax.swing.JButton();
+        jLabelACT12 = new javax.swing.JLabel();
+        btnResetCA1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jTextFielduserName4 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,7 +73,7 @@ public class ShareAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSaveCA);
-        btnSaveCA.setBounds(900, 510, 100, 30);
+        btnSaveCA.setBounds(1070, 630, 100, 30);
 
         btnWF.setBackground(new java.awt.Color(0, 102, 0));
         btnWF.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -87,7 +97,7 @@ public class ShareAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnResetCA);
-        btnResetCA.setBounds(780, 510, 100, 30);
+        btnResetCA.setBounds(950, 630, 100, 30);
 
         btnExitCA1.setBackground(new java.awt.Color(0, 102, 0));
         btnExitCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -99,7 +109,7 @@ public class ShareAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnExitCA1);
-        btnExitCA1.setBounds(660, 510, 100, 30);
+        btnExitCA1.setBounds(830, 630, 100, 30);
 
         btnCA.setBackground(new java.awt.Color(0, 102, 0));
         btnCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -149,16 +159,6 @@ public class ShareAcPage extends javax.swing.JFrame {
         jPanel1.add(btnIA);
         btnIA.setBounds(20, 380, 230, 40);
 
-        jLabel3.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 153, 0));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Account No");
-        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(370, 300, 270, 40);
-
         jLabel4.setBackground(new java.awt.Color(153, 255, 0));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 0));
@@ -169,47 +169,27 @@ public class ShareAcPage extends javax.swing.JFrame {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(280, 200, 270, 40);
 
-        jTextFielduserName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName.addActionListener(new java.awt.event.ActionListener() {
+        btnStatement.setBackground(new java.awt.Color(0, 102, 0));
+        btnStatement.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnStatement.setForeground(new java.awt.Color(255, 255, 255));
+        btnStatement.setText("Statement");
+        btnStatement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserNameActionPerformed(evt);
+                btnStatementActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFielduserName);
-        jTextFielduserName.setBounds(660, 300, 340, 40);
-
-        jLabel5.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 153, 0));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Deposit Date");
-        jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(370, 350, 270, 40);
-
-        jTextFielduserName1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserName1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFielduserName1);
-        jTextFielduserName1.setBounds(660, 350, 340, 40);
+        jPanel1.add(btnStatement);
+        btnStatement.setBounds(20, 500, 230, 40);
 
         jLabel6.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Slip No");
         jLabel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(370, 400, 270, 40);
+        jLabel6.setBounds(670, 210, 170, 40);
 
         jTextFielduserName2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -220,17 +200,59 @@ public class ShareAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName2);
-        jTextFielduserName2.setBounds(660, 400, 340, 40);
+        jTextFielduserName2.setBounds(850, 210, 250, 40);
+
+        jLabel5.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Transcation Date");
+        jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(670, 260, 170, 40);
+
+        jTextFielduserName1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFielduserName1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFielduserName1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jTextFielduserName1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielduserName1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFielduserName1);
+        jTextFielduserName1.setBounds(850, 310, 170, 40);
+
+        jTextFielduserName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFielduserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFielduserName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jTextFielduserName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielduserNameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFielduserName);
+        jTextFielduserName.setBounds(440, 260, 220, 40);
+
+        jLabel3.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Account No");
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(270, 260, 160, 40);
 
         jLabel7.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Amount");
+        jLabel7.setText("Deposit Amount");
         jLabel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(370, 450, 270, 40);
+        jLabel7.setBounds(270, 310, 160, 40);
 
         jTextFielduserName3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -241,19 +263,56 @@ public class ShareAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName3);
-        jTextFielduserName3.setBounds(660, 450, 340, 40);
+        jTextFielduserName3.setBounds(440, 310, 220, 40);
 
-        btnWF1.setBackground(new java.awt.Color(0, 102, 0));
-        btnWF1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnWF1.setForeground(new java.awt.Color(255, 255, 255));
-        btnWF1.setText("Statement");
-        btnWF1.addActionListener(new java.awt.event.ActionListener() {
+        jLabelACT12.setBackground(new java.awt.Color(153, 255, 0));
+        jLabelACT12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT12.setForeground(new java.awt.Color(0, 153, 0));
+        jLabelACT12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT12.setText("Withdraw Amount");
+        jLabelACT12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabelACT12);
+        jLabelACT12.setBounds(670, 310, 170, 40);
+
+        btnResetCA1.setBackground(new java.awt.Color(0, 102, 0));
+        btnResetCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnResetCA1.setForeground(new java.awt.Color(255, 255, 255));
+        btnResetCA1.setText("Submmit");
+        btnResetCA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnWF1ActionPerformed(evt);
+                btnResetCA1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnWF1);
-        btnWF1.setBounds(20, 500, 230, 40);
+        jPanel1.add(btnResetCA1);
+        btnResetCA1.setBounds(1030, 310, 130, 40);
+
+        jTable1.setBackground(new java.awt.Color(204, 255, 204));
+        jTable1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTable1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "Account No", "Name", "Deposit Type", "Deposit Amount", "Number of Share", "Total Deposit", "Withdraw Amount", "Balance"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(270, 360, 910, 260);
+
+        jTextFielduserName4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFielduserName4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFielduserName4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jTextFielduserName4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielduserName4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFielduserName4);
+        jTextFielduserName4.setBounds(850, 260, 250, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -278,23 +337,35 @@ public class ShareAcPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveCAActionPerformed
 
     private void btnWFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWFActionPerformed
-        // TODO add your handling code here:
+       new WelfareFundAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnWFActionPerformed
 
     private void btnResetCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCAActionPerformed
-        // TODO add your handling code here:
+        JTextField temp = null;
+        for (Component c : jPanel1.getComponents()) {
+            if (c.getClass().toString().contains("JTextField")) {
+                temp = (JTextField) c;
+                temp.setText(null);
+            }
+        }
     }//GEN-LAST:event_btnResetCAActionPerformed
 
     private void btnExitCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitCA1ActionPerformed
-        // TODO add your handling code here:
+       frame = new JFrame("Exit");
+        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "SSBBSS System", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnExitCA1ActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
-        // TODO add your handling code here:
+        new CreateAccountPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnCAActionPerformed
 
     private void btnSAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSAActionPerformed
-        // TODO add your handling code here:
+        new SavingAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnSAActionPerformed
 
     private void btnSHAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSHAActionPerformed
@@ -302,28 +373,38 @@ public class ShareAcPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSHAActionPerformed
 
     private void btnIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIAActionPerformed
-        // TODO add your handling code here:
+        new InvestmentAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnIAActionPerformed
 
-    private void jTextFielduserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserNameActionPerformed
-
-    private void jTextFielduserName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserName1ActionPerformed
+    private void btnStatementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatementActionPerformed
+       new StatementPage().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnStatementActionPerformed
 
     private void jTextFielduserName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFielduserName2ActionPerformed
 
+    private void jTextFielduserName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFielduserName1ActionPerformed
+
+    private void jTextFielduserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFielduserNameActionPerformed
+
     private void jTextFielduserName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFielduserName3ActionPerformed
 
-    private void btnWF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWF1ActionPerformed
+    private void btnResetCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCA1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnWF1ActionPerformed
+    }//GEN-LAST:event_btnResetCA1ActionPerformed
+
+    private void jTextFielduserName4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFielduserName4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,21 +461,26 @@ public class ShareAcPage extends javax.swing.JFrame {
     private javax.swing.JButton btnExitCA1;
     private javax.swing.JButton btnIA;
     private javax.swing.JButton btnResetCA;
+    private javax.swing.JButton btnResetCA1;
     private javax.swing.JButton btnSA;
     private javax.swing.JButton btnSHA;
     private javax.swing.JButton btnSaveCA;
+    private javax.swing.JButton btnStatement;
     private javax.swing.JButton btnWF;
-    private javax.swing.JButton btnWF1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabelACT12;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFielduserName;
     private javax.swing.JTextField jTextFielduserName1;
     private javax.swing.JTextField jTextFielduserName2;
     private javax.swing.JTextField jTextFielduserName3;
+    private javax.swing.JTextField jTextFielduserName4;
     // End of variables declaration//GEN-END:variables
 }

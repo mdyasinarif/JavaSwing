@@ -5,12 +5,17 @@
  */
 package ssbbss;
 
+import java.awt.Component;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Md Yasin Arif
  */
 public class InvestmentAcPage extends javax.swing.JFrame {
-
+private JFrame frame;
     /**
      * Creates new form LoginPage
      */
@@ -31,7 +36,6 @@ public class InvestmentAcPage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnSaveCA = new javax.swing.JButton();
         btnWF = new javax.swing.JButton();
-        btnResetCA = new javax.swing.JButton();
         btnExitCA1 = new javax.swing.JButton();
         btnCA = new javax.swing.JButton();
         btnSA = new javax.swing.JButton();
@@ -83,18 +87,6 @@ public class InvestmentAcPage extends javax.swing.JFrame {
         jPanel1.add(btnWF);
         btnWF.setBounds(20, 440, 230, 40);
 
-        btnResetCA.setBackground(new java.awt.Color(0, 102, 0));
-        btnResetCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnResetCA.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA.setText("Reset");
-        btnResetCA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetCAActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnResetCA);
-        btnResetCA.setBounds(790, 630, 100, 30);
-
         btnExitCA1.setBackground(new java.awt.Color(0, 102, 0));
         btnExitCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnExitCA1.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,7 +97,7 @@ public class InvestmentAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnExitCA1);
-        btnExitCA1.setBounds(670, 630, 100, 30);
+        btnExitCA1.setBounds(800, 630, 100, 30);
 
         btnCA.setBackground(new java.awt.Color(0, 102, 0));
         btnCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -156,14 +148,14 @@ public class InvestmentAcPage extends javax.swing.JFrame {
         btnIA.setBounds(20, 380, 230, 40);
 
         jLabel3.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Account No");
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(370, 270, 270, 40);
+        jLabel3.setBounds(280, 260, 190, 40);
 
         jLabel4.setBackground(new java.awt.Color(153, 255, 0));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -184,17 +176,17 @@ public class InvestmentAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName);
-        jTextFielduserName.setBounds(660, 270, 340, 40);
+        jTextFielduserName.setBounds(480, 260, 230, 40);
 
         jLabel5.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Investment  Date");
         jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(370, 320, 270, 40);
+        jLabel5.setBounds(280, 310, 190, 40);
 
         jTextFielduserName1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -205,17 +197,17 @@ public class InvestmentAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName1);
-        jTextFielduserName1.setBounds(660, 320, 340, 40);
+        jTextFielduserName1.setBounds(480, 310, 230, 40);
 
         jLabel6.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Chque No");
         jLabel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(370, 370, 270, 40);
+        jLabel6.setBounds(280, 360, 190, 40);
 
         jTextFielduserName2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -226,17 +218,17 @@ public class InvestmentAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName2);
-        jTextFielduserName2.setBounds(660, 370, 340, 40);
+        jTextFielduserName2.setBounds(480, 360, 230, 40);
 
         jLabel7.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("InstallMent Date");
         jLabel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(370, 470, 270, 40);
+        jLabel7.setBounds(280, 460, 190, 40);
 
         jTextFielduserName3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -247,17 +239,17 @@ public class InvestmentAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName3);
-        jTextFielduserName3.setBounds(660, 470, 340, 40);
+        jTextFielduserName3.setBounds(480, 460, 230, 40);
 
         jLabel8.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 153, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Investment Amount");
         jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(370, 420, 270, 40);
+        jLabel8.setBounds(280, 410, 190, 40);
 
         jTextFielduserName4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -268,17 +260,17 @@ public class InvestmentAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName4);
-        jTextFielduserName4.setBounds(660, 420, 340, 40);
+        jTextFielduserName4.setBounds(480, 410, 230, 40);
 
         jLabel9.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Slip No");
         jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(370, 520, 270, 40);
+        jLabel9.setBounds(280, 510, 190, 40);
 
         jTextFielduserName5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -289,17 +281,17 @@ public class InvestmentAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName5);
-        jTextFielduserName5.setBounds(660, 520, 340, 40);
+        jTextFielduserName5.setBounds(480, 510, 230, 40);
 
         jLabel10.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 153, 0));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Amount");
         jLabel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(370, 570, 270, 40);
+        jLabel10.setBounds(280, 560, 190, 40);
 
         jTextFielduserName6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -310,7 +302,7 @@ public class InvestmentAcPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName6);
-        jTextFielduserName6.setBounds(660, 570, 340, 40);
+        jTextFielduserName6.setBounds(480, 560, 230, 40);
 
         btnWF1.setBackground(new java.awt.Color(0, 102, 0));
         btnWF1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -347,31 +339,34 @@ public class InvestmentAcPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveCAActionPerformed
 
     private void btnWFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWFActionPerformed
-        // TODO add your handling code here:
+       new WelfareFundAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnWFActionPerformed
 
-    private void btnResetCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnResetCAActionPerformed
-
     private void btnExitCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitCA1ActionPerformed
-        // TODO add your handling code here:
+       frame = new JFrame("Exit");
+        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "SSBBSS System", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnExitCA1ActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
-        // TODO add your handling code here:
+        new CreateAccountPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnCAActionPerformed
 
     private void btnSAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSAActionPerformed
-        // TODO add your handling code here:
+        new SavingAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnSAActionPerformed
 
     private void btnSHAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSHAActionPerformed
-        // TODO add your handling code here:
+       new ShareAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnSHAActionPerformed
 
     private void btnIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIAActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnIAActionPerformed
 
     private void jTextFielduserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserNameActionPerformed
@@ -403,7 +398,8 @@ public class InvestmentAcPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFielduserName6ActionPerformed
 
     private void btnWF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWF1ActionPerformed
-        // TODO add your handling code here:
+        new StatementPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnWF1ActionPerformed
 
     /**
@@ -460,7 +456,6 @@ public class InvestmentAcPage extends javax.swing.JFrame {
     private javax.swing.JButton btnCA;
     private javax.swing.JButton btnExitCA1;
     private javax.swing.JButton btnIA;
-    private javax.swing.JButton btnResetCA;
     private javax.swing.JButton btnSA;
     private javax.swing.JButton btnSHA;
     private javax.swing.JButton btnSaveCA;

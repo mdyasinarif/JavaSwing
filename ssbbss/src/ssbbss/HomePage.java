@@ -5,19 +5,21 @@
  */
 package ssbbss;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Md Yasin Arif
  */
 public class HomePage extends javax.swing.JFrame {
-
+private JFrame frame;
     /**
      * Creates new form LoginPage
      */
     public HomePage() {
         initComponents();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,7 +32,7 @@ public class HomePage extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnSaveCA = new javax.swing.JButton();
-        btnWF = new javax.swing.JButton();
+        btnstatement = new javax.swing.JButton();
         btnResetCA = new javax.swing.JButton();
         btnExitCA1 = new javax.swing.JButton();
         btnCA = new javax.swing.JButton();
@@ -56,17 +58,17 @@ public class HomePage extends javax.swing.JFrame {
         jPanel1.add(btnSaveCA);
         btnSaveCA.setBounds(1070, 620, 100, 30);
 
-        btnWF.setBackground(new java.awt.Color(0, 102, 0));
-        btnWF.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnWF.setForeground(new java.awt.Color(255, 255, 255));
-        btnWF.setText("Statement");
-        btnWF.addActionListener(new java.awt.event.ActionListener() {
+        btnstatement.setBackground(new java.awt.Color(0, 102, 0));
+        btnstatement.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnstatement.setForeground(new java.awt.Color(255, 255, 255));
+        btnstatement.setText("Statement");
+        btnstatement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnWFActionPerformed(evt);
+                btnstatementActionPerformed(evt);
             }
         });
-        jPanel1.add(btnWF);
-        btnWF.setBounds(20, 500, 230, 40);
+        jPanel1.add(btnstatement);
+        btnstatement.setBounds(20, 500, 230, 40);
 
         btnResetCA.setBackground(new java.awt.Color(0, 102, 0));
         btnResetCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -174,36 +176,46 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveCAActionPerformed
 
-    private void btnWFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnWFActionPerformed
+    private void btnstatementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstatementActionPerformed
+        new StatementPage().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnstatementActionPerformed
 
     private void btnResetCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCAActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnResetCAActionPerformed
 
     private void btnExitCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitCA1ActionPerformed
-        // TODO add your handling code here:
+       frame = new JFrame("Exit");
+        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "SSBBSS System", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnExitCA1ActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
-        // TODO add your handling code here:
+        new CreateAccountPage().setVisible(true);
+        this.setVisible(false);
+
     }//GEN-LAST:event_btnCAActionPerformed
 
     private void btnSAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSAActionPerformed
-        // TODO add your handling code here:
+         new SavingAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnSAActionPerformed
 
     private void btnSHAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSHAActionPerformed
-        // TODO add your handling code here:
+        new ShareAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnSHAActionPerformed
 
     private void btnIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIAActionPerformed
-        // TODO add your handling code here:
+         new InvestmentAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnIAActionPerformed
 
     private void btnWF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWF1ActionPerformed
-        // TODO add your handling code here:
+         new WelfareFundAcPage().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnWF1ActionPerformed
 
     /**
@@ -264,8 +276,8 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton btnSA;
     private javax.swing.JButton btnSHA;
     private javax.swing.JButton btnSaveCA;
-    private javax.swing.JButton btnWF;
     private javax.swing.JButton btnWF1;
+    private javax.swing.JButton btnstatement;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
