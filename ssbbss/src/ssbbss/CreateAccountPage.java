@@ -41,7 +41,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         AccountType = new javax.swing.JComboBox<>();
         jLabelACT1 = new javax.swing.JLabel();
         jTextFielduserName = new javax.swing.JTextField();
-        jTextFielduserName1 = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabelACT2 = new javax.swing.JLabel();
         jTextFielduserName2 = new javax.swing.JTextField();
         jLabelACT4 = new javax.swing.JLabel();
@@ -85,6 +85,11 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jTextFielduserName22 = new javax.swing.JTextField();
         jTextFielduserName23 = new javax.swing.JTextField();
         jLabelACT25 = new javax.swing.JLabel();
+        btnWF1 = new javax.swing.JButton();
+        jLabelACT3 = new javax.swing.JLabel();
+        jLabelACT8 = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jProgressBar2 = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -195,7 +200,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT);
-        jLabelACT.setBounds(830, 220, 170, 30);
+        jLabelACT.setBounds(830, 200, 170, 30);
 
         AccountType.setBackground(new java.awt.Color(53, 255, 0));
         AccountType.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -203,7 +208,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         AccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Weekly", "Monthly", "Fixed" }));
         AccountType.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(AccountType);
-        AccountType.setBounds(490, 500, 110, 30);
+        AccountType.setBounds(490, 480, 110, 30);
 
         jLabelACT1.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -224,28 +229,28 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName);
-        jTextFielduserName.setBounds(1010, 220, 160, 30);
+        jTextFielduserName.setBounds(1010, 200, 160, 30);
 
-        jTextFielduserName1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName1.addActionListener(new java.awt.event.ActionListener() {
+        txtName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserName1ActionPerformed(evt);
+                txtNameActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFielduserName1);
-        jTextFielduserName1.setBounds(490, 220, 330, 30);
+        jPanel1.add(txtName);
+        txtName.setBounds(490, 200, 330, 30);
 
         jLabelACT2.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelACT2.setForeground(new java.awt.Color(0, 153, 0));
         jLabelACT2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT2.setText("Name");
+        jLabelACT2.setText("Upload From");
         jLabelACT2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT2);
-        jLabelACT2.setBounds(280, 220, 200, 30);
+        jLabelACT2.setBounds(500, 600, 200, 30);
 
         jTextFielduserName2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -256,7 +261,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName2);
-        jTextFielduserName2.setBounds(490, 300, 330, 30);
+        jTextFielduserName2.setBounds(490, 280, 330, 30);
 
         jLabelACT4.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -266,7 +271,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT4);
-        jLabelACT4.setBounds(870, 500, 130, 30);
+        jLabelACT4.setBounds(870, 480, 130, 30);
 
         jTextFielduserName3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -277,7 +282,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName3);
-        jTextFielduserName3.setBounds(1010, 500, 160, 30);
+        jTextFielduserName3.setBounds(1010, 480, 160, 30);
 
         jLabelACT5.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -287,7 +292,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT5);
-        jLabelACT5.setBounds(280, 260, 200, 30);
+        jLabelACT5.setBounds(280, 240, 200, 30);
 
         jTextFielduserName4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -298,7 +303,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName4);
-        jTextFielduserName4.setBounds(490, 260, 330, 30);
+        jTextFielduserName4.setBounds(490, 240, 330, 30);
 
         jLabelACT6.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -308,7 +313,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT6);
-        jLabelACT6.setBounds(830, 300, 170, 30);
+        jLabelACT6.setBounds(830, 280, 170, 30);
 
         jTextFielduserName5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -319,7 +324,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName5);
-        jTextFielduserName5.setBounds(1010, 300, 160, 30);
+        jTextFielduserName5.setBounds(1010, 280, 160, 30);
 
         jLabelACT7.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -329,7 +334,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT7);
-        jLabelACT7.setBounds(280, 340, 200, 30);
+        jLabelACT7.setBounds(280, 320, 200, 30);
 
         jTextFielduserName6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -340,7 +345,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName6);
-        jTextFielduserName6.setBounds(490, 340, 360, 30);
+        jTextFielduserName6.setBounds(490, 320, 360, 30);
 
         AccountType1.setBackground(new java.awt.Color(0, 102, 0));
         AccountType1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -358,7 +363,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT9);
-        jLabelACT9.setBounds(280, 580, 220, 30);
+        jLabelACT9.setBounds(280, 560, 200, 30);
 
         jTextFielduserName8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -369,7 +374,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName8);
-        jTextFielduserName8.setBounds(510, 580, 210, 30);
+        jTextFielduserName8.setBounds(490, 560, 230, 30);
 
         jLabelACT11.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -379,7 +384,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT11);
-        jLabelACT11.setBounds(730, 580, 120, 30);
+        jLabelACT11.setBounds(730, 560, 120, 30);
 
         jTextFielduserName10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -390,7 +395,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName10);
-        jTextFielduserName10.setBounds(860, 580, 100, 30);
+        jTextFielduserName10.setBounds(860, 560, 100, 30);
 
         jLabelACT12.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -400,7 +405,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT12);
-        jLabelACT12.setBounds(280, 500, 200, 30);
+        jLabelACT12.setBounds(280, 480, 200, 30);
 
         jTextFielduserName11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -411,7 +416,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName11);
-        jTextFielduserName11.setBounds(780, 500, 80, 30);
+        jTextFielduserName11.setBounds(780, 480, 80, 30);
 
         jLabelACT13.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -421,7 +426,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT13);
-        jLabelACT13.setBounds(910, 540, 100, 30);
+        jLabelACT13.setBounds(910, 520, 100, 30);
 
         jTextFielduserName12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -432,7 +437,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName12);
-        jTextFielduserName12.setBounds(1020, 540, 150, 30);
+        jTextFielduserName12.setBounds(1020, 520, 150, 30);
 
         jLabelACT14.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -442,7 +447,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT14);
-        jLabelACT14.setBounds(830, 260, 170, 30);
+        jLabelACT14.setBounds(830, 240, 170, 30);
 
         jTextFielduserName13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -453,7 +458,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName13);
-        jTextFielduserName13.setBounds(1010, 260, 160, 30);
+        jTextFielduserName13.setBounds(1010, 240, 160, 30);
 
         jLabelACT15.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -463,7 +468,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT15);
-        jLabelACT15.setBounds(610, 540, 100, 30);
+        jLabelACT15.setBounds(610, 520, 100, 30);
 
         jTextFielduserName14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -474,7 +479,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName14);
-        jTextFielduserName14.setBounds(720, 540, 170, 30);
+        jTextFielduserName14.setBounds(720, 520, 170, 30);
 
         jLabelACT16.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -484,7 +489,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT16);
-        jLabelACT16.setBounds(610, 500, 160, 30);
+        jLabelACT16.setBounds(610, 480, 160, 30);
 
         AccountType2.setBackground(new java.awt.Color(53, 255, 0));
         AccountType2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -492,7 +497,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         AccountType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Father's Name", "Husbend's Name" }));
         AccountType2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(AccountType2);
-        AccountType2.setBounds(280, 300, 200, 30);
+        AccountType2.setBounds(280, 280, 200, 30);
 
         jLabelACT17.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -502,7 +507,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT17);
-        jLabelACT17.setBounds(860, 340, 130, 30);
+        jLabelACT17.setBounds(860, 320, 130, 30);
 
         jLabelACT18.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT18.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -512,7 +517,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT18);
-        jLabelACT18.setBounds(440, 380, 180, 30);
+        jLabelACT18.setBounds(440, 360, 180, 30);
 
         jTextFielduserName16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -523,7 +528,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName16);
-        jTextFielduserName16.setBounds(630, 380, 170, 30);
+        jTextFielduserName16.setBounds(630, 360, 170, 30);
 
         jTextFielduserName15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -534,7 +539,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName15);
-        jTextFielduserName15.setBounds(1000, 340, 170, 30);
+        jTextFielduserName15.setBounds(1000, 320, 170, 30);
 
         jLabelACT19.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT19.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -544,7 +549,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT19);
-        jLabelACT19.setBounds(810, 380, 180, 30);
+        jLabelACT19.setBounds(810, 360, 180, 30);
 
         jTextFielduserName17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -555,7 +560,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName17);
-        jTextFielduserName17.setBounds(1000, 380, 170, 30);
+        jTextFielduserName17.setBounds(1000, 360, 170, 30);
 
         jLabelACT20.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT20.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -565,7 +570,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT20);
-        jLabelACT20.setBounds(280, 420, 200, 30);
+        jLabelACT20.setBounds(280, 400, 200, 30);
 
         jTextFielduserName18.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -576,7 +581,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName18);
-        jTextFielduserName18.setBounds(490, 420, 360, 30);
+        jTextFielduserName18.setBounds(490, 400, 360, 30);
 
         jLabelACT21.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT21.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -586,7 +591,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT21);
-        jLabelACT21.setBounds(860, 420, 130, 30);
+        jLabelACT21.setBounds(860, 400, 130, 30);
 
         jTextFielduserName19.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -597,7 +602,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName19);
-        jTextFielduserName19.setBounds(1000, 420, 170, 30);
+        jTextFielduserName19.setBounds(1000, 400, 170, 30);
 
         jLabelACT22.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT22.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -607,7 +612,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT22.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT22);
-        jLabelACT22.setBounds(440, 460, 180, 30);
+        jLabelACT22.setBounds(440, 440, 180, 30);
 
         jTextFielduserName20.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -618,7 +623,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName20);
-        jTextFielduserName20.setBounds(630, 460, 170, 30);
+        jTextFielduserName20.setBounds(630, 440, 170, 30);
 
         jLabelACT23.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT23.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -628,7 +633,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT23.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT23);
-        jLabelACT23.setBounds(810, 460, 180, 30);
+        jLabelACT23.setBounds(810, 440, 180, 30);
 
         jTextFielduserName21.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -639,7 +644,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName21);
-        jTextFielduserName21.setBounds(1000, 460, 170, 30);
+        jTextFielduserName21.setBounds(1000, 440, 170, 30);
 
         jLabelACT24.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT24.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -649,7 +654,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT24.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT24);
-        jLabelACT24.setBounds(970, 580, 120, 30);
+        jLabelACT24.setBounds(970, 560, 120, 30);
 
         jTextFielduserName22.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -660,7 +665,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName22);
-        jTextFielduserName22.setBounds(1100, 580, 70, 30);
+        jTextFielduserName22.setBounds(1100, 560, 70, 30);
 
         jTextFielduserName23.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -671,7 +676,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFielduserName23);
-        jTextFielduserName23.setBounds(430, 540, 170, 30);
+        jTextFielduserName23.setBounds(430, 520, 170, 30);
 
         jLabelACT25.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT25.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -681,7 +686,51 @@ public class CreateAccountPage extends javax.swing.JFrame {
         jLabelACT25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT25);
-        jLabelACT25.setBounds(280, 540, 140, 30);
+        jLabelACT25.setBounds(280, 520, 140, 30);
+
+        btnWF1.setBackground(new java.awt.Color(0, 102, 0));
+        btnWF1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnWF1.setForeground(new java.awt.Color(255, 255, 255));
+        btnWF1.setText("Statement");
+        btnWF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWF1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnWF1);
+        btnWF1.setBounds(20, 490, 230, 40);
+
+        jLabelACT3.setBackground(new java.awt.Color(153, 255, 0));
+        jLabelACT3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT3.setForeground(new java.awt.Color(0, 153, 0));
+        jLabelACT3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT3.setText("Name");
+        jLabelACT3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabelACT3);
+        jLabelACT3.setBounds(280, 200, 200, 30);
+
+        jLabelACT8.setBackground(new java.awt.Color(153, 255, 0));
+        jLabelACT8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT8.setForeground(new java.awt.Color(0, 153, 0));
+        jLabelACT8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT8.setText("Upload Picture");
+        jLabelACT8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabelACT8);
+        jLabelACT8.setBounds(280, 600, 200, 30);
+
+        jProgressBar1.setBackground(new java.awt.Color(204, 255, 204));
+        jProgressBar1.setForeground(new java.awt.Color(0, 153, 51));
+        jProgressBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jProgressBar1);
+        jProgressBar1.setBounds(500, 640, 200, 20);
+
+        jProgressBar2.setBackground(new java.awt.Color(204, 255, 204));
+        jProgressBar2.setForeground(new java.awt.Color(0, 153, 51));
+        jProgressBar2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jProgressBar2);
+        jProgressBar2.setBounds(280, 640, 190, 20);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -703,6 +752,8 @@ public class CreateAccountPage extends javax.swing.JFrame {
 
     private void btnSaveCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCAActionPerformed
         // TODO add your handling code here:
+      
+        System.out.println("Name: "+txtName.getText());
     }//GEN-LAST:event_btnSaveCAActionPerformed
 
     private void btnWFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWFActionPerformed
@@ -737,9 +788,9 @@ public class CreateAccountPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFielduserNameActionPerformed
 
-    private void jTextFielduserName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName1ActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserName1ActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
     private void jTextFielduserName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName2ActionPerformed
         // TODO add your handling code here:
@@ -821,6 +872,10 @@ public class CreateAccountPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFielduserName23ActionPerformed
 
+    private void btnWF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWF1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnWF1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -875,6 +930,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
     private javax.swing.JButton btnSHA;
     private javax.swing.JButton btnSaveCA;
     private javax.swing.JButton btnWF;
+    private javax.swing.JButton btnWF1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelACT;
     private javax.swing.JLabel jLabelACT1;
@@ -894,14 +950,17 @@ public class CreateAccountPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelACT23;
     private javax.swing.JLabel jLabelACT24;
     private javax.swing.JLabel jLabelACT25;
+    private javax.swing.JLabel jLabelACT3;
     private javax.swing.JLabel jLabelACT4;
     private javax.swing.JLabel jLabelACT5;
     private javax.swing.JLabel jLabelACT6;
     private javax.swing.JLabel jLabelACT7;
+    private javax.swing.JLabel jLabelACT8;
     private javax.swing.JLabel jLabelACT9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JTextField jTextFielduserName;
-    private javax.swing.JTextField jTextFielduserName1;
     private javax.swing.JTextField jTextFielduserName10;
     private javax.swing.JTextField jTextFielduserName11;
     private javax.swing.JTextField jTextFielduserName12;
@@ -922,5 +981,6 @@ public class CreateAccountPage extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFielduserName5;
     private javax.swing.JTextField jTextFielduserName6;
     private javax.swing.JTextField jTextFielduserName8;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }

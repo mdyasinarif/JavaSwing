@@ -9,12 +9,12 @@ package ssbbss;
  *
  * @author Md Yasin Arif
  */
-public class HomePage extends javax.swing.JFrame {
+public class StatementPage extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginPage
      */
-    public HomePage() {
+    public StatementPage() {
         initComponents();
     }
     
@@ -29,7 +29,6 @@ public class HomePage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnSaveCA = new javax.swing.JButton();
         btnWF = new javax.swing.JButton();
         btnResetCA = new javax.swing.JButton();
         btnExitCA1 = new javax.swing.JButton();
@@ -38,23 +37,14 @@ public class HomePage extends javax.swing.JFrame {
         btnSHA = new javax.swing.JButton();
         btnIA = new javax.swing.JButton();
         btnWF1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextFielduserName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
-
-        btnSaveCA.setBackground(new java.awt.Color(0, 102, 0));
-        btnSaveCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnSaveCA.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaveCA.setText("Save");
-        btnSaveCA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveCAActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSaveCA);
-        btnSaveCA.setBounds(1070, 620, 100, 30);
 
         btnWF.setBackground(new java.awt.Color(0, 102, 0));
         btnWF.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -71,14 +61,14 @@ public class HomePage extends javax.swing.JFrame {
         btnResetCA.setBackground(new java.awt.Color(0, 102, 0));
         btnResetCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnResetCA.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA.setText("Reset");
+        btnResetCA.setText("Submmit");
         btnResetCA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetCAActionPerformed(evt);
             }
         });
         jPanel1.add(btnResetCA);
-        btnResetCA.setBounds(950, 620, 100, 30);
+        btnResetCA.setBounds(880, 450, 130, 30);
 
         btnExitCA1.setBackground(new java.awt.Color(0, 102, 0));
         btnExitCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -90,7 +80,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnExitCA1);
-        btnExitCA1.setBounds(830, 620, 100, 30);
+        btnExitCA1.setBounds(760, 450, 100, 30);
 
         btnCA.setBackground(new java.awt.Color(0, 102, 0));
         btnCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -152,6 +142,37 @@ public class HomePage extends javax.swing.JFrame {
         jPanel1.add(btnWF1);
         btnWF1.setBounds(20, 440, 230, 40);
 
+        jLabel4.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Statement");
+        jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(280, 200, 270, 40);
+
+        jLabel3.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Account No");
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(370, 380, 270, 40);
+
+        jTextFielduserName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFielduserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFielduserName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jTextFielduserName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielduserNameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFielduserName);
+        jTextFielduserName.setBounds(660, 380, 340, 40);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
@@ -169,10 +190,6 @@ public class HomePage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSaveCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSaveCAActionPerformed
 
     private void btnWFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWFActionPerformed
         // TODO add your handling code here:
@@ -206,6 +223,10 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnWF1ActionPerformed
 
+    private void jTextFielduserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFielduserNameActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -223,14 +244,30 @@ public class HomePage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StatementPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StatementPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StatementPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StatementPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -251,7 +288,7 @@ public class HomePage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomePage().setVisible(true);
+                new StatementPage().setVisible(true);
             }
         });
     }
@@ -263,10 +300,12 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton btnResetCA;
     private javax.swing.JButton btnSA;
     private javax.swing.JButton btnSHA;
-    private javax.swing.JButton btnSaveCA;
     private javax.swing.JButton btnWF;
     private javax.swing.JButton btnWF1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextFielduserName;
     // End of variables declaration//GEN-END:variables
 }

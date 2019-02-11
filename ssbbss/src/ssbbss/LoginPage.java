@@ -29,29 +29,30 @@ public class LoginPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextFielduserName = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordUser = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        lblLoginInvalidMsg = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
-        jTextFielduserName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName.addActionListener(new java.awt.event.ActionListener() {
+        txtUsername.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtUsername.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserNameActionPerformed(evt);
+                txtUsernameActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFielduserName);
-        jTextFielduserName.setBounds(720, 350, 340, 50);
+        jPanel1.add(txtUsername);
+        txtUsername.setBounds(720, 350, 340, 50);
 
         jLabel2.setBackground(new java.awt.Color(153, 255, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -73,11 +74,11 @@ public class LoginPage extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(540, 350, 140, 50);
 
-        jPasswordUser.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jPasswordUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jPasswordUser);
-        jPasswordUser.setBounds(720, 440, 340, 50);
+        txtPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPassword.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtPassword);
+        txtPassword.setBounds(720, 440, 340, 50);
 
         jButton2.setBackground(new java.awt.Color(0, 102, 0));
         jButton2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -115,6 +116,11 @@ public class LoginPage extends javax.swing.JFrame {
         jPanel1.add(jButton4);
         jButton4.setBounds(840, 530, 100, 40);
 
+        lblLoginInvalidMsg.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblLoginInvalidMsg.setForeground(new java.awt.Color(255, 102, 0));
+        jPanel1.add(lblLoginInvalidMsg);
+        lblLoginInvalidMsg.setBounds(720, 310, 340, 30);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
@@ -133,12 +139,20 @@ public class LoginPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFielduserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserNameActionPerformed
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserNameActionPerformed
+    }//GEN-LAST:event_txtUsernameActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+    if(txtUsername.getText().trim().equalsIgnoreCase("admin") && txtPassword.getText().trim().equalsIgnoreCase("123")){
+    new HomePage().setVisible(true);
+    this.setVisible(false);
+    }else{
+    lblLoginInvalidMsg.setText("Invalid User OR Password!");
+    }
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -192,7 +206,8 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordUser;
-    private javax.swing.JTextField jTextFielduserName;
+    private javax.swing.JLabel lblLoginInvalidMsg;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
