@@ -359,7 +359,7 @@ public class StudentResult extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jBtnExit))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 9, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(90, 90, 90))
         );
         jPanel1Layout.setVerticalGroup(
@@ -458,24 +458,6 @@ public class StudentResult extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDeleteActionPerformed
-        JTextField temp = null;
-        for (Component c : jPanel1.getComponents()) {
-            if (c.getClass().toString().contains("JTextField")) {
-                temp = (JTextField) c;
-                temp.setText(null);
-            }
-        }
-
-    }//GEN-LAST:event_jBtnDeleteActionPerformed
-    private JFrame frame;
-    private void jBtnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExitActionPerformed
-        frame = new JFrame("Exit");
-        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Students Result System", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jBtnExitActionPerformed
-
     private void jBtnReset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnReset1ActionPerformed
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         if (jTable1.getSelectedRow() == -1) {
@@ -488,6 +470,41 @@ public class StudentResult extends javax.swing.JFrame {
             model.removeRow(jTable1.getSelectedRow());
         }
     }//GEN-LAST:event_jBtnReset1ActionPerformed
+
+    private void jBtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDeleteActionPerformed
+        JTextField temp = null;
+        for (Component c : jPanel1.getComponents()) {
+            if (c.getClass().toString().contains("JTextField")) {
+                temp = (JTextField) c;
+                temp.setText(null);
+            }
+        }
+    }//GEN-LAST:event_jBtnDeleteActionPerformed
+
+    private void jBtnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExitActionPerformed
+        frame = new JFrame("Exit");
+        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Students Result System", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jBtnExitActionPerformed
+
+    private void jBtnTranscriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnTranscriptActionPerformed
+        jTextArea1.append("Student Result Recording System\n"
+            + "=============================\n"
+            + " Maths:\t" + jTextFieldMath.getText() + "\n"
+            + " English:\t" + jTextFieldEnglish.getText() + "\n"
+            + " Biology:\t" + jTextFieldBiology.getText() + "\n"
+            + " Computer:\t" + jTextFieldComputer.getText() + "\n"
+            + " Chemisty:\t" + jTextFieldChemisty.getText() + "\n"
+            + " Physics:\t" + jTextFieldPhysics.getText() + "\n"
+            + " AddMaths:\t" + jTextFieldAddMaths.getText() + "\n"
+            + " Business:\t" + jTextFieldBusiness.getText() + "\n"
+            + " -------------------------------\n"
+            + " TotalScore:\t" + jTextFieldTotalScore.getText() + "\n"
+            + " Average:\t" + jTextFieldAverage.getText() + "\n"
+            + " Ranking:\t" + jTextFieldRanking.getText()+ "\n\n"
+        );
+    }//GEN-LAST:event_jBtnTranscriptActionPerformed
 
     private void jBtnRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnRankingActionPerformed
         double[] R = new double[14];
@@ -537,54 +554,7 @@ public class StudentResult extends javax.swing.JFrame {
 
         });
 
-
     }//GEN-LAST:event_jBtnRankingActionPerformed
-
-    private void jTextFieldMathKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMathKeyTyped
-        char iNumber = evt.getKeyChar();
-        if (!(Character.isDigit(iNumber)) || (iNumber == KeyEvent.VK_BACK_SPACE) || (iNumber == KeyEvent.VK_DELETE)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextFieldMathKeyTyped
-
-    private void jTextFieldEnglishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEnglishActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldEnglishActionPerformed
-
-    private void jTextFieldEnglishKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEnglishKeyTyped
-        char iNumber = evt.getKeyChar();
-        if (!(Character.isDigit(iNumber)) || (iNumber == KeyEvent.VK_BACK_SPACE) || (iNumber == KeyEvent.VK_DELETE)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextFieldEnglishKeyTyped
-
-    private void jTextFieldBiologyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBiologyKeyTyped
-        char iNumber = evt.getKeyChar();
-        if (!(Character.isDigit(iNumber)) || (iNumber == KeyEvent.VK_BACK_SPACE) || (iNumber == KeyEvent.VK_DELETE)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextFieldBiologyKeyTyped
-
-    private void jTextFieldComputerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldComputerKeyTyped
-        char iNumber = evt.getKeyChar();
-        if (!(Character.isDigit(iNumber)) || (iNumber == KeyEvent.VK_BACK_SPACE) || (iNumber == KeyEvent.VK_DELETE)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextFieldComputerKeyTyped
-
-    private void jTextFieldChemistyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldChemistyKeyTyped
-        char iNumber = evt.getKeyChar();
-        if (!(Character.isDigit(iNumber)) || (iNumber == KeyEvent.VK_BACK_SPACE) || (iNumber == KeyEvent.VK_DELETE)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextFieldChemistyKeyTyped
-
-    private void jTextFieldPhysicsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPhysicsKeyTyped
-        char iNumber = evt.getKeyChar();
-        if (!(Character.isDigit(iNumber)) || (iNumber == KeyEvent.VK_BACK_SPACE) || (iNumber == KeyEvent.VK_DELETE)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextFieldPhysicsKeyTyped
 
     private void jTextFieldAddMathsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAddMathsKeyTyped
         char iNumber = evt.getKeyChar();
@@ -600,28 +570,56 @@ public class StudentResult extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldBusinessKeyTyped
 
-    private void jBtnTranscriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnTranscriptActionPerformed
-        jTextArea1.append("Student Result Recording System\n"
-                + "=============================\n"
-                + " Maths:\t" + jTextFieldMath.getText() + "\n"
-                + " English:\t" + jTextFieldEnglish.getText() + "\n"
-                + " Biology:\t" + jTextFieldBiology.getText() + "\n"
-                + " Computer:\t" + jTextFieldComputer.getText() + "\n"
-                + " Chemisty:\t" + jTextFieldChemisty.getText() + "\n"
-                + " Physics:\t" + jTextFieldPhysics.getText() + "\n"
-                + " AddMaths:\t" + jTextFieldAddMaths.getText() + "\n"
-                + " Business:\t" + jTextFieldBusiness.getText() + "\n"
-                + " -------------------------------\n"
-                + " TotalScore:\t" + jTextFieldTotalScore.getText() + "\n"
-                + " Average:\t" + jTextFieldAverage.getText() + "\n"
-                + " Ranking:\t" + jTextFieldRanking.getText()+ "\n\n"
-        );
-    }//GEN-LAST:event_jBtnTranscriptActionPerformed
-
     private void jTextFieldBusinessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBusinessActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldBusinessActionPerformed
 
+    private void jTextFieldPhysicsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPhysicsKeyTyped
+        char iNumber = evt.getKeyChar();
+        if (!(Character.isDigit(iNumber)) || (iNumber == KeyEvent.VK_BACK_SPACE) || (iNumber == KeyEvent.VK_DELETE)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldPhysicsKeyTyped
+
+    private void jTextFieldChemistyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldChemistyKeyTyped
+        char iNumber = evt.getKeyChar();
+        if (!(Character.isDigit(iNumber)) || (iNumber == KeyEvent.VK_BACK_SPACE) || (iNumber == KeyEvent.VK_DELETE)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldChemistyKeyTyped
+
+    private void jTextFieldComputerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldComputerKeyTyped
+        char iNumber = evt.getKeyChar();
+        if (!(Character.isDigit(iNumber)) || (iNumber == KeyEvent.VK_BACK_SPACE) || (iNumber == KeyEvent.VK_DELETE)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldComputerKeyTyped
+
+    private void jTextFieldBiologyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBiologyKeyTyped
+        char iNumber = evt.getKeyChar();
+        if (!(Character.isDigit(iNumber)) || (iNumber == KeyEvent.VK_BACK_SPACE) || (iNumber == KeyEvent.VK_DELETE)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldBiologyKeyTyped
+
+    private void jTextFieldEnglishKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEnglishKeyTyped
+        char iNumber = evt.getKeyChar();
+        if (!(Character.isDigit(iNumber)) || (iNumber == KeyEvent.VK_BACK_SPACE) || (iNumber == KeyEvent.VK_DELETE)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldEnglishKeyTyped
+
+    private void jTextFieldEnglishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEnglishActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldEnglishActionPerformed
+
+    private void jTextFieldMathKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMathKeyTyped
+        char iNumber = evt.getKeyChar();
+        if (!(Character.isDigit(iNumber)) || (iNumber == KeyEvent.VK_BACK_SPACE) || (iNumber == KeyEvent.VK_DELETE)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldMathKeyTyped
+    private JFrame frame;
     /**
      * @param args the command line arguments
      */
