@@ -193,7 +193,7 @@ private JFrame frame;
     }//GEN-LAST:event_btnExitCA1ActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
-        new CreateAccountPage().setVisible(true);
+        new CreateSavingAccountPage().setVisible(true);
         this.setVisible(false);
 
     }//GEN-LAST:event_btnCAActionPerformed

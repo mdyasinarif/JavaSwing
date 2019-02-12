@@ -53,6 +53,11 @@ private JFrame frame;
         jLabel9 = new javax.swing.JLabel();
         jTextFielduserName5 = new javax.swing.JTextField();
         btnStatement = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jTextFielduserName6 = new javax.swing.JTextField();
+        btnSaveCA1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jTextFielduserName7 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,14 +67,14 @@ private JFrame frame;
         btnSaveCA.setBackground(new java.awt.Color(0, 102, 0));
         btnSaveCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnSaveCA.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaveCA.setText("Save");
+        btnSaveCA.setText("Plus");
         btnSaveCA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveCAActionPerformed(evt);
             }
         });
         jPanel1.add(btnSaveCA);
-        btnSaveCA.setBounds(910, 630, 100, 30);
+        btnSaveCA.setBounds(720, 250, 100, 40);
 
         btnWF.setBackground(new java.awt.Color(0, 102, 0));
         btnWF.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -151,7 +156,7 @@ private JFrame frame;
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(370, 270, 270, 40);
+        jLabel3.setBounds(550, 200, 110, 40);
 
         jLabel4.setBackground(new java.awt.Color(153, 255, 0));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -161,7 +166,7 @@ private JFrame frame;
         jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(280, 200, 270, 40);
+        jLabel4.setBounds(690, 130, 270, 40);
 
         jTextFielduserName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -172,7 +177,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName);
-        jTextFielduserName.setBounds(660, 270, 340, 40);
+        jTextFielduserName.setBounds(670, 200, 130, 40);
 
         jLabel5.setBackground(new java.awt.Color(153, 255, 0));
         jLabel5.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -182,7 +187,7 @@ private JFrame frame;
         jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(370, 320, 270, 40);
+        jLabel5.setBounds(810, 200, 190, 40);
 
         jTextFielduserName1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -193,17 +198,17 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName1);
-        jTextFielduserName1.setBounds(660, 320, 340, 40);
+        jTextFielduserName1.setBounds(1010, 200, 150, 40);
 
         jLabel6.setBackground(new java.awt.Color(153, 255, 0));
         jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Collection Amount");
+        jLabel6.setText("Total Amount");
         jLabel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(370, 370, 270, 40);
+        jLabel6.setBounds(830, 250, 170, 40);
 
         jTextFielduserName2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -214,7 +219,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName2);
-        jTextFielduserName2.setBounds(660, 370, 340, 40);
+        jTextFielduserName2.setBounds(1010, 250, 150, 40);
 
         jLabel7.setBackground(new java.awt.Color(153, 255, 0));
         jLabel7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -291,6 +296,60 @@ private JFrame frame;
         jPanel1.add(btnStatement);
         btnStatement.setBounds(20, 500, 230, 40);
 
+        jLabel10.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Collection Amount");
+        jLabel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(270, 250, 230, 40);
+
+        jTextFielduserName6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFielduserName6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFielduserName6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jTextFielduserName6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielduserName6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFielduserName6);
+        jTextFielduserName6.setBounds(510, 250, 200, 40);
+
+        btnSaveCA1.setBackground(new java.awt.Color(0, 102, 0));
+        btnSaveCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSaveCA1.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaveCA1.setText("Save");
+        btnSaveCA1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveCA1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSaveCA1);
+        btnSaveCA1.setBounds(910, 630, 100, 30);
+
+        jLabel11.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Date");
+        jLabel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(270, 200, 90, 40);
+
+        jTextFielduserName7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFielduserName7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFielduserName7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jTextFielduserName7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielduserName7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFielduserName7);
+        jTextFielduserName7.setBounds(360, 200, 180, 40);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
@@ -325,7 +384,7 @@ private JFrame frame;
     }//GEN-LAST:event_btnExitCA1ActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
-       new CreateAccountPage().setVisible(true);
+       new CreateSavingAccountPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCAActionPerformed
 
@@ -372,6 +431,18 @@ private JFrame frame;
       new StatementPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnStatementActionPerformed
+
+    private void jTextFielduserName6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFielduserName6ActionPerformed
+
+    private void btnSaveCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveCA1ActionPerformed
+
+    private void jTextFielduserName7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFielduserName7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -446,9 +517,12 @@ private JFrame frame;
     private javax.swing.JButton btnSA;
     private javax.swing.JButton btnSHA;
     private javax.swing.JButton btnSaveCA;
+    private javax.swing.JButton btnSaveCA1;
     private javax.swing.JButton btnStatement;
     private javax.swing.JButton btnWF;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -463,5 +537,7 @@ private JFrame frame;
     private javax.swing.JTextField jTextFielduserName3;
     private javax.swing.JTextField jTextFielduserName4;
     private javax.swing.JTextField jTextFielduserName5;
+    private javax.swing.JTextField jTextFielduserName6;
+    private javax.swing.JTextField jTextFielduserName7;
     // End of variables declaration//GEN-END:variables
 }

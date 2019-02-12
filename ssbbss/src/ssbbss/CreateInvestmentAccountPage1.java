@@ -14,12 +14,12 @@ import javax.swing.JTextField;
  *
  * @author Md Yasin Arif
  */
-public class CreateAccountPage extends javax.swing.JFrame {
+public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
 private JFrame frame;
     /**
      * Creates new form LoginPage
      */
-    public CreateAccountPage() {
+    public CreateInvestmentAccountPage1() {
         initComponents();
     }
     
@@ -33,6 +33,12 @@ private JFrame frame;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         btnSaveCA = new javax.swing.JButton();
         btnWF = new javax.swing.JButton();
@@ -43,34 +49,21 @@ private JFrame frame;
         btnSHA = new javax.swing.JButton();
         btnIA = new javax.swing.JButton();
         jLabelACT = new javax.swing.JLabel();
-        AccountType = new javax.swing.JComboBox<>();
-        jLabelACT1 = new javax.swing.JLabel();
         jTextFielduserName = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
-        jLabelACT2 = new javax.swing.JLabel();
         jTextFielduserName2 = new javax.swing.JTextField();
-        jLabelACT4 = new javax.swing.JLabel();
-        jTextFielduserName3 = new javax.swing.JTextField();
         jLabelACT5 = new javax.swing.JLabel();
         jTextFielduserName4 = new javax.swing.JTextField();
         jLabelACT6 = new javax.swing.JLabel();
         jTextFielduserName5 = new javax.swing.JTextField();
         jLabelACT7 = new javax.swing.JLabel();
         jTextFielduserName6 = new javax.swing.JTextField();
-        AccountType1 = new javax.swing.JComboBox<>();
-        jLabelACT9 = new javax.swing.JLabel();
-        jTextFielduserName8 = new javax.swing.JTextField();
-        jLabelACT11 = new javax.swing.JLabel();
-        jTextFielduserName10 = new javax.swing.JTextField();
-        jLabelACT12 = new javax.swing.JLabel();
-        jTextFielduserName11 = new javax.swing.JTextField();
         jLabelACT13 = new javax.swing.JLabel();
         jTextFielduserName12 = new javax.swing.JTextField();
         jLabelACT14 = new javax.swing.JLabel();
         jTextFielduserName13 = new javax.swing.JTextField();
         jLabelACT15 = new javax.swing.JLabel();
         jTextFielduserName14 = new javax.swing.JTextField();
-        jLabelACT16 = new javax.swing.JLabel();
         AccountType2 = new javax.swing.JComboBox<>();
         jLabelACT17 = new javax.swing.JLabel();
         jLabelACT18 = new javax.swing.JLabel();
@@ -86,16 +79,40 @@ private JFrame frame;
         jTextFielduserName20 = new javax.swing.JTextField();
         jLabelACT23 = new javax.swing.JLabel();
         jTextFielduserName21 = new javax.swing.JTextField();
-        jLabelACT24 = new javax.swing.JLabel();
-        jTextFielduserName22 = new javax.swing.JTextField();
         jTextFielduserName23 = new javax.swing.JTextField();
         jLabelACT25 = new javax.swing.JLabel();
         btnWF1 = new javax.swing.JButton();
-        jLabelACT3 = new javax.swing.JLabel();
-        jLabelACT8 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jProgressBar2 = new javax.swing.JProgressBar();
+        btnSaveCA1 = new javax.swing.JButton();
+        btnSaveCA3 = new javax.swing.JButton();
+        btnSaveCA4 = new javax.swing.JButton();
+        jLabelACT10 = new javax.swing.JLabel();
+        jLabelACT27 = new javax.swing.JLabel();
+        jTextFielduserName9 = new javax.swing.JTextField();
+        jLabelACT26 = new javax.swing.JLabel();
+        jTextFielduserName25 = new javax.swing.JTextField();
+        jLabelACT28 = new javax.swing.JLabel();
+        jTextFielduserName26 = new javax.swing.JTextField();
+        jLabelACT29 = new javax.swing.JLabel();
+        jTextFielduserName27 = new javax.swing.JTextField();
+        btnSaveCA5 = new javax.swing.JButton();
+        btnSaveCA6 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar2.add(jMenu2);
+
+        jMenu3.setText("File");
+        jMenuBar3.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar3.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,14 +121,14 @@ private JFrame frame;
         btnSaveCA.setBackground(new java.awt.Color(0, 102, 0));
         btnSaveCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnSaveCA.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaveCA.setText("Save");
+        btnSaveCA.setText("Investment A/C");
         btnSaveCA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveCAActionPerformed(evt);
             }
         });
         jPanel1.add(btnSaveCA);
-        btnSaveCA.setBounds(1070, 630, 100, 30);
+        btnSaveCA.setBounds(990, 140, 170, 30);
 
         btnWF.setBackground(new java.awt.Color(0, 102, 0));
         btnWF.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -206,29 +223,11 @@ private JFrame frame;
         jLabelACT.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelACT.setForeground(new java.awt.Color(0, 153, 0));
         jLabelACT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT.setText("Date of Dirth");
+        jLabelACT.setText("Start Date ");
         jLabelACT.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT);
         jLabelACT.setBounds(830, 200, 170, 30);
-
-        AccountType.setBackground(new java.awt.Color(53, 255, 0));
-        AccountType.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        AccountType.setForeground(new java.awt.Color(0, 153, 0));
-        AccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Weekly", "Monthly", "Share" }));
-        AccountType.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(AccountType);
-        AccountType.setBounds(490, 480, 110, 30);
-
-        jLabelACT1.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabelACT1.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT1.setText("Account Type");
-        jLabelACT1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT1);
-        jLabelACT1.setBounds(670, 130, 240, 50);
 
         jTextFielduserName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -252,16 +251,6 @@ private JFrame frame;
         jPanel1.add(txtName);
         txtName.setBounds(490, 200, 330, 30);
 
-        jLabelACT2.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT2.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT2.setText("Upload From");
-        jLabelACT2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT2);
-        jLabelACT2.setBounds(500, 600, 200, 30);
-
         jTextFielduserName2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFielduserName2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -271,34 +260,13 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName2);
-        jTextFielduserName2.setBounds(490, 280, 330, 30);
-
-        jLabelACT4.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT4.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT4.setText("Mobile No");
-        jLabelACT4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT4);
-        jLabelACT4.setBounds(870, 480, 130, 30);
-
-        jTextFielduserName3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserName3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFielduserName3);
-        jTextFielduserName3.setBounds(1010, 480, 160, 30);
+        jTextFielduserName2.setBounds(490, 320, 330, 30);
 
         jLabelACT5.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelACT5.setForeground(new java.awt.Color(0, 153, 0));
         jLabelACT5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT5.setText("Mother's Name");
+        jLabelACT5.setText("Project Location");
         jLabelACT5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT5);
@@ -323,7 +291,7 @@ private JFrame frame;
         jLabelACT6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT6);
-        jLabelACT6.setBounds(830, 280, 170, 30);
+        jLabelACT6.setBounds(830, 320, 170, 30);
 
         jTextFielduserName5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -334,7 +302,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName5);
-        jTextFielduserName5.setBounds(1010, 280, 160, 30);
+        jTextFielduserName5.setBounds(1010, 320, 160, 30);
 
         jLabelACT7.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -344,7 +312,7 @@ private JFrame frame;
         jLabelACT7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT7);
-        jLabelACT7.setBounds(280, 320, 200, 30);
+        jLabelACT7.setBounds(280, 400, 200, 30);
 
         jTextFielduserName6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -355,78 +323,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName6);
-        jTextFielduserName6.setBounds(490, 320, 330, 30);
-
-        AccountType1.setBackground(new java.awt.Color(0, 102, 0));
-        AccountType1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        AccountType1.setForeground(new java.awt.Color(255, 255, 255));
-        AccountType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Saving Account", "Share Account", "Investment Account" }));
-        AccountType1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(AccountType1);
-        AccountType1.setBounds(930, 130, 230, 50);
-
-        jLabelACT9.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT9.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT9.setText("Nomine's Name");
-        jLabelACT9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT9);
-        jLabelACT9.setBounds(280, 560, 200, 30);
-
-        jTextFielduserName8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserName8ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFielduserName8);
-        jTextFielduserName8.setBounds(490, 560, 230, 30);
-
-        jLabelACT11.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT11.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT11.setText("Relations");
-        jLabelACT11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT11);
-        jLabelACT11.setBounds(730, 560, 120, 30);
-
-        jTextFielduserName10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserName10ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFielduserName10);
-        jTextFielduserName10.setBounds(860, 560, 100, 30);
-
-        jLabelACT12.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT12.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT12.setText("Savings Type");
-        jLabelACT12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT12);
-        jLabelACT12.setBounds(280, 480, 200, 30);
-
-        jTextFielduserName11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserName11ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFielduserName11);
-        jTextFielduserName11.setBounds(780, 480, 80, 30);
+        jTextFielduserName6.setBounds(490, 400, 330, 30);
 
         jLabelACT13.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -436,7 +333,7 @@ private JFrame frame;
         jLabelACT13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT13);
-        jLabelACT13.setBounds(910, 520, 100, 30);
+        jLabelACT13.setBounds(910, 560, 100, 30);
 
         jTextFielduserName12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -447,13 +344,13 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName12);
-        jTextFielduserName12.setBounds(1020, 520, 150, 30);
+        jTextFielduserName12.setBounds(1020, 560, 150, 30);
 
         jLabelACT14.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelACT14.setForeground(new java.awt.Color(0, 153, 0));
         jLabelACT14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT14.setText("Admission Date");
+        jLabelACT14.setText("Invested Amount");
         jLabelACT14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT14);
@@ -478,7 +375,7 @@ private JFrame frame;
         jLabelACT15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT15);
-        jLabelACT15.setBounds(610, 520, 100, 30);
+        jLabelACT15.setBounds(610, 560, 100, 30);
 
         jTextFielduserName14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -489,17 +386,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName14);
-        jTextFielduserName14.setBounds(720, 520, 170, 30);
-
-        jLabelACT16.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT16.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT16.setText("Savings Amount");
-        jLabelACT16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT16);
-        jLabelACT16.setBounds(610, 480, 160, 30);
+        jTextFielduserName14.setBounds(720, 560, 170, 30);
 
         AccountType2.setBackground(new java.awt.Color(53, 255, 0));
         AccountType2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -507,7 +394,7 @@ private JFrame frame;
         AccountType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Father's Name", "Husbend's Name" }));
         AccountType2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(AccountType2);
-        AccountType2.setBounds(280, 280, 200, 30);
+        AccountType2.setBounds(280, 320, 200, 30);
 
         jLabelACT17.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -517,7 +404,7 @@ private JFrame frame;
         jLabelACT17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT17);
-        jLabelACT17.setBounds(830, 320, 170, 30);
+        jLabelACT17.setBounds(830, 400, 170, 30);
 
         jLabelACT18.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT18.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -527,7 +414,7 @@ private JFrame frame;
         jLabelACT18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT18);
-        jLabelACT18.setBounds(440, 360, 180, 30);
+        jLabelACT18.setBounds(440, 440, 180, 30);
 
         jTextFielduserName16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -538,7 +425,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName16);
-        jTextFielduserName16.setBounds(630, 360, 190, 30);
+        jTextFielduserName16.setBounds(630, 440, 190, 30);
 
         jTextFielduserName15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -549,7 +436,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName15);
-        jTextFielduserName15.setBounds(1010, 320, 160, 30);
+        jTextFielduserName15.setBounds(1010, 400, 160, 30);
 
         jLabelACT19.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT19.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -559,7 +446,7 @@ private JFrame frame;
         jLabelACT19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT19);
-        jLabelACT19.setBounds(830, 360, 170, 30);
+        jLabelACT19.setBounds(830, 440, 170, 30);
 
         jTextFielduserName17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -570,7 +457,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName17);
-        jTextFielduserName17.setBounds(1010, 360, 160, 30);
+        jTextFielduserName17.setBounds(1010, 440, 160, 30);
 
         jLabelACT20.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT20.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -580,7 +467,7 @@ private JFrame frame;
         jLabelACT20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT20);
-        jLabelACT20.setBounds(280, 400, 200, 30);
+        jLabelACT20.setBounds(280, 480, 200, 30);
 
         jTextFielduserName18.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -591,7 +478,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName18);
-        jTextFielduserName18.setBounds(490, 400, 330, 30);
+        jTextFielduserName18.setBounds(490, 480, 330, 30);
 
         jLabelACT21.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT21.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -601,7 +488,7 @@ private JFrame frame;
         jLabelACT21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT21);
-        jLabelACT21.setBounds(830, 400, 170, 30);
+        jLabelACT21.setBounds(830, 480, 170, 30);
 
         jTextFielduserName19.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -612,7 +499,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName19);
-        jTextFielduserName19.setBounds(1010, 400, 160, 30);
+        jTextFielduserName19.setBounds(1010, 480, 160, 30);
 
         jLabelACT22.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT22.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -622,7 +509,7 @@ private JFrame frame;
         jLabelACT22.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT22);
-        jLabelACT22.setBounds(440, 440, 180, 30);
+        jLabelACT22.setBounds(440, 520, 180, 30);
 
         jTextFielduserName20.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -633,7 +520,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName20);
-        jTextFielduserName20.setBounds(630, 440, 190, 30);
+        jTextFielduserName20.setBounds(630, 520, 190, 30);
 
         jLabelACT23.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT23.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -643,7 +530,7 @@ private JFrame frame;
         jLabelACT23.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT23);
-        jLabelACT23.setBounds(830, 440, 170, 30);
+        jLabelACT23.setBounds(830, 520, 170, 30);
 
         jTextFielduserName21.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -654,28 +541,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName21);
-        jTextFielduserName21.setBounds(1010, 440, 160, 30);
-
-        jLabelACT24.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT24.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT24.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT24.setText("Share %");
-        jLabelACT24.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT24);
-        jLabelACT24.setBounds(970, 560, 120, 30);
-
-        jTextFielduserName22.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName22.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserName22ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFielduserName22);
-        jTextFielduserName22.setBounds(1100, 560, 70, 30);
+        jTextFielduserName21.setBounds(1010, 520, 160, 30);
 
         jTextFielduserName23.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFielduserName23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -686,7 +552,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(jTextFielduserName23);
-        jTextFielduserName23.setBounds(430, 520, 170, 30);
+        jTextFielduserName23.setBounds(430, 560, 170, 30);
 
         jLabelACT25.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT25.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -696,7 +562,7 @@ private JFrame frame;
         jLabelACT25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT25);
-        jLabelACT25.setBounds(280, 520, 140, 30);
+        jLabelACT25.setBounds(280, 560, 140, 30);
 
         btnWF1.setBackground(new java.awt.Color(0, 102, 0));
         btnWF1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -710,26 +576,6 @@ private JFrame frame;
         jPanel1.add(btnWF1);
         btnWF1.setBounds(20, 500, 230, 40);
 
-        jLabelACT3.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT3.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT3.setText("Name");
-        jLabelACT3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT3);
-        jLabelACT3.setBounds(280, 200, 200, 30);
-
-        jLabelACT8.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT8.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT8.setText("Upload Picture");
-        jLabelACT8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT8);
-        jLabelACT8.setBounds(280, 600, 200, 30);
-
         jProgressBar1.setBackground(new java.awt.Color(204, 255, 204));
         jProgressBar1.setForeground(new java.awt.Color(0, 153, 51));
         jProgressBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -742,9 +588,172 @@ private JFrame frame;
         jPanel1.add(jProgressBar2);
         jProgressBar2.setBounds(280, 640, 190, 20);
 
+        btnSaveCA1.setBackground(new java.awt.Color(0, 102, 0));
+        btnSaveCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSaveCA1.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaveCA1.setText("Save");
+        btnSaveCA1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveCA1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSaveCA1);
+        btnSaveCA1.setBounds(1070, 630, 100, 30);
+
+        btnSaveCA3.setBackground(new java.awt.Color(0, 102, 0));
+        btnSaveCA3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSaveCA3.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaveCA3.setText("Upload From");
+        btnSaveCA3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveCA3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSaveCA3);
+        btnSaveCA3.setBounds(500, 600, 200, 30);
+
+        btnSaveCA4.setBackground(new java.awt.Color(0, 102, 0));
+        btnSaveCA4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSaveCA4.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaveCA4.setText("Share A/C");
+        btnSaveCA4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveCA4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSaveCA4);
+        btnSaveCA4.setBounds(830, 140, 140, 30);
+
+        jLabelACT10.setBackground(new java.awt.Color(153, 255, 0));
+        jLabelACT10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT10.setForeground(new java.awt.Color(0, 153, 0));
+        jLabelACT10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT10.setText("Project Name");
+        jLabelACT10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabelACT10);
+        jLabelACT10.setBounds(280, 200, 200, 30);
+
+        jLabelACT27.setBackground(new java.awt.Color(153, 255, 0));
+        jLabelACT27.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT27.setForeground(new java.awt.Color(0, 153, 0));
+        jLabelACT27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT27.setText("Owner  Name");
+        jLabelACT27.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT27.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabelACT27);
+        jLabelACT27.setBounds(280, 280, 200, 30);
+
+        jTextFielduserName9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFielduserName9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFielduserName9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jTextFielduserName9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielduserName9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFielduserName9);
+        jTextFielduserName9.setBounds(490, 280, 330, 30);
+
+        jLabelACT26.setBackground(new java.awt.Color(153, 255, 0));
+        jLabelACT26.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT26.setForeground(new java.awt.Color(0, 153, 0));
+        jLabelACT26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT26.setText("Project Duration");
+        jLabelACT26.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT26.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabelACT26);
+        jLabelACT26.setBounds(830, 280, 170, 30);
+
+        jTextFielduserName25.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFielduserName25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFielduserName25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jTextFielduserName25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielduserName25ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFielduserName25);
+        jTextFielduserName25.setBounds(1010, 280, 160, 30);
+
+        jLabelACT28.setBackground(new java.awt.Color(153, 255, 0));
+        jLabelACT28.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT28.setForeground(new java.awt.Color(0, 153, 0));
+        jLabelACT28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT28.setText("Mother's Name");
+        jLabelACT28.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT28.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabelACT28);
+        jLabelACT28.setBounds(280, 360, 200, 30);
+
+        jTextFielduserName26.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFielduserName26.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFielduserName26.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jTextFielduserName26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielduserName26ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFielduserName26);
+        jTextFielduserName26.setBounds(490, 360, 330, 30);
+
+        jLabelACT29.setBackground(new java.awt.Color(153, 255, 0));
+        jLabelACT29.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT29.setForeground(new java.awt.Color(0, 153, 0));
+        jLabelACT29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT29.setText("Mobile No");
+        jLabelACT29.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabelACT29);
+        jLabelACT29.setBounds(830, 360, 170, 30);
+
+        jTextFielduserName27.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFielduserName27.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFielduserName27.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jTextFielduserName27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielduserName27ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFielduserName27);
+        jTextFielduserName27.setBounds(1010, 360, 160, 30);
+
+        btnSaveCA5.setBackground(new java.awt.Color(0, 102, 0));
+        btnSaveCA5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSaveCA5.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaveCA5.setText("Saving A/C");
+        btnSaveCA5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveCA5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSaveCA5);
+        btnSaveCA5.setBounds(670, 140, 140, 30);
+
+        btnSaveCA6.setBackground(new java.awt.Color(0, 102, 0));
+        btnSaveCA6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSaveCA6.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaveCA6.setText("Upload Picture");
+        btnSaveCA6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveCA6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSaveCA6);
+        btnSaveCA6.setBounds(280, 600, 190, 30);
+
+        jLabel2.setBackground(new java.awt.Color(0, 102, 51));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel2.setText("Create Investment A/C");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(300, 164, 310, 30);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -754,7 +763,7 @@ private JFrame frame;
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
         );
 
         pack();
@@ -819,10 +828,6 @@ private JFrame frame;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFielduserName2ActionPerformed
 
-    private void jTextFielduserName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserName3ActionPerformed
-
     private void jTextFielduserName4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFielduserName4ActionPerformed
@@ -834,18 +839,6 @@ private JFrame frame;
     private void jTextFielduserName6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFielduserName6ActionPerformed
-
-    private void jTextFielduserName8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserName8ActionPerformed
-
-    private void jTextFielduserName10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserName10ActionPerformed
-
-    private void jTextFielduserName11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserName11ActionPerformed
 
     private void jTextFielduserName12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName12ActionPerformed
         // TODO add your handling code here:
@@ -887,10 +880,6 @@ private JFrame frame;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFielduserName21ActionPerformed
 
-    private void jTextFielduserName22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserName22ActionPerformed
-
     private void jTextFielduserName23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName23ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFielduserName23ActionPerformed
@@ -904,6 +893,44 @@ private JFrame frame;
        
             
     }//GEN-LAST:event_btnCAMouseClicked
+
+    private void btnSaveCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveCA1ActionPerformed
+
+    private void btnSaveCA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveCA3ActionPerformed
+
+    private void btnSaveCA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA4ActionPerformed
+       new CreateShareAccountPage().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSaveCA4ActionPerformed
+
+    private void jTextFielduserName9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFielduserName9ActionPerformed
+
+    private void jTextFielduserName25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFielduserName25ActionPerformed
+
+    private void jTextFielduserName26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFielduserName26ActionPerformed
+
+    private void jTextFielduserName27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFielduserName27ActionPerformed
+
+    private void btnSaveCA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA5ActionPerformed
+       new CreateSavingAccountPage().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSaveCA5ActionPerformed
+
+    private void btnSaveCA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveCA6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -922,14 +949,38 @@ private JFrame frame;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateAccountPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateInvestmentAccountPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateAccountPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateInvestmentAccountPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateAccountPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateInvestmentAccountPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateAccountPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateInvestmentAccountPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -942,14 +993,12 @@ private JFrame frame;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateAccountPage().setVisible(true);
+                new CreateInvestmentAccountPage1().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> AccountType;
-    private javax.swing.JComboBox<String> AccountType1;
     private javax.swing.JComboBox<String> AccountType2;
     private javax.swing.JButton btnCA;
     private javax.swing.JButton btnExitCA1;
@@ -958,40 +1007,46 @@ private JFrame frame;
     private javax.swing.JButton btnSA;
     private javax.swing.JButton btnSHA;
     private javax.swing.JButton btnSaveCA;
+    private javax.swing.JButton btnSaveCA1;
+    private javax.swing.JButton btnSaveCA3;
+    private javax.swing.JButton btnSaveCA4;
+    private javax.swing.JButton btnSaveCA5;
+    private javax.swing.JButton btnSaveCA6;
     private javax.swing.JButton btnWF;
     private javax.swing.JButton btnWF1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelACT;
-    private javax.swing.JLabel jLabelACT1;
-    private javax.swing.JLabel jLabelACT11;
-    private javax.swing.JLabel jLabelACT12;
+    private javax.swing.JLabel jLabelACT10;
     private javax.swing.JLabel jLabelACT13;
     private javax.swing.JLabel jLabelACT14;
     private javax.swing.JLabel jLabelACT15;
-    private javax.swing.JLabel jLabelACT16;
     private javax.swing.JLabel jLabelACT17;
     private javax.swing.JLabel jLabelACT18;
     private javax.swing.JLabel jLabelACT19;
-    private javax.swing.JLabel jLabelACT2;
     private javax.swing.JLabel jLabelACT20;
     private javax.swing.JLabel jLabelACT21;
     private javax.swing.JLabel jLabelACT22;
     private javax.swing.JLabel jLabelACT23;
-    private javax.swing.JLabel jLabelACT24;
     private javax.swing.JLabel jLabelACT25;
-    private javax.swing.JLabel jLabelACT3;
-    private javax.swing.JLabel jLabelACT4;
+    private javax.swing.JLabel jLabelACT26;
+    private javax.swing.JLabel jLabelACT27;
+    private javax.swing.JLabel jLabelACT28;
+    private javax.swing.JLabel jLabelACT29;
     private javax.swing.JLabel jLabelACT5;
     private javax.swing.JLabel jLabelACT6;
     private javax.swing.JLabel jLabelACT7;
-    private javax.swing.JLabel jLabelACT8;
-    private javax.swing.JLabel jLabelACT9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JTextField jTextFielduserName;
-    private javax.swing.JTextField jTextFielduserName10;
-    private javax.swing.JTextField jTextFielduserName11;
     private javax.swing.JTextField jTextFielduserName12;
     private javax.swing.JTextField jTextFielduserName13;
     private javax.swing.JTextField jTextFielduserName14;
@@ -1003,13 +1058,14 @@ private JFrame frame;
     private javax.swing.JTextField jTextFielduserName2;
     private javax.swing.JTextField jTextFielduserName20;
     private javax.swing.JTextField jTextFielduserName21;
-    private javax.swing.JTextField jTextFielduserName22;
     private javax.swing.JTextField jTextFielduserName23;
-    private javax.swing.JTextField jTextFielduserName3;
+    private javax.swing.JTextField jTextFielduserName25;
+    private javax.swing.JTextField jTextFielduserName26;
+    private javax.swing.JTextField jTextFielduserName27;
     private javax.swing.JTextField jTextFielduserName4;
     private javax.swing.JTextField jTextFielduserName5;
     private javax.swing.JTextField jTextFielduserName6;
-    private javax.swing.JTextField jTextFielduserName8;
+    private javax.swing.JTextField jTextFielduserName9;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }

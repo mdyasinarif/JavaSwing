@@ -60,7 +60,13 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SSBBSS System");
+        setBackground(new java.awt.Color(0, 102, 51));
+        setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        setForeground(new java.awt.Color(0, 153, 0));
 
+        jPanel1.setBackground(new java.awt.Color(0, 102, 0));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
         txtUsername.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -141,6 +147,10 @@ public class LoginPage extends javax.swing.JFrame {
         jPanel1.add(lblLoginInvalidMsg);
         lblLoginInvalidMsg.setBounds(720, 310, 340, 30);
 
+        jLabel1.setBackground(new java.awt.Color(0, 102, 0));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 255, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
@@ -178,7 +188,7 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if(txtUsername.getText().trim().equalsIgnoreCase("admin") && txtPassword.getText().trim().equalsIgnoreCase("123")){
+        if(txtUsername.getText().trim().equalsIgnoreCase("aaa") && txtPassword.getText().trim().equalsIgnoreCase("123")){
             new HomePage().setVisible(true);
             this.setVisible(false);
         }else{

@@ -42,9 +42,12 @@ private JFrame frame;
         btnWF1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextFielduserName = new javax.swing.JTextField();
-        jLabelACT1 = new javax.swing.JLabel();
-        AccountType1 = new javax.swing.JComboBox<>();
+        txtAccountNo = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtAccountNo1 = new javax.swing.JTextField();
+        btnResetCA2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblSavings = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,14 +69,14 @@ private JFrame frame;
         btnResetCA.setBackground(new java.awt.Color(0, 102, 0));
         btnResetCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnResetCA.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA.setText("Submmit");
+        btnResetCA.setText("Print");
         btnResetCA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetCAActionPerformed(evt);
             }
         });
         jPanel1.add(btnResetCA);
-        btnResetCA.setBounds(880, 450, 130, 30);
+        btnResetCA.setBounds(1050, 630, 130, 30);
 
         btnExitCA1.setBackground(new java.awt.Color(0, 102, 0));
         btnExitCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -85,7 +88,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(btnExitCA1);
-        btnExitCA1.setBounds(760, 450, 100, 30);
+        btnExitCA1.setBounds(930, 630, 100, 30);
 
         btnCA.setBackground(new java.awt.Color(0, 102, 0));
         btnCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -155,46 +158,77 @@ private JFrame frame;
         jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(280, 200, 270, 40);
+        jLabel4.setBounds(680, 140, 270, 40);
 
         jLabel3.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Account No");
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(370, 380, 270, 40);
+        jLabel3.setBounds(270, 220, 140, 40);
 
-        jTextFielduserName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName.addActionListener(new java.awt.event.ActionListener() {
+        txtAccountNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtAccountNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAccountNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtAccountNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserNameActionPerformed(evt);
+                txtAccountNoActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFielduserName);
-        jTextFielduserName.setBounds(660, 380, 340, 40);
+        jPanel1.add(txtAccountNo);
+        txtAccountNo.setBounds(420, 220, 220, 40);
 
-        jLabelACT1.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabelACT1.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT1.setText("Account Type");
-        jLabelACT1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT1);
-        jLabelACT1.setBounds(370, 310, 270, 50);
+        jLabel9.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Name");
+        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(660, 220, 140, 40);
 
-        AccountType1.setBackground(new java.awt.Color(0, 102, 0));
-        AccountType1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        AccountType1.setForeground(new java.awt.Color(255, 255, 255));
-        AccountType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Saving Account", "Share Account", "Investment Account" }));
-        AccountType1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(AccountType1);
-        AccountType1.setBounds(660, 310, 230, 50);
+        txtAccountNo1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtAccountNo1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAccountNo1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtAccountNo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAccountNo1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtAccountNo1);
+        txtAccountNo1.setBounds(810, 220, 220, 40);
+
+        btnResetCA2.setBackground(new java.awt.Color(0, 102, 0));
+        btnResetCA2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnResetCA2.setForeground(new java.awt.Color(255, 255, 255));
+        btnResetCA2.setText("Search");
+        btnResetCA2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetCA2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnResetCA2);
+        btnResetCA2.setBounds(1050, 220, 120, 40);
+
+        tblSavings.setBackground(new java.awt.Color(204, 255, 204));
+        tblSavings.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tblSavings.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tblSavings.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "Account No", "Name", "Saving Type", "Deposit Amount", "Installment NO", "Total Deposit", "Cover Date", "Due"
+            }
+        ));
+        jScrollPane1.setViewportView(tblSavings);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(270, 270, 910, 350);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -230,7 +264,7 @@ private JFrame frame;
     }//GEN-LAST:event_btnExitCA1ActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
-       new CreateAccountPage().setVisible(true);
+       new CreateSavingAccountPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCAActionPerformed
 
@@ -254,9 +288,17 @@ private JFrame frame;
         this.setVisible(false);
     }//GEN-LAST:event_btnWF1ActionPerformed
 
-    private void jTextFielduserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserNameActionPerformed
+    private void txtAccountNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccountNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserNameActionPerformed
+    }//GEN-LAST:event_txtAccountNoActionPerformed
+
+    private void txtAccountNo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccountNo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAccountNo1ActionPerformed
+
+    private void btnResetCA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCA2ActionPerformed
+
+    }//GEN-LAST:event_btnResetCA2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,11 +367,11 @@ private JFrame frame;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> AccountType1;
     private javax.swing.JButton btnCA;
     private javax.swing.JButton btnExitCA1;
     private javax.swing.JButton btnIA;
     private javax.swing.JButton btnResetCA;
+    private javax.swing.JButton btnResetCA2;
     private javax.swing.JButton btnSA;
     private javax.swing.JButton btnSHA;
     private javax.swing.JButton btnWF;
@@ -337,8 +379,11 @@ private JFrame frame;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabelACT1;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFielduserName;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblSavings;
+    private javax.swing.JTextField txtAccountNo;
+    private javax.swing.JTextField txtAccountNo1;
     // End of variables declaration//GEN-END:variables
 }

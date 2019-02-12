@@ -6,23 +6,40 @@
 package ssbbss;
 
 import java.awt.Component;
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Md Yasin Arif
  */
 public class SavingAcPage extends javax.swing.JFrame {
-private JFrame frame;
+    
+    private JFrame frame;
+
     /**
      * Creates new form LoginPage
      */
     public SavingAcPage() {
         initComponents();
+        displaySavingsData();
     }
     
+    public void displaySavingsData() {
+        DefaultTableModel model = (DefaultTableModel) tblSavings.getModel();
+        Object[] row = new Object[5];
+        for (int i = 0; i < row.length; i++) {
+            row[0] = "Ok";
+            row[1] = "PK";
+            row[2] = "Ok";
+            row[3] = "okk";
+            row[4] = "pppppp";
+        }
+        model.addRow(row);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,21 +59,31 @@ private JFrame frame;
         btnSA = new javax.swing.JButton();
         btnSHA = new javax.swing.JButton();
         btnIA = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextFielduserName = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextFielduserName1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextFielduserName2 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextFielduserName3 = new javax.swing.JTextField();
         btnWF1 = new javax.swing.JButton();
-        jLabelACT12 = new javax.swing.JLabel();
-        AccountType = new javax.swing.JComboBox<>();
-        btnResetCA1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblSavings = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        jTextFielduserName4 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtAccountNo = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtAccountNo1 = new javax.swing.JTextField();
+        btnResetCA2 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtSlipNo = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtDepositDate = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtAmount = new javax.swing.JTextField();
+        btnResetCA3 = new javax.swing.JButton();
+        btnResetCA4 = new javax.swing.JButton();
+        txtAmount1 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtDepositDate1 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtSlipNo1 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -159,16 +186,6 @@ private JFrame frame;
         jPanel1.add(btnIA);
         btnIA.setBounds(20, 380, 230, 40);
 
-        jLabel3.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 153, 0));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Account No");
-        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(290, 260, 140, 40);
-
         jLabel4.setBackground(new java.awt.Color(153, 255, 0));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 0));
@@ -177,81 +194,7 @@ private JFrame frame;
         jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(280, 200, 270, 40);
-
-        jTextFielduserName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserNameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFielduserName);
-        jTextFielduserName.setBounds(440, 260, 220, 40);
-
-        jLabel5.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 153, 0));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Deposit Date");
-        jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(670, 260, 170, 40);
-
-        jTextFielduserName1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserName1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFielduserName1);
-        jTextFielduserName1.setBounds(850, 260, 250, 40);
-
-        jLabel6.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 153, 0));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Slip No");
-        jLabel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(670, 210, 170, 40);
-
-        jTextFielduserName2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserName2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFielduserName2);
-        jTextFielduserName2.setBounds(850, 210, 250, 40);
-
-        jLabel7.setBackground(new java.awt.Color(153, 255, 0));
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 153, 0));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Amount");
-        jLabel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(290, 310, 140, 40);
-
-        jTextFielduserName3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFielduserName3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielduserName3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jTextFielduserName3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielduserName3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextFielduserName3);
-        jTextFielduserName3.setBounds(440, 310, 220, 40);
+        jLabel4.setBounds(700, 140, 270, 40);
 
         btnWF1.setBackground(new java.awt.Color(0, 102, 0));
         btnWF1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -265,40 +208,10 @@ private JFrame frame;
         jPanel1.add(btnWF1);
         btnWF1.setBounds(20, 500, 230, 40);
 
-        jLabelACT12.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT12.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT12.setText("Savings Type");
-        jLabelACT12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT12);
-        jLabelACT12.setBounds(670, 310, 170, 40);
-
-        AccountType.setBackground(new java.awt.Color(53, 255, 0));
-        AccountType.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        AccountType.setForeground(new java.awt.Color(0, 153, 0));
-        AccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Weekly", "Monthly" }));
-        AccountType.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(AccountType);
-        AccountType.setBounds(850, 310, 110, 40);
-
-        btnResetCA1.setBackground(new java.awt.Color(0, 102, 0));
-        btnResetCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnResetCA1.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA1.setText("Submmit");
-        btnResetCA1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetCA1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnResetCA1);
-        btnResetCA1.setBounds(970, 310, 130, 40);
-
-        jTable1.setBackground(new java.awt.Color(204, 255, 204));
-        jTable1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTable1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblSavings.setBackground(new java.awt.Color(204, 255, 204));
+        tblSavings.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tblSavings.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tblSavings.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -306,10 +219,235 @@ private JFrame frame;
                 "Date", "Account No", "Name", "Saving Type", "Deposit Amount", "Installment NO", "Total Deposit", "Cover Date", "Due"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblSavings);
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(270, 360, 910, 260);
+
+        jLabel8.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Total Amount");
+        jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(300, 630, 150, 30);
+
+        jTextFielduserName4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFielduserName4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFielduserName4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jTextFielduserName4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFielduserName4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFielduserName4);
+        jTextFielduserName4.setBounds(460, 630, 220, 30);
+
+        jLabel3.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Account No");
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(270, 210, 140, 40);
+
+        txtAccountNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtAccountNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAccountNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtAccountNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAccountNoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtAccountNo);
+        txtAccountNo.setBounds(420, 210, 220, 40);
+
+        jLabel9.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Name");
+        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(660, 210, 140, 40);
+
+        txtAccountNo1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtAccountNo1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAccountNo1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtAccountNo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAccountNo1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtAccountNo1);
+        txtAccountNo1.setBounds(810, 210, 220, 40);
+
+        btnResetCA2.setBackground(new java.awt.Color(0, 102, 0));
+        btnResetCA2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnResetCA2.setForeground(new java.awt.Color(255, 255, 255));
+        btnResetCA2.setText("Search");
+        btnResetCA2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetCA2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnResetCA2);
+        btnResetCA2.setBounds(1050, 210, 120, 40);
+
+        jLabel6.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Slip No");
+        jLabel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(270, 260, 80, 40);
+
+        txtSlipNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtSlipNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtSlipNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtSlipNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSlipNoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtSlipNo);
+        txtSlipNo.setBounds(360, 260, 100, 40);
+
+        jLabel5.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Deposit Date");
+        jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(470, 260, 140, 40);
+
+        txtDepositDate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtDepositDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDepositDate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtDepositDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDepositDateActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtDepositDate);
+        txtDepositDate.setBounds(620, 260, 140, 40);
+
+        jLabel7.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Amount");
+        jLabel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(770, 260, 100, 40);
+
+        txtAmount.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAmount.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAmountActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtAmount);
+        txtAmount.setBounds(880, 260, 160, 40);
+
+        btnResetCA3.setBackground(new java.awt.Color(0, 102, 0));
+        btnResetCA3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnResetCA3.setForeground(new java.awt.Color(255, 255, 255));
+        btnResetCA3.setText("Submmit");
+        btnResetCA3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetCA3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnResetCA3);
+        btnResetCA3.setBounds(1050, 260, 120, 40);
+
+        btnResetCA4.setBackground(new java.awt.Color(0, 102, 0));
+        btnResetCA4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnResetCA4.setForeground(new java.awt.Color(255, 255, 255));
+        btnResetCA4.setText("Submmit");
+        btnResetCA4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetCA4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnResetCA4);
+        btnResetCA4.setBounds(1050, 310, 120, 40);
+
+        txtAmount1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtAmount1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAmount1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtAmount1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAmount1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtAmount1);
+        txtAmount1.setBounds(880, 310, 160, 40);
+
+        jLabel12.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Withdraw");
+        jLabel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(770, 310, 100, 40);
+
+        txtDepositDate1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtDepositDate1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDepositDate1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtDepositDate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDepositDate1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtDepositDate1);
+        txtDepositDate1.setBounds(620, 310, 140, 40);
+
+        jLabel11.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Withdraw  Date");
+        jLabel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(470, 310, 140, 40);
+
+        txtSlipNo1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtSlipNo1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtSlipNo1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtSlipNo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSlipNo1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtSlipNo1);
+        txtSlipNo1.setBounds(360, 310, 100, 40);
+
+        jLabel10.setBackground(new java.awt.Color(153, 255, 0));
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Slip No");
+        jLabel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(270, 310, 80, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -334,12 +472,12 @@ private JFrame frame;
     }//GEN-LAST:event_btnSaveCAActionPerformed
 
     private void btnWFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWFActionPerformed
-         new WelfareFundAcPage().setVisible(true);
+        new WelfareFundAcPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnWFActionPerformed
 
     private void btnResetCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCAActionPerformed
-       JTextField temp = null;
+        JTextField temp = null;
         for (Component c : jPanel1.getComponents()) {
             if (c.getClass().toString().contains("JTextField")) {
                 temp = (JTextField) c;
@@ -356,7 +494,7 @@ private JFrame frame;
     }//GEN-LAST:event_btnExitCA1ActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
-       new CreateAccountPage().setVisible(true);
+        new CreateSavingAccountPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCAActionPerformed
 
@@ -365,39 +503,67 @@ private JFrame frame;
     }//GEN-LAST:event_btnSAActionPerformed
 
     private void btnSHAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSHAActionPerformed
-       new ShareAcPage().setVisible(true);
+        new ShareAcPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnSHAActionPerformed
 
     private void btnIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIAActionPerformed
-       new InvestmentAcPage().setVisible(true);
+        new InvestmentAcPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnIAActionPerformed
 
-    private void jTextFielduserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserNameActionPerformed
-
-    private void jTextFielduserName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserName1ActionPerformed
-
-    private void jTextFielduserName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserName2ActionPerformed
-
-    private void jTextFielduserName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielduserName3ActionPerformed
-
     private void btnWF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWF1ActionPerformed
-       new StatementPage().setVisible(true);
+        new StatementPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnWF1ActionPerformed
 
-    private void btnResetCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCA1ActionPerformed
+    private void jTextFielduserName4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielduserName4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnResetCA1ActionPerformed
+    }//GEN-LAST:event_jTextFielduserName4ActionPerformed
+
+    private void txtAccountNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccountNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAccountNoActionPerformed
+
+    private void txtAccountNo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccountNo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAccountNo1ActionPerformed
+
+    private void btnResetCA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCA2ActionPerformed
+
+    }//GEN-LAST:event_btnResetCA2ActionPerformed
+
+    private void txtSlipNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSlipNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSlipNoActionPerformed
+
+    private void txtDepositDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepositDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDepositDateActionPerformed
+
+    private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAmountActionPerformed
+
+    private void btnResetCA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCA3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnResetCA3ActionPerformed
+
+    private void btnResetCA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCA4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnResetCA4ActionPerformed
+
+    private void txtAmount1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmount1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAmount1ActionPerformed
+
+    private void txtDepositDate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepositDate1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDepositDate1ActionPerformed
+
+    private void txtSlipNo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSlipNo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSlipNo1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -442,30 +608,40 @@ private JFrame frame;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> AccountType;
     private javax.swing.JButton btnCA;
     private javax.swing.JButton btnExitCA1;
     private javax.swing.JButton btnIA;
     private javax.swing.JButton btnResetCA;
-    private javax.swing.JButton btnResetCA1;
+    private javax.swing.JButton btnResetCA2;
+    private javax.swing.JButton btnResetCA3;
+    private javax.swing.JButton btnResetCA4;
     private javax.swing.JButton btnSA;
     private javax.swing.JButton btnSHA;
     private javax.swing.JButton btnSaveCA;
     private javax.swing.JButton btnWF;
     private javax.swing.JButton btnWF1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabelACT12;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextFielduserName;
-    private javax.swing.JTextField jTextFielduserName1;
-    private javax.swing.JTextField jTextFielduserName2;
-    private javax.swing.JTextField jTextFielduserName3;
+    private javax.swing.JTextField jTextFielduserName4;
+    private javax.swing.JTable tblSavings;
+    private javax.swing.JTextField txtAccountNo;
+    private javax.swing.JTextField txtAccountNo1;
+    private javax.swing.JTextField txtAmount;
+    private javax.swing.JTextField txtAmount1;
+    private javax.swing.JTextField txtDepositDate;
+    private javax.swing.JTextField txtDepositDate1;
+    private javax.swing.JTextField txtSlipNo;
+    private javax.swing.JTextField txtSlipNo1;
     // End of variables declaration//GEN-END:variables
 }
