@@ -23,22 +23,25 @@ import javax.swing.table.DefaultTableModel;
  * @author Md Yasin Arif
  */
 public class LoginPage extends javax.swing.JFrame {
- private JFrame frame;
+
+    private JFrame frame;
+
     /**
      * Creates new form LoginPage
      */
     public LoginPage() {
         initComponents();
-        
-        
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
     }
-    
-/*ImageIcon background = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("background.png")));
-        Image img1 = background.getImage();
-        Image img2 = img1.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(),Image.SCALE_SMOOTH);
-        ImageIcon i = new ImageIcon(img2);
-        jLabel1.setIcon(i);
-    */
+/*
+    ImageIcon background = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("background.png")));
+    Image img1 = background.getImage();
+    Image img2 = img1.getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+    ImageIcon i = new ImageIcon(img2);
+
+    jLabel1.setIcon (i);
+*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -170,7 +173,7 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       JTextField temp = null;
+        JTextField temp = null;
         for (Component c : jPanel1.getComponents()) {
             if (c.getClass().toString().contains("JTextField")) {
                 temp = (JTextField) c;
@@ -180,7 +183,7 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       frame = new JFrame("Exit");
+        frame = new JFrame("Exit");
         if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "SSBBSS System", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
             System.exit(0);
         }
@@ -188,10 +191,10 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if(txtUsername.getText().trim().equalsIgnoreCase("aaa") && txtPassword.getText().trim().equalsIgnoreCase("123")){
+        if (txtUsername.getText().trim().equalsIgnoreCase("aaa") && txtPassword.getText().trim().equalsIgnoreCase("123")) {
             new HomePage().setVisible(true);
             this.setVisible(false);
-        }else{
+        } else {
             lblLoginInvalidMsg.setText("Invalid User OR Password!");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -226,7 +229,7 @@ public class LoginPage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-         UIManager.setLookAndFeel("com.jtattoo.plaf.aluminium.AluminiumLookAndFeel");
+        UIManager.setLookAndFeel("com.jtattoo.plaf.aluminium.AluminiumLookAndFeel");
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
