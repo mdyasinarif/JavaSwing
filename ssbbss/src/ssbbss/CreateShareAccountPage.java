@@ -107,6 +107,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnSaveCA6 = new javax.swing.JButton();
         btnSaveCA5 = new javax.swing.JButton();
+        btnExitCA2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
@@ -235,7 +236,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT);
-        jLabelACT.setBounds(830, 200, 170, 30);
+        jLabelACT.setBounds(830, 240, 170, 30);
 
         shDateofBirth.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shDateofBirth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -246,7 +247,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shDateofBirth);
-        shDateofBirth.setBounds(1010, 200, 160, 30);
+        shDateofBirth.setBounds(1010, 240, 160, 30);
 
         shName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -257,7 +258,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shName);
-        shName.setBounds(490, 200, 330, 30);
+        shName.setBounds(490, 240, 330, 30);
 
         shFatherHusbendName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shFatherHusbendName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -268,7 +269,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shFatherHusbendName);
-        shFatherHusbendName.setBounds(490, 280, 330, 30);
+        shFatherHusbendName.setBounds(490, 320, 330, 30);
 
         jLabelACT4.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -278,7 +279,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT4);
-        jLabelACT4.setBounds(870, 480, 130, 30);
+        jLabelACT4.setBounds(870, 520, 130, 30);
 
         shMobilNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shMobilNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -289,7 +290,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shMobilNo);
-        shMobilNo.setBounds(1010, 480, 160, 30);
+        shMobilNo.setBounds(1010, 520, 160, 30);
 
         jLabelACT5.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -299,7 +300,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT5);
-        jLabelACT5.setBounds(280, 240, 200, 30);
+        jLabelACT5.setBounds(280, 280, 200, 30);
 
         shMotherName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shMotherName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -310,7 +311,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shMotherName);
-        shMotherName.setBounds(490, 240, 330, 30);
+        shMotherName.setBounds(490, 280, 330, 30);
 
         jLabelACT6.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -320,7 +321,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT6);
-        jLabelACT6.setBounds(830, 280, 170, 30);
+        jLabelACT6.setBounds(830, 320, 170, 30);
 
         shNID.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shNID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -331,7 +332,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shNID);
-        shNID.setBounds(1010, 280, 160, 30);
+        shNID.setBounds(1010, 320, 160, 30);
 
         jLabelACT7.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -341,7 +342,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT7);
-        jLabelACT7.setBounds(280, 320, 200, 30);
+        jLabelACT7.setBounds(280, 360, 200, 30);
 
         shPresentAddress.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shPresentAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -352,7 +353,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shPresentAddress);
-        shPresentAddress.setBounds(490, 320, 330, 30);
+        shPresentAddress.setBounds(490, 360, 330, 30);
 
         jLabelACT9.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -404,7 +405,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT12);
-        jLabelACT12.setBounds(280, 480, 200, 30);
+        jLabelACT12.setBounds(280, 520, 200, 30);
 
         shShareAmount.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shShareAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -415,7 +416,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shShareAmount);
-        shShareAmount.setBounds(490, 480, 110, 30);
+        shShareAmount.setBounds(490, 520, 110, 30);
 
         jLabelACT13.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -425,7 +426,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT13);
-        jLabelACT13.setBounds(910, 520, 100, 30);
+        jLabelACT13.setBounds(820, 200, 100, 30);
 
         shCardNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shCardNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -436,7 +437,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shCardNo);
-        shCardNo.setBounds(1020, 520, 150, 30);
+        shCardNo.setBounds(930, 200, 120, 30);
 
         jLabelACT14.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -446,7 +447,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT14);
-        jLabelACT14.setBounds(830, 240, 170, 30);
+        jLabelACT14.setBounds(830, 280, 170, 30);
 
         shAdmissionDate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shAdmissionDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -457,7 +458,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shAdmissionDate);
-        shAdmissionDate.setBounds(1010, 240, 160, 30);
+        shAdmissionDate.setBounds(1010, 280, 160, 30);
 
         jLabelACT15.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -467,7 +468,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT15);
-        jLabelACT15.setBounds(610, 520, 100, 30);
+        jLabelACT15.setBounds(580, 200, 100, 30);
 
         shFromNO.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shFromNO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -478,7 +479,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shFromNO);
-        shFromNO.setBounds(720, 520, 170, 30);
+        shFromNO.setBounds(690, 200, 110, 30);
 
         jLabelACT16.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -488,7 +489,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT16);
-        jLabelACT16.setBounds(610, 480, 160, 30);
+        jLabelACT16.setBounds(610, 520, 160, 30);
 
         AccountType2.setBackground(new java.awt.Color(53, 255, 0));
         AccountType2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -496,7 +497,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         AccountType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Father's Name", "Husbend's Name" }));
         AccountType2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(AccountType2);
-        AccountType2.setBounds(280, 280, 200, 30);
+        AccountType2.setBounds(280, 320, 200, 30);
 
         jLabelACT17.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -506,7 +507,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT17);
-        jLabelACT17.setBounds(830, 320, 170, 30);
+        jLabelACT17.setBounds(830, 360, 170, 30);
 
         jLabelACT18.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT18.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -516,7 +517,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT18);
-        jLabelACT18.setBounds(440, 360, 180, 30);
+        jLabelACT18.setBounds(440, 400, 180, 30);
 
         shPresentAddressPS.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shPresentAddressPS.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -527,7 +528,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shPresentAddressPS);
-        shPresentAddressPS.setBounds(630, 360, 190, 30);
+        shPresentAddressPS.setBounds(630, 400, 190, 30);
 
         shPresentAddressPO.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shPresentAddressPO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -538,7 +539,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shPresentAddressPO);
-        shPresentAddressPO.setBounds(1010, 320, 160, 30);
+        shPresentAddressPO.setBounds(1010, 360, 160, 30);
 
         jLabelACT19.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT19.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -548,7 +549,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT19);
-        jLabelACT19.setBounds(830, 360, 170, 30);
+        jLabelACT19.setBounds(830, 400, 170, 30);
 
         shPresentAddressD.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shPresentAddressD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -559,7 +560,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shPresentAddressD);
-        shPresentAddressD.setBounds(1010, 360, 160, 30);
+        shPresentAddressD.setBounds(1010, 400, 160, 30);
 
         jLabelACT20.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT20.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -569,7 +570,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT20);
-        jLabelACT20.setBounds(280, 400, 200, 30);
+        jLabelACT20.setBounds(280, 440, 200, 30);
 
         shParmanetAddress.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shParmanetAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -580,7 +581,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shParmanetAddress);
-        shParmanetAddress.setBounds(490, 400, 330, 30);
+        shParmanetAddress.setBounds(490, 440, 330, 30);
 
         jLabelACT21.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT21.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -590,7 +591,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT21);
-        jLabelACT21.setBounds(830, 400, 170, 30);
+        jLabelACT21.setBounds(830, 440, 170, 30);
 
         shParmanetAddressPO.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shParmanetAddressPO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -601,7 +602,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shParmanetAddressPO);
-        shParmanetAddressPO.setBounds(1010, 400, 160, 30);
+        shParmanetAddressPO.setBounds(1010, 440, 160, 30);
 
         jLabelACT22.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT22.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -611,7 +612,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT22.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT22);
-        jLabelACT22.setBounds(440, 440, 180, 30);
+        jLabelACT22.setBounds(440, 480, 180, 30);
 
         shParmanetAddressPS.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shParmanetAddressPS.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -622,7 +623,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shParmanetAddressPS);
-        shParmanetAddressPS.setBounds(630, 440, 190, 30);
+        shParmanetAddressPS.setBounds(630, 480, 190, 30);
 
         jLabelACT23.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT23.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -632,7 +633,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT23.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT23);
-        jLabelACT23.setBounds(830, 440, 170, 30);
+        jLabelACT23.setBounds(830, 480, 170, 30);
 
         shParmanetAddressD.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shParmanetAddressD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -643,7 +644,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shParmanetAddressD);
-        shParmanetAddressD.setBounds(1010, 440, 160, 30);
+        shParmanetAddressD.setBounds(1010, 480, 160, 30);
 
         jLabelACT24.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT24.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -675,7 +676,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shAccountNo);
-        shAccountNo.setBounds(430, 520, 170, 30);
+        shAccountNo.setBounds(430, 200, 140, 30);
 
         jLabelACT25.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT25.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -685,7 +686,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT25);
-        jLabelACT25.setBounds(280, 520, 140, 30);
+        jLabelACT25.setBounds(280, 200, 140, 30);
 
         btnWF1.setBackground(new java.awt.Color(0, 102, 0));
         btnWF1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -755,7 +756,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jLabelACT10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT10);
-        jLabelACT10.setBounds(280, 200, 200, 30);
+        jLabelACT10.setBounds(280, 240, 200, 30);
 
         shNoOfShare.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         shNoOfShare.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -766,7 +767,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(shNoOfShare);
-        shNoOfShare.setBounds(780, 480, 80, 30);
+        shNoOfShare.setBounds(780, 520, 80, 30);
 
         jLabel2.setBackground(new java.awt.Color(0, 102, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -798,6 +799,18 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         });
         jPanel1.add(btnSaveCA5);
         btnSaveCA5.setBounds(500, 600, 200, 30);
+
+        btnExitCA2.setBackground(new java.awt.Color(0, 102, 0));
+        btnExitCA2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnExitCA2.setForeground(new java.awt.Color(255, 255, 255));
+        btnExitCA2.setText("Search");
+        btnExitCA2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitCA2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnExitCA2);
+        btnExitCA2.setBounds(1060, 200, 110, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -1037,6 +1050,10 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveCA5ActionPerformed
 
+    private void btnExitCA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitCA2ActionPerformed
+
+    }//GEN-LAST:event_btnExitCA2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1091,6 +1108,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> AccountType2;
     private javax.swing.JButton btnCA;
     private javax.swing.JButton btnExitCA1;
+    private javax.swing.JButton btnExitCA2;
     private javax.swing.JButton btnIA;
     private javax.swing.JButton btnResetCA;
     private javax.swing.JButton btnSA;

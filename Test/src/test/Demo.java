@@ -5,6 +5,11 @@
  */
 package test;
 
+import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author User
@@ -17,8 +22,6 @@ public class Demo extends javax.swing.JFrame {
     public Demo() {
         initComponents();
     }
-   
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,8 +35,16 @@ public class Demo extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lbMsg = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbDisplay = new javax.swing.JTable();
+        txtName = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         jMenuItem1.setText("jMenuItem1");
@@ -44,14 +55,109 @@ public class Demo extends javax.swing.JFrame {
         getContentPane().add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 196, -1, -1));
         getContentPane().add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 292, -1, -1));
 
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1);
+        jLabel2.setText("Name");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 320, 230));
+        jLabel3.setText("Phone");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        getContentPane().add(lbMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 170, 20));
+
+        jButton1.setText("Delete");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
+
+        jButton2.setText("Save");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
+
+        tbDisplay.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Phone"
+            }
+        ));
+        tbDisplay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbDisplayMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbDisplay);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 270, 330));
+
+        txtName.setText("jTextField1");
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 160, -1));
+
+        txtPhone.setText("jTextField2");
+        getContentPane().add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 160, -1));
+
+        jButton3.setText("Reset");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tbDisplay.getModel();
+        Object[] row = new Object[2];
+        if (txtName.getText().length() <= 0 || txtPhone.getText().length() <= 0) {
+            lbMsg.setText("Enter Your Data First");
+        } else {
+            row[0] = txtName.getText();
+            row[1] = txtPhone.getText();
+            model.addRow(row);
+            lbMsg.setText("Success");
+            txtName.setText("");
+            txtPhone.setText("");
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tbDisplayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDisplayMouseClicked
+        // TODO add your handling code here:
+        int i = tbDisplay.getSelectedRow();
+        TableModel model = tbDisplay.getModel();
+        txtName.setText(model.getValueAt(i, 0).toString());
+        txtPhone.setText(model.getValueAt(i, 0).toString());
+    }//GEN-LAST:event_tbDisplayMouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        lbMsg.setText("");
+        txtName.setText("");
+        txtPhone.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modeS = (DefaultTableModel) tbDisplay.getModel();
+        if (tbDisplay.getSelectedRow() == -1) {
+            if (tbDisplay.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(null, "NO Data To Delete", "SSBBSS System", JOptionPane.OK_OPTION);
+            } else {
+                JOptionPane.showMessageDialog(null, "Select a Row To Delete", "SSBBSS System", JOptionPane.OK_OPTION);
+            }
+        } else {
+            modeS.removeRow(tbDisplay.getSelectedRow());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,9 +198,17 @@ public class Demo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbMsg;
+    private javax.swing.JTable tbDisplay;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables
 }
