@@ -6,9 +6,14 @@
 package ssbbss;
 
 import java.awt.Component;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -19,6 +24,9 @@ import javax.swing.JTextField;
  */
 public class CreateSavingAccountPage extends javax.swing.JFrame {
 private JFrame frame;
+ String filename = null;
+ byte []photo=null;
+
     /**
      * Creates new form LoginPage
      */
@@ -107,6 +115,9 @@ private JFrame frame;
         btnSaveCA6 = new javax.swing.JButton();
         btnSaveCA5 = new javax.swing.JButton();
         btnExitCA2 = new javax.swing.JButton();
+        lbfrom1 = new javax.swing.JLabel();
+        lbpic = new javax.swing.JLabel();
+        lbpicname = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
@@ -807,6 +818,17 @@ private JFrame frame;
         });
         jPanel1.add(btnExitCA2);
         btnExitCA2.setBounds(1060, 200, 110, 30);
+        jPanel1.add(lbfrom1);
+        lbfrom1.setBounds(150, 550, 100, 100);
+
+        lbpic.setMaximumSize(new java.awt.Dimension(100, 100));
+        lbpic.setMinimumSize(new java.awt.Dimension(100, 100));
+        jPanel1.add(lbpic);
+        lbpic.setBounds(20, 550, 100, 100);
+
+        lbpicname.setText("jLabel3");
+        jPanel1.add(lbpicname);
+        lbpicname.setBounds(10, 654, 100, 10);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -990,6 +1012,7 @@ private JFrame frame;
        String NomineName = sNomineName.getText();
        String Relations = sRelations.getText();
        String Share = sShare.getText();
+       //String photo = lbpicname.getText();
        Connection con = null;
        PreparedStatement pst = null;
         try {
@@ -1013,6 +1036,7 @@ private JFrame frame;
             pst.setString(15, NomineName);
             pst.setString(16, Relations);
             pst.setString(17, Share);
+            //pst.setBytes(18, photo);
             int i = pst.executeUpdate();
             if (i>0) {
                 JOptionPane.showMessageDialog(null, "Data is Saved");
@@ -1034,7 +1058,28 @@ private JFrame frame;
     }//GEN-LAST:event_btnSaveCA4ActionPerformed
 
     private void btnSaveCA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA6ActionPerformed
-        // TODO add your handling code here:
+        JFileChooser chosser = new JFileChooser();
+        chosser.showOpenDialog(null);
+        File f = chosser.getSelectedFile();
+        lbpic.setIcon((new ImageIcon(f.toString())));
+        filename = f.getAbsolutePath();
+        lbpicname.setText(filename);
+        
+        try {
+            File image = new File(filename);
+            FileInputStream fis = new FileInputStream(image);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buf = new byte[1024];
+            for (int redNum ; (redNum = fis.read(buf))!= -1;) {
+                bos.write(buf,0,redNum);
+            }
+                photo = bos.toByteArray();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+        
     }//GEN-LAST:event_btnSaveCA6ActionPerformed
 
     private void btnSaveCA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA5ActionPerformed
@@ -1146,6 +1191,9 @@ private JFrame frame;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JProgressBar jProgressBar2;
+    private javax.swing.JLabel lbfrom1;
+    private javax.swing.JLabel lbpic;
+    private javax.swing.JLabel lbpicname;
     private javax.swing.JTextField sAccountNo;
     private javax.swing.JTextField sAdmissionDate;
     private javax.swing.JTextField sCardNo;
