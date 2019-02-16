@@ -29,20 +29,19 @@ import javax.swing.table.DefaultTableModel;
 public class LoginPage extends javax.swing.JFrame {
 
     private JFrame frame;
-    
 
     /**
      * Creates new form LoginPage
      */
     public LoginPage() {
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //this.setExtendedState(jLabel1.checkImage(img1, jLabel1.getWidth(), jLabel1.getHeight(), rootPane));
 
     }
 
     /*ImageIcon background = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("background.png")));
-        Image img1 = background.getImage();
-        Image img2 = img1.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(),Image.SCALE_SMOOTH);
+    Image img1 = background.getImage();
+    Image img2 = img1.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(),Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
         jLabel1.setIcon(i);
      */
