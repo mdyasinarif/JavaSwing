@@ -12,9 +12,10 @@ import java.sql.PreparedStatement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import ssbbss.DBOperation.CommonDAO;
 import ssbbss.DBOperation.CreateInvestmentCop;
 import ssbbss.DBOperation.DBConnection;
-import ssbbss.pojo.CreateInvestment;
+import ssbbss.domain.CreateInvestment;
 
 /**
  *
@@ -49,8 +50,8 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnSaveCA = new javax.swing.JButton();
         btnWF = new javax.swing.JButton();
-        btnResetCA = new javax.swing.JButton();
-        btnExitCA1 = new javax.swing.JButton();
+        btnIcReset = new javax.swing.JButton();
+        btnIcSearch = new javax.swing.JButton();
         btnCA = new javax.swing.JButton();
         btnSA = new javax.swing.JButton();
         btnSHA = new javax.swing.JButton();
@@ -91,7 +92,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         btnWF1 = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         jProgressBar2 = new javax.swing.JProgressBar();
-        btnSaveCA1 = new javax.swing.JButton();
+        btnIcUpdate = new javax.swing.JButton();
         btnSaveCA3 = new javax.swing.JButton();
         btnSaveCA4 = new javax.swing.JButton();
         jLabelACT10 = new javax.swing.JLabel();
@@ -105,9 +106,10 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         iMobilNo = new javax.swing.JTextField();
         btnSaveCA5 = new javax.swing.JButton();
         btnSaveCA6 = new javax.swing.JButton();
+        btnIcSave = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        btnExitCA2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        btnIcExit = new javax.swing.JButton();
+        btnCiSave = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         jMenu1.setText("File");
@@ -150,29 +152,29 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jPanel1.add(btnWF);
         btnWF.setBounds(20, 440, 230, 40);
 
-        btnResetCA.setBackground(new java.awt.Color(0, 102, 0));
-        btnResetCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnResetCA.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA.setText("Reset");
-        btnResetCA.addActionListener(new java.awt.event.ActionListener() {
+        btnIcReset.setBackground(new java.awt.Color(0, 102, 0));
+        btnIcReset.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnIcReset.setForeground(new java.awt.Color(255, 255, 255));
+        btnIcReset.setText("Reset");
+        btnIcReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetCAActionPerformed(evt);
+                btnIcResetActionPerformed(evt);
             }
         });
-        jPanel1.add(btnResetCA);
-        btnResetCA.setBounds(950, 630, 100, 30);
+        jPanel1.add(btnIcReset);
+        btnIcReset.setBounds(840, 630, 100, 30);
 
-        btnExitCA1.setBackground(new java.awt.Color(0, 102, 0));
-        btnExitCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnExitCA1.setForeground(new java.awt.Color(255, 255, 255));
-        btnExitCA1.setText("Search");
-        btnExitCA1.addActionListener(new java.awt.event.ActionListener() {
+        btnIcSearch.setBackground(new java.awt.Color(0, 102, 0));
+        btnIcSearch.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnIcSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btnIcSearch.setText("Search");
+        btnIcSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitCA1ActionPerformed(evt);
+                btnIcSearchActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExitCA1);
-        btnExitCA1.setBounds(1050, 210, 110, 30);
+        jPanel1.add(btnIcSearch);
+        btnIcSearch.setBounds(1050, 210, 110, 30);
 
         btnCA.setBackground(new java.awt.Color(0, 102, 0));
         btnCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -596,17 +598,17 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jPanel1.add(jProgressBar2);
         jProgressBar2.setBounds(280, 640, 190, 20);
 
-        btnSaveCA1.setBackground(new java.awt.Color(0, 102, 0));
-        btnSaveCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnSaveCA1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaveCA1.setText("Save");
-        btnSaveCA1.addActionListener(new java.awt.event.ActionListener() {
+        btnIcUpdate.setBackground(new java.awt.Color(0, 102, 0));
+        btnIcUpdate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnIcUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnIcUpdate.setText("Update");
+        btnIcUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveCA1ActionPerformed(evt);
+                btnIcUpdateActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSaveCA1);
-        btnSaveCA1.setBounds(1070, 630, 100, 30);
+        jPanel1.add(btnIcUpdate);
+        btnIcUpdate.setBounds(960, 630, 100, 30);
 
         btnSaveCA3.setBackground(new java.awt.Color(0, 102, 0));
         btnSaveCA3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -750,6 +752,18 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jPanel1.add(btnSaveCA6);
         btnSaveCA6.setBounds(280, 600, 190, 30);
 
+        btnIcSave.setBackground(new java.awt.Color(0, 102, 0));
+        btnIcSave.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnIcSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnIcSave.setText("Save");
+        btnIcSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIcSaveActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnIcSave);
+        btnIcSave.setBounds(1070, 630, 100, 30);
+
         jLabel2.setBackground(new java.awt.Color(0, 102, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 51));
@@ -757,21 +771,21 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(300, 164, 310, 30);
 
-        btnExitCA2.setBackground(new java.awt.Color(0, 102, 0));
-        btnExitCA2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnExitCA2.setForeground(new java.awt.Color(255, 255, 255));
-        btnExitCA2.setText("Exit");
-        btnExitCA2.addActionListener(new java.awt.event.ActionListener() {
+        btnIcExit.setBackground(new java.awt.Color(0, 102, 0));
+        btnIcExit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnIcExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnIcExit.setText("Exit");
+        btnIcExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitCA2ActionPerformed(evt);
+                btnIcExitActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExitCA2);
-        btnExitCA2.setBounds(830, 630, 100, 30);
+        jPanel1.add(btnIcExit);
+        btnIcExit.setBounds(720, 630, 100, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 1210, 670);
+        btnCiSave.setIcon(new javax.swing.ImageIcon("F:\\IDB\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
+        jPanel1.add(btnCiSave);
+        btnCiSave.setBounds(0, 0, 1210, 670);
 
         setJMenuBar(jMenuBar1);
 
@@ -800,7 +814,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnWFActionPerformed
 
-    private void btnResetCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCAActionPerformed
+    private void btnIcResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIcResetActionPerformed
         JTextField temp = null;
         for (Component c : jPanel1.getComponents()) {
             if (c.getClass().toString().contains("JTextField")) {
@@ -808,11 +822,32 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
                 temp.setText(null);
             }
         }
-    }//GEN-LAST:event_btnResetCAActionPerformed
+    }//GEN-LAST:event_btnIcResetActionPerformed
 
-    private void btnExitCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitCA1ActionPerformed
-        
-    }//GEN-LAST:event_btnExitCA1ActionPerformed
+    private void btnIcSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIcSearchActionPerformed
+        CommonDAO obj = new CreateInvestmentCop();
+        if (iAccountNo.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Enter an Account NO  ");
+        } else {
+            CreateInvestment ci = obj.getByAccountNo(iAccountNo.getText());
+            
+            //iAccountNo.setText(ci.getAccountNo());
+            iFromNO.setText(ci.getFromNO());
+            iCardNo.setText(ci.getCardNo());
+            iProjectName.setText(ci.getProjectName());
+            iProjectLocation.setText(ci.getProjectLocation());
+            iInvestedAmount.setText(ci.getInvestedAmount());
+            iStartDate.setText(ci.getStartDate());
+            iProjectDuration.setText(ci.getProjectDuration());
+            iName.setText(ci.getName());
+            iMotherName.setText(ci.getMotherName());
+            iFatherHusbendName.setText(ci.getFatherHusbendName());
+            iPresentAddress.setText(ci.getPresentAddress());
+            iParmanetAddress.setText(ci.getParmanetAddress());
+            iNID.setText(ci.getNIDNo());
+            iMobilNo.setText(ci.getMobileNo());
+        }
+    }//GEN-LAST:event_btnIcSearchActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
         // TODO add your handling code here:
@@ -911,7 +946,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnCAMouseClicked
 
-    private void btnSaveCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA1ActionPerformed
+    private void btnIcUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIcUpdateActionPerformed
         String AccountNo = iAccountNo.getText();
         String FromNO = iFromNO.getText();
         String CardNo = iCardNo.getText();
@@ -922,18 +957,18 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         String FatherHusbendName = iFatherHusbendName.getText();
         String PresentAddress = iPresentAddress.getText() + " " + iPresentAddressPO.getText() + " " + iPresentAddressPS.getText() + " " + iPresentAddressD.getText();
         String ParmanetAddress = iParmanetAddress.getText() + " " + iParmanetAddressPO.getText() + " " + iParmanetAddressPS.getText() + " " + iParmanetAddressD.getText();
-        String StartDate = iStartDate .getText();
+        String StartDate = iStartDate.getText();
         String InvestedAmount = iInvestedAmount.getText();
         String ProjectDuration = iProjectDuration.getText();
         String NIDNo = iNID.getText();
         String MobileNo = iMobilNo.getText();
-        
+
         CreateInvestment ci = new CreateInvestment(AccountNo, FromNO, CardNo, ProjectName, ProjectLocation, Name, MotherName, FatherHusbendName, PresentAddress, ParmanetAddress, StartDate, InvestedAmount, ProjectDuration, NIDNo, MobileNo);
         CreateInvestmentCop co = new CreateInvestmentCop();
-        co.save(ci);
+        co.update(ci);
         //Connection con = DBConnection.getDBConection();
-        
-    }//GEN-LAST:event_btnSaveCA1ActionPerformed
+
+    }//GEN-LAST:event_btnIcUpdateActionPerformed
 
     private void btnSaveCA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA3ActionPerformed
         // TODO add your handling code here:
@@ -969,9 +1004,60 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveCA6ActionPerformed
 
-    private void btnExitCA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitCA2ActionPerformed
+    private void btnIcExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIcExitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnExitCA2ActionPerformed
+    }//GEN-LAST:event_btnIcExitActionPerformed
+
+    private void btnIcSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIcSaveActionPerformed
+       String AccountNo = iAccountNo.getText();
+        String FromNO = iFromNO.getText();
+        String CardNo = iCardNo.getText();
+        String ProjectName = iProjectName.getText();
+        String ProjectLocation = iProjectLocation.getText();
+        String Name = iName.getText();
+        String MotherName = iMotherName.getText();
+        String FatherHusbendName = iFatherHusbendName.getText();
+        String PresentAddress = iPresentAddress.getText() + " " + iPresentAddressPO.getText() + " " + iPresentAddressPS.getText() + " " + iPresentAddressD.getText();
+        String ParmanetAddress = iParmanetAddress.getText() + " " + iParmanetAddressPO.getText() + " " + iParmanetAddressPS.getText() + " " + iParmanetAddressD.getText();
+        String StartDate = iStartDate .getText();
+        String InvestedAmount = iInvestedAmount.getText();
+        String ProjectDuration = iProjectDuration.getText();
+        String NIDNo = iNID.getText();
+        String MobileNo = iMobilNo.getText();
+
+        
+        Connection con = null;
+        PreparedStatement pst = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbssbbss", "root", "1234");
+            pst = con.prepareStatement("insert into investmentinfo values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            pst.setString(1, AccountNo);
+            pst.setString(2, FromNO);
+            pst.setString(3, CardNo);
+            pst.setString(4, ProjectName);
+            pst.setString(5, ProjectLocation);
+            pst.setString(6, InvestedAmount);
+            pst.setString(7, StartDate);
+            pst.setString(8, ProjectDuration);
+            pst.setString(9, Name);
+            pst.setString(10, MotherName);
+            pst.setString(11, FatherHusbendName);
+            pst.setString(12, PresentAddress);
+            pst.setString(13, ParmanetAddress);
+            pst.setString(14, NIDNo);
+            pst.setString(15, MobileNo);
+           
+            int i = pst.executeUpdate();
+            if (i > 0) {
+                JOptionPane.showMessageDialog(null, "Data is Saved");
+            } else {
+                JOptionPane.showMessageDialog(null, "Data is Not Saved");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btnIcSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1042,14 +1128,16 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AccountType2;
     private javax.swing.JButton btnCA;
-    private javax.swing.JButton btnExitCA1;
-    private javax.swing.JButton btnExitCA2;
+    private javax.swing.JLabel btnCiSave;
     private javax.swing.JButton btnIA;
-    private javax.swing.JButton btnResetCA;
+    private javax.swing.JButton btnIcExit;
+    private javax.swing.JButton btnIcReset;
+    private javax.swing.JButton btnIcSave;
+    private javax.swing.JButton btnIcSearch;
+    private javax.swing.JButton btnIcUpdate;
     private javax.swing.JButton btnSA;
     private javax.swing.JButton btnSHA;
     private javax.swing.JButton btnSaveCA;
-    private javax.swing.JButton btnSaveCA1;
     private javax.swing.JButton btnSaveCA3;
     private javax.swing.JButton btnSaveCA4;
     private javax.swing.JButton btnSaveCA5;
@@ -1077,7 +1165,6 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
     private javax.swing.JTextField iProjectLocation;
     private javax.swing.JTextField iProjectName;
     private javax.swing.JTextField iStartDate;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelACT;
     private javax.swing.JLabel jLabelACT10;
