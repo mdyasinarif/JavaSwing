@@ -11,7 +11,7 @@ package ssbbss.domain;
  */
 public class CreateInvestment {
 
-    String AccountNo;
+    int AccountNo;
     String FromNO;
     String CardNo;
     String ProjectName;
@@ -30,7 +30,7 @@ public class CreateInvestment {
     public CreateInvestment() {
     }
 
-    public CreateInvestment(String AccountNo, String FromNO, String CardNo, String ProjectName, String ProjectLocation, String Name, String MotherName, String FatherHusbendName, String PresentAddress, String ParmanetAddress, String StartDate, String InvestedAmount, String ProjectDuration, String NIDNo, String MobileNo) {
+    public CreateInvestment(int AccountNo, String FromNO, String CardNo, String ProjectName, String ProjectLocation, String Name, String MotherName, String FatherHusbendName, String PresentAddress, String ParmanetAddress, String StartDate, String InvestedAmount, String ProjectDuration, String NIDNo, String MobileNo) {
         this.AccountNo = AccountNo;
         this.FromNO = FromNO;
         this.CardNo = CardNo;
@@ -48,11 +48,11 @@ public class CreateInvestment {
         this.MobileNo = MobileNo;
     }
 
-    public String getAccountNo() {
+    public int getAccountNo() {
         return AccountNo;
     }
 
-    public void setAccountNo(String AccountNo) {
+    public void setAccountNo(int AccountNo) {
         this.AccountNo = AccountNo;
     }
 

@@ -783,7 +783,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jPanel1.add(btnIcExit);
         btnIcExit.setBounds(720, 630, 100, 30);
 
-        btnCiSave.setIcon(new javax.swing.ImageIcon("F:\\IDB\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
+        btnCiSave.setIcon(new javax.swing.ImageIcon("E:\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
         jPanel1.add(btnCiSave);
         btnCiSave.setBounds(0, 0, 1210, 670);
 
@@ -829,7 +829,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         if (iAccountNo.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Enter an Account NO  ");
         } else {
-            CreateInvestment ci = obj.getByAccountNo(iAccountNo.getText());
+            CreateInvestment ci = obj.getByAccountNo(Integer.parseInt(iAccountNo.getText()));
             
             //iAccountNo.setText(ci.getAccountNo());
             iFromNO.setText(ci.getFromNO());
@@ -947,7 +947,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCAMouseClicked
 
     private void btnIcUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIcUpdateActionPerformed
-        String AccountNo = iAccountNo.getText();
+        int AccountNo = Integer.parseInt(iAccountNo.getText());
         String FromNO = iFromNO.getText();
         String CardNo = iCardNo.getText();
         String ProjectName = iProjectName.getText();
@@ -966,7 +966,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         CreateInvestment ci = new CreateInvestment(AccountNo, FromNO, CardNo, ProjectName, ProjectLocation, Name, MotherName, FatherHusbendName, PresentAddress, ParmanetAddress, StartDate, InvestedAmount, ProjectDuration, NIDNo, MobileNo);
         CreateInvestmentCop co = new CreateInvestmentCop();
         co.update(ci);
-        //Connection con = DBConnection.getDBConection();
+        
 
     }//GEN-LAST:event_btnIcUpdateActionPerformed
 
@@ -1009,7 +1009,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIcExitActionPerformed
 
     private void btnIcSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIcSaveActionPerformed
-       String AccountNo = iAccountNo.getText();
+       int AccountNo = Integer.parseInt(iAccountNo.getText());
         String FromNO = iFromNO.getText();
         String CardNo = iCardNo.getText();
         String ProjectName = iProjectName.getText();
@@ -1032,7 +1032,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbssbbss", "root", "1234");
             pst = con.prepareStatement("insert into investmentinfo values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            pst.setString(1, AccountNo);
+            pst.setInt(1, AccountNo);
             pst.setString(2, FromNO);
             pst.setString(3, CardNo);
             pst.setString(4, ProjectName);

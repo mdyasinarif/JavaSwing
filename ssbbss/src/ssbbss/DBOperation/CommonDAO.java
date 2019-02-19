@@ -10,6 +10,6 @@ public interface CommonDAO {
      void update(CreateInvestment ci);
      void delete(CreateInvestment ci);
      void deleteByAccountNo(String AccountNo);
-     CreateInvestment getByAccountNo(String AccountNo);
+     CreateInvestment getByAccountNo(int AccountNo);
      List<CreateInvestment> findAll();
 }

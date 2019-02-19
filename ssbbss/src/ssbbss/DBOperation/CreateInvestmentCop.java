@@ -22,6 +22,8 @@ import ssbbss.domain.CreateInvestment;
  */
 public class CreateInvestmentCop implements CommonDAO {
 
+    Connection con = DBConnection.getDBConection();
+
     public void save(CreateInvestment ci) {
         Connection con = null;
         PreparedStatement pst = null;
@@ -29,7 +31,7 @@ public class CreateInvestmentCop implements CommonDAO {
         try {
             con = DBConnection.getDBConection();
             pst = con.prepareStatement("insert into investmentinfo values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            pst.setString(1, ci.getAccountNo());
+            pst.setInt(1, ci.getAccountNo());
             pst.setString(2, ci.getFromNO());
             pst.setString(3, ci.getCardNo());
             pst.setString(4, ci.getProjectName());
@@ -70,7 +72,7 @@ public class CreateInvestmentCop implements CommonDAO {
         try {
             con = DBConnection.getDBConection();
             pst = con.prepareStatement("update  investmentinfo set  FromNO = ? , CardNo = ?,ProjectName=?,ProjectLocation=?,InvestedAmount=?, StartDate=?,ProjectDuration=?,Name=?,MotherName=?,FatherHusbendName=?,PresentAddress=?,ParmanetAddress=?,NIDNo=?,MobileNo=? where AccountNo = ?");
-            pst.setString(1, ci.getAccountNo());
+            pst.setInt(1, ci.getAccountNo());
             pst.setString(2, ci.getFromNO());
             pst.setString(3, ci.getCardNo());
             pst.setString(4, ci.getProjectName());
@@ -114,33 +116,17 @@ public class CreateInvestmentCop implements CommonDAO {
     }
 
     @Override
-    public CreateInvestment getByAccountNo(String AccountNo) {
-        Connection con = null;
-        CreateInvestment ci = null;
-        String sql = "select * from investmentinfo where AccountNo = ?";
+    public CreateInvestment getByAccountNo(int AccountNo) {
 
+        String sql = "SELECT * FROM investmentinfo where AccountNo=?";
+        CreateInvestment ci = null;
         try {
             PreparedStatement pst = con.prepareStatement(sql);
-            //pst.setString(1, ci.getAccountNo());
-            pst.setString(2, ci.getFromNO());
-            pst.setString(3, ci.getCardNo());
-            pst.setString(4, ci.getProjectName());
-            pst.setString(5, ci.getProjectLocation());
-            pst.setString(6, ci.getInvestedAmount());
-            pst.setString(7, ci.getStartDate());
-            pst.setString(8, ci.getProjectDuration());
-            pst.setString(9, ci.getName());
-            pst.setString(10, ci.getMotherName());
-            pst.setString(11, ci.getFatherHusbendName());
-            pst.setString(12, ci.getPresentAddress());
-            pst.setString(13, ci.getParmanetAddress());
-            pst.setString(14, ci.getNIDNo());
-            pst.setString(15, ci.getMobileNo());
-
+            pst.setInt(1, AccountNo);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 ci = new CreateInvestment();
-               // ci.setAccountNo(rs.getString(1));
+                ci.setAccountNo(rs.getInt(1));
                 ci.setFromNO(rs.getString(2));
                 ci.setCardNo(rs.getString(3));
                 ci.setProjectName(rs.getString(4));
@@ -161,6 +147,7 @@ public class CreateInvestmentCop implements CommonDAO {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        System.out.println(ci);
         return ci;
     }
 
