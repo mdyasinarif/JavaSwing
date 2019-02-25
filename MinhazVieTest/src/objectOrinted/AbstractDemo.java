@@ -10,39 +10,50 @@ package objectOrinted;
  * @author Md Yasin Arif
  */
 abstract class Animal {
-    private String color;
-    private int hight;
-    private int weight;
-    abstract void display(String color, int hight, int weight);
+    abstract void display();
 }
 class Dog extends Animal {
-    public Dog() {     
+
+    public String getColor() {
+        return color;
     }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+    
+    private String color;
+    private int height;
+    private int weight;
+
+    public Dog(String color, int height, int weight) {
+        this.color = color;
+        this.height = height;
+        this.weight = weight;
+    }
+    
+    
+    
     @Override
-    void display(String color, int hight, int weight) {
+    void display() {
         System.out.println("This is Dog");
-        System.out.println("color:"+color);
-        System.out.println("hight:"+hight);
-        System.out.println("weight:"+weight);
+        System.out.println("color:"+getColor());
+        System.out.println("hight:"+getHeight());
+        System.out.println("weight:"+getWeight());
     }
 }
-class Cat extends Animal { 
-   public Cat() {   
-    }
-    @Override
-    void display(String color, int hight, int weight) {
-        System.out.println("This is Cat");
-        System.out.println("color:"+color);
-        System.out.println("hight:"+hight);
-        System.out.println("weight:"+weight);
-    }
-}
+
 public class AbstractDemo {
     public static void main(String[] args) {
-        Dog dog = new Dog();
-        Cat cat = new Cat();
-        dog.display("White", 20, 5);
-        cat.display("Black", 5, 15);
+        Dog dog = new Dog("Blue",1,20);
+        Dog dog2 = new Dog("White",2,30);
+        
+        dog.display();
+        dog2.display();
     }
 
 }
