@@ -16,34 +16,33 @@ abstract class Animal {
     abstract void display(String color, int hight, int weight);
 }
 class Dog extends Animal {
-  
+    public Dog() {     
+    }
     @Override
     void display(String color, int hight, int weight) {
         System.out.println("This is Dog");
-        System.out.println("Color :" + color);
-        System.out.println("Hight :" + hight);
-        System.out.println("Weight :" + weight);
+        System.out.println("color:"+color);
+        System.out.println("hight:"+hight);
+        System.out.println("weight:"+weight);
     }
-
 }
-class Cat extends Animal {
-    
+class Cat extends Animal { 
+   public Cat() {   
+    }
     @Override
     void display(String color, int hight, int weight) {
         System.out.println("This is Cat");
-        System.out.println("Color :" + color);
-        System.out.println("Hight :" + hight);
-        System.out.println("Weight :" + weight);
+        System.out.println("color:"+color);
+        System.out.println("hight:"+hight);
+        System.out.println("weight:"+weight);
     }
-
 }
-
 public class AbstractDemo {
     public static void main(String[] args) {
         Dog dog = new Dog();
         Cat cat = new Cat();
-        dog.display("White", 20, 4);
-        cat.display("Black", 20, 40);
+        dog.display("White", 20, 5);
+        cat.display("Black", 5, 15);
     }
 
 }
