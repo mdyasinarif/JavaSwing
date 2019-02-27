@@ -35,11 +35,12 @@ public class FileIODemo {
             FileInputStream input = new FileInputStream(file);
             int values = 0;
             input.read(b);
-            for (byte c : b) {
-                System.out.print(c);
-            }
+//            for (byte c : b) {
+//                System.out.println(c);
+//            }
+            System.out.println(input.available());
             while ((values = input.read()) != -1) {                
-                System.out.println((char)values);
+                System.out.print((char)values);
             }
             System.out.println();
             System.out.print(input.markSupported());
