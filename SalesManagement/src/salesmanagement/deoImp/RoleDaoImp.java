@@ -7,7 +7,9 @@ package salesmanagement.deoImp;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -72,8 +74,20 @@ public class RoleDaoImp implements RoleDao {
     }
 
     @Override
-    public List<Role> getRoles() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Role> getRoles() {       
+        List<Role> list = new ArrayList<>();    
+        String sql = "select * from role";
+        try {
+            PreparedStatement ps = CustomeDBConnection.getDBConnection().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                Role role = new Role(rs.getInt(1), rs.getString(2));
+                list.add(role);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RoleDaoImp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
 
 }

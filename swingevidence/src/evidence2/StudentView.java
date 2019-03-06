@@ -5,7 +5,14 @@
  */
 package evidence2;
 
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -154,15 +161,35 @@ public class StudentView extends javax.swing.JFrame {
 
         btnClear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         btnClearTable.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnClearTable.setText("Clear Table");
+        btnClearTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearTableActionPerformed(evt);
+            }
+        });
 
         btnReadFromTable.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnReadFromTable.setText("Read From File");
+        btnReadFromTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReadFromTableActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -332,10 +359,10 @@ public class StudentView extends javax.swing.JFrame {
     }
     private void btnAddTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTableActionPerformed
         String name = "", email = "", age = "0", gender = "", cource = "", round = "", comment = "";
-        if (txtEmail.getText().length() <= 3) {
+        if (txtName.getText().length() <= 3) {
             JOptionPane.showMessageDialog(null, "Enter your Name at lest 3 character");
         } else if (!emailValid(txtEmail.getText()) || txtEmail.getText().length() < 3) {
-            JOptionPane.showMessageDialog(null, "Enter your Name at lest 3 character");
+            JOptionPane.showMessageDialog(null, "Enter valid email");
         } else if (Integer.parseInt(txtAge.getText()) < 18 || Integer.parseInt(txtAge.getText()) > 70) {
             JOptionPane.showMessageDialog(null, "Enter age between 18 to 70");
         } else if(buttonGroup1.getSelection().isSelected() == false){
@@ -371,12 +398,74 @@ public class StudentView extends javax.swing.JFrame {
             }
             round = comRound.getItemAt(comRound.getSelectedIndex());
             comment = txtComment.getText();
+            
+            
+            Student student = new Student(name, email, Integer.parseInt(age), gender, cource, round, comment);     
+            List <Student> students = new ArrayList<>();
+            students.add(student);
+            
+            DefaultTableModel model = (DefaultTableModel) tabDisplayInf.getModel();
+            Object[] col  = new Object[7];
+            for (int i = 0; i < students.size(); i++) {
+                col[0] = students.get(i).getName();
+                col[1] = students.get(i).getEmail();
+                col[2] = students.get(i).getAge();
+                col[3] = students.get(i).getGender();
+                col[4] = students.get(i).getCource();
+                col[5] = students.get(i).getRound();
+                col[6] = students.get(i).getComment();
+                model.addRow(col);
+                
+                try {
+                    Utils.writeTofile("arif", students);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }finally{
+                    JOptionPane.showMessageDialog(null, "Success");
+                }
+                
+                
+              
+            }
+           
         }
+         
     }//GEN-LAST:event_btnAddTableActionPerformed
 
     private void comRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comRoundActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comRoundActionPerformed
+
+    private void btnReadFromTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadFromTableActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tabDisplayInf.getModel();
+        try {
+            Utils.displayFromFile("arif", model);
+        } catch (IOException ex) {
+            Logger.getLogger(StudentView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnReadFromTableActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        txtName.setText("");
+        txtEmail.setText("");
+        txtAge.setText("0");
+        rMale.setSelected(true);
+        rFemale.setSelected(false);
+        cheHtml.setSelected(false);
+        cheJavaScript.setSelected(false);
+        cheCoreJava.setSelected(false);
+        comRound.setSelectedIndex(0);
+        txtComment.setText("");
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnClearTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearTableActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tabDisplayInf.getModel();
+        model.setRowCount(0);
+    }//GEN-LAST:event_btnClearTableActionPerformed
 
     /**
      * @param args the command line arguments
