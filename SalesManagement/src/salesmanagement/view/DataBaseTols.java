@@ -207,7 +207,7 @@ public class DataBaseTols extends javax.swing.JFrame {
     private void btnExecuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExecuteActionPerformed
         RoleDao roleDao = new RoleDaoImp();
         if (tasql.getText().length()>5) {
-            roleDao.createTable(tasql.getText().trim());
+           // roleDao.createTable(tasql.getText().trim());
             JOptionPane.showMessageDialog(null, "Success");
         } else {
             JOptionPane.showMessageDialog(null, "Please Enter Your Queary");

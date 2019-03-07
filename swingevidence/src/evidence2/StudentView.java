@@ -5,7 +5,6 @@
  */
 package evidence2;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -365,47 +364,42 @@ public class StudentView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Enter valid email");
         } else if (Integer.parseInt(txtAge.getText()) < 18 || Integer.parseInt(txtAge.getText()) > 70) {
             JOptionPane.showMessageDialog(null, "Enter age between 18 to 70");
-        } else if(buttonGroup1.getSelection().isSelected() == false){
-             JOptionPane.showMessageDialog(null, "Pleace selectu your Gender");
-        }
-        else if(!cheHtml.isSelected() && !cheJavaScript.isSelected() && !cheCoreJava.isSelected()){
-        JOptionPane.showMessageDialog(null, "please check your cource");
-        }
-        else if(comRound.getItemAt(comRound.getSelectedIndex()) == "Select A Round"){
-         JOptionPane.showMessageDialog(null, "Select A Round");
-        }
-        else if(txtComment.getText().length()<10){
-         JOptionPane.showMessageDialog(null, "Comment Max 10 character");
-        }
-        else {
+        } else if (buttonGroup1.getSelection().isSelected() == false) {
+            JOptionPane.showMessageDialog(null, "Pleace selectu your Gender");
+        } else if (!cheHtml.isSelected() && !cheJavaScript.isSelected() && !cheCoreJava.isSelected()) {
+            JOptionPane.showMessageDialog(null, "please check your cource");
+        } else if (comRound.getItemAt(comRound.getSelectedIndex()) == "Select A Round") {
+            JOptionPane.showMessageDialog(null, "Select A Round");
+        } else if (txtComment.getText().length() < 10) {
+            JOptionPane.showMessageDialog(null, "Comment Max 10 character");
+        } else {
             name = txtName.getText();
             email = txtEmail.getText();
             age = txtAge.getText();
-            if(rMale.isSelected()){
+            if (rMale.isSelected()) {
                 gender = rMale.getText();
             }
-            if(rFemale.isSelected()){
+            if (rFemale.isSelected()) {
                 gender = rFemale.getText();
             }
-            if(cheHtml.isSelected()){
-                cource += cheHtml.getText()+" ";
+            if (cheHtml.isSelected()) {
+                cource += cheHtml.getText() + " ";
             }
-            if(cheJavaScript.isSelected()){
-                cource += cheJavaScript.getText()+" ";
+            if (cheJavaScript.isSelected()) {
+                cource += cheJavaScript.getText() + " ";
             }
-            if(cheCoreJava.isSelected()){
-                cource += cheCoreJava.getText()+" ";
+            if (cheCoreJava.isSelected()) {
+                cource += cheCoreJava.getText() + " ";
             }
             round = comRound.getItemAt(comRound.getSelectedIndex());
             comment = txtComment.getText();
-            
-            
-            Student student = new Student(name, email, Integer.parseInt(age), gender, cource, round, comment);     
-            List <Student> students = new ArrayList<>();
+
+            Student student = new Student(name, email, Integer.parseInt(age), gender, cource, round, comment);
+            List<Student> students = new ArrayList<>();
             students.add(student);
-            
+
             DefaultTableModel model = (DefaultTableModel) tabDisplayInf.getModel();
-            Object[] col  = new Object[7];
+            Object[] col = new Object[7];
             for (int i = 0; i < students.size(); i++) {
                 col[0] = students.get(i).getName();
                 col[1] = students.get(i).getEmail();
@@ -415,21 +409,19 @@ public class StudentView extends javax.swing.JFrame {
                 col[5] = students.get(i).getRound();
                 col[6] = students.get(i).getComment();
                 model.addRow(col);
-                
+
                 try {
                     Utils.writeTofile("arif", students);
                 } catch (Exception e) {
                     e.printStackTrace();
-                }finally{
+                } finally {
                     JOptionPane.showMessageDialog(null, "Success");
                 }
-                
-                
-              
+
             }
-           
+
         }
-         
+
     }//GEN-LAST:event_btnAddTableActionPerformed
 
     private void comRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comRoundActionPerformed
@@ -459,7 +451,7 @@ public class StudentView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnClearTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearTableActionPerformed

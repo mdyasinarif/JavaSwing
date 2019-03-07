@@ -13,15 +13,15 @@ import salesmanagement.pojo.User;
  *
  * @author User
  */
-public interface RoleDao {
+public interface UserDao {
     void createTable();
-    void save(Role role);
-    void update(Role role);
-    Role getRoleByid(int id);
-    Role getRoleByRoleName(String roleName);
+    void save(User user);
+    void update(User user);
+    User getUserByid(int id);
+    User getUserByUserName(String userName);
     
     void delete(int id);
     
-    List<Role> getRoles();
-   
+    List<User> getUsers();
+    
 }
