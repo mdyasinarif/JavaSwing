@@ -27,25 +27,62 @@ public class UserView extends javax.swing.JFrame {
     public UserView() {
         initComponents();
         displayRoleListIntoTable();
-       
+        displayRoleAtComboBox();
+
     }
 
     UserDao dao = new UserDaoImp();
+    RoleDao roledao = new RoleDaoImp();
+
+    public void displayRoleAtComboBox() {
+        RoleDao dao = new RoleDaoImp();
+        List<Role> roles = dao.getRoles();
+        combRole.addItem("Select A Role");
+        for (Role role : roles) {
+            combRole.addItem(role.getRoleName());
+        }
+    }
 
     public void displayRoleListIntoTable() {
         clearTable();
+        RoleDao roleDao = new RoleDaoImp();
+        UserDao dao = new UserDaoImp();
         List<User> list = dao.getUsers();
         DefaultTableModel model = (DefaultTableModel) tableDisplayUser.getModel();
-        Object[] cols = new Object[2];
+        Object[] cols = new Object[7];
 
         for (int i = 0; i < list.size(); i++) {
-            cols[0] = list.get(i).getRole();
+            cols[0] = list.get(i).getId();
             cols[1] = list.get(i).getName();
             cols[2] = list.get(i).getUserName();
-            cols[3] = list.get(i).getEmail();
-            cols[4] = list.get(i).getModile();
+            cols[3] = list.get(i).getPassword();
+            cols[4] = list.get(i).getEmail();
+            cols[5] = list.get(i).getModile();
+            Role role = roledao.getRoleByid(list.get(i).getRole().getId());
+            cols[6] = role.getRoleName();
             model.addRow(cols);
         }
+    }
+    private static int userID;
+
+    public void getSelectedRowData() {
+        DefaultTableModel model = (DefaultTableModel) tableDisplayUser.getModel();
+        int i = tableDisplayUser.getSelectedRow();
+
+        userID = Integer.parseInt(model.getValueAt(i, 0).toString());
+        txtName.setText(model.getValueAt(i, 1).toString());
+        txtUserName.setText(model.getValueAt(i, 2).toString());
+        txtPassword.setText(model.getValueAt(i, 3).toString());
+        txtEmail.setText(model.getValueAt(i, 4).toString());
+        txtMobile.setText(model.getValueAt(i, 5).toString());
+        combRole.setSelectedItem(model.getValueAt(i, 6).toString());
+//        if(model.getValueAt(i, 6).toString().trim().equalsIgnoreCase("admin")){
+//        combRole.setSelectedIndex(1);
+//        }
+//        if(model.getValueAt(i, 6).toString().trim().equalsIgnoreCase("user")){
+//        combRole.setSelectedIndex(2);
+//        }
+//        
     }
 
     public void clearTable() {
@@ -132,6 +169,11 @@ public class UserView extends javax.swing.JFrame {
 
         btnEdit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
 
         btnClear.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnClear.setText("Clear");
@@ -204,11 +246,11 @@ public class UserView extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(combRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -228,12 +270,12 @@ public class UserView extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtMobile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnADD)
                     .addComponent(btnEdit)
                     .addComponent(btnClear))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "User List", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
@@ -243,9 +285,14 @@ public class UserView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Role Name", " Name", "User Name", "Email", "Mobile No"
+                "User Id", " Name", "User Name", "Password", "Email", "Mobile No", "Role Name"
             }
         ));
+        tableDisplayUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDisplayUserMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableDisplayUser);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -343,13 +390,16 @@ public class UserView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADDActionPerformed
+        RoleDao roleDao = new RoleDaoImp();
+        
         String selectRole = combRole.getItemAt(combRole.getSelectedIndex());
-        int id = Integer.parseInt(selectRole.substring(0, 2).trim());
-        Role role = new Role(id);
+        Role role = roleDao.getRoleByRoleName(selectRole);
         User user = new User(txtName.getText(), txtUserName.getText(), txtPassword.getText(), txtEmail.getText(), txtMobile.getText(), role);
         UserDao obj = new UserDaoImp();
         obj.save(user);
-        JOptionPane.showMessageDialog(null, "Success");
+        displayRoleListIntoTable();
+        JOptionPane.showMessageDialog(null, " Success");
+
     }//GEN-LAST:event_btnADDActionPerformed
 
     private void btnClearTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearTableActionPerformed
@@ -366,6 +416,24 @@ public class UserView extends javax.swing.JFrame {
         txtMobile.setText("");
 
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        RoleDao roleDao = new RoleDaoImp();
+        String selectRole = combRole.getItemAt(combRole.getSelectedIndex());
+
+        Role role = roleDao.getRoleByRoleName(selectRole);
+        User user = new User(userID,txtName.getText(), txtUserName.getText(), txtPassword.getText(), txtEmail.getText(), txtMobile.getText(), role);
+        UserDao obj = new UserDaoImp();
+        obj.update(user);
+        displayRoleListIntoTable();
+        JOptionPane.showMessageDialog(null, "Update Success");
+
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void tableDisplayUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDisplayUserMouseClicked
+        getSelectedRowData();
+
+    }//GEN-LAST:event_tableDisplayUserMouseClicked
 
     /**
      * @param args the command line arguments

@@ -411,7 +411,7 @@ public class StudentView extends javax.swing.JFrame {
                 model.addRow(col);
 
                 try {
-                    Utils.writeTofile("arif", students);
+                    Utils.writeTofile(JOptionPane.showInputDialog("Enter File name"), students);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
@@ -431,7 +431,7 @@ public class StudentView extends javax.swing.JFrame {
     private void btnReadFromTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadFromTableActionPerformed
         DefaultTableModel model = (DefaultTableModel) tabDisplayInf.getModel();
         try {
-            Utils.displayFromFile("arif", model);
+            Utils.displayFromFile(JOptionPane.showInputDialog("Enter file name"), model);
         } catch (IOException ex) {
             Logger.getLogger(StudentView.class.getName()).log(Level.SEVERE, null, ex);
         }

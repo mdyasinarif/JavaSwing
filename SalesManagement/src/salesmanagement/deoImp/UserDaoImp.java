@@ -67,17 +67,18 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public void update(User user) {
-        String sql = "update role set name = ? where id = ?";
+        String sql = "update user set name = ?,  user_name = ?,password = ?, email = ?,mobile_no = ?,role_id = ? where id = ?";
         PreparedStatement pstm;
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, user.getName());
-            pstm.setString(1, user.getUserName());
-            pstm.setString(1, user.getName());
-            pstm.setString(1, user.getName());
-            pstm.setString(1, user.getName());
-            pstm.setString(1, user.getName());
-            pstm.setString(1, user.getName());
+            pstm.setString(2, user.getUserName());
+            pstm.setString(3, user.getPassword());
+            pstm.setString(4, user.getEmail());
+            pstm.setString(5, user.getModile());
+            pstm.setInt(6, user.getRole().getId());
+            pstm.setInt(7, user.getId());
+            
             
             pstm.executeUpdate();
             System.out.println("update  Success!");
@@ -123,20 +124,21 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public List<User> getUsers() {
-        List<User> list = new ArrayList<>();    
+        List<User> users = new ArrayList<>();  
+        User user;
         String sql = "select * from user";
         try {
             PreparedStatement ps = CustomeDBConnection.getDBConnection().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {    
                 Role role = new Role(rs.getInt(7));
-                User user = new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),role);
-                list.add(user);
+                 user = new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),role);
+                users.add(user);
             }
         } catch (SQLException ex) {
             Logger.getLogger(RoleDaoImp.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return list;
+        return users;
     }
     }
 

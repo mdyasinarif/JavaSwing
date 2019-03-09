@@ -37,6 +37,7 @@ public class Utils {
             }
             out.close();
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -56,5 +57,6 @@ public class Utils {
             JOptionPane.showMessageDialog(null, "Success");
         }
     }
+    
 
 }

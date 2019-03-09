@@ -27,7 +27,7 @@ public class RoleView extends javax.swing.JFrame {
 
     }
     RoleDao dao = new RoleDaoImp();
-
+    
     public void displayRoleListIntoTable() {
         clearTable();
         List<Role> list = dao.getRoles();
