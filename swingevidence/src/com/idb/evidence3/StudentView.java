@@ -5,6 +5,11 @@
  */
 package com.idb.evidence3;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author User
@@ -16,6 +21,17 @@ public class StudentView extends javax.swing.JFrame {
      */
     public StudentView() {
         initComponents();
+    }
+
+    public boolean emailValid(String email) {
+        int adpos = email.indexOf("@");
+        int dotpos = email.indexOf(".");
+        if (adpos > 1 && (dotpos - adpos) > 2 && dotpos < email.length()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     /**
@@ -142,15 +158,35 @@ public class StudentView extends javax.swing.JFrame {
 
         btnAddtoTableandWrightToFile.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddtoTableandWrightToFile.setText("Add to Table and Wright To File");
+        btnAddtoTableandWrightToFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddtoTableandWrightToFileActionPerformed(evt);
+            }
+        });
 
         btnRead.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnRead.setText("Read From File");
+        btnRead.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReadActionPerformed(evt);
+            }
+        });
 
         btnClearFrom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnClearFrom.setText("Clear From");
+        btnClearFrom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearFromActionPerformed(evt);
+            }
+        });
 
         btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -253,10 +289,7 @@ public class StudentView extends javax.swing.JFrame {
 
         tblDisplay.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Name", "Email", "Age", "Gender", "Cource", "Round", "Comment"
@@ -266,25 +299,33 @@ public class StudentView extends javax.swing.JFrame {
 
         btnClearTable.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnClearTable.setText("Clear Table");
+        btnClearTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearTableActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnClearTable, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(390, 390, 390)
+                        .addComponent(btnClearTable, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnClearTable))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnClearTable)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -328,7 +369,7 @@ public class StudentView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -336,6 +377,102 @@ public class StudentView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddtoTableandWrightToFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddtoTableandWrightToFileActionPerformed
+        String name = "", email = "", age = "0", gender = "", cource = "", round = "", comment = "";
+        if (txtName.getText().length() <= 3) {
+            JOptionPane.showMessageDialog(null, "Enter Name at least 3 Character");
+        } else if (!emailValid(txtEmail.getText())) {
+            JOptionPane.showMessageDialog(null, "Invalid Email");
+        } else if (Integer.parseInt(txtAge.getText()) < 18 || Integer.parseInt(txtAge.getText()) > 70) {
+            JOptionPane.showMessageDialog(null, "Enter Name at least 3 Character");
+        } else if (buttonGroup1.getSelection().isSelected() == false) {
+            JOptionPane.showMessageDialog(null, "Pleace selectu your Gender");
+        } else if (!cheHtml.isSelected() && !cheJScript.isSelected() && !cheCoreJava.isSelected()) {
+            JOptionPane.showMessageDialog(null, "please check your cource");
+        } else if (combRound.getItemAt(combRound.getSelectedIndex()) == "Select A Round") {
+            JOptionPane.showMessageDialog(null, "Select A Round");
+        } else if (txtComent.getText().length() < 10) {
+            JOptionPane.showMessageDialog(null, "Comment Max 10 character");
+        } else {
+            name = txtName.getText();
+            email = txtEmail.getText();
+            age = txtAge.getText();
+            if (rMale.isSelected()) {
+                gender = rMale.getText();
+            }
+            if (rFemale.isSelected()) {
+                gender = rFemale.getText();
+            }
+            if (cheHtml.isSelected()) {
+                cource += cheHtml.getText() + " ";
+            }
+
+            if (cheJScript.isSelected()) {
+                cource += cheJScript.getText() + " ";
+            }
+            if (cheCoreJava.isSelected()) {
+                cource += cheCoreJava.getText() + " ";
+            }
+            round = combRound.getItemAt(combRound.getSelectedIndex());
+            comment = txtComent.getText();
+            Student student = new Student(name, email, Integer.parseInt(age), gender, cource, round, comment);
+            List<Student> students = new ArrayList<>();
+            students.add(student);
+
+            DefaultTableModel model = (DefaultTableModel) tblDisplay.getModel();
+            Object[] col = new Object[7];
+            for (int i = 0; i < students.size(); i++) {
+                col[0] = students.get(i).getName();
+                col[1] = students.get(i).getEmail();
+                col[2] = students.get(i).getAge();
+                col[3] = students.get(i).getGender();
+                col[4] = students.get(i).getCource();
+                col[5] = students.get(i).getRound();
+                col[6] = students.get(i).getComment();
+                model.addRow(col);
+                try {
+                    Utils.writeTofile(JOptionPane.showInputDialog("Enter File Name"), students);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    JOptionPane.showMessageDialog(null, "Success");
+                }
+            }
+        }
+    }//GEN-LAST:event_btnAddtoTableandWrightToFileActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tblDisplay.getModel();
+        try {
+            Utils.displayFromFile(JOptionPane.showInputDialog("Enter File Name"), model);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnReadActionPerformed
+
+    private void btnClearFromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearFromActionPerformed
+        txtName.setText("");
+        txtEmail.setText("");
+        txtAge.setText("");
+        rMale.setSelected(true);
+        rFemale.setSelected(false);
+        cheHtml.setSelected(false);
+        cheJScript.setSelected(false);
+        cheCoreJava.setSelected(false);
+        combRound.setSelectedIndex(0);
+        txtComent.setText("");
+
+    }//GEN-LAST:event_btnClearFromActionPerformed
+
+    private void btnClearTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearTableActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tblDisplay.getModel();
+        model.setRowCount(0);
+    }//GEN-LAST:event_btnClearTableActionPerformed
 
     /**
      * @param args the command line arguments

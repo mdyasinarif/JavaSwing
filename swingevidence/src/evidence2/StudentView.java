@@ -345,83 +345,66 @@ public class StudentView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public boolean emailValid(String email) {
-        int adpost = email.indexOf("@");
-        int dotpost = email.indexOf(".");
-
-        if (adpost > 1 && (dotpost - adpost) > 2 && dotpost < email.length() - 2) {
+    public boolean  emailValid(String email){
+        int adpos = email.indexOf("@");
+        int dotpos = email.indexOf(".");
+        if (adpos >1 && (dotpos-adpos)>2 && dotpos<email.length()) {
             return true;
         } else {
-            return false;
         }
-
+        return false;
     }
     private void btnAddTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTableActionPerformed
-        String name = "", email = "", age = "0", gender = "", cource = "", round = "", comment = "";
-        if (txtName.getText().length() <= 3) {
-            JOptionPane.showMessageDialog(null, "Enter your Name at lest 3 character");
-        } else if (!emailValid(txtEmail.getText()) || txtEmail.getText().length() < 3) {
-            JOptionPane.showMessageDialog(null, "Enter valid email");
-        } else if (Integer.parseInt(txtAge.getText()) < 18 || Integer.parseInt(txtAge.getText()) > 70) {
+        String name = "",email="",age="0",gender="",course="",round="",comment="";
+        if (txtName.getText().length()<4) {
+            JOptionPane.showMessageDialog(null, "Enter name at lest 3 character");
+        }else if (!emailValid(txtEmail.getText())) {
+            JOptionPane.showMessageDialog(null, "Invalid Email");
+        } else if (Integer.parseInt(txtAge.getText())<18 || Integer.parseInt(txtAge.getText())>70) {
             JOptionPane.showMessageDialog(null, "Enter age between 18 to 70");
-        } else if (buttonGroup1.getSelection().isSelected() == false) {
-            JOptionPane.showMessageDialog(null, "Pleace selectu your Gender");
-        } else if (!cheHtml.isSelected() && !cheJavaScript.isSelected() && !cheCoreJava.isSelected()) {
-            JOptionPane.showMessageDialog(null, "please check your cource");
-        } else if (comRound.getItemAt(comRound.getSelectedIndex()) == "Select A Round") {
-            JOptionPane.showMessageDialog(null, "Select A Round");
-        } else if (txtComment.getText().length() < 10) {
-            JOptionPane.showMessageDialog(null, "Comment Max 10 character");
-        } else {
+        }else if (buttonGroup1.getSelection().isSelected() == false) {
+            JOptionPane.showMessageDialog(null, "Select your Gender");
+        }else if(!cheHtml.isSelected() && !cheJavaScript.isSelected() && !cheCoreJava.isSelected()){
+            JOptionPane.showMessageDialog(null, "Checked your Cource");
+        }else if(comRound.getItemAt(comRound.getSelectedIndex()) == "Select A Round"){      JOptionPane.showMessageDialog(null, "Select your Round");
+        }else if (txtComment.getText().length()<10){
+            JOptionPane.showMessageDialog(null, "Comment Must be at leat 10 Chaarcater");
+        }
+        else {
             name = txtName.getText();
             email = txtEmail.getText();
             age = txtAge.getText();
-            if (rMale.isSelected()) {
-                gender = rMale.getText();
-            }
-            if (rFemale.isSelected()) {
-                gender = rFemale.getText();
-            }
-            if (cheHtml.isSelected()) {
-                cource += cheHtml.getText() + " ";
-            }
-            if (cheJavaScript.isSelected()) {
-                cource += cheJavaScript.getText() + " ";
-            }
-            if (cheCoreJava.isSelected()) {
-                cource += cheCoreJava.getText() + " ";
-            }
+            gender = rMale.isSelected() ? "Male":"Female";
+            course = "";
+            course += cheHtml.isSelected()? "HTML ":"";
+            course += cheJavaScript.isSelected()? "JavaScript ":"";
+            course += cheCoreJava.isSelected()? "CoreJava ":"";
             round = comRound.getItemAt(comRound.getSelectedIndex());
             comment = txtComment.getText();
-
-            Student student = new Student(name, email, Integer.parseInt(age), gender, cource, round, comment);
+            Student student = new Student(name, email, Integer.parseInt(age), gender, course, round, comment);
             List<Student> students = new ArrayList<>();
             students.add(student);
-
             DefaultTableModel model = (DefaultTableModel) tabDisplayInf.getModel();
             Object[] col = new Object[7];
             for (int i = 0; i < students.size(); i++) {
-                col[0] = students.get(i).getName();
-                col[1] = students.get(i).getEmail();
-                col[2] = students.get(i).getAge();
-                col[3] = students.get(i).getGender();
-                col[4] = students.get(i).getCource();
-                col[5] = students.get(i).getRound();
-                col[6] = students.get(i).getComment();
+                col[0]= students.get(i).getName();
+                col[1]= students.get(i).getAge();
+                col[2]= students.get(i).getEmail();
+                col[3]= students.get(i).getGender();
+                col[4]= students.get(i).getCource();
+                col[5]= students.get(i).getRound();
+                col[6]= students.get(i).getComment();
                 model.addRow(col);
-
+                
                 try {
-                    Utils.writeTofile(JOptionPane.showInputDialog("Enter File name"), students);
+                    Utils.writeTofile(JOptionPane.showInputDialog("Enter File Name"), students);
                 } catch (Exception e) {
                     e.printStackTrace();
-                } finally {
+                }finally{
                     JOptionPane.showMessageDialog(null, "Success");
                 }
-
             }
-
         }
-
     }//GEN-LAST:event_btnAddTableActionPerformed
 
     private void comRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comRoundActionPerformed
@@ -429,11 +412,11 @@ public class StudentView extends javax.swing.JFrame {
     }//GEN-LAST:event_comRoundActionPerformed
 
     private void btnReadFromTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadFromTableActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tabDisplayInf.getModel();
+       DefaultTableModel model = (DefaultTableModel) tabDisplayInf.getModel();
         try {
-            Utils.displayFromFile(JOptionPane.showInputDialog("Enter file name"), model);
-        } catch (IOException ex) {
-            Logger.getLogger(StudentView.class.getName()).log(Level.SEVERE, null, ex);
+            Utils.displayFromFile(JOptionPane.showInputDialog("Enter File Name"), model);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }//GEN-LAST:event_btnReadFromTableActionPerformed
 
@@ -455,8 +438,8 @@ public class StudentView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnClearTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearTableActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tabDisplayInf.getModel();
-        model.setRowCount(0);
+       DefaultTableModel model = (DefaultTableModel) tabDisplayInf.getModel();
+       model.setRowCount(0);
     }//GEN-LAST:event_btnClearTableActionPerformed
 
     /**

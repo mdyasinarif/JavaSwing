@@ -24,22 +24,22 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Utils {
 
-    public static void writeTofile(String filename, List<Student> students) {
-        File desFile = new File(filename + ".txt");
-        try {
-            if (desFile.exists() == false) {
-                System.out.println("Create a file");
-                desFile.createNewFile();
-            }
-            PrintWriter out = new PrintWriter(new FileWriter(desFile, true));
-            for (Student s : students) {
-                out.append(s.getName() + ", " + s.getEmail() + ", " + s.getAge() + ", " + s.getGender() + ", " + s.getCource() + ", " + s.getRound() + ", " + s.getComment() + "\n");
-            }
-            out.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+  public static void writeTofile(String filename,List<Student> student){
+      File file = new File(filename+".txt");
+      try {
+          if (file.exists() == false) {
+              file.createNewFile();
+          }
+          PrintWriter out = new PrintWriter(new FileWriter(file,true));
+          for (Student s : student) {
+              out.append(s.getName()+", "+s.getEmail()+", "+s.getAge()+", "+s.getGender()+", "+s.getCource()+", "+s.getRound()+", "+s.getComment()+"\n");
+          }
+          out.close();
+      } catch (Exception e) {
+          e.printStackTrace();
+      }
+  
+  }
 
     public static void displayFromFile(String filename, DefaultTableModel model) throws IOException {
         String line;
@@ -57,6 +57,5 @@ public class Utils {
             JOptionPane.showMessageDialog(null, "Success");
         }
     }
-    
 
 }
