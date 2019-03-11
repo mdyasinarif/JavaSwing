@@ -25,7 +25,7 @@ public class StudentView extends javax.swing.JFrame {
 public static boolean emailVal(String email){
     int adpos = email.indexOf("@");
     int dotpos = email.indexOf(".");
-        if (adpos>1 &&(dotpos-adpos)>2 && dotpos<email.length()) {
+        if (adpos>1 &&(dotpos-adpos)>2 && dotpos<email.length()-2) {
         return true;
     }
         return false;
@@ -87,7 +87,6 @@ public static boolean emailVal(String email){
         jLabel1.setText("Id :");
 
         jTextField_Id.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextField_Id.setText("0");
         jTextField_Id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField_IdActionPerformed(evt);
@@ -212,8 +211,8 @@ public static boolean emailVal(String email){
                                                 .addGap(18, 18, 18)
                                                 .addComponent(rFeMale))
                                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jTextField_Age)
-                                                .addComponent(jTextField_Id, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                                                .addComponent(jTextField_Age, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                                                .addComponent(jTextField_Id)
                                                 .addComponent(jTextField_Name)))
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
