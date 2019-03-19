@@ -35,7 +35,11 @@ private JFrame frame;
      */
     public OpenSavingAccountPage() {
         initComponents();
+<<<<<<< HEAD:ssbbss/src/ssbbss/view/OpenSavingAccountPage.java
         setLocationRelativeTo(null);
+=======
+         setLocationRelativeTo(null);
+>>>>>>> f9cc1cee5aa42af9e4b7e804ccccf4eefc432de2:ssbbss/src/ssbbss/view/CreateSavingAccountPage.java
     }
     
 
@@ -706,7 +710,7 @@ private JFrame frame;
         jPanel1.add(lbpicname);
         lbpicname.setBounds(10, 654, 100, 10);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
 

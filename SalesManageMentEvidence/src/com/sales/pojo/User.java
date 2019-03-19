@@ -14,24 +14,27 @@ public class User {
     private String name;
     private String userName;
     private String password;
-    private Role role;
+    private String modileNo;
+    private User users;
 
     public User() {
     }
 
-    public User(int id, String name, String userName, String password, Role role) {
+    public User(int id, String name, String userName, String password, String modileNo, User users) {
         this.id = id;
         this.name = name;
         this.userName = userName;
         this.password = password;
-        this.role = role;
+        this.modileNo = modileNo;
+        this.users = users;
     }
 
-    public User(String name, String userName, String password, Role role) {
+    public User(String name, String userName, String password, String modileNo, User users) {
         this.name = name;
         this.userName = userName;
         this.password = password;
-        this.role = role;
+        this.modileNo = modileNo;
+        this.users = users;
     }
 
     public int getId() {
@@ -50,9 +53,14 @@ public class User {
         return password;
     }
 
-    public Role getRole() {
-        return role;
+    public String getModileNo() {
+        return modileNo;
     }
+
+    public User getUsers() {
+        return users;
+    }
+
     
     
 }

@@ -19,6 +19,7 @@ private JFrame frame;
      */
     public HomePage() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -154,7 +155,7 @@ private JFrame frame;
         jPanel1.add(btnWF1);
         btnWF1.setBounds(20, 440, 230, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
 

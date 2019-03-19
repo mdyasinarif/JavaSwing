@@ -26,6 +26,7 @@ public class SavingAcPage extends javax.swing.JFrame {
      */
     public SavingAcPage() {
         initComponents();
+         setLocationRelativeTo(null);
         displaySavingsData();
         setLocationRelativeTo(null);
     }
@@ -455,7 +456,7 @@ public class SavingAcPage extends javax.swing.JFrame {
         jPanel1.add(btnSaveCA1);
         btnSaveCA1.setBounds(1070, 630, 100, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
 

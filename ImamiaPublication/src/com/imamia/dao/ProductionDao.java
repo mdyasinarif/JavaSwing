@@ -14,6 +14,7 @@ import java.util.List;
  * @author User
  */
 public interface ProductionDao {
+    void create();
     void save(Production pro);
     void update(Production pro);
     Production getProductionByIsbn(String isbn);
