@@ -19,6 +19,7 @@ private JFrame frame;
      */
     public WelfareFundAcPage() {
         initComponents();
+         setLocationRelativeTo(null);
     }
     
 
@@ -450,7 +451,7 @@ private JFrame frame;
         jPanel1.add(jTextFielduserName10);
         jTextFielduserName10.setBounds(760, 410, 270, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
 

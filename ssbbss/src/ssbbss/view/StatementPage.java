@@ -19,6 +19,7 @@ private JFrame frame;
      */
     public StatementPage() {
         initComponents();
+         setLocationRelativeTo(null);
     }
     
 
@@ -230,7 +231,7 @@ private JFrame frame;
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(270, 270, 910, 350);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
 

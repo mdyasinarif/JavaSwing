@@ -30,6 +30,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
      */
     public CreateInvestmentAccountPage1() {
         initComponents();
+         setLocationRelativeTo(null);
     }
 
     /**
@@ -783,7 +784,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jPanel1.add(btnIcExit);
         btnIcExit.setBounds(720, 630, 100, 30);
 
-        btnCiSave.setIcon(new javax.swing.ImageIcon("E:\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
+        btnCiSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(btnCiSave);
         btnCiSave.setBounds(0, 0, 1210, 670);
 

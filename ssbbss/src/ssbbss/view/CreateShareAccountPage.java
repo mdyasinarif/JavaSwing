@@ -26,6 +26,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
      */
     public CreateShareAccountPage() {
         initComponents();
+         setLocationRelativeTo(null);
     }
 
     /**
@@ -812,7 +813,7 @@ public class CreateShareAccountPage extends javax.swing.JFrame {
         jPanel1.add(btnExitCA2);
         btnExitCA2.setBounds(1060, 200, 110, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
 

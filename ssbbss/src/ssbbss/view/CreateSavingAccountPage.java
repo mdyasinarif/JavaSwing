@@ -32,6 +32,7 @@ private JFrame frame;
      */
     public CreateSavingAccountPage() {
         initComponents();
+         setLocationRelativeTo(null);
     }
     
 
@@ -830,7 +831,7 @@ private JFrame frame;
         jPanel1.add(lbpicname);
         lbpicname.setBounds(10, 654, 100, 10);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ssbbss/Image/background.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1210, 670);
 

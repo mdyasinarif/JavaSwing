@@ -5,7 +5,12 @@
  */
 package com.idb.evidence4;
 
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -71,9 +76,13 @@ public class StudentView extends javax.swing.JFrame {
 
         jLabel1.setText("ID :");
 
+        txtID.setText("0");
+
         jLabel2.setText("Name :");
 
         jLabel3.setText("Age :");
+
+        txtAge.setText("0");
 
         jLabel4.setText("Email :");
 
@@ -105,6 +114,11 @@ public class StudentView extends javax.swing.JFrame {
         });
 
         btnRead.setText("Read to File");
+        btnRead.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -262,15 +276,78 @@ public class StudentView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-       String id = "0",name="",age="0",email="",gender="",course="",round="",comment="";
-        if (Integer.parseInt(txtID.getText())<=3) {
-            JOptionPane.showMessageDialog(null, "ID At lest 3 Digit");
+    public static boolean emailValid(String email) {
+        int adpos = email.indexOf("@");
+        int dotpos = email.indexOf(".");
+        if (adpos > 1 || (dotpos-adpos)>2 ||dotpos<email.length()) {
+            return true;
         }
-        else {
+        return false;
+    }
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        String id = "0", name = "", age = "0", email = "", gender = "", course = "", round = "", comment = "";
+        if (Integer.parseInt(txtID.getText()) <= 3) {
+            JOptionPane.showMessageDialog(null, "ID At lest 3 Digit");
+        } else if (txtName.getText().length() <= 3) {
+            JOptionPane.showMessageDialog(null, "Name must be 3 Character");
+        } else if (Integer.parseInt(txtAge.getText()) <= 18 || Integer.parseInt(txtAge.getText()) >= 70) {
+            JOptionPane.showMessageDialog(null, "Enter Age between 18 to 70");
+        } else if (!emailValid(txtEmail.getText())) {
+            JOptionPane.showMessageDialog(null, "Invalid Email");
+        } else if (rMale.isSelected() == false && rFeMale.isSelected() == false) {
+            JOptionPane.showMessageDialog(null, "Gender Must be select");
+        } else if (cheHtml.isSelected() == false && cheJava.isSelected() == false) {
+            JOptionPane.showMessageDialog(null, "Cource must be Select");
+        } else if (comRound.getItemAt(comRound.getSelectedIndex()) == "Select A Round") {
+            JOptionPane.showMessageDialog(null, "Round must me selected");
+        } else if (txtComment.getText().length() <= 3) {
+            JOptionPane.showMessageDialog(null, "Comment must be 10 Character");
+        } else {
+            id = txtID.getText();
+            name = txtName.getText();
+            age = txtAge.getText();
+            email = txtEmail.getText();
+            gender = rMale.isSelected() ? "Male" : "Female";
+            course += cheHtml.getText();
+            course += cheJava.getText();
+            round = comRound.getItemAt(comRound.getSelectedIndex());
+            comment = txtComment.getText();
+
+            Student student = new Student(Integer.parseInt(id), name, Integer.parseInt(age), email, gender, course, round, comment);
+            List<Student> students = new ArrayList<>();
+            students.add(student);
+
+            DefaultTableModel model = (DefaultTableModel) tabDisplay.getModel();
+            Object[] col = new Object[8];
+            for (int i = 0; i < students.size(); i++) {
+                col[0] = students.get(i).getId();
+                col[1] = students.get(i).getName();
+                col[2] = students.get(i).getAge();
+                col[3] = students.get(i).getEmail();
+                col[4] = students.get(i).getGender();
+                col[5] = students.get(i).getCourse();
+                col[6] = students.get(i).getRound();
+                col[7] = students.get(i).getComment();
+                model.addRow(col);
+
+                try {
+                    Utile.writeToFile(JOptionPane.showInputDialog("Enter File Name"), students);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
         }
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tabDisplay.getModel();
+        try {
+            Utile.readToFile(JOptionPane.showInputDialog("Enter File Name"), model);
+        } catch (Exception e) {
+        }
+        
+    }//GEN-LAST:event_btnReadActionPerformed
 
     /**
      * @param args the command line arguments
