@@ -342,7 +342,7 @@ private JFrame frame;
         btnResetCA3.setBackground(new java.awt.Color(0, 102, 0));
         btnResetCA3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnResetCA3.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA3.setText("Submmit");
+        btnResetCA3.setText("Deposit");
         btnResetCA3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetCA3ActionPerformed(evt);
@@ -417,7 +417,7 @@ private JFrame frame;
         btnResetCA4.setBackground(new java.awt.Color(0, 102, 0));
         btnResetCA4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnResetCA4.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA4.setText("Submmit");
+        btnResetCA4.setText("Withdraw");
         btnResetCA4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetCA4ActionPerformed(evt);
@@ -514,7 +514,7 @@ private JFrame frame;
     }//GEN-LAST:event_btnWFActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
-        new CreateSavingAccountPage().setVisible(true);
+        new OpenSavingAccountPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCAActionPerformed
 

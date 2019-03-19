@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import ssbbss.DBOperation.CommonDAO;
 
 /**
  *
@@ -26,19 +27,11 @@ public class SavingAcPage extends javax.swing.JFrame {
     public SavingAcPage() {
         initComponents();
         displaySavingsData();
+        setLocationRelativeTo(null);
     }
     
     public void displaySavingsData() {
-        DefaultTableModel model = (DefaultTableModel) tblSavingsAC.getModel();
-        Object[] col = new Object[5];
-        for (int i = 0; i < col.length; i++) {
-            col[0] = "Ok";
-            col[1] = "PK";
-            col[2] = "Ok";
-            col[3] = "okk";
-            col[4] = "pppppp";
-        }
-        model.addRow(col);
+        
     }
 
     /**
@@ -69,7 +62,7 @@ public class SavingAcPage extends javax.swing.JFrame {
         txtAccountNo = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtAccountNo1 = new javax.swing.JTextField();
-        btnResetCA2 = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtSlipNo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -217,7 +210,7 @@ public class SavingAcPage extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Account No", "Slip NO", "Name", "Date", "Saving Type", "Deposit Amount", "Installment NO", "Total Deposit", "Cover Date", "Due"
+                "Account No", "Slip NO", "Name", "Date", "Deposit Amount", "Total Deposit", "Withdraw", "Balance", "Installment No", "Cover Date", "Due"
             }
         ));
         jScrollPane1.setViewportView(tblSavingsAC);
@@ -288,17 +281,17 @@ public class SavingAcPage extends javax.swing.JFrame {
         jPanel1.add(txtAccountNo1);
         txtAccountNo1.setBounds(810, 210, 220, 40);
 
-        btnResetCA2.setBackground(new java.awt.Color(0, 102, 0));
-        btnResetCA2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnResetCA2.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA2.setText("Search");
-        btnResetCA2.addActionListener(new java.awt.event.ActionListener() {
+        btnSearch.setBackground(new java.awt.Color(0, 102, 0));
+        btnSearch.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetCA2ActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
-        jPanel1.add(btnResetCA2);
-        btnResetCA2.setBounds(1050, 210, 120, 40);
+        jPanel1.add(btnSearch);
+        btnSearch.setBounds(1050, 210, 120, 40);
 
         jLabel6.setBackground(new java.awt.Color(153, 255, 0));
         jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -366,7 +359,7 @@ public class SavingAcPage extends javax.swing.JFrame {
         btnResetCA3.setBackground(new java.awt.Color(0, 102, 0));
         btnResetCA3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnResetCA3.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA3.setText("Submmit");
+        btnResetCA3.setText("Deposit");
         btnResetCA3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetCA3ActionPerformed(evt);
@@ -378,7 +371,7 @@ public class SavingAcPage extends javax.swing.JFrame {
         btnResetCA4.setBackground(new java.awt.Color(0, 102, 0));
         btnResetCA4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnResetCA4.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA4.setText("Submmit");
+        btnResetCA4.setText("Withdraw");
         btnResetCA4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetCA4ActionPerformed(evt);
@@ -516,7 +509,7 @@ public class SavingAcPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitCA1ActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
-        new CreateSavingAccountPage().setVisible(true);
+        new OpenSavingAccountPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCAActionPerformed
 
@@ -551,9 +544,10 @@ public class SavingAcPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAccountNo1ActionPerformed
 
-    private void btnResetCA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCA2ActionPerformed
-
-    }//GEN-LAST:event_btnResetCA2ActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+            
+        
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     private void txtSlipNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSlipNoActionPerformed
         // TODO add your handling code here:
@@ -638,13 +632,13 @@ public class SavingAcPage extends javax.swing.JFrame {
     private javax.swing.JButton btnExitCA1;
     private javax.swing.JButton btnIA;
     private javax.swing.JButton btnResetCA;
-    private javax.swing.JButton btnResetCA2;
     private javax.swing.JButton btnResetCA3;
     private javax.swing.JButton btnResetCA4;
     private javax.swing.JButton btnSA;
     private javax.swing.JButton btnSHA;
     private javax.swing.JButton btnSaveCA;
     private javax.swing.JButton btnSaveCA1;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnWF;
     private javax.swing.JButton btnWF1;
     private javax.swing.JLabel jLabel1;

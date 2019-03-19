@@ -235,14 +235,14 @@ private JFrame frame;
         btnResetCA3.setBackground(new java.awt.Color(0, 102, 0));
         btnResetCA3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnResetCA3.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA3.setText("Submmit");
+        btnResetCA3.setText("Investment");
         btnResetCA3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetCA3ActionPerformed(evt);
             }
         });
         jPanel1.add(btnResetCA3);
-        btnResetCA3.setBounds(1050, 260, 120, 40);
+        btnResetCA3.setBounds(1030, 260, 140, 40);
 
         iacDAmount.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iacDAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -253,7 +253,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(iacDAmount);
-        iacDAmount.setBounds(880, 260, 160, 40);
+        iacDAmount.setBounds(880, 260, 140, 40);
 
         iacDepositDate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iacDepositDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -280,7 +280,7 @@ private JFrame frame;
         jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Deposit Date");
+        jLabel5.setText("Inv Date");
         jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel5);
@@ -332,7 +332,7 @@ private JFrame frame;
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 153, 0));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Withdraw  Date");
+        jLabel11.setText(" Date");
         jLabel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel11);
@@ -368,19 +368,19 @@ private JFrame frame;
             }
         });
         jPanel1.add(iacWAmount);
-        iacWAmount.setBounds(880, 310, 160, 40);
+        iacWAmount.setBounds(880, 310, 140, 40);
 
         btnResetCA4.setBackground(new java.awt.Color(0, 102, 0));
         btnResetCA4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnResetCA4.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA4.setText("Submmit");
+        btnResetCA4.setText("Installment ");
         btnResetCA4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetCA4ActionPerformed(evt);
             }
         });
         jPanel1.add(btnResetCA4);
-        btnResetCA4.setBounds(1050, 310, 120, 40);
+        btnResetCA4.setBounds(1030, 310, 140, 40);
 
         tblInvestmentA.setBackground(new java.awt.Color(204, 255, 204));
         tblInvestmentA.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -470,7 +470,7 @@ private JFrame frame;
     }//GEN-LAST:event_btnWFActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
-        new CreateSavingAccountPage().setVisible(true);
+        new OpenSavingAccountPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCAActionPerformed
 

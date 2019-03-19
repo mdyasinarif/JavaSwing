@@ -228,7 +228,7 @@ private JFrame frame;
         jScrollPane1.setViewportView(tblSavings);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(270, 270, 910, 350);
+        jScrollPane1.setBounds(270, 420, 910, 200);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Git\\JavaSwing\\ssbbss\\src\\ssbbss\\Image\\background.png")); // NOI18N
         jPanel1.add(jLabel1);
@@ -264,7 +264,7 @@ private JFrame frame;
     }//GEN-LAST:event_btnExitCA1ActionPerformed
 
     private void btnCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCAActionPerformed
-       new CreateSavingAccountPage().setVisible(true);
+       new OpenSavingAccountPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCAActionPerformed
 

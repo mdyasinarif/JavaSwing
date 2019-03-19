@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
--- Host: localhost    Database: dbssbbss
+-- Host: localhost    Database: imamiapublication
 -- ------------------------------------------------------
 -- Server version	8.0.15
 
@@ -16,27 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `login`
+-- Table structure for table `sales`
 --
 
-DROP TABLE IF EXISTS `login`;
+DROP TABLE IF EXISTS `sales`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `login` (
-  `Name` varchar(45) NOT NULL,
-  `Password` varchar(45) NOT NULL,
-  PRIMARY KEY (`Name`)
+CREATE TABLE `sales` (
+  `Id` int(11) NOT NULL,
+  `Date` date DEFAULT NULL,
+  `Branch` varchar(45) DEFAULT NULL,
+  `Book Name` varchar(45) DEFAULT NULL,
+  `Book code` varchar(45) DEFAULT NULL,
+  `Writter Name` varchar(45) DEFAULT NULL,
+  `Total Cost` double DEFAULT NULL,
+  `Total Quantity` int(11) DEFAULT NULL,
+  `Total Amount` double DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `Id_UNIQUE` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `login`
+-- Dumping data for table `sales`
 --
 
-LOCK TABLES `login` WRITE;
-/*!40000 ALTER TABLE `login` DISABLE KEYS */;
-INSERT INTO `login` VALUES ('aaa','111');
-/*!40000 ALTER TABLE `login` ENABLE KEYS */;
+LOCK TABLES `sales` WRITE;
+/*!40000 ALTER TABLE `sales` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sales` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-13 15:08:33
+-- Dump completed on 2019-03-16 18:55:27

@@ -13,22 +13,22 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import ssbbss.DBOperation.CommonDAO;
-import ssbbss.DBOperation.CreateInvestmentCop;
+import ssbbss.DBOperation.OpenInvestmentCop;
 import ssbbss.DBOperation.DBConnection;
-import ssbbss.domain.CreateInvestment;
+import ssbbss.domain.OpenInvestment;
 
 /**
  *
  * @author Md Yasin Arif
  */
-public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
+public class OpenInvestmentAccountPage1 extends javax.swing.JFrame {
 
     private JFrame frame;
 
     /**
      * Creates new form LoginPage
      */
-    public CreateInvestmentAccountPage1() {
+    public OpenInvestmentAccountPage1() {
         initComponents();
     }
 
@@ -48,6 +48,8 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
+        lblinvPic1 = new javax.swing.JLabel();
+        lblinvPic = new javax.swing.JLabel();
         btnSaveCA = new javax.swing.JButton();
         btnWF = new javax.swing.JButton();
         btnIcReset = new javax.swing.JButton();
@@ -73,20 +75,8 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT15 = new javax.swing.JLabel();
         iFromNO = new javax.swing.JTextField();
         AccountType2 = new javax.swing.JComboBox<>();
-        jLabelACT17 = new javax.swing.JLabel();
-        jLabelACT18 = new javax.swing.JLabel();
-        iPresentAddressPS = new javax.swing.JTextField();
-        iPresentAddressPO = new javax.swing.JTextField();
-        jLabelACT19 = new javax.swing.JLabel();
-        iPresentAddressD = new javax.swing.JTextField();
         jLabelACT20 = new javax.swing.JLabel();
         iParmanetAddress = new javax.swing.JTextField();
-        jLabelACT21 = new javax.swing.JLabel();
-        iParmanetAddressPO = new javax.swing.JTextField();
-        jLabelACT22 = new javax.swing.JLabel();
-        iParmanetAddressPS = new javax.swing.JTextField();
-        jLabelACT23 = new javax.swing.JLabel();
-        iParmanetAddressD = new javax.swing.JTextField();
         iAccountNo = new javax.swing.JTextField();
         jLabelACT25 = new javax.swing.JLabel();
         btnWF1 = new javax.swing.JButton();
@@ -127,6 +117,14 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
+
+        lblinvPic1.setText("from");
+        jPanel1.add(lblinvPic1);
+        lblinvPic1.setBounds(430, 210, 90, 80);
+
+        lblinvPic.setText("pic");
+        jPanel1.add(lblinvPic);
+        lblinvPic.setBounds(290, 210, 90, 80);
 
         btnSaveCA.setBackground(new java.awt.Color(0, 102, 0));
         btnSaveCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -174,7 +172,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnIcSearch);
-        btnIcSearch.setBounds(1050, 210, 110, 30);
+        btnIcSearch.setBounds(1050, 300, 110, 30);
 
         btnCA.setBackground(new java.awt.Color(0, 102, 0));
         btnCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -237,7 +235,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT);
-        jLabelACT.setBounds(830, 250, 170, 30);
+        jLabelACT.setBounds(830, 340, 170, 30);
 
         iStartDate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iStartDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -248,7 +246,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iStartDate);
-        iStartDate.setBounds(1010, 250, 160, 30);
+        iStartDate.setBounds(1010, 340, 160, 30);
 
         iProjectName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iProjectName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -259,7 +257,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iProjectName);
-        iProjectName.setBounds(490, 250, 330, 30);
+        iProjectName.setBounds(490, 340, 330, 30);
 
         iFatherHusbendName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iFatherHusbendName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -270,7 +268,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iFatherHusbendName);
-        iFatherHusbendName.setBounds(490, 370, 330, 30);
+        iFatherHusbendName.setBounds(490, 460, 330, 30);
 
         jLabelACT5.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -280,7 +278,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT5);
-        jLabelACT5.setBounds(280, 290, 200, 30);
+        jLabelACT5.setBounds(280, 380, 200, 30);
 
         iProjectLocation.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iProjectLocation.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -291,7 +289,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iProjectLocation);
-        iProjectLocation.setBounds(490, 290, 330, 30);
+        iProjectLocation.setBounds(490, 380, 330, 30);
 
         jLabelACT6.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -301,7 +299,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT6);
-        jLabelACT6.setBounds(830, 370, 170, 30);
+        jLabelACT6.setBounds(830, 460, 170, 30);
 
         iNID.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iNID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -312,7 +310,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iNID);
-        iNID.setBounds(1010, 370, 160, 30);
+        iNID.setBounds(1010, 460, 160, 30);
 
         jLabelACT7.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -322,7 +320,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT7);
-        jLabelACT7.setBounds(280, 450, 200, 30);
+        jLabelACT7.setBounds(280, 540, 200, 30);
 
         iPresentAddress.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iPresentAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -333,7 +331,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iPresentAddress);
-        iPresentAddress.setBounds(490, 450, 330, 30);
+        iPresentAddress.setBounds(490, 540, 680, 30);
 
         jLabelACT13.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -343,7 +341,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT13);
-        jLabelACT13.setBounds(780, 210, 100, 30);
+        jLabelACT13.setBounds(780, 300, 100, 30);
 
         iCardNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iCardNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -354,7 +352,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iCardNo);
-        iCardNo.setBounds(890, 210, 150, 30);
+        iCardNo.setBounds(890, 300, 150, 30);
 
         jLabelACT14.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -364,7 +362,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT14);
-        jLabelACT14.setBounds(830, 290, 170, 30);
+        jLabelACT14.setBounds(830, 380, 170, 30);
 
         iInvestedAmount.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iInvestedAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -375,7 +373,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iInvestedAmount);
-        iInvestedAmount.setBounds(1010, 290, 160, 30);
+        iInvestedAmount.setBounds(1010, 380, 160, 30);
 
         jLabelACT15.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -385,7 +383,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT15);
-        jLabelACT15.setBounds(560, 210, 100, 30);
+        jLabelACT15.setBounds(560, 300, 100, 30);
 
         iFromNO.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iFromNO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -396,7 +394,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iFromNO);
-        iFromNO.setBounds(670, 210, 90, 30);
+        iFromNO.setBounds(670, 300, 90, 30);
 
         AccountType2.setBackground(new java.awt.Color(53, 255, 0));
         AccountType2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -404,70 +402,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         AccountType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Father's Name", "Husbend's Name" }));
         AccountType2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(AccountType2);
-        AccountType2.setBounds(280, 370, 200, 30);
-
-        jLabelACT17.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT17.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT17.setText("Post Office");
-        jLabelACT17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT17);
-        jLabelACT17.setBounds(830, 450, 170, 30);
-
-        jLabelACT18.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT18.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT18.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT18.setText("Police Station");
-        jLabelACT18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT18);
-        jLabelACT18.setBounds(440, 490, 180, 30);
-
-        iPresentAddressPS.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        iPresentAddressPS.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        iPresentAddressPS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        iPresentAddressPS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iPresentAddressPSActionPerformed(evt);
-            }
-        });
-        jPanel1.add(iPresentAddressPS);
-        iPresentAddressPS.setBounds(630, 490, 190, 30);
-
-        iPresentAddressPO.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        iPresentAddressPO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        iPresentAddressPO.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        iPresentAddressPO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iPresentAddressPOActionPerformed(evt);
-            }
-        });
-        jPanel1.add(iPresentAddressPO);
-        iPresentAddressPO.setBounds(1010, 450, 160, 30);
-
-        jLabelACT19.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT19.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT19.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT19.setText("District");
-        jLabelACT19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT19);
-        jLabelACT19.setBounds(830, 490, 170, 30);
-
-        iPresentAddressD.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        iPresentAddressD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        iPresentAddressD.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        iPresentAddressD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iPresentAddressDActionPerformed(evt);
-            }
-        });
-        jPanel1.add(iPresentAddressD);
-        iPresentAddressD.setBounds(1010, 490, 160, 30);
+        AccountType2.setBounds(280, 460, 200, 30);
 
         jLabelACT20.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT20.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -477,7 +412,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT20);
-        jLabelACT20.setBounds(280, 530, 200, 30);
+        jLabelACT20.setBounds(280, 590, 200, 30);
 
         iParmanetAddress.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iParmanetAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -488,70 +423,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iParmanetAddress);
-        iParmanetAddress.setBounds(490, 530, 330, 30);
-
-        jLabelACT21.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT21.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT21.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT21.setText("Post Office");
-        jLabelACT21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT21);
-        jLabelACT21.setBounds(830, 530, 170, 30);
-
-        iParmanetAddressPO.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        iParmanetAddressPO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        iParmanetAddressPO.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        iParmanetAddressPO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iParmanetAddressPOActionPerformed(evt);
-            }
-        });
-        jPanel1.add(iParmanetAddressPO);
-        iParmanetAddressPO.setBounds(1010, 530, 160, 30);
-
-        jLabelACT22.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT22.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT22.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT22.setText("Police Station");
-        jLabelACT22.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT22);
-        jLabelACT22.setBounds(440, 570, 180, 30);
-
-        iParmanetAddressPS.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        iParmanetAddressPS.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        iParmanetAddressPS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        iParmanetAddressPS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iParmanetAddressPSActionPerformed(evt);
-            }
-        });
-        jPanel1.add(iParmanetAddressPS);
-        iParmanetAddressPS.setBounds(630, 570, 190, 30);
-
-        jLabelACT23.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT23.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT23.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT23.setText("District");
-        jLabelACT23.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT23);
-        jLabelACT23.setBounds(830, 570, 170, 30);
-
-        iParmanetAddressD.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        iParmanetAddressD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        iParmanetAddressD.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        iParmanetAddressD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iParmanetAddressDActionPerformed(evt);
-            }
-        });
-        jPanel1.add(iParmanetAddressD);
-        iParmanetAddressD.setBounds(1010, 570, 160, 30);
+        iParmanetAddress.setBounds(490, 590, 680, 30);
 
         iAccountNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iAccountNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -562,7 +434,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iAccountNo);
-        iAccountNo.setBounds(430, 210, 120, 30);
+        iAccountNo.setBounds(430, 300, 120, 30);
 
         jLabelACT25.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT25.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -572,7 +444,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT25);
-        jLabelACT25.setBounds(280, 210, 140, 30);
+        jLabelACT25.setBounds(280, 300, 140, 30);
 
         btnWF1.setBackground(new java.awt.Color(0, 102, 0));
         btnWF1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -590,13 +462,13 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jProgressBar1.setForeground(new java.awt.Color(0, 153, 51));
         jProgressBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jProgressBar1);
-        jProgressBar1.setBounds(500, 640, 200, 20);
+        jProgressBar1.setBounds(910, 220, 200, 20);
 
         jProgressBar2.setBackground(new java.awt.Color(204, 255, 204));
         jProgressBar2.setForeground(new java.awt.Color(0, 153, 51));
         jProgressBar2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jProgressBar2);
-        jProgressBar2.setBounds(280, 640, 190, 20);
+        jProgressBar2.setBounds(690, 220, 190, 20);
 
         btnIcUpdate.setBackground(new java.awt.Color(0, 102, 0));
         btnIcUpdate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -620,7 +492,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSaveCA3);
-        btnSaveCA3.setBounds(500, 600, 200, 30);
+        btnSaveCA3.setBounds(910, 250, 200, 30);
 
         btnSaveCA4.setBackground(new java.awt.Color(0, 102, 0));
         btnSaveCA4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -642,7 +514,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT10);
-        jLabelACT10.setBounds(280, 250, 200, 30);
+        jLabelACT10.setBounds(280, 340, 200, 30);
 
         jLabelACT27.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT27.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -652,7 +524,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT27.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT27.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT27);
-        jLabelACT27.setBounds(280, 330, 200, 30);
+        jLabelACT27.setBounds(280, 420, 200, 30);
 
         iName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -663,7 +535,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iName);
-        iName.setBounds(490, 330, 330, 30);
+        iName.setBounds(490, 420, 330, 30);
 
         jLabelACT26.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT26.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -673,7 +545,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT26.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT26.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT26);
-        jLabelACT26.setBounds(830, 330, 170, 30);
+        jLabelACT26.setBounds(830, 420, 170, 30);
 
         iProjectDuration.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iProjectDuration.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -684,7 +556,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iProjectDuration);
-        iProjectDuration.setBounds(1010, 330, 160, 30);
+        iProjectDuration.setBounds(1010, 420, 160, 30);
 
         jLabelACT28.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT28.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -694,7 +566,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT28.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT28.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT28);
-        jLabelACT28.setBounds(280, 410, 200, 30);
+        jLabelACT28.setBounds(280, 500, 200, 30);
 
         iMotherName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iMotherName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -705,7 +577,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iMotherName);
-        iMotherName.setBounds(490, 410, 330, 30);
+        iMotherName.setBounds(490, 500, 330, 30);
 
         jLabelACT29.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT29.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -715,7 +587,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabelACT29.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT29);
-        jLabelACT29.setBounds(830, 410, 170, 30);
+        jLabelACT29.setBounds(830, 500, 170, 30);
 
         iMobilNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         iMobilNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -726,7 +598,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(iMobilNo);
-        iMobilNo.setBounds(1010, 410, 160, 30);
+        iMobilNo.setBounds(1010, 500, 160, 30);
 
         btnSaveCA5.setBackground(new java.awt.Color(0, 102, 0));
         btnSaveCA5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -750,7 +622,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSaveCA6);
-        btnSaveCA6.setBounds(280, 600, 190, 30);
+        btnSaveCA6.setBounds(690, 250, 190, 30);
 
         btnIcSave.setBackground(new java.awt.Color(0, 102, 0));
         btnIcSave.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -767,7 +639,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(0, 102, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel2.setText("Create Investment A/C");
+        jLabel2.setText("Open Investment A/C");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(300, 164, 310, 30);
 
@@ -825,11 +697,11 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIcResetActionPerformed
 
     private void btnIcSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIcSearchActionPerformed
-        CommonDAO obj = new CreateInvestmentCop();
+        CommonDAO obj = new OpenInvestmentCop();
         if (iAccountNo.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Enter an Account NO  ");
         } else {
-            CreateInvestment ci = obj.getByAccountNo(Integer.parseInt(iAccountNo.getText()));
+            OpenInvestment ci = obj.getByAccountNo(Integer.parseInt(iAccountNo.getText()));
             
             //iAccountNo.setText(ci.getAccountNo());
             iFromNO.setText(ci.getFromNO());
@@ -904,33 +776,9 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_iFromNOActionPerformed
 
-    private void iPresentAddressPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iPresentAddressPOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iPresentAddressPOActionPerformed
-
-    private void iPresentAddressPSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iPresentAddressPSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iPresentAddressPSActionPerformed
-
-    private void iPresentAddressDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iPresentAddressDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iPresentAddressDActionPerformed
-
     private void iParmanetAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iParmanetAddressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_iParmanetAddressActionPerformed
-
-    private void iParmanetAddressPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iParmanetAddressPOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iParmanetAddressPOActionPerformed
-
-    private void iParmanetAddressPSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iParmanetAddressPSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iParmanetAddressPSActionPerformed
-
-    private void iParmanetAddressDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iParmanetAddressDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iParmanetAddressDActionPerformed
 
     private void iAccountNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iAccountNoActionPerformed
         // TODO add your handling code here:
@@ -955,27 +803,23 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         String Name = iName.getText();
         String MotherName = iMotherName.getText();
         String FatherHusbendName = iFatherHusbendName.getText();
-        String PresentAddress = iPresentAddress.getText() + " " + iPresentAddressPO.getText() + " " + iPresentAddressPS.getText() + " " + iPresentAddressD.getText();
-        String ParmanetAddress = iParmanetAddress.getText() + " " + iParmanetAddressPO.getText() + " " + iParmanetAddressPS.getText() + " " + iParmanetAddressD.getText();
+        String PresentAddress = iPresentAddress.getText() ;
+        String ParmanetAddress = iParmanetAddress.getText();
         String StartDate = iStartDate.getText();
         String InvestedAmount = iInvestedAmount.getText();
         String ProjectDuration = iProjectDuration.getText();
         String NIDNo = iNID.getText();
         String MobileNo = iMobilNo.getText();
 
-        CreateInvestment ci = new CreateInvestment(AccountNo, FromNO, CardNo, ProjectName, ProjectLocation, Name, MotherName, FatherHusbendName, PresentAddress, ParmanetAddress, StartDate, InvestedAmount, ProjectDuration, NIDNo, MobileNo);
-        CreateInvestmentCop co = new CreateInvestmentCop();
+        OpenInvestment ci = new OpenInvestment(AccountNo, FromNO, CardNo, ProjectName, ProjectLocation, Name, MotherName, FatherHusbendName, PresentAddress, ParmanetAddress, StartDate, InvestedAmount, ProjectDuration, NIDNo, MobileNo);
+        OpenInvestmentCop co = new OpenInvestmentCop();
         co.update(ci);
         
 
     }//GEN-LAST:event_btnIcUpdateActionPerformed
 
-    private void btnSaveCA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSaveCA3ActionPerformed
-
     private void btnSaveCA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA4ActionPerformed
-        new CreateShareAccountPage().setVisible(true);
+        new OpenShareAccountPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnSaveCA4ActionPerformed
 
@@ -996,7 +840,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
     }//GEN-LAST:event_iMobilNoActionPerformed
 
     private void btnSaveCA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA5ActionPerformed
-        new CreateSavingAccountPage().setVisible(true);
+        new OpenSavingAccountPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnSaveCA5ActionPerformed
 
@@ -1017,8 +861,8 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         String Name = iName.getText();
         String MotherName = iMotherName.getText();
         String FatherHusbendName = iFatherHusbendName.getText();
-        String PresentAddress = iPresentAddress.getText() + " " + iPresentAddressPO.getText() + " " + iPresentAddressPS.getText() + " " + iPresentAddressD.getText();
-        String ParmanetAddress = iParmanetAddress.getText() + " " + iParmanetAddressPO.getText() + " " + iParmanetAddressPS.getText() + " " + iParmanetAddressD.getText();
+        String PresentAddress = iPresentAddress.getText() ;
+        String ParmanetAddress = iParmanetAddress.getText();
         String StartDate = iStartDate .getText();
         String InvestedAmount = iInvestedAmount.getText();
         String ProjectDuration = iProjectDuration.getText();
@@ -1059,6 +903,10 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnIcSaveActionPerformed
 
+    private void btnSaveCA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveCA3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1076,14 +924,46 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateInvestmentAccountPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpenInvestmentAccountPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateInvestmentAccountPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpenInvestmentAccountPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateInvestmentAccountPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpenInvestmentAccountPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateInvestmentAccountPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpenInvestmentAccountPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1120,7 +1000,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateInvestmentAccountPage1().setVisible(true);
+                new OpenInvestmentAccountPage1().setVisible(true);
             }
         });
     }
@@ -1154,13 +1034,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
     private javax.swing.JTextField iNID;
     private javax.swing.JTextField iName;
     private javax.swing.JTextField iParmanetAddress;
-    private javax.swing.JTextField iParmanetAddressD;
-    private javax.swing.JTextField iParmanetAddressPO;
-    private javax.swing.JTextField iParmanetAddressPS;
     private javax.swing.JTextField iPresentAddress;
-    private javax.swing.JTextField iPresentAddressD;
-    private javax.swing.JTextField iPresentAddressPO;
-    private javax.swing.JTextField iPresentAddressPS;
     private javax.swing.JTextField iProjectDuration;
     private javax.swing.JTextField iProjectLocation;
     private javax.swing.JTextField iProjectName;
@@ -1171,13 +1045,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelACT13;
     private javax.swing.JLabel jLabelACT14;
     private javax.swing.JLabel jLabelACT15;
-    private javax.swing.JLabel jLabelACT17;
-    private javax.swing.JLabel jLabelACT18;
-    private javax.swing.JLabel jLabelACT19;
     private javax.swing.JLabel jLabelACT20;
-    private javax.swing.JLabel jLabelACT21;
-    private javax.swing.JLabel jLabelACT22;
-    private javax.swing.JLabel jLabelACT23;
     private javax.swing.JLabel jLabelACT25;
     private javax.swing.JLabel jLabelACT26;
     private javax.swing.JLabel jLabelACT27;
@@ -1196,5 +1064,7 @@ public class CreateInvestmentAccountPage1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JProgressBar jProgressBar2;
+    private javax.swing.JLabel lblinvPic;
+    private javax.swing.JLabel lblinvPic1;
     // End of variables declaration//GEN-END:variables
 }

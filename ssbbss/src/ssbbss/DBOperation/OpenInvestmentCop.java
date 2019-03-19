@@ -14,17 +14,17 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import ssbbss.domain.CreateInvestment;
+import ssbbss.domain.OpenInvestment;
 
 /**
  *
  * @author User
  */
-public class CreateInvestmentCop implements CommonDAO {
+public class OpenInvestmentCop implements InvestmentDAO {
 
     Connection con = DBConnection.getDBConection();
 
-    public void save(CreateInvestment ci) {
+    public void save(OpenInvestment ci) {
         Connection con = null;
         PreparedStatement pst = null;
 
@@ -65,7 +65,7 @@ public class CreateInvestmentCop implements CommonDAO {
     }
 
     @Override
-    public void update(CreateInvestment ci) {
+    public void update(OpenInvestment ci) {
         Connection con = null;
         PreparedStatement pst = null;
 
@@ -106,7 +106,7 @@ public class CreateInvestmentCop implements CommonDAO {
     }
 
     @Override
-    public void delete(CreateInvestment ci) {
+    public void delete(OpenInvestment ci) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -116,16 +116,16 @@ public class CreateInvestmentCop implements CommonDAO {
     }
 
     @Override
-    public CreateInvestment getByAccountNo(int AccountNo) {
+    public OpenInvestment getByAccountNo(int AccountNo) {
 
         String sql = "SELECT * FROM investmentinfo where AccountNo=?";
-        CreateInvestment ci = null;
+        OpenInvestment ci = null;
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, AccountNo);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                ci = new CreateInvestment();
+                ci = new OpenInvestment();
                 ci.setAccountNo(rs.getInt(1));
                 ci.setFromNO(rs.getString(2));
                 ci.setCardNo(rs.getString(3));
@@ -152,7 +152,7 @@ public class CreateInvestmentCop implements CommonDAO {
     }
 
     @Override
-    public List<CreateInvestment> findAll() {
+    public List<OpenInvestment> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

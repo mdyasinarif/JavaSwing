@@ -9,7 +9,7 @@ package ssbbss.domain;
  *
  * @author User
  */
-public class CreateInvestment {
+public class OpenInvestment {
 
     int AccountNo;
     String FromNO;
@@ -27,10 +27,10 @@ public class CreateInvestment {
     String NIDNo;
     String MobileNo;
 
-    public CreateInvestment() {
+    public OpenInvestment() {
     }
 
-    public CreateInvestment(int AccountNo, String FromNO, String CardNo, String ProjectName, String ProjectLocation, String Name, String MotherName, String FatherHusbendName, String PresentAddress, String ParmanetAddress, String StartDate, String InvestedAmount, String ProjectDuration, String NIDNo, String MobileNo) {
+    public OpenInvestment(int AccountNo, String FromNO, String CardNo, String ProjectName, String ProjectLocation, String Name, String MotherName, String FatherHusbendName, String PresentAddress, String ParmanetAddress, String StartDate, String InvestedAmount, String ProjectDuration, String NIDNo, String MobileNo) {
         this.AccountNo = AccountNo;
         this.FromNO = FromNO;
         this.CardNo = CardNo;

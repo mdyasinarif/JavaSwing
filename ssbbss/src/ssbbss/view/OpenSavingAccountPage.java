@@ -17,12 +17,15 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import ssbbss.DBOperation.CommonDAO;
+import ssbbss.DBOperation.OpenInvestmentCop;
+import ssbbss.domain.OpenSavingAccount;
 
 /**
  *
  * @author Md Yasin Arif
  */
-public class CreateSavingAccountPage extends javax.swing.JFrame {
+public class OpenSavingAccountPage extends javax.swing.JFrame {
 private JFrame frame;
  String filename = null;
  byte []photo=null;
@@ -30,8 +33,9 @@ private JFrame frame;
     /**
      * Creates new form LoginPage
      */
-    public CreateSavingAccountPage() {
+    public OpenSavingAccountPage() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
 
@@ -51,6 +55,12 @@ private JFrame frame;
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
+        lblinvPic = new javax.swing.JLabel();
+        lblinvPic1 = new javax.swing.JLabel();
+        jProgressBar2 = new javax.swing.JProgressBar();
+        btnSaveCA6 = new javax.swing.JButton();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        btnSaveCA7 = new javax.swing.JButton();
         btnSaveCA = new javax.swing.JButton();
         btnWF = new javax.swing.JButton();
         btnResetCA = new javax.swing.JButton();
@@ -86,34 +96,18 @@ private JFrame frame;
         sFromNO = new javax.swing.JTextField();
         jLabelACT16 = new javax.swing.JLabel();
         AccountType2 = new javax.swing.JComboBox<>();
-        jLabelACT17 = new javax.swing.JLabel();
-        jLabelACT18 = new javax.swing.JLabel();
-        sPresentAddressPS = new javax.swing.JTextField();
-        sPresentAddressPO = new javax.swing.JTextField();
-        jLabelACT19 = new javax.swing.JLabel();
-        sPresentAddressD = new javax.swing.JTextField();
         jLabelACT20 = new javax.swing.JLabel();
         sParmanetAddress = new javax.swing.JTextField();
-        jLabelACT21 = new javax.swing.JLabel();
-        sParmanetAddressPO = new javax.swing.JTextField();
-        jLabelACT22 = new javax.swing.JLabel();
-        sParmanetAddressPS = new javax.swing.JTextField();
-        jLabelACT23 = new javax.swing.JLabel();
-        sParmanetAddressD = new javax.swing.JTextField();
         jLabelACT24 = new javax.swing.JLabel();
         sShare = new javax.swing.JTextField();
         sAccountNo = new javax.swing.JTextField();
         jLabelACT25 = new javax.swing.JLabel();
         btnWF1 = new javax.swing.JButton();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jProgressBar2 = new javax.swing.JProgressBar();
         btnSaveCA1 = new javax.swing.JButton();
         btnSaveCA3 = new javax.swing.JButton();
         btnSaveCA4 = new javax.swing.JButton();
         jLabelACT10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnSaveCA6 = new javax.swing.JButton();
-        btnSaveCA5 = new javax.swing.JButton();
         btnExitCA2 = new javax.swing.JButton();
         lbfrom1 = new javax.swing.JLabel();
         lbpic = new javax.swing.JLabel();
@@ -136,6 +130,50 @@ private JFrame frame;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
+
+        lblinvPic.setText("pic");
+        jPanel1.add(lblinvPic);
+        lblinvPic.setBounds(290, 210, 90, 80);
+
+        lblinvPic1.setText("from");
+        jPanel1.add(lblinvPic1);
+        lblinvPic1.setBounds(430, 210, 90, 80);
+
+        jProgressBar2.setBackground(new java.awt.Color(204, 255, 204));
+        jProgressBar2.setForeground(new java.awt.Color(0, 153, 51));
+        jProgressBar2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jProgressBar2);
+        jProgressBar2.setBounds(690, 220, 190, 20);
+
+        btnSaveCA6.setBackground(new java.awt.Color(0, 102, 0));
+        btnSaveCA6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSaveCA6.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaveCA6.setText("Upload Picture");
+        btnSaveCA6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveCA6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSaveCA6);
+        btnSaveCA6.setBounds(690, 250, 190, 30);
+
+        jProgressBar1.setBackground(new java.awt.Color(204, 255, 204));
+        jProgressBar1.setForeground(new java.awt.Color(0, 153, 51));
+        jProgressBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jProgressBar1);
+        jProgressBar1.setBounds(910, 220, 200, 20);
+
+        btnSaveCA7.setBackground(new java.awt.Color(0, 102, 0));
+        btnSaveCA7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSaveCA7.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaveCA7.setText("Upload From");
+        btnSaveCA7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveCA7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSaveCA7);
+        btnSaveCA7.setBounds(910, 250, 200, 30);
 
         btnSaveCA.setBackground(new java.awt.Color(0, 102, 0));
         btnSaveCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -246,7 +284,7 @@ private JFrame frame;
         jLabelACT.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT);
-        jLabelACT.setBounds(830, 240, 170, 30);
+        jLabelACT.setBounds(820, 340, 170, 30);
 
         sSavingType.setBackground(new java.awt.Color(53, 255, 0));
         sSavingType.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -254,7 +292,7 @@ private JFrame frame;
         sSavingType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Weekly", "Monthly", "Share" }));
         sSavingType.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(sSavingType);
-        sSavingType.setBounds(490, 520, 110, 30);
+        sSavingType.setBounds(480, 540, 110, 30);
 
         sDateofBirth.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sDateofBirth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -265,7 +303,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sDateofBirth);
-        sDateofBirth.setBounds(1010, 240, 160, 30);
+        sDateofBirth.setBounds(1000, 340, 160, 30);
 
         sName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -276,7 +314,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sName);
-        sName.setBounds(490, 240, 330, 30);
+        sName.setBounds(480, 340, 330, 30);
 
         sFatherHusbendName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sFatherHusbendName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -287,7 +325,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sFatherHusbendName);
-        sFatherHusbendName.setBounds(490, 320, 330, 30);
+        sFatherHusbendName.setBounds(480, 420, 330, 30);
 
         jLabelACT4.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -297,7 +335,7 @@ private JFrame frame;
         jLabelACT4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT4);
-        jLabelACT4.setBounds(870, 520, 130, 30);
+        jLabelACT4.setBounds(860, 540, 130, 30);
 
         sMobilNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sMobilNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -308,7 +346,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sMobilNo);
-        sMobilNo.setBounds(1010, 520, 160, 30);
+        sMobilNo.setBounds(1000, 540, 160, 30);
 
         jLabelACT5.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -318,7 +356,7 @@ private JFrame frame;
         jLabelACT5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT5);
-        jLabelACT5.setBounds(280, 280, 200, 30);
+        jLabelACT5.setBounds(270, 380, 200, 30);
 
         sMotherName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sMotherName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -329,7 +367,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sMotherName);
-        sMotherName.setBounds(490, 280, 330, 30);
+        sMotherName.setBounds(480, 380, 330, 30);
 
         jLabelACT6.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -339,7 +377,7 @@ private JFrame frame;
         jLabelACT6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT6);
-        jLabelACT6.setBounds(830, 320, 170, 30);
+        jLabelACT6.setBounds(820, 420, 170, 30);
 
         sNID.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sNID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -350,7 +388,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sNID);
-        sNID.setBounds(1010, 320, 160, 30);
+        sNID.setBounds(1000, 420, 160, 30);
 
         jLabelACT7.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -360,7 +398,7 @@ private JFrame frame;
         jLabelACT7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT7);
-        jLabelACT7.setBounds(280, 360, 200, 30);
+        jLabelACT7.setBounds(270, 460, 200, 30);
 
         sPresentAddress.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sPresentAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -371,7 +409,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sPresentAddress);
-        sPresentAddress.setBounds(490, 360, 330, 30);
+        sPresentAddress.setBounds(480, 460, 680, 30);
 
         jLabelACT9.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -381,7 +419,7 @@ private JFrame frame;
         jLabelACT9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT9);
-        jLabelACT9.setBounds(280, 560, 200, 30);
+        jLabelACT9.setBounds(270, 580, 200, 30);
 
         sNomineName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sNomineName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -392,7 +430,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sNomineName);
-        sNomineName.setBounds(490, 560, 230, 30);
+        sNomineName.setBounds(480, 580, 230, 30);
 
         jLabelACT11.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -402,7 +440,7 @@ private JFrame frame;
         jLabelACT11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT11);
-        jLabelACT11.setBounds(730, 560, 120, 30);
+        jLabelACT11.setBounds(720, 580, 120, 30);
 
         sRelations.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sRelations.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -413,7 +451,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sRelations);
-        sRelations.setBounds(860, 560, 100, 30);
+        sRelations.setBounds(850, 580, 100, 30);
 
         jLabelACT12.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -423,7 +461,7 @@ private JFrame frame;
         jLabelACT12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT12);
-        jLabelACT12.setBounds(280, 520, 200, 30);
+        jLabelACT12.setBounds(270, 540, 200, 30);
 
         sSavingsAmount.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sSavingsAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -434,7 +472,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sSavingsAmount);
-        sSavingsAmount.setBounds(780, 520, 80, 30);
+        sSavingsAmount.setBounds(770, 540, 80, 30);
 
         jLabelACT13.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -444,7 +482,7 @@ private JFrame frame;
         jLabelACT13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT13);
-        jLabelACT13.setBounds(830, 200, 100, 30);
+        jLabelACT13.setBounds(820, 300, 100, 30);
 
         sCardNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sCardNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -455,7 +493,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sCardNo);
-        sCardNo.setBounds(940, 200, 100, 30);
+        sCardNo.setBounds(930, 300, 100, 30);
 
         jLabelACT14.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -465,7 +503,7 @@ private JFrame frame;
         jLabelACT14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT14);
-        jLabelACT14.setBounds(830, 280, 170, 30);
+        jLabelACT14.setBounds(820, 380, 170, 30);
 
         sAdmissionDate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sAdmissionDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -476,7 +514,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sAdmissionDate);
-        sAdmissionDate.setBounds(1010, 280, 160, 30);
+        sAdmissionDate.setBounds(1000, 380, 160, 30);
 
         jLabelACT15.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -486,7 +524,7 @@ private JFrame frame;
         jLabelACT15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT15);
-        jLabelACT15.setBounds(580, 200, 100, 30);
+        jLabelACT15.setBounds(570, 300, 100, 30);
 
         sFromNO.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sFromNO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -497,7 +535,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sFromNO);
-        sFromNO.setBounds(690, 200, 120, 30);
+        sFromNO.setBounds(680, 300, 120, 30);
 
         jLabelACT16.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -507,7 +545,7 @@ private JFrame frame;
         jLabelACT16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT16);
-        jLabelACT16.setBounds(610, 520, 160, 30);
+        jLabelACT16.setBounds(600, 540, 160, 30);
 
         AccountType2.setBackground(new java.awt.Color(53, 255, 0));
         AccountType2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -515,70 +553,7 @@ private JFrame frame;
         AccountType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Father's Name", "Husbend's Name" }));
         AccountType2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(AccountType2);
-        AccountType2.setBounds(280, 320, 200, 30);
-
-        jLabelACT17.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT17.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT17.setText("Post Office");
-        jLabelACT17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT17);
-        jLabelACT17.setBounds(830, 360, 170, 30);
-
-        jLabelACT18.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT18.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT18.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT18.setText("Police Station");
-        jLabelACT18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT18);
-        jLabelACT18.setBounds(440, 400, 180, 30);
-
-        sPresentAddressPS.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sPresentAddressPS.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sPresentAddressPS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sPresentAddressPS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sPresentAddressPSActionPerformed(evt);
-            }
-        });
-        jPanel1.add(sPresentAddressPS);
-        sPresentAddressPS.setBounds(630, 400, 190, 30);
-
-        sPresentAddressPO.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sPresentAddressPO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sPresentAddressPO.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sPresentAddressPO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sPresentAddressPOActionPerformed(evt);
-            }
-        });
-        jPanel1.add(sPresentAddressPO);
-        sPresentAddressPO.setBounds(1010, 360, 160, 30);
-
-        jLabelACT19.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT19.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT19.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT19.setText("District");
-        jLabelACT19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT19);
-        jLabelACT19.setBounds(830, 400, 170, 30);
-
-        sPresentAddressD.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sPresentAddressD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sPresentAddressD.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sPresentAddressD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sPresentAddressDActionPerformed(evt);
-            }
-        });
-        jPanel1.add(sPresentAddressD);
-        sPresentAddressD.setBounds(1010, 400, 160, 30);
+        AccountType2.setBounds(270, 420, 200, 30);
 
         jLabelACT20.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT20.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -588,7 +563,7 @@ private JFrame frame;
         jLabelACT20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT20);
-        jLabelACT20.setBounds(280, 440, 200, 30);
+        jLabelACT20.setBounds(270, 500, 200, 30);
 
         sParmanetAddress.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sParmanetAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -599,70 +574,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sParmanetAddress);
-        sParmanetAddress.setBounds(490, 440, 330, 30);
-
-        jLabelACT21.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT21.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT21.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT21.setText("Post Office");
-        jLabelACT21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT21);
-        jLabelACT21.setBounds(830, 440, 170, 30);
-
-        sParmanetAddressPO.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sParmanetAddressPO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sParmanetAddressPO.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sParmanetAddressPO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sParmanetAddressPOActionPerformed(evt);
-            }
-        });
-        jPanel1.add(sParmanetAddressPO);
-        sParmanetAddressPO.setBounds(1010, 440, 160, 30);
-
-        jLabelACT22.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT22.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT22.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT22.setText("Police Station");
-        jLabelACT22.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT22);
-        jLabelACT22.setBounds(440, 480, 180, 30);
-
-        sParmanetAddressPS.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sParmanetAddressPS.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sParmanetAddressPS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sParmanetAddressPS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sParmanetAddressPSActionPerformed(evt);
-            }
-        });
-        jPanel1.add(sParmanetAddressPS);
-        sParmanetAddressPS.setBounds(630, 480, 190, 30);
-
-        jLabelACT23.setBackground(new java.awt.Color(153, 255, 0));
-        jLabelACT23.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT23.setForeground(new java.awt.Color(0, 153, 0));
-        jLabelACT23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT23.setText("District");
-        jLabelACT23.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabelACT23);
-        jLabelACT23.setBounds(830, 480, 170, 30);
-
-        sParmanetAddressD.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sParmanetAddressD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sParmanetAddressD.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sParmanetAddressD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sParmanetAddressDActionPerformed(evt);
-            }
-        });
-        jPanel1.add(sParmanetAddressD);
-        sParmanetAddressD.setBounds(1010, 480, 160, 30);
+        sParmanetAddress.setBounds(480, 500, 680, 30);
 
         jLabelACT24.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT24.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -672,7 +584,7 @@ private JFrame frame;
         jLabelACT24.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT24);
-        jLabelACT24.setBounds(970, 560, 120, 30);
+        jLabelACT24.setBounds(960, 580, 120, 30);
 
         sShare.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sShare.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -683,7 +595,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sShare);
-        sShare.setBounds(1100, 560, 70, 30);
+        sShare.setBounds(1090, 580, 70, 30);
 
         sAccountNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sAccountNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -694,7 +606,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(sAccountNo);
-        sAccountNo.setBounds(440, 200, 130, 30);
+        sAccountNo.setBounds(430, 300, 130, 30);
 
         jLabelACT25.setBackground(new java.awt.Color(153, 255, 0));
         jLabelACT25.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -704,7 +616,7 @@ private JFrame frame;
         jLabelACT25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT25);
-        jLabelACT25.setBounds(290, 200, 140, 30);
+        jLabelACT25.setBounds(280, 300, 140, 30);
 
         btnWF1.setBackground(new java.awt.Color(0, 102, 0));
         btnWF1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -717,18 +629,6 @@ private JFrame frame;
         });
         jPanel1.add(btnWF1);
         btnWF1.setBounds(20, 500, 230, 40);
-
-        jProgressBar1.setBackground(new java.awt.Color(204, 255, 204));
-        jProgressBar1.setForeground(new java.awt.Color(0, 153, 51));
-        jProgressBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jProgressBar1);
-        jProgressBar1.setBounds(500, 640, 200, 20);
-
-        jProgressBar2.setBackground(new java.awt.Color(204, 255, 204));
-        jProgressBar2.setForeground(new java.awt.Color(0, 153, 51));
-        jProgressBar2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jProgressBar2);
-        jProgressBar2.setBounds(280, 640, 190, 20);
 
         btnSaveCA1.setBackground(new java.awt.Color(0, 102, 0));
         btnSaveCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -774,38 +674,14 @@ private JFrame frame;
         jLabelACT10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabelACT10);
-        jLabelACT10.setBounds(280, 240, 200, 30);
+        jLabelACT10.setBounds(270, 340, 200, 30);
 
         jLabel2.setBackground(new java.awt.Color(0, 102, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel2.setText("Create Saving A/C");
+        jLabel2.setText("Open Saving A/C");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(300, 164, 310, 30);
-
-        btnSaveCA6.setBackground(new java.awt.Color(0, 102, 0));
-        btnSaveCA6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnSaveCA6.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaveCA6.setText("Upload Picture");
-        btnSaveCA6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveCA6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSaveCA6);
-        btnSaveCA6.setBounds(280, 600, 190, 30);
-
-        btnSaveCA5.setBackground(new java.awt.Color(0, 102, 0));
-        btnSaveCA5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnSaveCA5.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaveCA5.setText("Upload From");
-        btnSaveCA5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveCA5ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSaveCA5);
-        btnSaveCA5.setBounds(500, 600, 200, 30);
 
         btnExitCA2.setBackground(new java.awt.Color(0, 102, 0));
         btnExitCA2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -817,7 +693,7 @@ private JFrame frame;
             }
         });
         jPanel1.add(btnExitCA2);
-        btnExitCA2.setBounds(1060, 200, 110, 30);
+        btnExitCA2.setBounds(1050, 300, 110, 30);
         jPanel1.add(lbfrom1);
         lbfrom1.setBounds(150, 550, 100, 100);
 
@@ -851,7 +727,7 @@ private JFrame frame;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCAActionPerformed
-        new CreateInvestmentAccountPage1().setVisible(true);
+        new OpenInvestmentAccountPage1().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnSaveCAActionPerformed
 
@@ -948,33 +824,9 @@ private JFrame frame;
         // TODO add your handling code here:
     }//GEN-LAST:event_sFromNOActionPerformed
 
-    private void sPresentAddressPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sPresentAddressPOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sPresentAddressPOActionPerformed
-
-    private void sPresentAddressPSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sPresentAddressPSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sPresentAddressPSActionPerformed
-
-    private void sPresentAddressDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sPresentAddressDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sPresentAddressDActionPerformed
-
     private void sParmanetAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sParmanetAddressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sParmanetAddressActionPerformed
-
-    private void sParmanetAddressPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sParmanetAddressPOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sParmanetAddressPOActionPerformed
-
-    private void sParmanetAddressPSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sParmanetAddressPSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sParmanetAddressPSActionPerformed
-
-    private void sParmanetAddressDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sParmanetAddressDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sParmanetAddressDActionPerformed
 
     private void sShareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sShareActionPerformed
         // TODO add your handling code here:
@@ -1001,8 +853,8 @@ private JFrame frame;
        String Name = sName.getText();
        String MotherName = sMotherName.getText();
        String FatherHusbendName = sFatherHusbendName.getText();
-       String PresentAddress = sPresentAddress.getText()+" "+sPresentAddressPO.getText()+" "+sPresentAddressPS.getText()+" "+sPresentAddressD.getText();
-       String ParmanetAddress = sParmanetAddress.getText()+" "+sParmanetAddressPO.getText()+" "+sParmanetAddressPS.getText()+" "+sParmanetAddressD.getText();
+       String PresentAddress = sPresentAddress.getText();
+       String ParmanetAddress = sParmanetAddress.getText();
        String DateofBirth = sDateofBirth.getText();
        String AdmissionDate = sAdmissionDate.getText();
        String NIDNo = sNID.getText();
@@ -1053,42 +905,22 @@ private JFrame frame;
     }//GEN-LAST:event_btnSaveCA3ActionPerformed
 
     private void btnSaveCA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA4ActionPerformed
-       new CreateShareAccountPage().setVisible(true);
+       new OpenShareAccountPage().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnSaveCA4ActionPerformed
 
+    private void btnExitCA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitCA2ActionPerformed
+    
+        
+    }//GEN-LAST:event_btnExitCA2ActionPerformed
+
     private void btnSaveCA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA6ActionPerformed
-        JFileChooser chosser = new JFileChooser();
-        chosser.showOpenDialog(null);
-        File f = chosser.getSelectedFile();
-        lbpic.setIcon((new ImageIcon(f.toString())));
-        filename = f.getAbsolutePath();
-        lbpicname.setText(filename);
-        
-        try {
-            File image = new File(filename);
-            FileInputStream fis = new FileInputStream(image);
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            byte[] buf = new byte[1024];
-            for (int redNum ; (redNum = fis.read(buf))!= -1;) {
-                bos.write(buf,0,redNum);
-            }
-                photo = bos.toByteArray();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        
-        
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveCA6ActionPerformed
 
-    private void btnSaveCA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA5ActionPerformed
+    private void btnSaveCA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSaveCA5ActionPerformed
-
-    private void btnExitCA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitCA2ActionPerformed
-
-    }//GEN-LAST:event_btnExitCA2ActionPerformed
+    }//GEN-LAST:event_btnSaveCA7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1107,14 +939,30 @@ private JFrame frame;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateSavingAccountPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpenSavingAccountPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateSavingAccountPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpenSavingAccountPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateSavingAccountPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpenSavingAccountPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateSavingAccountPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpenSavingAccountPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1135,7 +983,7 @@ private JFrame frame;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateSavingAccountPage().setVisible(true);
+                new OpenSavingAccountPage().setVisible(true);
             }
         });
     }
@@ -1153,8 +1001,8 @@ private JFrame frame;
     private javax.swing.JButton btnSaveCA1;
     private javax.swing.JButton btnSaveCA3;
     private javax.swing.JButton btnSaveCA4;
-    private javax.swing.JButton btnSaveCA5;
     private javax.swing.JButton btnSaveCA6;
+    private javax.swing.JButton btnSaveCA7;
     private javax.swing.JButton btnWF;
     private javax.swing.JButton btnWF1;
     private javax.swing.JLabel jLabel1;
@@ -1167,13 +1015,7 @@ private JFrame frame;
     private javax.swing.JLabel jLabelACT14;
     private javax.swing.JLabel jLabelACT15;
     private javax.swing.JLabel jLabelACT16;
-    private javax.swing.JLabel jLabelACT17;
-    private javax.swing.JLabel jLabelACT18;
-    private javax.swing.JLabel jLabelACT19;
     private javax.swing.JLabel jLabelACT20;
-    private javax.swing.JLabel jLabelACT21;
-    private javax.swing.JLabel jLabelACT22;
-    private javax.swing.JLabel jLabelACT23;
     private javax.swing.JLabel jLabelACT24;
     private javax.swing.JLabel jLabelACT25;
     private javax.swing.JLabel jLabelACT4;
@@ -1192,6 +1034,8 @@ private JFrame frame;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JLabel lbfrom1;
+    private javax.swing.JLabel lblinvPic;
+    private javax.swing.JLabel lblinvPic1;
     private javax.swing.JLabel lbpic;
     private javax.swing.JLabel lbpicname;
     private javax.swing.JTextField sAccountNo;
@@ -1206,13 +1050,7 @@ private JFrame frame;
     private javax.swing.JTextField sName;
     private javax.swing.JTextField sNomineName;
     private javax.swing.JTextField sParmanetAddress;
-    private javax.swing.JTextField sParmanetAddressD;
-    private javax.swing.JTextField sParmanetAddressPO;
-    private javax.swing.JTextField sParmanetAddressPS;
     private javax.swing.JTextField sPresentAddress;
-    private javax.swing.JTextField sPresentAddressD;
-    private javax.swing.JTextField sPresentAddressPO;
-    private javax.swing.JTextField sPresentAddressPS;
     private javax.swing.JTextField sRelations;
     private javax.swing.JComboBox<String> sSavingType;
     private javax.swing.JTextField sSavingsAmount;
