@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sales.pojo;
 
-/**
- *
- * @author User
- */
 public class ProductCatagory {
+
     private int id;
     private String catName;
 
@@ -21,6 +13,10 @@ public class ProductCatagory {
         this.catName = catName;
     }
 
+    public ProductCatagory(int id) {
+        this.id = id;
+    }
+
     public ProductCatagory(String catName) {
         this.catName = catName;
     }
@@ -29,9 +25,16 @@ public class ProductCatagory {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getCatName() {
         return catName;
     }
-    
-    
+
+    public void setCatName(String catName) {
+        this.catName = catName;
+    }
+
 }

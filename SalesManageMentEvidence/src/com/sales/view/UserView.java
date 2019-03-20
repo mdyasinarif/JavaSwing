@@ -29,6 +29,7 @@ public class UserView extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         displayRolesAtCombox();
+        displayUserIntoTable();
 
     }
 
@@ -238,7 +239,43 @@ public class UserView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void clear(){
+        DefaultTableModel model = (DefaultTableModel) tblDisplay.getModel();
+        model.setRowCount(0);
+        
+    }
+    public void displayRolesAtCombox() {
+        RoleDao dao = new RoleDaoImp();
+        List<Role> roles = dao.getRoles();
+        cmbRole.addItem("Select A Role");
+        for (Role role : roles) {
+            cmbRole.addItem(role.getRoleName());
+        }
+    }
+    public void displayUserIntoTable(){
+        clear();
+        RoleDao roleDao = new RoleDaoImp();
+        
+        UserDao userDao = new UserDaoImp();
+        List<User> list = userDao.getUsers();
+        DefaultTableModel model = (DefaultTableModel) tblDisplay.getModel();
+        Object[] col = new Object[6];
+        
+        for (int i = 0; i < list.size(); i++) {
+            col[0] = list.get(i).getId();
+            col[1] = list.get(i).getName();
+            col[2] = list.get(i).getUserName();
+            col[3] = list.get(i).getPassword();
+            col[4] = list.get(i).getModileNo();
+            
+            
+            Role role = roleDao.getRoleByRoleId(list.get(i).getRole().getId());
+            col[5] = role.getRoleName();
+            model.addRow(col);
+            
+        }
+    
+    }
     private void tblDisplayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDisplayMouseClicked
 
 
@@ -256,18 +293,12 @@ public class UserView extends javax.swing.JFrame {
         User user = new User(txtFullname.getText(), txtUsername.getText(), txtPassword.getText(), txtMobile.getText(), role);
         UserDao userDao = new UserDaoImp();
         userDao.save(user);
+        displayUserIntoTable();
 
 
     }//GEN-LAST:event_btnAddActionPerformed
 
-    public void displayRolesAtCombox() {
-        RoleDao dao = new RoleDaoImp();
-        List<Role> roles = dao.getRoles();
-        cmbRole.addItem("Select A Role");
-        for (Role role : roles) {
-            cmbRole.addItem(role.getRoleName());
-        }
-    }
+    
 
     /**
      * @param args the command line arguments

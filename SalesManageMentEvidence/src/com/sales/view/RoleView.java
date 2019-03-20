@@ -24,6 +24,8 @@ public class RoleView extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         displayRoleListIntoTable();
+        
+        
     }
 
     /**

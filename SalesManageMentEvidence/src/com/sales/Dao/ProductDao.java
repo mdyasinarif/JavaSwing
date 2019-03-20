@@ -18,7 +18,7 @@ public interface ProductDao {
     void save(Product p);
     void update(Product p);
     Product getProductById(int id);
-    Product getProductByName(String name);
+    Product getProductByProductCode(String code);
     void delete(int id);
     List<Product>getList();
 }

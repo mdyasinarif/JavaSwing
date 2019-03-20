@@ -7,9 +7,12 @@ package com.sales.DaoImp;
 
 import com.sales.Dao.UserDao;
 import com.sales.conn.DBConnection;
+import com.sales.pojo.Role;
 import com.sales.pojo.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,7 +46,7 @@ public class UserDaoImp implements UserDao{
             ps.setString(2, user.getUserName());
             ps.setString(3, user.getPassword());
             ps.setString(4, user.getModileNo());
-            ps.setInt(5, user.getUsers().getId());
+            ps.setInt(5, user.getRole().getId());
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,8 +74,21 @@ public class UserDaoImp implements UserDao{
     }
 
     @Override
-    public List<User> getList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<User> getUsers() {
+        List<User> users = new ArrayList<>();
+        String sql = "select * from user";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                Role role = new Role(rs.getInt(6));
+                User user = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), role);
+                users.add(user);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return users;
     }
     
 }

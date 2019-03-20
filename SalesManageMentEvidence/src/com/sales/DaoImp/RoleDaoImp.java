@@ -66,12 +66,38 @@ public class RoleDaoImp implements RoleDao {
 
     @Override
     public Role getRoleByRoleId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Role role = new Role();
+        String sql = "Select * from role where id=?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                role.setId(rs.getInt(1));
+                role.setRoleName(rs.getString(2));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return role;
     }
 
     @Override
     public Role getRoleByRoleName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Role role = new Role();
+        String sql = "select * from role where role_name=?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, name);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                role.setId(rs.getInt(1));
+                role.setRoleName(rs.getString(2));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return role;
     }
 
     @Override

@@ -15,26 +15,26 @@ public class User {
     private String userName;
     private String password;
     private String modileNo;
-    private User users;
+    private Role role;
 
     public User() {
     }
 
-    public User(int id, String name, String userName, String password, String modileNo, User users) {
+    public User(int id, String name, String userName, String password, String modileNo, Role role) {
         this.id = id;
         this.name = name;
         this.userName = userName;
         this.password = password;
         this.modileNo = modileNo;
-        this.users = users;
+        this.role = role;
     }
 
-    public User(String name, String userName, String password, String modileNo, User users) {
+    public User(String name, String userName, String password, String modileNo, Role role) {
         this.name = name;
         this.userName = userName;
         this.password = password;
         this.modileNo = modileNo;
-        this.users = users;
+        this.role = role;
     }
 
     public int getId() {
@@ -57,10 +57,11 @@ public class User {
         return modileNo;
     }
 
-    public User getUsers() {
-        return users;
+    public Role getRole() {
+        return role;
     }
 
+    
     
     
 }
