@@ -75,5 +75,12 @@ public class Summary {
     public Product getProduct() {
         return product;
     }
+
+    public Summary(String productCode, int totalQty, int soldQty, int availableQty) {
+        this.productCode = productCode;
+        this.totalQty = totalQty;
+        this.soldQty = soldQty;
+        this.availableQty = availableQty;
+    }
     
 }

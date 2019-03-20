@@ -267,8 +267,7 @@ public class UserView extends javax.swing.JFrame {
             col[2] = list.get(i).getUserName();
             col[3] = list.get(i).getPassword();
             col[4] = list.get(i).getModileNo();
-            
-            
+
             Role role = roleDao.getRoleByRoleId(list.get(i).getRole().getId());
             col[5] = role.getRoleName();
             model.addRow(col);

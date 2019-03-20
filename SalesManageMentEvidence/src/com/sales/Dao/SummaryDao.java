@@ -19,6 +19,6 @@ public interface SummaryDao {
     void update(Summary s);
     Summary getRoleByProductCode(String code);
     
-    void delete(int id);
+    
     List<Summary>getList();
 }

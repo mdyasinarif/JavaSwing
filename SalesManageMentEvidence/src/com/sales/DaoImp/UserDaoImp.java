@@ -82,7 +82,7 @@ public class UserDaoImp implements UserDao{
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {                
                 Role role = new Role(rs.getInt(6));
-                User user = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), role);
+                User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), role);
                 users.add(user);
             }
         } catch (Exception e) {
