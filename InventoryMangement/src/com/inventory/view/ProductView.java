@@ -67,6 +67,8 @@ public class ProductView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnBuy1 = new javax.swing.JButton();
+        btnBuy2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtPName = new javax.swing.JTextField();
@@ -94,13 +96,40 @@ public class ProductView extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Inventory Management System");
 
+        btnBuy1.setBackground(new java.awt.Color(0, 0, 102));
+        btnBuy1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnBuy1.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuy1.setText("Buy");
+        btnBuy1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuy1ActionPerformed(evt);
+            }
+        });
+
+        btnBuy2.setBackground(new java.awt.Color(0, 0, 102));
+        btnBuy2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnBuy2.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuy2.setText("Sales");
+        btnBuy2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuy2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(btnBuy1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuy2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -108,7 +137,11 @@ public class ProductView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel1)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuy1)
+                    .addComponent(btnBuy2))
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 102));
@@ -424,6 +457,16 @@ public class ProductView extends javax.swing.JFrame {
         displayProductIntoTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnBuy1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy1ActionPerformed
+        
+        
+    }//GEN-LAST:event_btnBuy1ActionPerformed
+
+    private void btnBuy2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy2ActionPerformed
+        new SalesView().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBuy2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -462,6 +505,8 @@ public class ProductView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuy;
+    private javax.swing.JButton btnBuy1;
+    private javax.swing.JButton btnBuy2;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;

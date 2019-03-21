@@ -6,9 +6,13 @@
 package com.inventory.view;
 
 import com.inventory.Dao.ProductDao;
+import com.inventory.Dao.SummaryDao;
 import com.inventory.DaoImp.SalesDaoImp;
+import com.inventory.DaoImp.SummaryDaoImp;
 
 import com.inventory.pojo.Product;
+import com.inventory.pojo.Summary;
+import com.sun.org.apache.xpath.internal.axes.SubContextList;
 import java.sql.Date;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -24,6 +28,9 @@ public class SalesView extends javax.swing.JFrame {
      */
     public SalesView() {
         initComponents();
+        setLocationRelativeTo(null);
+        displayIntoSummaryTable();
+        displayProductIntoTable();
     }
 
     /**
@@ -37,6 +44,8 @@ public class SalesView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        btnProductSales = new javax.swing.JButton();
+        btnProductSales1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtPName = new javax.swing.JTextField();
@@ -49,7 +58,7 @@ public class SalesView extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtTAmount = new javax.swing.JTextField();
         btnEdit = new javax.swing.JButton();
-        btnBuy = new javax.swing.JButton();
+        btnSales = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -67,21 +76,52 @@ public class SalesView extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Inventory Management System");
 
+        btnProductSales.setBackground(new java.awt.Color(0, 0, 102));
+        btnProductSales.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnProductSales.setForeground(new java.awt.Color(255, 255, 255));
+        btnProductSales.setText("Buy");
+        btnProductSales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductSalesActionPerformed(evt);
+            }
+        });
+
+        btnProductSales1.setBackground(new java.awt.Color(0, 0, 102));
+        btnProductSales1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnProductSales1.setForeground(new java.awt.Color(255, 255, 255));
+        btnProductSales1.setText("Sales");
+        btnProductSales1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductSales1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(jLabel2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnProductSales)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnProductSales1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnProductSales)
+                    .addComponent(btnProductSales1))
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 102));
@@ -142,13 +182,13 @@ public class SalesView extends javax.swing.JFrame {
             }
         });
 
-        btnBuy.setBackground(new java.awt.Color(0, 0, 102));
-        btnBuy.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnBuy.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuy.setText("Sales");
-        btnBuy.addActionListener(new java.awt.event.ActionListener() {
+        btnSales.setBackground(new java.awt.Color(0, 0, 102));
+        btnSales.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnSales.setForeground(new java.awt.Color(255, 255, 255));
+        btnSales.setText("Sales");
+        btnSales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuyActionPerformed(evt);
+                btnSalesActionPerformed(evt);
             }
         });
 
@@ -201,7 +241,7 @@ public class SalesView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnEdit)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnBuy)
+                                .addComponent(btnSales)
                                 .addGap(29, 29, 29))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -243,9 +283,9 @@ public class SalesView extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEdit)
                     .addComponent(btnClear)
-                    .addComponent(btnBuy)
+                    .addComponent(btnSales)
                     .addComponent(btnDelete))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 102));
@@ -274,7 +314,7 @@ public class SalesView extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -309,7 +349,7 @@ public class SalesView extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -319,10 +359,10 @@ public class SalesView extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -330,11 +370,11 @@ public class SalesView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -342,6 +382,10 @@ public class SalesView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
  public void clearTable() {
         DefaultTableModel model = (DefaultTableModel) tabDisplay.getModel();
+        model.setRowCount(0);
+    }
+ public void clearTableSummary() {
+        DefaultTableModel model = (DefaultTableModel) tblSummary.getModel();
         model.setRowCount(0);
     }
 
@@ -363,8 +407,29 @@ public class SalesView extends javax.swing.JFrame {
 
         }
     }
-    private void txtUPriceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUPriceKeyReleased
 
+    public void displayIntoSummaryTable() {
+        clearTableSummary();
+        SummaryDao sDao = new SummaryDaoImp();
+
+        List<Summary> list = sDao.getList();
+        DefaultTableModel model = (DefaultTableModel) tblSummary.getModel();
+        Object[] cal = new Object[6];
+        for (int i = 0; i < list.size(); i++) {
+            cal[0] = list.get(i).getId();
+            cal[1] = list.get(i).getProductName();
+            cal[2] = list.get(i).getProductCode();
+            cal[3] = list.get(i).getTotalQty();
+            cal[4] = list.get(i).getSoldQty();
+            cal[5] = list.get(i).getAvailableQty();
+            model.addRow(cal);
+        }
+    }
+    private void txtUPriceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUPriceKeyReleased
+        int quentity = Integer.parseInt(txtQty.getText());
+        double unitPrice = Double.parseDouble(txtUPrice.getText());    
+        double totalAmount = quentity*unitPrice;
+        txtTAmount.setText(totalAmount+"");
     }//GEN-LAST:event_txtUPriceKeyReleased
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
@@ -379,13 +444,14 @@ public class SalesView extends javax.swing.JFrame {
         try {
             Product p = new Product(id, productName, productCode, date, quentity, unitPrice, totalAmount);
             pDao.update(p);
+           
         } catch (Exception e) {
             e.printStackTrace();
         }
         displayProductIntoTable();
     }//GEN-LAST:event_btnEditActionPerformed
 
-    private void btnBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyActionPerformed
+    private void btnSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalesActionPerformed
         ProductDao pDao = new SalesDaoImp();
         String productName = txtPName.getText();
         String productCode = txtPCode.getText();
@@ -396,11 +462,22 @@ public class SalesView extends javax.swing.JFrame {
         try {
             Product p = new Product(productName, productCode, date, quentity, unitPrice, totalAmount);
             pDao.save(p);
+             SummaryDao sDao = new SummaryDaoImp();
+            Summary summary = sDao.getSummaryByProductCode(p.getProductCode());
+            if (summary.getProductCode() != null) {
+                int totalQty = summary.getTotalQty();
+                int soldQty = summary.getSoldQty() + Integer.parseInt(txtQty.getText());
+                int availableQty = summary.getAvailableQty() - Integer.parseInt(txtQty.getText());
+
+                Summary summaryUp = new Summary(summary.getProductCode(), totalQty, soldQty, availableQty);
+                sDao.update(summaryUp);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
         displayProductIntoTable();
-    }//GEN-LAST:event_btnBuyActionPerformed
+        displayIntoSummaryTable();
+    }//GEN-LAST:event_btnSalesActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         txtPName.setText("");
@@ -412,7 +489,7 @@ public class SalesView extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         ProductDao pDao = new SalesDaoImp();
-     
+
         try {
             Product p = new Product(id);
             pDao.delete(id);
@@ -420,8 +497,9 @@ public class SalesView extends javax.swing.JFrame {
             e.printStackTrace();
         }
         displayProductIntoTable();
+         displayIntoSummaryTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
-int id = 0;
+    int id = 0;
     private void tabDisplayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabDisplayMouseClicked
         int i = tabDisplay.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) tabDisplay.getModel();
@@ -436,6 +514,17 @@ int id = 0;
     private void tblSummaryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSummaryMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tblSummaryMouseClicked
+
+    private void btnProductSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductSalesActionPerformed
+        
+       
+       
+    }//GEN-LAST:event_btnProductSalesActionPerformed
+
+    private void btnProductSales1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductSales1ActionPerformed
+      new SalesView().setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_btnProductSales1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -473,10 +562,12 @@ int id = 0;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuy;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnProductSales;
+    private javax.swing.JButton btnProductSales1;
+    private javax.swing.JButton btnSales;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
