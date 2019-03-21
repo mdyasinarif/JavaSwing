@@ -12,13 +12,13 @@ import java.sql.Date;
  * @author Md Yasin Arif
  */
 public class Product {
-    int id;
-    String productName;
-    String productCode;
-    Date date;
-    int qty;
-    double uPrice;
-    double totalAmount;
+    private int id;
+    private String productName;
+    private String productCode;
+    private Date date;
+    private int qty;
+    private double uPrice;
+    private double totalAmount;
 
     public Product() {
     }
@@ -101,6 +101,8 @@ public class Product {
     public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
     }
+
+    
 
     
 

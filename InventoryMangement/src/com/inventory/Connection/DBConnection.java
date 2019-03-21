@@ -21,10 +21,9 @@ public class DBConnection {
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory", "root", "1234");
             System.out.println("Connected");
-            return con;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return null;
+        return con;
     }
 }

@@ -21,10 +21,10 @@ import java.util.List;
  */
 public class ProcuctDaoImp implements ProductDao{
         Connection con = DBConnection.getConnect();
-        public static void main(String[] args) {
-        ProcuctDaoImp obj = new ProcuctDaoImp();
-        obj.createTable();
-    }
+//        public static void main(String[] args) {
+//        ProcuctDaoImp obj = new ProcuctDaoImp();
+//        obj.createTable();
+//    }
 
     @Override
     public void createTable() {
