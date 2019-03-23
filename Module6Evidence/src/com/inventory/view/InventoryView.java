@@ -5,6 +5,11 @@
  */
 package com.inventory.view;
 
+import com.inventory.Dao.ProductDao;
+import com.inventory.DaoImp.ProductDaoImp;
+
+import com.inventory.pojo.Product;
+
 /**
  *
  * @author User
@@ -15,7 +20,9 @@ public class InventoryView extends javax.swing.JFrame {
      * Creates new form InventoryView
      */
     public InventoryView() {
+       
         initComponents();
+         setLocationRelativeTo(null);
     }
 
     /**
@@ -33,24 +40,24 @@ public class InventoryView extends javax.swing.JFrame {
         txtSalesNo = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        comCId = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txtCName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
+        txtCId = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        comPId = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         txtPName = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtPrice = new javax.swing.JTextField();
         txtStock = new javax.swing.JTextField();
+        txtPrice = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtQty = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        txtpId = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         btnNew = new javax.swing.JButton();
         btnSales = new javax.swing.JButton();
@@ -73,6 +80,11 @@ public class InventoryView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Sales No");
@@ -85,10 +97,6 @@ public class InventoryView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Customer Id");
-
-        comCId.setBackground(new java.awt.Color(0, 102, 102));
-        comCId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        comCId.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -106,6 +114,10 @@ public class InventoryView extends javax.swing.JFrame {
         txtAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(255, 255, 255));
 
+        txtCId.setBackground(new java.awt.Color(0, 204, 204));
+        txtCId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCId.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,19 +130,19 @@ public class InventoryView extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(comCId, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(txtCName))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtCName)
+                    .addComponent(txtCId))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(comCId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                    .addComponent(txtCId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtCName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -148,10 +160,6 @@ public class InventoryView extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Product Id");
 
-        comPId.setBackground(new java.awt.Color(0, 102, 102));
-        comPId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        comPId.setForeground(new java.awt.Color(255, 255, 255));
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Name");
@@ -162,23 +170,28 @@ public class InventoryView extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Price");
-
-        txtPrice.setBackground(new java.awt.Color(0, 204, 204));
-        txtPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtPrice.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Stock");
 
         txtStock.setBackground(new java.awt.Color(0, 204, 204));
         txtStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtStock.setForeground(new java.awt.Color(255, 255, 255));
 
+        txtPrice.setBackground(new java.awt.Color(0, 204, 204));
+        txtPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtPrice.setForeground(new java.awt.Color(255, 255, 255));
+
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Stock");
+        jLabel8.setText("Price");
 
         txtQty.setBackground(new java.awt.Color(0, 204, 204));
         txtQty.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtQty.setForeground(new java.awt.Color(255, 255, 255));
+        txtQty.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtQtyKeyReleased(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -191,6 +204,10 @@ public class InventoryView extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Total");
+
+        txtpId.setBackground(new java.awt.Color(0, 204, 204));
+        txtpId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtpId.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -207,12 +224,12 @@ public class InventoryView extends javax.swing.JFrame {
                     .addComponent(jLabel10))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(comPId, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPName, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addComponent(txtPrice)
                     .addComponent(txtStock)
+                    .addComponent(txtPrice)
                     .addComponent(txtQty)
-                    .addComponent(txtTotal))
+                    .addComponent(txtTotal)
+                    .addComponent(txtpId, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -221,7 +238,7 @@ public class InventoryView extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(comPId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtpId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -229,11 +246,11 @@ public class InventoryView extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -266,6 +283,11 @@ public class InventoryView extends javax.swing.JFrame {
         btnPurched.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnPurched.setForeground(new java.awt.Color(255, 255, 255));
         btnPurched.setText("Purched");
+        btnPurched.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPurchedActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -351,6 +373,42 @@ public class InventoryView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPurchedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPurchedActionPerformed
+ 
+       int productId =  Integer.parseInt(txtpId.getText()); 
+       String productName = txtPName.getText();
+       int quantity = Integer.parseInt(txtQty.getText());      
+       double price = Double.parseDouble(txtPrice.getText());
+       ProductDao pDao = new ProductDaoImp();
+        try {
+            Product product = new Product(productId, productName, 0, price);
+            pDao.save(product);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_btnPurchedActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+//       int p = 1;
+//        while (p<=100) {            
+//            comPId.addItem(p+"\n");
+//            p++;
+//        }
+//        int c= 1;
+//        while(c<=100){
+//            comCId.addItem(c +"\n");
+//            c++;
+//        }
+    }//GEN-LAST:event_formWindowActivated
+
+    private void txtQtyKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQtyKeyReleased
+        int quantity = Integer.parseInt(txtQty.getText());      
+       double price = Double.parseDouble(txtPrice.getText());
+       double TotalAmount = quantity*price;
+       txtTotal.setText(TotalAmount+"");
+    }//GEN-LAST:event_txtQtyKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -391,8 +449,6 @@ public class InventoryView extends javax.swing.JFrame {
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnPurched;
     private javax.swing.JButton btnSales;
-    private javax.swing.JComboBox<String> comCId;
-    private javax.swing.JComboBox<String> comPId;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -411,6 +467,7 @@ public class InventoryView extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable tblDisplay;
     private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtCId;
     private javax.swing.JTextField txtCName;
     private javax.swing.JTextField txtPName;
     private javax.swing.JTextField txtPrice;
@@ -418,5 +475,6 @@ public class InventoryView extends javax.swing.JFrame {
     private javax.swing.JTextField txtSalesNo;
     private javax.swing.JTextField txtStock;
     private javax.swing.JTextField txtTotal;
+    private javax.swing.JTextField txtpId;
     // End of variables declaration//GEN-END:variables
 }
