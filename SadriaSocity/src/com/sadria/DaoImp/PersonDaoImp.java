@@ -89,7 +89,7 @@ Connection con = DBConnection.getConnet();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Person p = new Person(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getInt(17), rs.getString(17), rs.getString(18),rs.getInt(19));
+                Person p = new Person(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getInt(17), rs.getString(18), rs.getString(19),rs.getInt(20));
                 list.add(p);
             }
         } catch (Exception e) {
@@ -107,12 +107,48 @@ Connection con = DBConnection.getConnet();
             pstm.setString(1, accountNo);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {                
-            p = new Person(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getInt(17), rs.getString(17), rs.getString(18),rs.getInt(19));
+            p = new Person(rs.getString(2), rs.getString(6), rs.getString(16), rs.getInt(17));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return p;
     }
+
+    @Override
+    public List<Person> getPersonsInfo() {
+        List<Person> list = new ArrayList<>();
+        String sql = "select * from product";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Person p = new Person(rs.getString(2),rs.getString(6),  rs.getString(16), rs.getInt(17));
+                list.add(p);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
+    public Person getPersoninfoByAccontNo(String accountNo) {
+        Person p=null;
+        String sql="select * from person where accountNo=?";
+        try {
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setString(1, accountNo);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {                
+            p = new Person(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getInt(17), rs.getString(18), rs.getString(19),rs.getInt(20));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return p;
+    }
+
+   
     
 }

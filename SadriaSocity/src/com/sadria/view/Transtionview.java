@@ -6,13 +6,18 @@
 package com.sadria.view;
 
 import com.sadria.Dao.PersonDao;
+import com.sadria.Dao.TranstionDao;
 import com.sadria.DaoImp.PersonDaoImp;
+import com.sadria.DaoImp.TranstionDaoImp;
 import com.sadria.pojo.Person;
+import com.sadria.pojo.Transtion;
 import java.awt.Component;
 import java.sql.Date;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,7 +31,41 @@ public class Transtionview extends javax.swing.JFrame {
     public Transtionview() {
         initComponents();
         setLocationRelativeTo(null);
+        displayTranstionTable();
+       
     }
+    int id;
+    Date date;
+    String accountNo;
+    String name;
+    String slipNo;
+    int deposit;
+    int withdraw;
+public void clearTable() {
+        DefaultTableModel model = (DefaultTableModel) tbDaily.getModel();
+        model.setRowCount(0);
+    }
+    public void displayTranstionTable() {
+        clearTable();
+        TranstionDao tDao = new TranstionDaoImp();
+        List<Transtion> list = tDao.getTranstions();
+        
+        DefaultTableModel model = (DefaultTableModel) tbDaily.getModel();
+        Object[] col = new Object[7];
+            for (int i = 0; i < list.size(); i++) {
+            col[0] = list.get(i).getId();
+            col[1] = list.get(i).getDate();
+            col[2] = list.get(i).getAccountNo();
+            col[3] = list.get(i).getName();
+            col[4] = list.get(i).getSlipNo();
+            col[5] = list.get(i).getDeposit();
+            col[6] = list.get(i).getWithdraw();
+             model.addRow(col);
+           
+        }
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,13 +78,12 @@ public class Transtionview extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        lblCreateAccount = new javax.swing.JLabel();
+        lblStatement = new javax.swing.JLabel();
         lblCreateAccount1 = new javax.swing.JLabel();
-        lblCreateAccount2 = new javax.swing.JLabel();
+        lblTranstion = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtAccountNo = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         txtAmount = new javax.swing.JTextField();
@@ -55,7 +93,12 @@ public class Transtionview extends javax.swing.JFrame {
         btnWithdraw = new javax.swing.JButton();
         btnDeposit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbTranstion = new javax.swing.JTable();
+        tblTranscation = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbDaily = new javax.swing.JTable();
+        btnClear = new javax.swing.JButton();
+        btnClear1 = new javax.swing.JButton();
+        btnSearch1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,9 +117,9 @@ public class Transtionview extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 51));
 
-        lblCreateAccount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblCreateAccount.setForeground(new java.awt.Color(255, 255, 255));
-        lblCreateAccount.setText("Statement");
+        lblStatement.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblStatement.setForeground(new java.awt.Color(255, 255, 255));
+        lblStatement.setText("Statement");
 
         lblCreateAccount1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblCreateAccount1.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,9 +130,14 @@ public class Transtionview extends javax.swing.JFrame {
             }
         });
 
-        lblCreateAccount2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblCreateAccount2.setForeground(new java.awt.Color(255, 255, 255));
-        lblCreateAccount2.setText("Transtion");
+        lblTranstion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTranstion.setForeground(new java.awt.Color(255, 255, 255));
+        lblTranstion.setText("Transtion");
+        lblTranstion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTranstionMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -98,8 +146,8 @@ public class Transtionview extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(lblCreateAccount2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblStatement, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(lblTranstion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -111,15 +159,15 @@ public class Transtionview extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(83, 83, 83)
-                .addComponent(lblCreateAccount2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTranstion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(lblCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(379, Short.MAX_VALUE))
+                .addComponent(lblStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(33, 33, 33)
                     .addComponent(lblCreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(369, Short.MAX_VALUE)))
+                    .addContainerGap(426, Short.MAX_VALUE)))
         );
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 51));
@@ -140,14 +188,6 @@ public class Transtionview extends javax.swing.JFrame {
                 txtAccountNoActionPerformed(evt);
             }
         });
-
-        jLabel9.setBackground(new java.awt.Color(0, 102, 51));
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Name");
-        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         txtName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -222,81 +262,130 @@ public class Transtionview extends javax.swing.JFrame {
             }
         });
 
-        tbTranstion.setBackground(new java.awt.Color(204, 255, 204));
-        tbTranstion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tbTranstion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        tbTranstion.setModel(new javax.swing.table.DefaultTableModel(
+        tblTranscation.setBackground(new java.awt.Color(204, 255, 204));
+        tblTranscation.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tblTranscation.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tblTranscation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-
+                "Account No", "Name", "Account Type", "Annunity", "Date", "Slip No", "Deposit", "Total Deposit", "Withdraw", "Balance", "Installment No", "Cover Date", "Due"
             }
         ));
-        jScrollPane1.setViewportView(tbTranstion);
+        jScrollPane1.setViewportView(tblTranscation);
+
+        tbDaily.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Date", "Account NO", "Name", "SlipNo", "Deposit", "Withdraw"
+            }
+        ));
+        jScrollPane2.setViewportView(tbDaily);
+
+        btnClear.setBackground(new java.awt.Color(0, 102, 51));
+        btnClear.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+
+        btnClear1.setBackground(new java.awt.Color(0, 102, 51));
+        btnClear1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnClear1.setForeground(new java.awt.Color(255, 255, 255));
+        btnClear1.setText("Clear Table");
+        btnClear1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClear1ActionPerformed(evt);
+            }
+        });
+
+        btnSearch1.setBackground(new java.awt.Color(0, 102, 51));
+        btnSearch1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSearch1.setForeground(new java.awt.Color(255, 255, 255));
+        btnSearch1.setText("Edit");
+        btnSearch1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearch1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 984, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSlipNo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtSlipNo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnDeposit)))
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtAmount)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnDeposit)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(113, 113, 113))))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(btnWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnClear1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1108, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSlipNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSlipNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnClear1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -308,23 +397,25 @@ public class Transtionview extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblCreateAccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount1MouseClicked
-        new Transtionview().setVisible(true);
+        
+        this.setVisible(false);
+        new PersonInfoview().setVisible(true);
     }//GEN-LAST:event_lblCreateAccount1MouseClicked
 
     private void txtAccountNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccountNoActionPerformed
@@ -336,10 +427,18 @@ public class Transtionview extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+
         PersonDao personDao = new PersonDaoImp();
         Person person = personDao.getPersonByAccontNo(txtAccountNo.getText().trim());
-        
-        
+        txtName.setText(person.getName());
+        DefaultTableModel model = (DefaultTableModel) tblTranscation.getModel();
+        Object col[] = new Object[13];
+        col[0] = person.getAccountNo();
+        col[1] = person.getName();
+        col[2] = person.getSavingType();
+        col[3] = person.getSavingsAmount();
+        model.addRow(col);
+
 
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -352,12 +451,62 @@ public class Transtionview extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSlipNoActionPerformed
 
     private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
-        // TODO add your handling code here:
+        TranstionDao tDao = new TranstionDaoImp();
+        date = new Date(System.currentTimeMillis());
+        accountNo = txtAccountNo.getText();
+        name = txtName.getText();
+        slipNo = txtSlipNo.getText();
+        withdraw = Integer.parseInt(txtAmount.getText());
+
+        try {
+            Transtion t = new Transtion(date, accountNo, name, slipNo, 0);
+            t.setWithdraw(withdraw);
+            tDao.withdraw(t);
+          displayTranstionTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }//GEN-LAST:event_btnWithdrawActionPerformed
 
     private void btnDepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositActionPerformed
-        // TODO add your handling code here:
+        TranstionDao tDao = new TranstionDaoImp();
+        date = new Date(System.currentTimeMillis());
+        accountNo = txtAccountNo.getText();
+        name = txtName.getText();
+        slipNo = txtSlipNo.getText();
+        deposit = Integer.parseInt(txtAmount.getText());
+        try {
+            Transtion t = new Transtion(date, accountNo, name, slipNo, deposit);
+            tDao.deposit(t);
+           displayTranstionTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }//GEN-LAST:event_btnDepositActionPerformed
+
+    private void lblTranstionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTranstionMouseClicked
+      this.setVisible(true);
+        new PersonInfoview().setVisible(false);
+    }//GEN-LAST:event_lblTranstionMouseClicked
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+       txtAccountNo.setText("");
+       txtName.setText("");
+       txtSlipNo.setText("");
+       txtAmount.setText("");
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnClear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClear1ActionPerformed
+       DefaultTableModel model = (DefaultTableModel) tbDaily.getModel();
+       model.setRowCount(0);
+    }//GEN-LAST:event_btnClear1ActionPerformed
+
+    private void btnSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearch1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -396,21 +545,25 @@ public class Transtionview extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnClear1;
     private javax.swing.JButton btnDeposit;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnSearch1;
     private javax.swing.JButton btnWithdraw;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCreateAccount;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblCreateAccount1;
-    private javax.swing.JLabel lblCreateAccount2;
-    private javax.swing.JTable tbTranstion;
+    private javax.swing.JLabel lblStatement;
+    private javax.swing.JLabel lblTranstion;
+    private javax.swing.JTable tbDaily;
+    private javax.swing.JTable tblTranscation;
     private javax.swing.JTextField txtAccountNo;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtName;

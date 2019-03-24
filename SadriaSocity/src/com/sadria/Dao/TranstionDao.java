@@ -6,6 +6,7 @@
 package com.sadria.Dao;
 
 import com.sadria.pojo.Person;
+import com.sadria.pojo.Transtion;
 import java.util.List;
 
 
@@ -13,15 +14,11 @@ import java.util.List;
  *
  * @author User
  */
-public interface PersonDao {
+public interface TranstionDao {
     void createTable();
-    void save(Person p);
-    void update(Person p);
+    void deposit(Transtion t);
+    void withdraw(Transtion t);
     void delete(int id);
-    Person getIdByAccontNo();
-   
-    List<Person> getPersons();
-    List<Person>getPersonsInfo();
-    Person getPersonByAccontNo(String accountNo);
-    Person getPersoninfoByAccontNo(String accountNo);
+    List<Transtion> getTranstions();
+    
 }

@@ -118,6 +118,11 @@ public class PersonInfoview extends javax.swing.JFrame {
         lblCreateAccount2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblCreateAccount2.setForeground(new java.awt.Color(255, 255, 255));
         lblCreateAccount2.setText("Transtion");
+        lblCreateAccount2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreateAccount2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -802,8 +807,15 @@ public class PersonInfoview extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveCA1ActionPerformed
 
     private void lblCreateAccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount1MouseClicked
-        new PersonInfoview().setVisible(true);
+       
+        this.setVisible(true);
+        new Transtionview().setVisible(false);
     }//GEN-LAST:event_lblCreateAccount1MouseClicked
+
+    private void lblCreateAccount2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount2MouseClicked
+       this.setVisible(false);
+        new Transtionview().setVisible(true);
+    }//GEN-LAST:event_lblCreateAccount2MouseClicked
 
     /**
      * @param args the command line arguments

@@ -37,6 +37,11 @@ public class Person {
     public Person() {
     }
 
+    public Person(String accountNo, String name) {
+        this.accountNo = accountNo;
+        this.name = name;
+    }
+
     public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int savingsAmount, String nomineName, String relations, int share) {
         this.id = id;
         this.accountNo = accountNo;
@@ -80,6 +85,13 @@ public class Person {
         this.nomineName = nomineName;
         this.relations = relations;
         this.share = share;
+    }
+
+    public Person(String accountNo, String name, String savingType, int savingsAmount) {
+        this.accountNo = accountNo;
+        this.name = name;
+        this.savingType = savingType;
+        this.savingsAmount = savingsAmount;
     }
 
     public int getId() {
