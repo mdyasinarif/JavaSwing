@@ -85,7 +85,7 @@ public class Statement extends javax.swing.JFrame {
         jLabelACT24 = new javax.swing.JLabel();
         sShare = new javax.swing.JTextField();
         jLabelACT25 = new javax.swing.JLabel();
-        sAccountNo = new javax.swing.JTextField();
+        sAdmissionDate = new javax.swing.JTextField();
         jLabelACT15 = new javax.swing.JLabel();
         sFromNO = new javax.swing.JTextField();
         jLabelACT13 = new javax.swing.JLabel();
@@ -409,16 +409,16 @@ public class Statement extends javax.swing.JFrame {
         jLabelACT25.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelACT25.setForeground(new java.awt.Color(255, 255, 255));
         jLabelACT25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT25.setText("Account  No");
+        jLabelACT25.setText("Add Date");
         jLabelACT25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        sAccountNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sAccountNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sAccountNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sAccountNo.addActionListener(new java.awt.event.ActionListener() {
+        sAdmissionDate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        sAdmissionDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sAdmissionDate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        sAdmissionDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sAccountNoActionPerformed(evt);
+                sAdmissionDateActionPerformed(evt);
             }
         });
 
@@ -612,7 +612,7 @@ public class Statement extends javax.swing.JFrame {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabelACT25, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
-                                .addComponent(sAccountNo)
+                                .addComponent(sAdmissionDate)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabelACT15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -699,7 +699,7 @@ public class Statement extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelACT25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sAdmissionDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabelACT15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -758,20 +758,20 @@ public class Statement extends javax.swing.JFrame {
         PersonDao personDao = new PersonDaoImp();
         Person person = personDao.getPersoninfoByAccontNo(txtAccountNo.getText().trim());
 
-        sAccountNo.setText(person.getAccountNo());
+        sAdmissionDate.setText(person.getAdmissionDate()+"");
         sFromNO.setText(person.getFromNO());
         sCardNo.setText(person.getCardNo());
         sName.setText(person.getName());
         sMotherName.setText(person.getMotherName());
         sFatherHusbendName.setText(person.getFatherHusbendName());
-        comGender.addItem(person.getGender());
+        comGender.setSelectedItem(person.getGender());
         sReligion.setText(person.getReligion());
         sDateofBirth.setText(person.getDateofBirth());
         sNID.setText(person.getnIDNo());
         sMobilNo.setText(person.getMobileNo());
         sPresentAddress.setText(person.getPresentAddress());
         sParmanetAddress.setText(person.getParmanetAddress());
-        sSavingType.addItem(person.getSavingType());
+        sSavingType.setSelectedItem(person.getSavingType());
         sSavingsAmount.setText(person.getSavingsAmount()+"");
         sNomineName.setText(person.getNomineName());
         sRelations.setText(person.getRelations());
@@ -825,9 +825,9 @@ public class Statement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sShareActionPerformed
 
-    private void sAccountNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sAccountNoActionPerformed
+    private void sAdmissionDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sAdmissionDateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sAccountNoActionPerformed
+    }//GEN-LAST:event_sAdmissionDateActionPerformed
 
     private void sFromNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sFromNOActionPerformed
         // TODO add your handling code here:
@@ -927,7 +927,7 @@ public class Statement extends javax.swing.JFrame {
     private javax.swing.JLabel lblCreateAccount1;
     private javax.swing.JLabel lblStatement;
     private javax.swing.JLabel lblTranstion;
-    private javax.swing.JTextField sAccountNo;
+    private javax.swing.JTextField sAdmissionDate;
     private javax.swing.JTextField sCardNo;
     private javax.swing.JTextField sDateofBirth;
     private javax.swing.JTextField sFatherHusbendName;

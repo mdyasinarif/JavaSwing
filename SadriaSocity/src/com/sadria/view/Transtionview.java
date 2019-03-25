@@ -6,10 +6,13 @@
 package com.sadria.view;
 
 import com.sadria.Dao.PersonDao;
+import com.sadria.Dao.SummaryDao;
 import com.sadria.Dao.TranstionDao;
 import com.sadria.DaoImp.PersonDaoImp;
+import com.sadria.DaoImp.SummaryDaoImp;
 import com.sadria.DaoImp.TranstionDaoImp;
 import com.sadria.pojo.Person;
+import com.sadria.pojo.Summary;
 import com.sadria.pojo.Transtion;
 import java.awt.Component;
 import java.sql.Date;
@@ -32,7 +35,7 @@ public class Transtionview extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         displayTranstionTable();
-       
+
     }
     int id;
     Date date;
@@ -41,18 +44,24 @@ public class Transtionview extends javax.swing.JFrame {
     String slipNo;
     int deposit;
     int withdraw;
-public void clearTable() {
-        DefaultTableModel model = (DefaultTableModel) tbDaily.getModel();
+
+    public void clearTable() {
+        DefaultTableModel model = (DefaultTableModel) tblTranscation.getModel();
         model.setRowCount(0);
     }
+    public void clearSummaryTable() {
+        DefaultTableModel model = (DefaultTableModel) tblSummary.getModel();
+        model.setRowCount(0);
+    }
+
     public void displayTranstionTable() {
         clearTable();
         TranstionDao tDao = new TranstionDaoImp();
         List<Transtion> list = tDao.getTranstions();
-        
-        DefaultTableModel model = (DefaultTableModel) tbDaily.getModel();
+
+        DefaultTableModel model = (DefaultTableModel) tblTranscation.getModel();
         Object[] col = new Object[7];
-            for (int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {
             col[0] = list.get(i).getId();
             col[1] = list.get(i).getDate();
             col[2] = list.get(i).getAccountNo();
@@ -60,12 +69,10 @@ public void clearTable() {
             col[4] = list.get(i).getSlipNo();
             col[5] = list.get(i).getDeposit();
             col[6] = list.get(i).getWithdraw();
-             model.addRow(col);
-           
+            model.addRow(col);
+
         }
     }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -93,9 +100,9 @@ public void clearTable() {
         btnWithdraw = new javax.swing.JButton();
         btnDeposit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblTranscation = new javax.swing.JTable();
+        tblSummary = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tbDaily = new javax.swing.JTable();
+        tblTranscation = new javax.swing.JTable();
         btnClear = new javax.swing.JButton();
         btnClear1 = new javax.swing.JButton();
         btnSearch1 = new javax.swing.JButton();
@@ -262,20 +269,20 @@ public void clearTable() {
             }
         });
 
-        tblTranscation.setBackground(new java.awt.Color(204, 255, 204));
-        tblTranscation.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tblTranscation.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        tblTranscation.setModel(new javax.swing.table.DefaultTableModel(
+        tblSummary.setBackground(new java.awt.Color(204, 255, 204));
+        tblSummary.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tblSummary.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tblSummary.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Account No", "Name", "Account Type", "Annunity", "Date", "Slip No", "Deposit", "Total Deposit", "Withdraw", "Balance", "Installment No", "Cover Date", "Due"
+                "Account No", "Name", "Account Type", "Annunity", "Date", "Deposit", "Total Deposit", "Withdraw", "Balance", "Cover Date", "Due"
             }
         ));
-        jScrollPane1.setViewportView(tblTranscation);
+        jScrollPane1.setViewportView(tblSummary);
 
-        tbDaily.setModel(new javax.swing.table.DefaultTableModel(
+        tblTranscation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -283,7 +290,7 @@ public void clearTable() {
                 "Id", "Date", "Account NO", "Name", "SlipNo", "Deposit", "Withdraw"
             }
         ));
-        jScrollPane2.setViewportView(tbDaily);
+        jScrollPane2.setViewportView(tblTranscation);
 
         btnClear.setBackground(new java.awt.Color(0, 102, 51));
         btnClear.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -320,43 +327,41 @@ public void clearTable() {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtSlipNo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDeposit)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtSlipNo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnDeposit)))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(btnWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnClear1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1108, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane1))
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(btnWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnClear1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(124, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
                 .addContainerGap())
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,10 +386,10 @@ public void clearTable() {
                         .addComponent(btnWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnClear1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -413,7 +418,7 @@ public void clearTable() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblCreateAccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount1MouseClicked
-        
+
         this.setVisible(false);
         new PersonInfoview().setVisible(true);
     }//GEN-LAST:event_lblCreateAccount1MouseClicked
@@ -429,19 +434,32 @@ public void clearTable() {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
 
         PersonDao personDao = new PersonDaoImp();
+        Transtion transtion = new Transtion();
         Person person = personDao.getPersonByAccontNo(txtAccountNo.getText().trim());
         txtName.setText(person.getName());
-        DefaultTableModel model = (DefaultTableModel) tblTranscation.getModel();
-        Object col[] = new Object[13];
-        col[0] = person.getAccountNo();
-        col[1] = person.getName();
-        col[2] = person.getSavingType();
-        col[3] = person.getSavingsAmount();
-        model.addRow(col);
-
+        displaySummary(txtAccountNo);
 
     }//GEN-LAST:event_btnSearchActionPerformed
+    public void displaySummary(JTextField acNo) {
+        clearSummaryTable();
+        SummaryDao summaryDao = new SummaryDaoImp();
+        Summary summary = summaryDao.getSummaryByAccontNo(acNo.getText().trim());
 
+        DefaultTableModel model = (DefaultTableModel) tblSummary.getModel();
+        Object col[] = new Object[11];
+        col[0] = summary.getAccountNo();
+        col[1] = summary.getName();
+        col[2] = summary.getSavingType();
+        col[3] = summary.getSavingsAmount();
+        col[4] = summary.getDate();
+        col[5] = summary.getDeposit();
+        col[6] = summary.getTotalDeposit();
+        col[7] = summary.getWithdraw();
+        col[8] = summary.getBalance();
+        col[9] = summary.getCoverDate();
+        col[10] = summary.getDue();
+        model.addRow(col);
+    }
     private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAmountActionPerformed
@@ -462,7 +480,22 @@ public void clearTable() {
             Transtion t = new Transtion(date, accountNo, name, slipNo, 0);
             t.setWithdraw(withdraw);
             tDao.withdraw(t);
-          displayTranstionTable();
+
+            displayTranstionTable();
+
+            displaySummary(txtAccountNo);
+            
+            SummaryDao summaryDao = new SummaryDaoImp();
+
+            Summary summary = summaryDao.getSummaryByAccontNo(accountNo);
+            if (summary.getAccountNo() != null) {
+                int withdraw = summary.getWithdraw()+ Integer.parseInt(txtAmount.getText().trim());
+                int balance = summary.getBalance() - Integer.parseInt(txtAmount.getText().trim());
+                
+                Summary summaryUp = new Summary(summary.getAccountNo(), withdraw, balance, date, 0);
+                summaryDao.updateForWithdraw(summaryUp);
+                 displaySummary(txtAccountNo);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -480,7 +513,20 @@ public void clearTable() {
         try {
             Transtion t = new Transtion(date, accountNo, name, slipNo, deposit);
             tDao.deposit(t);
-           displayTranstionTable();
+            displaySummary(txtAccountNo);
+            displayTranstionTable();
+
+            SummaryDao summaryDao = new SummaryDaoImp();
+
+            Summary summary = summaryDao.getSummaryByAccontNo(accountNo);
+            if (summary.getAccountNo() != null) {
+                int totalDeposit = summary.getTotalDeposit() + Integer.parseInt(txtAmount.getText().trim());
+                int balance = summary.getBalance() + Integer.parseInt(txtAmount.getText().trim());
+                Summary summaryUp = new Summary(summary.getAccountNo(), totalDeposit, balance, date, 0);
+                summaryDao.updateForDeposit(summaryUp);
+                 displaySummary(txtAccountNo);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -488,20 +534,20 @@ public void clearTable() {
     }//GEN-LAST:event_btnDepositActionPerformed
 
     private void lblTranstionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTranstionMouseClicked
-      this.setVisible(true);
+        this.setVisible(true);
         new PersonInfoview().setVisible(false);
     }//GEN-LAST:event_lblTranstionMouseClicked
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-       txtAccountNo.setText("");
-       txtName.setText("");
-       txtSlipNo.setText("");
-       txtAmount.setText("");
+        txtAccountNo.setText("");
+        txtName.setText("");
+        txtSlipNo.setText("");
+        txtAmount.setText("");
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnClear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClear1ActionPerformed
-       DefaultTableModel model = (DefaultTableModel) tbDaily.getModel();
-       model.setRowCount(0);
+        DefaultTableModel model = (DefaultTableModel) tblTranscation.getModel();
+        model.setRowCount(0);
     }//GEN-LAST:event_btnClear1ActionPerformed
 
     private void btnSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch1ActionPerformed
@@ -562,7 +608,7 @@ public void clearTable() {
     private javax.swing.JLabel lblCreateAccount1;
     private javax.swing.JLabel lblStatement;
     private javax.swing.JLabel lblTranstion;
-    private javax.swing.JTable tbDaily;
+    private javax.swing.JTable tblSummary;
     private javax.swing.JTable tblTranscation;
     private javax.swing.JTextField txtAccountNo;
     private javax.swing.JTextField txtAmount;

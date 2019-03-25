@@ -6,10 +6,13 @@
 package com.sadria.view;
 
 import com.sadria.Dao.PersonDao;
+import com.sadria.Dao.SummaryDao;
 import com.sadria.DaoImp.PersonDaoImp;
+import com.sadria.DaoImp.SummaryDaoImp;
 import com.sadria.pojo.Person;
+import com.sadria.pojo.Summary;
 import java.awt.Component;
-import java.sql.Date;
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -781,7 +784,7 @@ public class PersonInfoview extends javax.swing.JFrame {
         String accountNo = sAccountNo.getText();
         String fromNO = sFromNO.getText();
         String cardNo = sCardNo.getText();
-        Date admissionDate = new Date(System.currentTimeMillis());
+        Date admissionDate = new java.sql.Date(System.currentTimeMillis());
         String name = sName.getText();
         String motherName = sMotherName.getText();
         String fatherHusbendName = sFatherHusbendName.getText();
@@ -800,6 +803,10 @@ public class PersonInfoview extends javax.swing.JFrame {
         try {
             Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, dateofBirth, religion, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, savingsAmount, nomineName, relations, share);
             pDao.save(p);
+            //Summary(String accountNo, String name, String savingType, int savingsAmount, Date date, String slipNo, int deposit, int totalDeposit, int withdraw, int balance, int InstallmentNo, Date coverDate, int due)
+            SummaryDao summaryDao=new SummaryDaoImp();
+            Summary summary=new Summary(accountNo, name, savingType, Integer.parseInt(sSavingsAmount.getText().trim()), new Date(), Integer.parseInt(sSavingsAmount.getText().trim()), Integer.parseInt(sSavingsAmount.getText().trim()), 0, Integer.parseInt(sSavingsAmount.getText().trim()), new Date(), 0);
+            summaryDao.save(summary);
         } catch (Exception e) {
             e.printStackTrace();
         }

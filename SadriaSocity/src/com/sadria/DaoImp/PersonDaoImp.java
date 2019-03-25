@@ -44,7 +44,7 @@ Connection con = DBConnection.getConnet();
             pst.setString(1, p.getAccountNo());
             pst.setString(2, p.getFromNO());
             pst.setString(3, p.getCardNo());
-            pst.setDate(4, p.getAdmissionDate());
+            pst.setDate(4, new java.sql.Date(p.getAdmissionDate().getTime()));
             pst.setString(5, p.getName());
             pst.setString(6, p.getMotherName());
             pst.setString(7, p.getFatherHusbendName());

@@ -5,7 +5,7 @@
  */
 package com.sadria.pojo;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
@@ -42,7 +42,7 @@ public class Person {
         this.name = name;
     }
 
-    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int savingsAmount, String nomineName, String relations, int share) {
+    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int savingsAmount, String nomineName, String relations, int share) {
         this.id = id;
         this.accountNo = accountNo;
         this.fromNO = fromNO;
