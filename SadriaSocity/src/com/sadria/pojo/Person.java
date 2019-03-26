@@ -29,7 +29,7 @@ public class Person {
     String presentAddress;
     String parmanetAddress; 
     String savingType;
-    int savingsAmount;
+    int annunity;
     String nomineName;
     String relations;
     int share;
@@ -42,7 +42,7 @@ public class Person {
         this.name = name;
     }
 
-    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int savingsAmount, String nomineName, String relations, int share) {
+    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share) {
         this.id = id;
         this.accountNo = accountNo;
         this.fromNO = fromNO;
@@ -59,13 +59,13 @@ public class Person {
         this.presentAddress = presentAddress;
         this.parmanetAddress = parmanetAddress;
         this.savingType = savingType;
-        this.savingsAmount = savingsAmount;
+        this.annunity = annunity;
         this.nomineName = nomineName;
         this.relations = relations;
         this.share = share;
     }
 
-    public Person(String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int savingsAmount, String nomineName, String relations, int share) {
+    public Person(String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share) {
         this.accountNo = accountNo;
         this.fromNO = fromNO;
         this.cardNo = cardNo;
@@ -81,17 +81,17 @@ public class Person {
         this.presentAddress = presentAddress;
         this.parmanetAddress = parmanetAddress;
         this.savingType = savingType;
-        this.savingsAmount = savingsAmount;
+        this.annunity = annunity;
         this.nomineName = nomineName;
         this.relations = relations;
         this.share = share;
     }
 
-    public Person(String accountNo, String name, String savingType, int savingsAmount) {
+    public Person(String accountNo, String name, String savingType, int annunity) {
         this.accountNo = accountNo;
         this.name = name;
         this.savingType = savingType;
-        this.savingsAmount = savingsAmount;
+        this.annunity = annunity;
     }
 
     public int getId() {
@@ -222,12 +222,12 @@ public class Person {
         this.savingType = savingType;
     }
 
-    public int getSavingsAmount() {
-        return savingsAmount;
+    public int getAnnunity() {
+        return annunity;
     }
 
-    public void setSavingsAmount(int savingsAmount) {
-        this.savingsAmount = savingsAmount;
+    public void setAnnunity(int annunity) {
+        this.annunity = annunity;
     }
 
     public String getNomineName() {

@@ -6,10 +6,13 @@
 package com.sadria.view;
 
 import com.sadria.Dao.PersonDao;
+import com.sadria.Dao.SummaryDao;
 import com.sadria.Dao.TranstionDao;
 import com.sadria.DaoImp.PersonDaoImp;
+import com.sadria.DaoImp.SummaryDaoImp;
 import com.sadria.DaoImp.TranstionDaoImp;
 import com.sadria.pojo.Person;
+import com.sadria.pojo.Summary;
 import com.sadria.pojo.Transtion;
 import java.awt.Component;
 import java.sql.Date;
@@ -31,14 +34,35 @@ public class Statement extends javax.swing.JFrame {
     public Statement() {
         initComponents();
         setLocationRelativeTo(null);
-       
 
     }
-    
 
-   
+    public void clearSummaryTable() {
+        DefaultTableModel model = (DefaultTableModel) tblSummary.getModel();
+        model.setRowCount(0);
+    }
 
-    
+    public void displaySummary(JTextField acNo) {
+       clearSummaryTable();
+        SummaryDao summaryDao = new SummaryDaoImp();
+        Summary summary = summaryDao.getSummaryByAccontNo(acNo.getText().trim());
+
+        DefaultTableModel model = (DefaultTableModel) tblSummary.getModel();
+        Object col[] = new Object[11];
+        col[0] = summary.getAccountNo();
+        col[1] = summary.getName();
+        col[2] = summary.getSavingType();
+        col[3] = summary.getAnnunity();
+        col[4] = summary.getDate();  
+        col[5] = summary.getTotalDeposit();
+        col[6] = summary.getTotalWithdraw();
+        col[7] = summary.getBalance();
+        col[8] = summary.getInstallmentNo();
+        col[9] = summary.getCoverDate();
+        col[10] = summary.getDue();
+        model.addRow(col);
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,7 +83,7 @@ public class Statement extends javax.swing.JFrame {
         txtAccountNo = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblTranscation = new javax.swing.JTable();
+        tblSummary = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabelACT10 = new javax.swing.JLabel();
         sName = new javax.swing.JTextField();
@@ -93,7 +117,7 @@ public class Statement extends javax.swing.JFrame {
         jLabelACT12 = new javax.swing.JLabel();
         sSavingType = new javax.swing.JComboBox<>();
         jLabelACT16 = new javax.swing.JLabel();
-        sSavingsAmount = new javax.swing.JTextField();
+        sAnnunity = new javax.swing.JTextField();
         jLabelACT4 = new javax.swing.JLabel();
         sMobilNo = new javax.swing.JTextField();
         sRelations = new javax.swing.JTextField();
@@ -146,13 +170,13 @@ public class Statement extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblStatement, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(lblStatement, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                     .addComponent(lblTranstion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(lblCreateAccount1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(lblCreateAccount1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel2Layout.setVerticalGroup(
@@ -162,12 +186,12 @@ public class Statement extends javax.swing.JFrame {
                 .addComponent(lblTranstion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(lblStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(315, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(33, 33, 33)
                     .addComponent(lblCreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(426, Short.MAX_VALUE)))
+                    .addContainerGap(499, Short.MAX_VALUE)))
         );
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 51));
@@ -199,18 +223,18 @@ public class Statement extends javax.swing.JFrame {
             }
         });
 
-        tblTranscation.setBackground(new java.awt.Color(204, 255, 204));
-        tblTranscation.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tblTranscation.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        tblTranscation.setModel(new javax.swing.table.DefaultTableModel(
+        tblSummary.setBackground(new java.awt.Color(204, 255, 204));
+        tblSummary.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tblSummary.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tblSummary.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Account No", "Name", "Account Type", "Annunity", "Date", "Slip No", "Deposit", "Total Deposit", "Withdraw", "Balance", "Installment No", "Cover Date", "Due"
+                "Account No", "Name", "Account Type", "Annunity", "Date", "Total Deposit", "Tota Withdraw", "Balance", "Cover Date", "Due"
             }
         ));
-        jScrollPane1.setViewportView(tblTranscation);
+        jScrollPane1.setViewportView(tblSummary);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -478,12 +502,12 @@ public class Statement extends javax.swing.JFrame {
         jLabelACT16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        sSavingsAmount.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sSavingsAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sSavingsAmount.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sSavingsAmount.addActionListener(new java.awt.event.ActionListener() {
+        sAnnunity.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        sAnnunity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sAnnunity.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        sAnnunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sSavingsAmountActionPerformed(evt);
+                sAnnunityActionPerformed(evt);
             }
         });
 
@@ -604,7 +628,7 @@ public class Statement extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabelACT16, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(sSavingsAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(sAnnunity, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -710,7 +734,7 @@ public class Statement extends javax.swing.JFrame {
                     .addComponent(jLabelACT12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sSavingType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelACT16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sSavingsAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sAnnunity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(sMobilNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -724,8 +748,8 @@ public class Statement extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 925, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -734,10 +758,8 @@ public class Statement extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -754,11 +776,11 @@ public class Statement extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAccountNoActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-
+        
         PersonDao personDao = new PersonDaoImp();
         Person person = personDao.getPersoninfoByAccontNo(txtAccountNo.getText().trim());
 
-        sAdmissionDate.setText(person.getAdmissionDate()+"");
+        sAdmissionDate.setText(person.getAdmissionDate() + "");
         sFromNO.setText(person.getFromNO());
         sCardNo.setText(person.getCardNo());
         sName.setText(person.getName());
@@ -772,11 +794,11 @@ public class Statement extends javax.swing.JFrame {
         sPresentAddress.setText(person.getPresentAddress());
         sParmanetAddress.setText(person.getParmanetAddress());
         sSavingType.setSelectedItem(person.getSavingType());
-        sSavingsAmount.setText(person.getSavingsAmount()+"");
+        sAnnunity.setText(person.getAnnunity()+ "");
         sNomineName.setText(person.getNomineName());
         sRelations.setText(person.getRelations());
-        sShare.setText(person.getShare()+"");
-
+        sShare.setText(person.getShare() + "");
+         displaySummary(txtAccountNo);
 
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -837,9 +859,9 @@ public class Statement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sCardNoActionPerformed
 
-    private void sSavingsAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sSavingsAmountActionPerformed
+    private void sAnnunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sAnnunityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sSavingsAmountActionPerformed
+    }//GEN-LAST:event_sAnnunityActionPerformed
 
     private void sMobilNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sMobilNoActionPerformed
         // TODO add your handling code here:
@@ -928,6 +950,7 @@ public class Statement extends javax.swing.JFrame {
     private javax.swing.JLabel lblStatement;
     private javax.swing.JLabel lblTranstion;
     private javax.swing.JTextField sAdmissionDate;
+    private javax.swing.JTextField sAnnunity;
     private javax.swing.JTextField sCardNo;
     private javax.swing.JTextField sDateofBirth;
     private javax.swing.JTextField sFatherHusbendName;
@@ -942,9 +965,8 @@ public class Statement extends javax.swing.JFrame {
     private javax.swing.JTextField sRelations;
     private javax.swing.JTextField sReligion;
     private javax.swing.JComboBox<String> sSavingType;
-    private javax.swing.JTextField sSavingsAmount;
     private javax.swing.JTextField sShare;
-    private javax.swing.JTable tblTranscation;
+    private javax.swing.JTable tblSummary;
     private javax.swing.JTextField txtAccountNo;
     // End of variables declaration//GEN-END:variables
 }

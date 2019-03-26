@@ -10,7 +10,7 @@ import com.sadria.Dao.SummaryDao;
 import com.sadria.pojo.Person;
 import com.sadria.pojo.Summary;
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
@@ -30,7 +30,7 @@ public class SummaryDaoImp implements SummaryDao {
 
     @Override
     public void createTable() {
-        String sql = "create table if not Exists summary(id int(4) auto_increment primary key,accountNo varchar(20),name varchar(20),savingType varchar(20),savingsAmount int(20),date date,deposit int(20),totalDeposit int(20), withdraw int(20),balance int(20),coverDate date,due int(20))";
+        String sql = "create table if not Exists summary(id int(4) auto_increment primary key,accountNo varchar(20),name varchar(20),savingType varchar(20),annunity int(20),date date,totalDeposit int(20), totalWithdraw int(20),balance int(20),installmentNo int(20),coverDate date,due int(20))";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.execute();
@@ -42,19 +42,20 @@ public class SummaryDaoImp implements SummaryDao {
 
     @Override
     public void save(Summary s) {
-        String sql = "insert into summary(accountNo ,name ,savingType ,savingsAmount ,date,deposit ,totalDeposit , withdraw ,balance,coverDate ,due) values(?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into summary(accountNo ,name ,savingType ,annunity ,date,totalDeposit , totalWithdraw ,balance,installmentNo,coverDate ,due) values(?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, s.getAccountNo());
             pst.setString(2, s.getName());
             pst.setString(3, s.getSavingType());
-            pst.setInt(4, s.getSavingsAmount());
+            pst.setInt(4, s.getAnnunity());
             pst.setDate(5, new java.sql.Date(s.getDate().getTime()));
 
-            pst.setInt(6, s.getDeposit());
-            pst.setInt(7, s.getTotalDeposit());
-            pst.setInt(8, s.getWithdraw());
-            pst.setInt(9, s.getBalance());
+           
+            pst.setInt(6, s.getTotalDeposit());
+            pst.setInt(7, s.getTotalWithdraw());
+            pst.setInt(8, s.getBalance());
+            pst.setInt(9, s.getInstallmentNo());
 
             pst.setDate(10, new java.sql.Date(s.getCoverDate().getTime()));
             pst.setInt(11, s.getDue());
@@ -67,14 +68,16 @@ public class SummaryDaoImp implements SummaryDao {
 
     @Override
     public void updateForDeposit(Summary s) {
-        String sql = "update summary set totalDeposit = ? ,balance = ? ,coverDate = ? ,due = ? where accountNo = ?";
+        String sql = "update summary set totalDeposit = ? ,balance = ? ,installmentNo = ? , coverDate = ? ,due = ? where accountNo = ?";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, s.getTotalDeposit());          
             pst.setInt(2, s.getBalance());
-            pst.setDate(3, new java.sql.Date(s.getCoverDate().getTime()));
-            pst.setInt(4, s.getDue());
-            pst.setString(5, s.getAccountNo());
+             pst.setInt(3, s.getInstallmentNo());
+            pst.setDate(4, new java.sql.Date(s.getCoverDate().getTime()));
+           
+            pst.setInt(5, s.getDue());
+            pst.setString(6, s.getAccountNo());
             pst.executeUpdate();
 
         } catch (Exception e) {
@@ -112,14 +115,15 @@ public class SummaryDaoImp implements SummaryDao {
 
     @Override
     public void updateForWithdraw(Summary s) {
-         String sql = "update summary set withdraw = ? ,balance = ? ,coverDate = ? ,due = ? where accountNo = ?";
+         String sql = "update summary set totalWithdraw =? , balance=?, installmentNo = ? , coverDate = ? , due = ? where accountNo = ?";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, s.getWithdraw());          
+            pst.setInt(1, s.getTotalWithdraw());          
             pst.setInt(2, s.getBalance());
-            pst.setDate(3, new java.sql.Date(s.getCoverDate().getTime()));
-            pst.setInt(4, s.getDue());
-            pst.setString(5, s.getAccountNo());
+            pst.setInt(3, s.getInstallmentNo());
+            pst.setDate(4, new java.sql.Date(s.getCoverDate().getTime()));
+            pst.setInt(5, s.getDue());
+            pst.setString(6, s.getAccountNo());
             pst.executeUpdate();
 
         } catch (Exception e) {

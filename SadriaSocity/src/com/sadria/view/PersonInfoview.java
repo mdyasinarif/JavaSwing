@@ -75,7 +75,7 @@ public class PersonInfoview extends javax.swing.JFrame {
         jLabelACT12 = new javax.swing.JLabel();
         sSavingType = new javax.swing.JComboBox<>();
         jLabelACT16 = new javax.swing.JLabel();
-        sSavingsAmount = new javax.swing.JTextField();
+        sAnnunity = new javax.swing.JTextField();
         jLabelACT4 = new javax.swing.JLabel();
         jLabelACT9 = new javax.swing.JLabel();
         sNomineName = new javax.swing.JTextField();
@@ -385,16 +385,16 @@ public class PersonInfoview extends javax.swing.JFrame {
         jLabelACT16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelACT16.setForeground(new java.awt.Color(255, 255, 255));
         jLabelACT16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT16.setText("Amount");
+        jLabelACT16.setText("Annunity");
         jLabelACT16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        sSavingsAmount.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sSavingsAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sSavingsAmount.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sSavingsAmount.addActionListener(new java.awt.event.ActionListener() {
+        sAnnunity.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        sAnnunity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sAnnunity.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        sAnnunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sSavingsAmountActionPerformed(evt);
+                sAnnunityActionPerformed(evt);
             }
         });
 
@@ -567,7 +567,7 @@ public class PersonInfoview extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(jLabelACT16, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(sSavingsAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(sAnnunity, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -658,7 +658,7 @@ public class PersonInfoview extends javax.swing.JFrame {
                     .addComponent(jLabelACT12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sSavingType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelACT16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sSavingsAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sAnnunity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(sMobilNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -742,9 +742,9 @@ public class PersonInfoview extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sParmanetAddressActionPerformed
 
-    private void sSavingsAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sSavingsAmountActionPerformed
+    private void sAnnunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sAnnunityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sSavingsAmountActionPerformed
+    }//GEN-LAST:event_sAnnunityActionPerformed
 
     private void sNomineNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sNomineNameActionPerformed
         // TODO add your handling code here:
@@ -796,16 +796,16 @@ public class PersonInfoview extends javax.swing.JFrame {
         String presentAddress = sPresentAddress.getText();
         String parmanetAddress = sParmanetAddress.getText();
         String savingType = sSavingType.getItemAt(sSavingType.getSelectedIndex());
-        int savingsAmount = Integer.parseInt(sSavingsAmount.getText());
+        int annynity = Integer.parseInt(sAnnunity.getText());
         String nomineName = sNomineName.getText();
         String relations = sRelations.getText();
         int share = Integer.parseInt(sShare.getText());;
         try {
-            Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, dateofBirth, religion, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, savingsAmount, nomineName, relations, share);
+            Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, dateofBirth, religion, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share);
             pDao.save(p);
             //Summary(String accountNo, String name, String savingType, int savingsAmount, Date date, String slipNo, int deposit, int totalDeposit, int withdraw, int balance, int InstallmentNo, Date coverDate, int due)
             SummaryDao summaryDao=new SummaryDaoImp();
-            Summary summary=new Summary(accountNo, name, savingType, Integer.parseInt(sSavingsAmount.getText().trim()), new Date(), Integer.parseInt(sSavingsAmount.getText().trim()), Integer.parseInt(sSavingsAmount.getText().trim()), 0, Integer.parseInt(sSavingsAmount.getText().trim()), new Date(), 0);
+            Summary summary=new Summary(accountNo, name, savingType, Integer.parseInt(sAnnunity.getText().trim()), new Date(),Integer.parseInt(sAnnunity.getText().trim()), 0, Integer.parseInt(sAnnunity.getText().trim()),1,new Date(), 0);
             summaryDao.save(summary);
         } catch (Exception e) {
             e.printStackTrace();
@@ -891,6 +891,7 @@ public class PersonInfoview extends javax.swing.JFrame {
     private javax.swing.JLabel lblCreateAccount1;
     private javax.swing.JLabel lblCreateAccount2;
     private javax.swing.JTextField sAccountNo;
+    private javax.swing.JTextField sAnnunity;
     private javax.swing.JTextField sCardNo;
     private javax.swing.JTextField sDateofBirth;
     private javax.swing.JTextField sFatherHusbendName;
@@ -905,7 +906,6 @@ public class PersonInfoview extends javax.swing.JFrame {
     private javax.swing.JTextField sRelations;
     private javax.swing.JTextField sReligion;
     private javax.swing.JComboBox<String> sSavingType;
-    private javax.swing.JTextField sSavingsAmount;
     private javax.swing.JTextField sShare;
     // End of variables declaration//GEN-END:variables
 }

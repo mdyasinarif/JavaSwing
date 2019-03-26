@@ -16,57 +16,65 @@ public class Summary {
     String accountNo;
     String name;
     String savingType;
-    int savingsAmount;
+    int annunity;
     Date date;
-    int deposit;
     int totalDeposit;
-    int withdraw;
+    int totalWithdraw;
     int balance;
+    int installmentNo;
     Date coverDate;
     int due;
 
     public Summary() {
     }
 
-    
-    public Summary(String accountNo, int totalDeposit, int balance, Date coverDate, int due) {
-        this.accountNo = accountNo;
-        this.totalDeposit = totalDeposit;
-        this.balance = balance;
-        this.coverDate = coverDate;
-        this.due = due;
-    }
-    
-    public Summary(int id, String accountNo, String name, String savingType, int savingsAmount, Date date, int deposit, int totalDeposit, int withdraw, int balance, Date coverDate, int due) {
+    public Summary(int id, String accountNo, String name, String savingType, int annunity, Date date, int totalDeposit, int totalWithdraw, int balance, int installmentNo, Date coverDate, int due) {
         this.id = id;
         this.accountNo = accountNo;
         this.name = name;
         this.savingType = savingType;
-        this.savingsAmount = savingsAmount;
+        this.annunity = annunity;
         this.date = date;
-        this.deposit = deposit;
         this.totalDeposit = totalDeposit;
-        this.withdraw = withdraw;
+        this.totalWithdraw = totalWithdraw;
         this.balance = balance;
+        this.installmentNo = installmentNo;
         this.coverDate = coverDate;
         this.due = due;
     }
 
-    public Summary(String accountNo, String name, String savingType, int savingsAmount, Date date, int deposit, int totalDeposit, int withdraw, int balance, Date coverDate, int due) {
+    public Summary(String accountNo, String name, String savingType, int annunity, Date date, int totalDeposit, int totalWithdraw, int balance, int installmentNo, Date coverDate, int due) {
         this.accountNo = accountNo;
         this.name = name;
         this.savingType = savingType;
-        this.savingsAmount = savingsAmount;
+        this.annunity = annunity;
         this.date = date;
-        this.deposit = deposit;
         this.totalDeposit = totalDeposit;
-        this.withdraw = withdraw;
+        this.totalWithdraw = totalWithdraw;
         this.balance = balance;
+        this.installmentNo = installmentNo;
+        this.coverDate = coverDate;
+        this.due = due;
+    }
+
+    public Summary(String accountNo, int totalDeposit, int balance, int installmentNo, Date coverDate, int due) {
+        this.accountNo = accountNo;
+        this.totalDeposit = totalDeposit;
+        this.balance = balance;
+        this.installmentNo = installmentNo;
         this.coverDate = coverDate;
         this.due = due;
     }
 
     
+    public Summary(int totalDeposit, int balance, int installmentNo, Date coverDate, int due) {
+        this.totalDeposit = totalDeposit;
+        this.balance = balance;
+        this.installmentNo = installmentNo;
+        this.coverDate = coverDate;
+        this.due = due;
+    }
+
     public int getId() {
         return id;
     }
@@ -99,12 +107,12 @@ public class Summary {
         this.savingType = savingType;
     }
 
-    public int getSavingsAmount() {
-        return savingsAmount;
+    public int getAnnunity() {
+        return annunity;
     }
 
-    public void setSavingsAmount(int savingsAmount) {
-        this.savingsAmount = savingsAmount;
+    public void setAnnunity(int annunity) {
+        this.annunity = annunity;
     }
 
     public Date getDate() {
@@ -115,14 +123,6 @@ public class Summary {
         this.date = date;
     }
 
-    public int getDeposit() {
-        return deposit;
-    }
-
-    public void setDeposit(int deposit) {
-        this.deposit = deposit;
-    }
-
     public int getTotalDeposit() {
         return totalDeposit;
     }
@@ -131,12 +131,12 @@ public class Summary {
         this.totalDeposit = totalDeposit;
     }
 
-    public int getWithdraw() {
-        return withdraw;
+    public int getTotalWithdraw() {
+        return totalWithdraw;
     }
 
-    public void setWithdraw(int withdraw) {
-        this.withdraw = withdraw;
+    public void setTotalWithdraw(int totalWithdraw) {
+        this.totalWithdraw = totalWithdraw;
     }
 
     public int getBalance() {
@@ -145,6 +145,14 @@ public class Summary {
 
     public void setBalance(int balance) {
         this.balance = balance;
+    }
+
+    public int getInstallmentNo() {
+        return installmentNo;
+    }
+
+    public void setInstallmentNo(int installmentNo) {
+        this.installmentNo = installmentNo;
     }
 
     public Date getCoverDate() {
@@ -163,6 +171,12 @@ public class Summary {
         this.due = due;
     }
 
+    
+
+    
+    
+    
+   
     
     
 }

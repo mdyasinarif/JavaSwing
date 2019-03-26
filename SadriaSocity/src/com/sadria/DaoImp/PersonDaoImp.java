@@ -26,7 +26,7 @@ Connection con = DBConnection.getConnet();
     }
     @Override
     public void createTable() {
-        String sql = "create table if not Exists person(id int(4) auto_increment primary key,accountNo varchar(20),fromNO varchar(20),cardNo varchar(20),admissionDate date,name varchar(20),motherName varchar(20),fatherHusbendName varchar(20),gender varchar(20),religion varchar(20),dateofBirth varchar(20),nIDNo varchar(20),mobileNo varchar(20),presentAddress varchar(50),parmanetAddress varchar(50),savingType varchar(20),savingsAmount int(20),nomineName varchar(20),relations varchar(20),share int(20))";
+        String sql = "create table if not Exists person(id int(4) auto_increment primary key,accountNo varchar(20),fromNO varchar(20),cardNo varchar(20),admissionDate date,name varchar(20),motherName varchar(20),fatherHusbendName varchar(20),gender varchar(20),religion varchar(20),dateofBirth varchar(20),nIDNo varchar(20),mobileNo varchar(20),presentAddress varchar(100),parmanetAddress varchar(100),savingType varchar(20),annunity int(20),nomineName varchar(20),relations varchar(20),share int(20))";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.execute();
@@ -38,7 +38,7 @@ Connection con = DBConnection.getConnet();
 
     @Override
     public void save(Person p) {
-        String sql = "insert into person(accountNo ,fromNO ,cardNo ,admissionDate ,name ,motherName,fatherHusbendName ,gender ,religion ,dateofBirth ,nIDNo ,mobileNo ,presentAddress ,parmanetAddress ,savingType ,savingsAmount,nomineName ,relations ,share)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into person(accountNo ,fromNO ,cardNo ,admissionDate ,name ,motherName,fatherHusbendName ,gender ,religion ,dateofBirth ,nIDNo ,mobileNo ,presentAddress ,parmanetAddress ,savingType ,annunity,nomineName ,relations ,share)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, p.getAccountNo());
@@ -56,7 +56,7 @@ Connection con = DBConnection.getConnet();
             pst.setString(13, p.getPresentAddress());
             pst.setString(14, p.getParmanetAddress());
             pst.setString(15, p.getSavingType());
-            pst.setInt(16, p.getSavingsAmount());
+            pst.setInt(16, p.getAnnunity());
             pst.setString(17, p.getNomineName());
             pst.setString(18, p.getRelations());
             pst.setInt(19, p.getShare());

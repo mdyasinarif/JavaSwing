@@ -253,7 +253,7 @@
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="jLabelACT16" min="-2" pref="102" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="sSavingsAmount" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="sAnnunity" min="-2" pref="130" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="jLabelACT4" min="-2" pref="119" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -365,7 +365,7 @@
                       <Component id="jLabelACT12" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="sSavingType" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelACT16" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="sSavingsAmount" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="sAnnunity" min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="jLabelACT4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="sMobilNo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -954,7 +954,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Amount"/>
+            <Property name="text" type="java.lang.String" value="Annunity"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                 <BevelBorder/>
@@ -965,7 +965,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="sSavingsAmount">
+        <Component class="javax.swing.JTextField" name="sAnnunity">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
@@ -978,7 +978,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sSavingsAmountActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sAnnunityActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelACT4">
