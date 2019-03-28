@@ -16,6 +16,7 @@ import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.sql.Blob;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -814,15 +815,14 @@ byte[] person_img = null;
         String nomineName = sNomineName.getText();
         String relations = sRelations.getText();
         int share = Integer.parseInt(sShare.getText());;
+        Blob picture = null;
        
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon(fileName).getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_SMOOTH));
-        // byte picture = lblImg.getIcon(imageIcon);
         
         
         try {
             Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, dateofBirth, religion, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share,picture);
             pDao.save(p);
-            //Summary(String accountNo, String name, String savingType, int savingsAmount, Date date, String slipNo, int deposit, int totalDeposit, int withdraw, int balance, int InstallmentNo, Date coverDate, int due)
+            
             SummaryDao summaryDao=new SummaryDaoImp();
             Summary summary=new Summary(accountNo, name, savingType, Integer.parseInt(sAnnunity.getText().trim()), new Date(),Integer.parseInt(sAnnunity.getText().trim()), 0, Integer.parseInt(sAnnunity.getText().trim()),1,new Date(), 0);
             summaryDao.save(summary);

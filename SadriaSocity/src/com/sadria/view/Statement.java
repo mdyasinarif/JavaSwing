@@ -88,7 +88,7 @@ public class Statement extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSummary = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        lblpic = new javax.swing.JLabel();
         jLabelACT10 = new javax.swing.JLabel();
         sName = new javax.swing.JTextField();
         jLabelACT5 = new javax.swing.JLabel();
@@ -245,9 +245,9 @@ public class Statement extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblSummary);
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel1.setBorder(new javax.swing.border.MatteBorder(null));
+        lblpic.setBackground(new java.awt.Color(255, 255, 255));
+        lblpic.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        lblpic.setBorder(new javax.swing.border.MatteBorder(null));
 
         jLabelACT10.setBackground(new java.awt.Color(0, 102, 51));
         jLabelACT10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -586,7 +586,7 @@ public class Statement extends javax.swing.JFrame {
                     .addGroup(panalstatementLayout.createSequentialGroup()
                         .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panalstatementLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblpic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panalstatementLayout.createSequentialGroup()
@@ -697,7 +697,6 @@ public class Statement extends javax.swing.JFrame {
                         .addComponent(txtAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panalstatementLayout.createSequentialGroup()
                         .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelACT10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -723,7 +722,8 @@ public class Statement extends javax.swing.JFrame {
                                 .addComponent(jLabelACT6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabelACT, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(sReligion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(sNID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(sNID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblpic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelACT8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -759,7 +759,7 @@ public class Statement extends javax.swing.JFrame {
                     .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(sMobilNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(9, 9, 9)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -819,6 +819,7 @@ public class Statement extends javax.swing.JFrame {
         sNomineName.setText(person.getNomineName());
         sRelations.setText(person.getRelations());
         sShare.setText(person.getShare() + "");
+        lblpic.setIcon(person.getPicture());
          displaySummary(txtAccountNo);
 
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -951,7 +952,6 @@ public class Statement extends javax.swing.JFrame {
     private javax.swing.JButton btnSave1;
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> comGender;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelACT;
@@ -977,6 +977,7 @@ public class Statement extends javax.swing.JFrame {
     private javax.swing.JLabel lblCreateAccount1;
     private javax.swing.JLabel lblStatement;
     private javax.swing.JLabel lblTranstion;
+    private javax.swing.JLabel lblpic;
     private javax.swing.JPanel panalstatement;
     private javax.swing.JTextField sAdmissionDate;
     private javax.swing.JTextField sAnnunity;

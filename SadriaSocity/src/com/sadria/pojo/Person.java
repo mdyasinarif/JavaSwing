@@ -5,6 +5,7 @@
  */
 package com.sadria.pojo;
 
+import java.sql.Blob;
 import java.util.Date;
 
 /**
@@ -33,7 +34,7 @@ public class Person {
     String nomineName;
     String relations;
     int share;
-    byte[] picture;
+    Blob picture;
     public Person() {
     }
 
@@ -42,7 +43,7 @@ public class Person {
         this.name = name;
     }
 
-    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, byte[] picture) {
+    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, Blob picture) {
         this.id = id;
         this.accountNo = accountNo;
         this.fromNO = fromNO;
@@ -66,7 +67,7 @@ public class Person {
         this.picture = picture;
     }
 
-    public Person(String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, byte[] picture) {
+    public Person(String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, Blob picture) {
         this.accountNo = accountNo;
         this.fromNO = fromNO;
         this.cardNo = cardNo;
@@ -88,6 +89,10 @@ public class Person {
         this.share = share;
         this.picture = picture;
     }
+
+    
+
+   
 
     
 
@@ -260,11 +265,11 @@ public class Person {
         this.share = share;
     }
 
-    public byte[] getPicture() {
+    public Blob getPicture() {
         return picture;
     }
 
-    public void setPicture(byte[] picture) {
+    public void setPicture(Blob picture) {
         this.picture = picture;
     }
 
