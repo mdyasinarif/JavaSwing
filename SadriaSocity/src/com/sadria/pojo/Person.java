@@ -33,7 +33,7 @@ public class Person {
     String nomineName;
     String relations;
     int share;
-
+    byte[] picture;
     public Person() {
     }
 
@@ -42,7 +42,7 @@ public class Person {
         this.name = name;
     }
 
-    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share) {
+    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, byte[] picture) {
         this.id = id;
         this.accountNo = accountNo;
         this.fromNO = fromNO;
@@ -63,9 +63,10 @@ public class Person {
         this.nomineName = nomineName;
         this.relations = relations;
         this.share = share;
+        this.picture = picture;
     }
 
-    public Person(String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share) {
+    public Person(String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, byte[] picture) {
         this.accountNo = accountNo;
         this.fromNO = fromNO;
         this.cardNo = cardNo;
@@ -85,7 +86,12 @@ public class Person {
         this.nomineName = nomineName;
         this.relations = relations;
         this.share = share;
+        this.picture = picture;
     }
+
+    
+
+    
 
     public Person(String accountNo, String name, String savingType, int annunity) {
         this.accountNo = accountNo;
@@ -254,6 +260,15 @@ public class Person {
         this.share = share;
     }
 
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
+   
     
     
     

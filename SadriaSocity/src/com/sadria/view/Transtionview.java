@@ -15,7 +15,8 @@ import com.sadria.pojo.Person;
 import com.sadria.pojo.Summary;
 import com.sadria.pojo.Transtion;
 import java.awt.Component;
-import java.sql.Date;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -84,6 +85,7 @@ public class Transtionview extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblStatement = new javax.swing.JLabel();
         lblCreateAccount1 = new javax.swing.JLabel();
@@ -112,15 +114,19 @@ public class Transtionview extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 51));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon("F:\\IDB\\Git\\JavaSwing\\SadriaSocity\\src\\com\\sadria\\img\\hedline2.png")); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 51));
@@ -492,7 +498,7 @@ public class Transtionview extends javax.swing.JFrame {
 
     private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
         TranstionDao tDao = new TranstionDaoImp();
-        date = new Date(System.currentTimeMillis());
+        date = new java.sql.Date(date.getTime());
         accountNo = txtAccountNo.getText();
         name = txtName.getText();
         slipNo = txtSlipNo.getText();
@@ -531,10 +537,16 @@ public class Transtionview extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnWithdrawActionPerformed
-
+public static Date getsCoverDate(Date addmissionDay,int day){
+    Calendar c = Calendar.getInstance();
+    c.setTime(addmissionDay);
+    c.add(Calendar.DATE,day);
+    return c.getTime();
+}
+    
     private void btnDepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositActionPerformed
         TranstionDao tDao = new TranstionDaoImp();
-        date = new Date(System.currentTimeMillis());
+        date = new java.sql.Date(date.getTime());
         accountNo = txtAccountNo.getText();
         name = txtName.getText();
         slipNo = txtSlipNo.getText();
@@ -551,8 +563,17 @@ public class Transtionview extends javax.swing.JFrame {
             if (summary.getAccountNo() != null) {
                 int totalDeposit = summary.getTotalDeposit() + Integer.parseInt(txtAmount.getText().trim());
                 int balance = summary.getBalance() + Integer.parseInt(txtAmount.getText().trim());
-                int installment = summary.getBalance() / summary.getAnnunity();
-                Date coverDate = new java.sql.Date(summary.getCoverDate().getTime());
+                int installment = (summary.getBalance()+ summary.getAnnunity()) / summary.getAnnunity();
+                PersonDao pDao = new PersonDaoImp();
+                Person person = pDao.getPersonByAccontNo(accountNo);
+                Date addmissionDay = person.getAdmissionDate();
+                int day = 1;
+                if (summary.getSavingType().trim().equalsIgnoreCase("Weekly")) {
+                        day = summary.getInstallmentNo()*7;
+                }else if(summary.getSavingType().trim().equalsIgnoreCase("Monthly")){
+                     day = summary.getInstallmentNo()*30;
+                }
+                Date coverDate = getsCoverDate(addmissionDay, day);
                 int due = 0;
                 
                 Summary summaryUp = new Summary(summary.getAccountNo(), totalDeposit, balance, installment, coverDate, due);
@@ -630,6 +651,7 @@ public class Transtionview extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSearch1;
     private javax.swing.JButton btnWithdraw;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

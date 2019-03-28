@@ -26,7 +26,7 @@ Connection con = DBConnection.getConnet();
     }
     @Override
     public void createTable() {
-        String sql = "create table if not Exists person(id int(4) auto_increment primary key,accountNo varchar(20),fromNO varchar(20),cardNo varchar(20),admissionDate date,name varchar(20),motherName varchar(20),fatherHusbendName varchar(20),gender varchar(20),religion varchar(20),dateofBirth varchar(20),nIDNo varchar(20),mobileNo varchar(20),presentAddress varchar(100),parmanetAddress varchar(100),savingType varchar(20),annunity int(20),nomineName varchar(20),relations varchar(20),share int(20))";
+        String sql = "create table if not Exists person(id int(4) auto_increment primary key,accountNo varchar(20),fromNO varchar(20),cardNo varchar(20),admissionDate date,name varchar(20),motherName varchar(20),fatherHusbendName varchar(20),gender varchar(20),religion varchar(20),dateofBirth varchar(20),nIDNo varchar(20),mobileNo varchar(20),presentAddress varchar(100),parmanetAddress varchar(100),savingType varchar(20),annunity int(20),nomineName varchar(20),relations varchar(20),share int(20),picture BLOB)";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.execute();
@@ -60,6 +60,7 @@ Connection con = DBConnection.getConnet();
             pst.setString(17, p.getNomineName());
             pst.setString(18, p.getRelations());
             pst.setInt(19, p.getShare());
+            pst.setBytes(20, p.getPicture());
             pst.executeUpdate();         
         } catch (Exception e) {
             e.printStackTrace();
@@ -89,7 +90,7 @@ Connection con = DBConnection.getConnet();
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Person p = new Person(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getInt(17), rs.getString(18), rs.getString(19),rs.getInt(20));
+                Person p = new Person(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getInt(17), rs.getString(18), rs.getString(19),rs.getInt(20),rs.getBytes(21));
                 list.add(p);
             }
         } catch (Exception e) {
@@ -141,7 +142,7 @@ Connection con = DBConnection.getConnet();
             pstm.setString(1, accountNo);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {                
-            p = new Person(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getInt(17), rs.getString(18), rs.getString(19),rs.getInt(20));
+            p = new Person(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getInt(17), rs.getString(18), rs.getString(19),rs.getInt(20),rs.getBytes(21));
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -9,6 +9,7 @@ import com.sadria.Connection.DBConnection;
 import com.sadria.Dao.TranstionDao;
 import com.sadria.pojo.Person;
 import com.sadria.pojo.Transtion;
+import java.util.Date;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,7 +44,7 @@ Connection con = DBConnection.getConnet();
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, t.getId());
-            pst.setDate(2,t.getDate());
+            pst.setDate(2, (java.sql.Date) t.getDate());
             pst.setString(3,t.getAccountNo());
             pst.setString(4,t.getName());
             pst.setString(5,t.getSlipNo());
@@ -61,7 +62,7 @@ Connection con = DBConnection.getConnet();
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, t.getId());
-            pst.setDate(2,t.getDate());
+            pst.setDate(2, (java.sql.Date) t.getDate());
             pst.setString(3,t.getAccountNo());
             pst.setString(4,t.getName());
             pst.setString(5,t.getSlipNo());

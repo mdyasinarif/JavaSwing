@@ -12,7 +12,13 @@ import com.sadria.DaoImp.SummaryDaoImp;
 import com.sadria.pojo.Person;
 import com.sadria.pojo.Summary;
 import java.awt.Component;
+import java.awt.Image;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -30,7 +36,8 @@ public class PersonInfoview extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
-
+String fileName = null;
+byte[] person_img = null;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,13 +48,14 @@ public class PersonInfoview extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblCreateAccount = new javax.swing.JLabel();
         lblCreateAccount1 = new javax.swing.JLabel();
         lblCreateAccount2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lblImg = new javax.swing.JLabel();
+        btnUplodeImg = new javax.swing.JButton();
         jLabelACT25 = new javax.swing.JLabel();
         sAccountNo = new javax.swing.JTextField();
         jLabelACT15 = new javax.swing.JLabel();
@@ -92,15 +100,19 @@ public class PersonInfoview extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 51));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon("F:\\IDB\\Git\\JavaSwing\\SadriaSocity\\src\\com\\sadria\\img\\hedline2.png")); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 51));
@@ -160,14 +172,19 @@ public class PersonInfoview extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 51));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel1.setBorder(new javax.swing.border.MatteBorder(null));
+        lblImg.setBackground(new java.awt.Color(255, 255, 255));
+        lblImg.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        lblImg.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 51));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Upload Image");
+        btnUplodeImg.setBackground(new java.awt.Color(0, 102, 51));
+        btnUplodeImg.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnUplodeImg.setForeground(new java.awt.Color(255, 255, 255));
+        btnUplodeImg.setText("Upload Image");
+        btnUplodeImg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUplodeImgActionPerformed(evt);
+            }
+        });
 
         jLabelACT25.setBackground(new java.awt.Color(0, 102, 51));
         jLabelACT25.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -466,7 +483,7 @@ public class PersonInfoview extends javax.swing.JFrame {
             }
         });
 
-        btnExitCA1.setBackground(new java.awt.Color(0, 102, 0));
+        btnExitCA1.setBackground(new java.awt.Color(0, 102, 51));
         btnExitCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnExitCA1.setForeground(new java.awt.Color(255, 255, 255));
         btnExitCA1.setText("Exit");
@@ -476,7 +493,7 @@ public class PersonInfoview extends javax.swing.JFrame {
             }
         });
 
-        btnResetCA.setBackground(new java.awt.Color(0, 102, 0));
+        btnResetCA.setBackground(new java.awt.Color(0, 102, 51));
         btnResetCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnResetCA.setForeground(new java.awt.Color(255, 255, 255));
         btnResetCA.setText("Reset");
@@ -486,7 +503,7 @@ public class PersonInfoview extends javax.swing.JFrame {
             }
         });
 
-        btnSaveCA1.setBackground(new java.awt.Color(0, 102, 0));
+        btnSaveCA1.setBackground(new java.awt.Color(0, 102, 51));
         btnSaveCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnSaveCA1.setForeground(new java.awt.Color(255, 255, 255));
         btnSaveCA1.setText("Save");
@@ -505,8 +522,8 @@ public class PersonInfoview extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
+                            .addComponent(lblImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnUplodeImg, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -540,19 +557,6 @@ public class PersonInfoview extends javax.swing.JFrame {
                                     .addComponent(sNID)
                                     .addComponent(sDateofBirth)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelACT9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(sNomineName, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelACT11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(sRelations, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelACT24, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(sShare, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabelACT8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(sPresentAddress))
@@ -560,18 +564,6 @@ public class PersonInfoview extends javax.swing.JFrame {
                         .addComponent(jLabelACT20, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(sParmanetAddress))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelACT12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(sSavingType, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelACT16, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(sAnnunity, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sMobilNo, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabelACT25, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
@@ -585,12 +577,37 @@ public class PersonInfoview extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(sCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 567, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnExitCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
                         .addComponent(btnResetCA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
-                        .addComponent(btnSaveCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSaveCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabelACT9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(sNomineName, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabelACT11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(sRelations, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabelACT24, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(sShare, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabelACT12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(sSavingType, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabelACT16, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sAnnunity, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sMobilNo)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -599,9 +616,9 @@ public class PersonInfoview extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1))
+                        .addComponent(btnUplodeImg))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelACT10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -675,13 +692,10 @@ public class PersonInfoview extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -800,8 +814,13 @@ public class PersonInfoview extends javax.swing.JFrame {
         String nomineName = sNomineName.getText();
         String relations = sRelations.getText();
         int share = Integer.parseInt(sShare.getText());;
+       
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon(fileName).getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_SMOOTH));
+        // byte picture = lblImg.getIcon(imageIcon);
+        
+        
         try {
-            Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, dateofBirth, religion, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share);
+            Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, dateofBirth, religion, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share,picture);
             pDao.save(p);
             //Summary(String accountNo, String name, String savingType, int savingsAmount, Date date, String slipNo, int deposit, int totalDeposit, int withdraw, int balance, int InstallmentNo, Date coverDate, int due)
             SummaryDao summaryDao=new SummaryDaoImp();
@@ -813,16 +832,38 @@ public class PersonInfoview extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSaveCA1ActionPerformed
 
+    private void lblCreateAccount2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount2MouseClicked
+        this.setVisible(false);
+        new Transtionview().setVisible(true);
+    }//GEN-LAST:event_lblCreateAccount2MouseClicked
+
     private void lblCreateAccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount1MouseClicked
-       
+
         this.setVisible(true);
         new Transtionview().setVisible(false);
     }//GEN-LAST:event_lblCreateAccount1MouseClicked
 
-    private void lblCreateAccount2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount2MouseClicked
-       this.setVisible(false);
-        new Transtionview().setVisible(true);
-    }//GEN-LAST:event_lblCreateAccount2MouseClicked
+    private void btnUplodeImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUplodeImgActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chosser = new JFileChooser();
+        chosser.showOpenDialog(null);
+        File file = chosser.getSelectedFile();
+        fileName = file.getAbsolutePath();
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon(fileName).getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_SMOOTH));
+        lblImg.setIcon(imageIcon);
+        try {
+            File image = new File(fileName);
+            FileInputStream fis = new FileInputStream(image);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buf = new byte[1024];
+            for (int readNum; (readNum = fis.read(buf)) !=1;) {
+                bos.write(buf,0,readNum);
+            }
+            person_img = bos.toByteArray();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btnUplodeImgActionPerformed
 
     /**
      * @param args the command line arguments
@@ -864,9 +905,9 @@ public class PersonInfoview extends javax.swing.JFrame {
     private javax.swing.JButton btnExitCA1;
     private javax.swing.JButton btnResetCA;
     private javax.swing.JButton btnSaveCA1;
+    private javax.swing.JButton btnUplodeImg;
     private javax.swing.JComboBox<String> comGender;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelACT;
     private javax.swing.JLabel jLabelACT1;
     private javax.swing.JLabel jLabelACT10;
@@ -890,6 +931,7 @@ public class PersonInfoview extends javax.swing.JFrame {
     private javax.swing.JLabel lblCreateAccount;
     private javax.swing.JLabel lblCreateAccount1;
     private javax.swing.JLabel lblCreateAccount2;
+    private javax.swing.JLabel lblImg;
     private javax.swing.JTextField sAccountNo;
     private javax.swing.JTextField sAnnunity;
     private javax.swing.JTextField sCardNo;
