@@ -23,8 +23,9 @@ public class Person {
     String motherName;
     String fatherHusbendName;
     String gender;
-    String dateofBirth;
     String religion;
+    String dateofBirth;
+    
     String nIDNo;
     String mobileNo;
     String presentAddress;
@@ -43,7 +44,7 @@ public class Person {
         this.name = name;
     }
 
-    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, Blob picture) {
+    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, Blob picture) {
         this.id = id;
         this.accountNo = accountNo;
         this.fromNO = fromNO;
@@ -53,8 +54,8 @@ public class Person {
         this.motherName = motherName;
         this.fatherHusbendName = fatherHusbendName;
         this.gender = gender;
-        this.dateofBirth = dateofBirth;
         this.religion = religion;
+        this.dateofBirth = dateofBirth;
         this.nIDNo = nIDNo;
         this.mobileNo = mobileNo;
         this.presentAddress = presentAddress;
@@ -67,7 +68,7 @@ public class Person {
         this.picture = picture;
     }
 
-    public Person(String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String dateofBirth, String religion, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, Blob picture) {
+    public Person(String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, Blob picture) {
         this.accountNo = accountNo;
         this.fromNO = fromNO;
         this.cardNo = cardNo;
@@ -76,8 +77,8 @@ public class Person {
         this.motherName = motherName;
         this.fatherHusbendName = fatherHusbendName;
         this.gender = gender;
-        this.dateofBirth = dateofBirth;
         this.religion = religion;
+        this.dateofBirth = dateofBirth;
         this.nIDNo = nIDNo;
         this.mobileNo = mobileNo;
         this.presentAddress = presentAddress;
@@ -90,6 +91,7 @@ public class Person {
         this.picture = picture;
     }
 
+   
     
 
    

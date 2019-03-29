@@ -23,21 +23,19 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author User
  */
-public class PersonInfoview extends javax.swing.JFrame {
+public class investmentView extends javax.swing.JFrame {
 
     /**
      * Creates new form PersonInfoview
      */
-    public PersonInfoview() {
+    public investmentView() {
         initComponents();
         setLocationRelativeTo(null);
-        displaySummary(sAccountNo);
     }
 String fileName = null;
 byte[] person_img = null;
@@ -98,9 +96,6 @@ byte[] person_img = null;
         btnExitCA1 = new javax.swing.JButton();
         btnResetCA = new javax.swing.JButton();
         btnSaveCA1 = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
-        jLabelACT14 = new javax.swing.JLabel();
-        sAdmissionDate = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -519,33 +514,6 @@ byte[] person_img = null;
             }
         });
 
-        btnSearch.setBackground(new java.awt.Color(0, 102, 51));
-        btnSearch.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-
-        jLabelACT14.setBackground(new java.awt.Color(0, 102, 51));
-        jLabelACT14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelACT14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT14.setText("Addmission Date");
-        jLabelACT14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        sAdmissionDate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sAdmissionDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sAdmissionDate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sAdmissionDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sAdmissionDateActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -590,18 +558,18 @@ byte[] person_img = null;
                                     .addComponent(sNID)
                                     .addComponent(sDateofBirth)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabelACT8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(sPresentAddress))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabelACT20, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(10, 10, 10)
                         .addComponent(sParmanetAddress))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabelACT25, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(sAccountNo)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabelACT14, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sAdmissionDate, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelACT15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(sFromNO, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -611,29 +579,11 @@ byte[] person_img = null;
                         .addComponent(sCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnExitCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
                         .addComponent(btnResetCA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
                         .addComponent(btnSaveCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelACT12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(sSavingType, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelACT16, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(sAnnunity, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(sMobilNo))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelACT8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sPresentAddress))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabelACT9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
@@ -646,7 +596,19 @@ byte[] person_img = null;
                         .addComponent(jLabelACT24, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(sShare, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabelACT12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(sSavingType, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabelACT16, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sAnnunity, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sMobilNo)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -685,11 +647,11 @@ byte[] person_img = null;
                                 .addComponent(sReligion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(sNID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelACT8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sPresentAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelACT20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sParmanetAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
@@ -708,9 +670,7 @@ byte[] person_img = null;
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabelACT15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(sFromNO, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelACT13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelACT14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sAdmissionDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelACT13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelACT12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -722,9 +682,7 @@ byte[] person_img = null;
                         .addComponent(sMobilNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnExitCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnExitCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnResetCA, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSaveCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -737,8 +695,7 @@ byte[] person_img = null;
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -908,44 +865,6 @@ byte[] person_img = null;
         }
     }//GEN-LAST:event_btnUplodeImgActionPerformed
 
-
-    public void displaySummary(JTextField acNo) {
-       
-        SummaryDao summaryDao = new SummaryDaoImp();
-        Summary summary = summaryDao.getSummaryByAccontNo(acNo.getText().trim());
-
-    }
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-
-        PersonDao personDao = new PersonDaoImp();
-        Person person = personDao.getPersoninfoByAccontNo(sAccountNo.getText().trim());
-
-        sAdmissionDate.setText(person.getAdmissionDate() + "");
-        sFromNO.setText(person.getFromNO());
-        sCardNo.setText(person.getCardNo());
-        sName.setText(person.getName());
-        sMotherName.setText(person.getMotherName());
-        sFatherHusbendName.setText(person.getFatherHusbendName());
-        comGender.setSelectedItem(person.getGender());
-        sDateofBirth.setText(person.getDateofBirth());
-        sReligion.setText(person.getReligion());
-        sNID.setText(person.getnIDNo());
-        sMobilNo.setText(person.getMobileNo());
-        sPresentAddress.setText(person.getPresentAddress());
-        sParmanetAddress.setText(person.getParmanetAddress());
-        sSavingType.setSelectedItem(person.getSavingType());
-        sAnnunity.setText(person.getAnnunity()+ "");
-        sNomineName.setText(person.getNomineName());
-        sRelations.setText(person.getRelations());
-        sShare.setText(person.getShare() + "");
-       // lblImg.setIcon(person.getPicture());
-        displaySummary(sAccountNo);
-    }//GEN-LAST:event_btnSearchActionPerformed
-
-    private void sAdmissionDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sAdmissionDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sAdmissionDateActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -963,20 +882,21 @@ byte[] person_img = null;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PersonInfoview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(investmentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PersonInfoview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(investmentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PersonInfoview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(investmentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PersonInfoview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(investmentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonInfoview().setVisible(true);
+                new investmentView().setVisible(true);
             }
         });
     }
@@ -986,7 +906,6 @@ byte[] person_img = null;
     private javax.swing.JButton btnExitCA1;
     private javax.swing.JButton btnResetCA;
     private javax.swing.JButton btnSaveCA1;
-    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUplodeImg;
     private javax.swing.JComboBox<String> comGender;
     private javax.swing.JLabel jLabel2;
@@ -996,7 +915,6 @@ byte[] person_img = null;
     private javax.swing.JLabel jLabelACT11;
     private javax.swing.JLabel jLabelACT12;
     private javax.swing.JLabel jLabelACT13;
-    private javax.swing.JLabel jLabelACT14;
     private javax.swing.JLabel jLabelACT15;
     private javax.swing.JLabel jLabelACT16;
     private javax.swing.JLabel jLabelACT20;
@@ -1016,7 +934,6 @@ byte[] person_img = null;
     private javax.swing.JLabel lblCreateAccount2;
     private javax.swing.JLabel lblImg;
     private javax.swing.JTextField sAccountNo;
-    private javax.swing.JTextField sAdmissionDate;
     private javax.swing.JTextField sAnnunity;
     private javax.swing.JTextField sCardNo;
     private javax.swing.JTextField sDateofBirth;
