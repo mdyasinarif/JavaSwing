@@ -13,16 +13,22 @@ import com.sadria.pojo.Person;
 import com.sadria.pojo.Summary;
 import java.awt.Component;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Blob;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -39,8 +45,9 @@ public class PersonInfoview extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         displaySummary(sAccountNo);
     }
-String fileName = null;
-byte[] person_img = null;
+    String fileName = null;
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -858,16 +865,13 @@ byte[] person_img = null;
         String nomineName = sNomineName.getText();
         String relations = sRelations.getText();
         int share = Integer.parseInt(sShare.getText());;
-        Blob picture = null;
-       
-        
-        
+
         try {
-            Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, dateofBirth, religion, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share,picture);
-            pDao.save(p);
-            
-            SummaryDao summaryDao=new SummaryDaoImp();
-            Summary summary=new Summary(accountNo, name, savingType, Integer.parseInt(sAnnunity.getText().trim()), new Date(),Integer.parseInt(sAnnunity.getText().trim()), 0, Integer.parseInt(sAnnunity.getText().trim()),1,new Date(), 0);
+            Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, dateofBirth, religion, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share);
+            pDao.save(p, new File(sourceForSave));
+
+            SummaryDao summaryDao = new SummaryDaoImp();
+            Summary summary = new Summary(accountNo, name, savingType, Integer.parseInt(sAnnunity.getText().trim()), new Date(), Integer.parseInt(sAnnunity.getText().trim()), 0, Integer.parseInt(sAnnunity.getText().trim()), 1, new Date(), 0);
             summaryDao.save(summary);
         } catch (Exception e) {
             e.printStackTrace();
@@ -885,32 +889,32 @@ byte[] person_img = null;
         this.setVisible(true);
         new Transtionview().setVisible(false);
     }//GEN-LAST:event_lblCreateAccount1MouseClicked
-
+    static String sourceForSave = "";
     private void btnUplodeImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUplodeImgActionPerformed
         // TODO add your handling code here:
-        JFileChooser chosser = new JFileChooser();
-        chosser.showOpenDialog(null);
-        File file = chosser.getSelectedFile();
-        fileName = file.getAbsolutePath();
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon(fileName).getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_SMOOTH));
-        lblImg.setIcon(imageIcon);
-        try {
-            File image = new File(fileName);
-            FileInputStream fis = new FileInputStream(image);
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            byte[] buf = new byte[1024];
-            for (int readNum; (readNum = fis.read(buf)) !=1;) {
-                bos.write(buf,0,readNum);
-            }
-            person_img = bos.toByteArray();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_btnUplodeImgActionPerformed
+        JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
+        int returnValue = jfc.showOpenDialog(null);
+        // int returnValue = jfc.showSaveDialog(null);
+
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = jfc.getSelectedFile();
+            sourceForSave = selectedFile.getAbsolutePath();
+
+            try {
+                BufferedImage img = ImageIO.read(selectedFile);
+                Image newImg = img.getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_SMOOTH);
+                //  lblPhoto.setIcon(new javax.swing.ImageIcon(selectedFile.getAbsolutePath()));//Okay
+                lblImg.setIcon(new javax.swing.ImageIcon(newImg, ""));
+
+            } catch (IOException ex) {
+                Logger.getLogger(PersonInfoview.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_btnUplodeImgActionPerformed
+    }
 
     public void displaySummary(JTextField acNo) {
-       
+
         SummaryDao summaryDao = new SummaryDaoImp();
         Summary summary = summaryDao.getSummaryByAccontNo(acNo.getText().trim());
 
@@ -934,11 +938,11 @@ byte[] person_img = null;
         sPresentAddress.setText(person.getPresentAddress());
         sParmanetAddress.setText(person.getParmanetAddress());
         sSavingType.setSelectedItem(person.getSavingType());
-        sAnnunity.setText(person.getAnnunity()+ "");
+        sAnnunity.setText(person.getAnnunity() + "");
         sNomineName.setText(person.getNomineName());
         sRelations.setText(person.getRelations());
         sShare.setText(person.getShare() + "");
-       // lblImg.setIcon(person.getPicture());
+        lblImg.setIcon(new ImageIcon(person.getPicture()));
         displaySummary(sAccountNo);
     }//GEN-LAST:event_btnSearchActionPerformed
 

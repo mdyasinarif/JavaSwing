@@ -29,7 +29,7 @@ public class Investment {
     String mobileNo;
     String presentAddress;
     String parmanetAddress;
-    Blob picture;
+    byte[] picture;
 
     
     
@@ -42,7 +42,7 @@ public class Investment {
         this.projectName = name;
     }
 
-    public Investment(int id, String accountNo, String projectName, String projectLocation, double totalInvestment, Date startDate, int projectDuration, String directortName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, Blob picture) {
+    public Investment(int id, String accountNo, String projectName, String projectLocation, double totalInvestment, Date startDate, int projectDuration, String directortName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, byte[] picture) {
         this.id = id;
         this.accountNo = accountNo;
         this.projectName = projectName;
@@ -61,7 +61,9 @@ public class Investment {
         this.picture = picture;
     }
 
-    public Investment(String accountNo, String projectName, String projectLocation, double totalInvestment, Date startDate, int projectDuration, String directortName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, Blob picture) {
+    
+
+    public Investment(String accountNo, String projectName, String projectLocation, double totalInvestment, Date startDate, int projectDuration, String directortName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress) {
         this.accountNo = accountNo;
         this.projectName = projectName;
         this.projectLocation = projectLocation;
@@ -76,7 +78,7 @@ public class Investment {
         this.mobileNo = mobileNo;
         this.presentAddress = presentAddress;
         this.parmanetAddress = parmanetAddress;
-        this.picture = picture;
+        
     }
 
     
@@ -201,13 +203,15 @@ public class Investment {
         this.parmanetAddress = parmanetAddress;
     }
 
-    public Blob getPicture() {
+    public byte[] getPicture() {
         return picture;
     }
 
-    public void setPicture(Blob picture) {
+    public void setPicture(byte[] picture) {
         this.picture = picture;
     }
+
+   
 
    
 

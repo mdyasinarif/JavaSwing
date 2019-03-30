@@ -28,6 +28,33 @@ public class InvestmentSummary {
     public InvestmentSummary() {
     }
 
+    public InvestmentSummary(int id, Date date, String accountNo, String projectName, String ProjectLocation, Date startDate, String directortName, Double totalInvestment, Double returnAmount, Double balance, int projectDuration) {
+        this.id = id;
+        this.date = date;
+        this.accountNo = accountNo;
+        this.projectName = projectName;
+        this.ProjectLocation = ProjectLocation;
+        this.startDate = startDate;
+        this.directortName = directortName;
+        this.totalInvestment = totalInvestment;
+        this.returnAmount = returnAmount;
+        this.balance = balance;
+        this.projectDuration = projectDuration;
+    }
+
+    public InvestmentSummary(Date date, String accountNo, String projectName, String ProjectLocation, Date startDate, String directortName, Double totalInvestment, Double returnAmount, Double balance, int projectDuration) {
+        this.date = date;
+        this.accountNo = accountNo;
+        this.projectName = projectName;
+        this.ProjectLocation = ProjectLocation;
+        this.startDate = startDate;
+        this.directortName = directortName;
+        this.totalInvestment = totalInvestment;
+        this.returnAmount = returnAmount;
+        this.balance = balance;
+        this.projectDuration = projectDuration;
+    }
+
     public int getId() {
         return id;
     }

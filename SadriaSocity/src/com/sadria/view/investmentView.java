@@ -14,18 +14,25 @@ import com.sadria.DaoImp.SummaryDaoImp;
 import com.sadria.pojo.Investment;
 import com.sadria.pojo.Person;
 import com.sadria.pojo.Summary;
+import static com.sadria.view.PersonInfoview.sourceForSave;
 import java.awt.Component;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Blob;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileSystemView;
 
 /**
  *
@@ -762,11 +769,11 @@ public class investmentView extends javax.swing.JFrame {
         String mobileNo = txtMobilNo.getText();
         String presentAddress = txtPresentAddress.getText();
         String parmanetAddress = txtParmanetAddress.getText();
-        Blob picture = null;
+        
 
         try {
-            Investment i = new Investment(accountNo, projectName, projectLocation, totalInvestment, txtStartDate, projectDuration, directorName, gender, religion, dateofBirth, nIDNo, mobileNo, presentAddress, parmanetAddress, picture);
-            iDao.save(i);
+            Investment i = new Investment(accountNo, projectName, projectLocation, totalInvestment, txtStartDate, projectDuration, directorName, gender, religion, dateofBirth, nIDNo, mobileNo, presentAddress, parmanetAddress);
+            iDao.save(i,new File(sourceForSave));
 
 //            SummaryDao summaryDao=new SummaryDaoImp();
 //            Summary summary=new Summary(accountNo, name, savingType, Integer.parseInt(sAnnunity.getText().trim()), new Date(),Integer.parseInt(sAnnunity.getText().trim()), 0, Integer.parseInt(sAnnunity.getText().trim()),1,new Date(), 0);
@@ -787,27 +794,28 @@ public class investmentView extends javax.swing.JFrame {
         this.setVisible(true);
         new Transtionview().setVisible(false);
     }//GEN-LAST:event_lblCreateAccount1MouseClicked
-
+static String sourceForSave = "";
     private void btnUplodeImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUplodeImgActionPerformed
         // TODO add your handling code here:
-        JFileChooser chosser = new JFileChooser();
-        chosser.showOpenDialog(null);
-        File file = chosser.getSelectedFile();
-        fileName = file.getAbsolutePath();
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon(fileName).getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_SMOOTH));
-        lblImg.setIcon(imageIcon);
-        try {
-            File image = new File(fileName);
-            FileInputStream fis = new FileInputStream(image);
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            byte[] buf = new byte[1024];
-            for (int readNum; (readNum = fis.read(buf)) != 1;) {
-                bos.write(buf, 0, readNum);
+        JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+
+        int returnValue = jfc.showOpenDialog(null);
+        // int returnValue = jfc.showSaveDialog(null);
+
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = jfc.getSelectedFile();
+            sourceForSave = selectedFile.getAbsolutePath();
+
+            try {
+                BufferedImage img = ImageIO.read(selectedFile);
+                Image newImg = img.getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_SMOOTH);
+                
+                lblImg.setIcon(new javax.swing.ImageIcon(newImg, ""));
+
+            } catch (IOException ex) {
+                Logger.getLogger(PersonInfoview.class.getName()).log(Level.SEVERE, null, ex);
             }
-            person_img = bos.toByteArray();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+    }       
     }//GEN-LAST:event_btnUplodeImgActionPerformed
 
     private void txtStartDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStartDateActionPerformed
@@ -843,6 +851,7 @@ public class investmentView extends javax.swing.JFrame {
         txtMobilNo.setText(investment.getMobileNo());
         txtPresentAddress.setText(investment.getPresentAddress());
         txtParmanetAddress.setText(investment.getParmanetAddress());
+        lblImg.setIcon(new ImageIcon(investment.getPicture()));
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void sAccountNo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sAccountNo1ActionPerformed

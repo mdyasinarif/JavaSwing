@@ -34,6 +34,7 @@ public class Transtionview extends javax.swing.JFrame {
      * Creates new form PersonInfoview
      */
     int total = 0;
+
     public Transtionview() {
         initComponents();
         setLocationRelativeTo(null);
@@ -48,15 +49,16 @@ public class Transtionview extends javax.swing.JFrame {
     int deposit;
     int withdraw;
 
-    public void day(){
+    public void day() {
         Calendar cal = new GregorianCalendar();
-        int day =cal.get(Calendar.DAY_OF_MONTH);
-        int month =cal.get(Calendar.MONTH);
-        int year =cal.get(Calendar.YEAR);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        int month = cal.get(Calendar.MONTH);
+        int year = cal.get(Calendar.YEAR);
 
-        lblDate.setText("Date :"+day+" : "+(month+1)+" : "+year);
-    
+        lblDate.setText("Date :" + day + " : " + (month + 1) + " : " + year);
+
     }
+
     public void clearTable() {
         DefaultTableModel model = (DefaultTableModel) tblTranscation.getModel();
         model.setRowCount(0);
@@ -523,7 +525,7 @@ public class Transtionview extends javax.swing.JFrame {
     private void txtSlipNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSlipNoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSlipNoActionPerformed
-
+  
     private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
         TranstionDao tDao = new TranstionDaoImp();
         Date date = new Date();
@@ -548,8 +550,19 @@ public class Transtionview extends javax.swing.JFrame {
                 int totalWithdraw = summary.getTotalWithdraw() + Integer.parseInt(txtAmount.getText().trim());
                 int balance = summary.getBalance() - Integer.parseInt(txtAmount.getText().trim());
                 int installment = (summary.getBalance() - Integer.parseInt(txtAmount.getText().trim())) / summary.getAnnunity();
-                Date coverDate = new java.sql.Date(summary.getCoverDate().getTime());
-                int due = 0;
+                PersonDao pDao = new PersonDaoImp();
+                Person person = pDao.getPersonByAccontNo(accountNo);
+                Date addmissionDay = person.getAdmissionDate();
+                
+                
+                int day = -1;
+                if (summary.getSavingType().trim().equalsIgnoreCase("Weekly")) {
+                    day = summary.getInstallmentNo() * 7;
+                } else if (summary.getSavingType().trim().equalsIgnoreCase("Monthly")) {
+                    day = summary.getInstallmentNo() * 30;
+                }
+                Date coverDate = getsCoverDate(addmissionDay, day);
+                int due = 1;
                 Summary summaryUp = new Summary();
                 summaryUp.setAccountNo(accountNo);
                 summaryUp.setTotalWithdraw(totalWithdraw);
@@ -560,7 +573,7 @@ public class Transtionview extends javax.swing.JFrame {
                 summaryDao.updateForWithdraw(summaryUp);
                 displaySummary(txtAccountNo);
                 total -= Integer.parseInt(txtAmount.getText());
-                lblTotal.setText(total+"");
+                lblTotal.setText(total + "");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -569,8 +582,7 @@ public class Transtionview extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnWithdrawActionPerformed
     public static Date getsCoverDate(Date addmissionDay, int day) {
-        Calendar c = Calendar.getInstance();
-        c.setTime(addmissionDay);
+        Calendar c = Calendar.getInstance();       
         c.add(Calendar.DATE, day);
         return c.getTime();
     }
@@ -595,36 +607,38 @@ public class Transtionview extends javax.swing.JFrame {
                 int totalDeposit = summary.getTotalDeposit() + Integer.parseInt(txtAmount.getText().trim());
                 int balance = summary.getBalance() + Integer.parseInt(txtAmount.getText().trim());
                 int installment = (summary.getBalance() + Integer.parseInt(txtAmount.getText().trim())) / summary.getAnnunity();
-                Date coverDate = new java.sql.Date(summary.getCoverDate().getTime());
+
                 PersonDao pDao = new PersonDaoImp();
                 Person person = pDao.getPersonByAccontNo(accountNo);
-//                Date addmissionDay = new java.sql.Date(person.getAdmissionDate().getTime())  ;
-//                int day = 1;
-//                if (summary.getSavingType().trim().equalsIgnoreCase("Weekly")) {
-//                        day = summary.getInstallmentNo()*7;
-//                }else if(summary.getSavingType().trim().equalsIgnoreCase("Monthly")){
-//                     day = summary.getInstallmentNo()*30;
-//                }
-//                Date coverDate = getsCoverDate(addmissionDay, day);
-
-//                Date addmissionDay = new java.sql.Date(person.getAdmissionDate().getTime());
-//                Date currentDay = new java.sql.Date(date.getTime());
-//                long diff =   currentDay.getTime() - addmissionDay.getTime();
-//                long days = (diff / (1000 * 60 * 60 * 24));
-                  int due = 1;
-//                if (summary.getSavingType().trim().equalsIgnoreCase("Weekly")) {
-//                    due = (int) (days /7);
-//                }
-//                else if (summary.getSavingType().trim().equalsIgnoreCase("Monthly")) {
-//                     due = (int) (days /30);
-//                }
+                Date addmissionDay = person.getAdmissionDate();
+                
+                
+                int day = 1;
+                if (summary.getSavingType().trim().equalsIgnoreCase("Weekly")) {
+                    day = summary.getInstallmentNo() * 7;
+                } else if (summary.getSavingType().trim().equalsIgnoreCase("Monthly")) {
+                    day = summary.getInstallmentNo() * 30;
+                }
+                Date coverDate = getsCoverDate(addmissionDay, day);
+                
                
+                // get due 
+                int due = 1;
+                Date currentDay = new java.sql.Date(date.getTime());
+                long diff = currentDay.getTime() - addmissionDay.getTime();
+                long days = (diff / (1000 * 60 * 60 * 24));
+                
+                if (summary.getSavingType().trim().equalsIgnoreCase("Weekly")) {
+                    due = (int) (days / 7);
+                } else if (summary.getSavingType().trim().equalsIgnoreCase("Monthly")) {
+                    due = (int) (days / 30);
+                }
 
                 Summary summaryUp = new Summary(summary.getAccountNo(), totalDeposit, balance, installment, coverDate, due);
                 summaryDao.updateForDeposit(summaryUp);
                 displaySummary(txtAccountNo);
                 total += Integer.parseInt(txtAmount.getText());
-                lblTotal.setText(total+"");
+                lblTotal.setText(total + "");
             }
 
         } catch (Exception e) {

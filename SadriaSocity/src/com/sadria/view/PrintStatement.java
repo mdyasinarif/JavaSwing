@@ -291,7 +291,7 @@ public class PrintStatement extends javax.swing.JFrame {
         txtAreaStatement.setText(txtAreaStatement.getText() +"SADRIA SOCITY BISUDHA BISAWAN SOMOBAY SOMITY\n");
         txtAreaStatement.setText(txtAreaStatement.getText() +"***********************************************\n");
         txtAreaStatement.setText(txtAreaStatement.getText() +"PERSONAL INFORMATION\n");
-        txtAreaStatement.setText(txtAreaStatement.getText() + "Name                :" + person.getName() + "\n");
+        txtAreaStatement.setText(txtAreaStatement.getText() + "Name                :" + person.getName()  +"\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "Mother's Name       :" + person.getMotherName() + "\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "Father/Husbend Name :" + person.getFatherHusbendName() + "\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "Gender              :" + person.getGender() + "\n");

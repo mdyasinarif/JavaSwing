@@ -6,6 +6,7 @@
 package com.sadria.Dao;
 
 import com.sadria.pojo.Investment;
+import java.io.File;
 import java.util.List;
 
 
@@ -15,8 +16,8 @@ import java.util.List;
  */
 public interface InvestmentDao {
     void createTable();
-    void save(Investment i);
-    void update(Investment i);
+    void save(Investment i,File file);
+    void update(Investment i,File file);
     void delete(int id);
     Investment getIdByAccontNo();
    

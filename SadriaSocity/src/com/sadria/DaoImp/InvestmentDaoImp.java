@@ -10,6 +10,9 @@ import com.sadria.Dao.InvestmentDao;
 import com.sadria.Dao.PersonDao;
 import com.sadria.pojo.Investment;
 import com.sadria.pojo.Person;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -44,9 +47,11 @@ Connection con = DBConnection.getConnet();
     }
 
     @Override
-    public void save(Investment i) {
+    public void save(Investment i,File file) {
+         FileInputStream inputStream = null;
         String sql = "insert into investment(accountNo ,projectName ,projectLocation ,totalInvestment ,startDate ,projectDuration,directortName,gender ,religion ,dateofBirth ,nIDNo ,mobileNo ,presentAddress ,parmanetAddress,picture)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
+            inputStream = new FileInputStream(file);
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, i.getAccountNo());
             pst.setString(2, i.getProjectName());
@@ -62,7 +67,7 @@ Connection con = DBConnection.getConnet();
             pst.setString(12, i.getMobileNo());
             pst.setString(13, i.getPresentAddress());
             pst.setString(14, i.getParmanetAddress());
-            pst.setBlob(15, i.getPicture());
+           pst.setBinaryStream(15, (InputStream) inputStream, (int) (file.length()));
             pst.executeUpdate();         
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,7 +75,7 @@ Connection con = DBConnection.getConnet();
     }
 
     @Override
-    public void update(Investment i) {
+    public void update(Investment i,File file) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -126,7 +131,7 @@ Connection con = DBConnection.getConnet();
             pstm.setString(1, accountNo);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {                
-            i = new Investment(rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getDate(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getBlob(16));
+            i = new Investment(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), startDate, 0, accountNo, sql, sql, accountNo, sql, sql, accountNo, accountNo, picture);
             }
         } catch (Exception e) {
             e.printStackTrace();

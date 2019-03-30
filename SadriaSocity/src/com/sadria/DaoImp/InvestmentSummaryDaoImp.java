@@ -68,16 +68,11 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
 
     @Override
     public void updateForDeposit(InvestmentSummary is) {
-        String sql = "update investmentSummary set totalDeposit = ? ,balance = ? ,installmentNo = ? , coverDate = ? ,due = ? where accountNo = ?";
+        String sql = "update investmentSummary set return = ? where accountNo = ?";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, s.getTotalDeposit());          
-            pst.setInt(2, s.getBalance());
-             pst.setInt(3, s.getInstallmentNo());
-            pst.setDate(4, new java.sql.Date(s.getCoverDate().getTime()));
-           
-            pst.setInt(5, s.getDue());
-            pst.setString(6, s.getAccountNo());
+            pst.setDouble(1, is.getReturnAmount());                     
+            pst.setString(2, is.getAccountNo());
             pst.executeUpdate();
 
         } catch (Exception e) {

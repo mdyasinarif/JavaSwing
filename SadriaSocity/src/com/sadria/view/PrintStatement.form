@@ -70,11 +70,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="F:\IDB\Git\JavaSwing\SadriaSocity\src\com\sadria\img\hedline2.png"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

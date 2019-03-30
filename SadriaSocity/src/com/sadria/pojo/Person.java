@@ -35,7 +35,7 @@ public class Person {
     String nomineName;
     String relations;
     int share;
-    Blob picture;
+    byte[] picture;
     public Person() {
     }
 
@@ -44,7 +44,7 @@ public class Person {
         this.name = name;
     }
 
-    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, Blob picture) {
+    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, byte[] picture) {
         this.id = id;
         this.accountNo = accountNo;
         this.fromNO = fromNO;
@@ -68,7 +68,7 @@ public class Person {
         this.picture = picture;
     }
 
-    public Person(String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, Blob picture) {
+    public Person(String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share) {
         this.accountNo = accountNo;
         this.fromNO = fromNO;
         this.cardNo = cardNo;
@@ -88,24 +88,19 @@ public class Person {
         this.nomineName = nomineName;
         this.relations = relations;
         this.share = share;
-        this.picture = picture;
+      
     }
 
-   
-    
-
-   
-
-    
-
-    
-
-    public Person(String accountNo, String name, String savingType, int annunity) {
+    public Person(String accountNo,Date admissionDate, String name, String savingType, int annunity) {
         this.accountNo = accountNo;
+         this.admissionDate = admissionDate;
         this.name = name;
         this.savingType = savingType;
         this.annunity = annunity;
+       
     }
+
+    
 
     public int getId() {
         return id;
@@ -179,20 +174,20 @@ public class Person {
         this.gender = gender;
     }
 
-    public String getDateofBirth() {
-        return dateofBirth;
-    }
-
-    public void setDateofBirth(String dateofBirth) {
-        this.dateofBirth = dateofBirth;
-    }
-
     public String getReligion() {
         return religion;
     }
 
     public void setReligion(String religion) {
         this.religion = religion;
+    }
+
+    public String getDateofBirth() {
+        return dateofBirth;
+    }
+
+    public void setDateofBirth(String dateofBirth) {
+        this.dateofBirth = dateofBirth;
     }
 
     public String getnIDNo() {
@@ -267,13 +262,15 @@ public class Person {
         this.share = share;
     }
 
-    public Blob getPicture() {
+    public byte[] getPicture() {
         return picture;
     }
 
-    public void setPicture(Blob picture) {
+    public void setPicture(byte[] picture) {
         this.picture = picture;
     }
+
+    
 
    
     

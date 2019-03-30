@@ -6,6 +6,7 @@
 package com.sadria.Dao;
 
 import com.sadria.pojo.Person;
+import java.io.File;
 import java.util.List;
 
 
@@ -15,8 +16,8 @@ import java.util.List;
  */
 public interface PersonDao {
     void createTable();
-    void save(Person p);
-    void update(Person p);
+    void save(Person p,File file);
+    void update(Person p,File file);
     void delete(int id);
     Person getIdByAccontNo();
    
