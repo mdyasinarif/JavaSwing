@@ -397,7 +397,7 @@ private JFrame frame;
         jScrollPane1.setViewportView(tblInvestmentA);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(270, 360, 910, 260);
+        jScrollPane1.setBounds(270, 360, 910, 60);
 
         btnExitCA2.setBackground(new java.awt.Color(0, 102, 0));
         btnExitCA2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N

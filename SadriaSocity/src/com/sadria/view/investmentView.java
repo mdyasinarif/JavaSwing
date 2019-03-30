@@ -5,10 +5,13 @@
  */
 package com.sadria.view;
 
+import com.sadria.Dao.InvestmentDao;
 import com.sadria.Dao.PersonDao;
 import com.sadria.Dao.SummaryDao;
+import com.sadria.DaoImp.InvestmentDaoImp;
 import com.sadria.DaoImp.PersonDaoImp;
 import com.sadria.DaoImp.SummaryDaoImp;
+import com.sadria.pojo.Investment;
 import com.sadria.pojo.Person;
 import com.sadria.pojo.Summary;
 import java.awt.Component;
@@ -37,8 +40,9 @@ public class investmentView extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
-String fileName = null;
-byte[] person_img = null;
+    String fileName = null;
+    byte[] person_img = null;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,44 +62,42 @@ byte[] person_img = null;
         lblImg = new javax.swing.JLabel();
         btnUplodeImg = new javax.swing.JButton();
         jLabelACT25 = new javax.swing.JLabel();
-        sAccountNo = new javax.swing.JTextField();
-        jLabelACT15 = new javax.swing.JLabel();
-        sFromNO = new javax.swing.JTextField();
-        jLabelACT13 = new javax.swing.JLabel();
-        sCardNo = new javax.swing.JTextField();
+        txtAccountNo = new javax.swing.JTextField();
         jLabelACT10 = new javax.swing.JLabel();
-        sName = new javax.swing.JTextField();
+        txtProjectName = new javax.swing.JTextField();
         jLabelACT5 = new javax.swing.JLabel();
-        sMotherName = new javax.swing.JTextField();
-        AccountType2 = new javax.swing.JComboBox<>();
-        sFatherHusbendName = new javax.swing.JTextField();
+        txtProjectLocation = new javax.swing.JTextField();
+        txtTotalInvestment = new javax.swing.JTextField();
         jLabelACT = new javax.swing.JLabel();
-        sDateofBirth = new javax.swing.JTextField();
+        txtDateofBirth = new javax.swing.JTextField();
         jLabelACT6 = new javax.swing.JLabel();
-        sNID = new javax.swing.JTextField();
+        txtNid = new javax.swing.JTextField();
         jLabelACT7 = new javax.swing.JLabel();
         comGender = new javax.swing.JComboBox<>();
         jLabelACT1 = new javax.swing.JLabel();
-        sReligion = new javax.swing.JTextField();
+        txtReligion = new javax.swing.JTextField();
         jLabelACT8 = new javax.swing.JLabel();
-        sPresentAddress = new javax.swing.JTextField();
+        txtPresentAddress = new javax.swing.JTextField();
         jLabelACT20 = new javax.swing.JLabel();
-        sParmanetAddress = new javax.swing.JTextField();
-        jLabelACT12 = new javax.swing.JLabel();
-        sSavingType = new javax.swing.JComboBox<>();
-        jLabelACT16 = new javax.swing.JLabel();
-        sAnnunity = new javax.swing.JTextField();
+        txtParmanetAddress = new javax.swing.JTextField();
         jLabelACT4 = new javax.swing.JLabel();
-        jLabelACT9 = new javax.swing.JLabel();
-        sNomineName = new javax.swing.JTextField();
-        jLabelACT11 = new javax.swing.JLabel();
-        sRelations = new javax.swing.JTextField();
-        jLabelACT24 = new javax.swing.JLabel();
-        sShare = new javax.swing.JTextField();
-        sMobilNo = new javax.swing.JTextField();
-        btnExitCA1 = new javax.swing.JButton();
-        btnResetCA = new javax.swing.JButton();
-        btnSaveCA1 = new javax.swing.JButton();
+        txtMobilNo = new javax.swing.JTextField();
+        btnExit = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
+        jLabelACT14 = new javax.swing.JLabel();
+        jLabelACT17 = new javax.swing.JLabel();
+        txtStartDate = new javax.swing.JTextField();
+        jLabelACT18 = new javax.swing.JLabel();
+        txtProjectDuration = new javax.swing.JTextField();
+        jLabelACT19 = new javax.swing.JLabel();
+        txtDirectorName = new javax.swing.JTextField();
+        btnReset = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
+        jLabelACT26 = new javax.swing.JLabel();
+        sAccountNo1 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblInvestmentA = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -168,7 +170,7 @@ byte[] person_img = null;
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(33, 33, 33)
                     .addComponent(lblCreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(369, Short.MAX_VALUE)))
+                    .addContainerGap(404, Short.MAX_VALUE)))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 51));
@@ -195,46 +197,12 @@ byte[] person_img = null;
         jLabelACT25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        sAccountNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sAccountNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sAccountNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sAccountNo.addActionListener(new java.awt.event.ActionListener() {
+        txtAccountNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtAccountNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAccountNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtAccountNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sAccountNoActionPerformed(evt);
-            }
-        });
-
-        jLabelACT15.setBackground(new java.awt.Color(0, 102, 51));
-        jLabelACT15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelACT15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT15.setText("From NO");
-        jLabelACT15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        sFromNO.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sFromNO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sFromNO.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sFromNO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sFromNOActionPerformed(evt);
-            }
-        });
-
-        jLabelACT13.setBackground(new java.awt.Color(0, 102, 51));
-        jLabelACT13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelACT13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT13.setText("Card No");
-        jLabelACT13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        sCardNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sCardNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sCardNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sCardNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sCardNoActionPerformed(evt);
+                txtAccountNoActionPerformed(evt);
             }
         });
 
@@ -242,16 +210,16 @@ byte[] person_img = null;
         jLabelACT10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelACT10.setForeground(new java.awt.Color(255, 255, 255));
         jLabelACT10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT10.setText("Name");
+        jLabelACT10.setText("Project Name");
         jLabelACT10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        sName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sName.addActionListener(new java.awt.event.ActionListener() {
+        txtProjectName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtProjectName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtProjectName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtProjectName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sNameActionPerformed(evt);
+                txtProjectNameActionPerformed(evt);
             }
         });
 
@@ -259,31 +227,25 @@ byte[] person_img = null;
         jLabelACT5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabelACT5.setForeground(new java.awt.Color(255, 255, 255));
         jLabelACT5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT5.setText("Mother's Name");
+        jLabelACT5.setText("Project Location");
         jLabelACT5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        sMotherName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sMotherName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sMotherName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sMotherName.addActionListener(new java.awt.event.ActionListener() {
+        txtProjectLocation.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtProjectLocation.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtProjectLocation.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtProjectLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sMotherNameActionPerformed(evt);
+                txtProjectLocationActionPerformed(evt);
             }
         });
 
-        AccountType2.setBackground(new java.awt.Color(0, 102, 51));
-        AccountType2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        AccountType2.setForeground(new java.awt.Color(255, 255, 255));
-        AccountType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Father's Name", "Husbend's Name" }));
-        AccountType2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        sFatherHusbendName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sFatherHusbendName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sFatherHusbendName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sFatherHusbendName.addActionListener(new java.awt.event.ActionListener() {
+        txtTotalInvestment.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtTotalInvestment.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTotalInvestment.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtTotalInvestment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sFatherHusbendNameActionPerformed(evt);
+                txtTotalInvestmentActionPerformed(evt);
             }
         });
 
@@ -295,12 +257,12 @@ byte[] person_img = null;
         jLabelACT.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        sDateofBirth.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sDateofBirth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sDateofBirth.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sDateofBirth.addActionListener(new java.awt.event.ActionListener() {
+        txtDateofBirth.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtDateofBirth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDateofBirth.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtDateofBirth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sDateofBirthActionPerformed(evt);
+                txtDateofBirthActionPerformed(evt);
             }
         });
 
@@ -312,12 +274,12 @@ byte[] person_img = null;
         jLabelACT6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        sNID.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sNID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sNID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sNID.addActionListener(new java.awt.event.ActionListener() {
+        txtNid.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtNid.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNid.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtNid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sNIDActionPerformed(evt);
+                txtNidActionPerformed(evt);
             }
         });
 
@@ -342,12 +304,12 @@ byte[] person_img = null;
         jLabelACT1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        sReligion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sReligion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sReligion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sReligion.addActionListener(new java.awt.event.ActionListener() {
+        txtReligion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtReligion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtReligion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtReligion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sReligionActionPerformed(evt);
+                txtReligionActionPerformed(evt);
             }
         });
 
@@ -359,12 +321,12 @@ byte[] person_img = null;
         jLabelACT8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        sPresentAddress.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sPresentAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sPresentAddress.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sPresentAddress.addActionListener(new java.awt.event.ActionListener() {
+        txtPresentAddress.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtPresentAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPresentAddress.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtPresentAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sPresentAddressActionPerformed(evt);
+                txtPresentAddressActionPerformed(evt);
             }
         });
 
@@ -376,43 +338,12 @@ byte[] person_img = null;
         jLabelACT20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        sParmanetAddress.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sParmanetAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sParmanetAddress.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sParmanetAddress.addActionListener(new java.awt.event.ActionListener() {
+        txtParmanetAddress.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtParmanetAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtParmanetAddress.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtParmanetAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sParmanetAddressActionPerformed(evt);
-            }
-        });
-
-        jLabelACT12.setBackground(new java.awt.Color(0, 102, 51));
-        jLabelACT12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelACT12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT12.setText("Savings Type");
-        jLabelACT12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        sSavingType.setBackground(new java.awt.Color(0, 102, 51));
-        sSavingType.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sSavingType.setForeground(new java.awt.Color(255, 255, 255));
-        sSavingType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Weekly", "Monthly", "Share", "Lone" }));
-        sSavingType.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabelACT16.setBackground(new java.awt.Color(0, 102, 51));
-        jLabelACT16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelACT16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT16.setText("Annunity");
-        jLabelACT16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        sAnnunity.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sAnnunity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sAnnunity.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sAnnunity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sAnnunityActionPerformed(evt);
+                txtParmanetAddressActionPerformed(evt);
             }
         });
 
@@ -424,95 +355,153 @@ byte[] person_img = null;
         jLabelACT4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelACT4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelACT9.setBackground(new java.awt.Color(0, 102, 51));
-        jLabelACT9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelACT9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT9.setText("Nomine's Name");
-        jLabelACT9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        sNomineName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sNomineName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sNomineName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sNomineName.addActionListener(new java.awt.event.ActionListener() {
+        txtMobilNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtMobilNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtMobilNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtMobilNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sNomineNameActionPerformed(evt);
+                txtMobilNoActionPerformed(evt);
             }
         });
 
-        jLabelACT11.setBackground(new java.awt.Color(0, 102, 51));
-        jLabelACT11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelACT11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT11.setText("Relations");
-        jLabelACT11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        sRelations.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sRelations.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sRelations.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sRelations.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setBackground(new java.awt.Color(0, 102, 51));
+        btnExit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sRelationsActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
 
-        jLabelACT24.setBackground(new java.awt.Color(0, 102, 51));
-        jLabelACT24.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelACT24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelACT24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelACT24.setText("Share %");
-        jLabelACT24.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelACT24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        sShare.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sShare.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sShare.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sShare.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setBackground(new java.awt.Color(0, 102, 51));
+        btnUpdate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sShareActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
 
-        sMobilNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        sMobilNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sMobilNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        sMobilNo.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setBackground(new java.awt.Color(0, 102, 51));
+        btnSave.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sMobilNoActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
-        btnExitCA1.setBackground(new java.awt.Color(0, 102, 51));
-        btnExitCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnExitCA1.setForeground(new java.awt.Color(255, 255, 255));
-        btnExitCA1.setText("Exit");
-        btnExitCA1.addActionListener(new java.awt.event.ActionListener() {
+        jLabelACT14.setBackground(new java.awt.Color(0, 102, 51));
+        jLabelACT14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelACT14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT14.setText("Invested Amount");
+        jLabelACT14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabelACT17.setBackground(new java.awt.Color(0, 102, 51));
+        jLabelACT17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelACT17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT17.setText("Start Date ");
+        jLabelACT17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        txtStartDate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtStartDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtStartDate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtStartDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitCA1ActionPerformed(evt);
+                txtStartDateActionPerformed(evt);
             }
         });
 
-        btnResetCA.setBackground(new java.awt.Color(0, 102, 51));
-        btnResetCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnResetCA.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetCA.setText("Reset");
-        btnResetCA.addActionListener(new java.awt.event.ActionListener() {
+        jLabelACT18.setBackground(new java.awt.Color(0, 102, 51));
+        jLabelACT18.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelACT18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT18.setText("Project Duration");
+        jLabelACT18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        txtProjectDuration.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtProjectDuration.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtProjectDuration.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtProjectDuration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetCAActionPerformed(evt);
+                txtProjectDurationActionPerformed(evt);
             }
         });
 
-        btnSaveCA1.setBackground(new java.awt.Color(0, 102, 51));
-        btnSaveCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnSaveCA1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaveCA1.setText("Save");
-        btnSaveCA1.addActionListener(new java.awt.event.ActionListener() {
+        jLabelACT19.setBackground(new java.awt.Color(0, 102, 51));
+        jLabelACT19.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelACT19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT19.setText("Director Name");
+        jLabelACT19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        txtDirectorName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtDirectorName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDirectorName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtDirectorName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveCA1ActionPerformed(evt);
+                txtDirectorNameActionPerformed(evt);
             }
         });
+
+        btnReset.setBackground(new java.awt.Color(0, 102, 51));
+        btnReset.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setBackground(new java.awt.Color(0, 102, 51));
+        btnSearch.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        jLabelACT26.setBackground(new java.awt.Color(0, 102, 51));
+        jLabelACT26.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelACT26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelACT26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelACT26.setText("Amount");
+        jLabelACT26.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelACT26.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        sAccountNo1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        sAccountNo1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sAccountNo1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        sAccountNo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sAccountNo1ActionPerformed(evt);
+            }
+        });
+
+        tblInvestmentA.setBackground(new java.awt.Color(204, 255, 204));
+        tblInvestmentA.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tblInvestmentA.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tblInvestmentA.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "Account No", "Project Name", "Project Location", "Start Date", "Director Name", "Total Investment", "Return", "Balance", "Project Duration"
+            }
+        ));
+        jScrollPane1.setViewportView(tblInvestmentA);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -522,93 +511,85 @@ byte[] person_img = null;
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnUplodeImg, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                        .addComponent(sAccountNo1)
+                        .addGap(24, 24, 24))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabelACT10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(sName))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabelACT5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(sMotherName))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(AccountType2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(sFatherHusbendName))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabelACT7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(comGender, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabelACT, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(sReligion)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelACT1, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                                    .addComponent(jLabelACT6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(10, 10, 10)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(sNID)
-                                    .addComponent(sDateofBirth)))))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnUplodeImg, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
+                            .addComponent(jLabelACT25, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelACT26, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabelACT10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(txtProjectName))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabelACT5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(txtProjectLocation))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabelACT8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(sPresentAddress))
+                        .addComponent(txtPresentAddress))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabelACT20, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(sParmanetAddress))
+                        .addComponent(txtParmanetAddress))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelACT25, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(sAccountNo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelACT15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sFromNO, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelACT13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnExitCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(btnResetCA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(btnSaveCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabelACT14, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTotalInvestment, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelACT17, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelACT18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtProjectDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabelACT19, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(txtDirectorName))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabelACT7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(comGender, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelACT1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDateofBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtMobilNo))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelACT9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelACT, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtReligion, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelACT6, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(sNomineName, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelACT11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(sRelations, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelACT24, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(sShare, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelACT12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(sSavingType, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelACT16, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(sAnnunity, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(sMobilNo)))
+                        .addComponent(txtNid))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -617,75 +598,72 @@ byte[] person_img = null;
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnUplodeImg))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelACT10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtProjectName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelACT5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sMotherName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtProjectLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTotalInvestment, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelACT14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelACT17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelACT18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtProjectDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AccountType2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sFatherHusbendName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabelACT19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDirectorName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelACT7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelACT7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(comGender)
-                                .addComponent(sDateofBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabelACT1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(comGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDateofBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelACT1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtMobilNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(11, 11, 11)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabelACT6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabelACT, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(sReligion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(sNID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelACT8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sPresentAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtReligion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelACT8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelACT25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPresentAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnUplodeImg)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelACT20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sParmanetAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelACT9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sNomineName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelACT11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sRelations, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelACT24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sShare, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelACT20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtParmanetAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelACT25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sCardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelACT15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(sFromNO, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelACT13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabelACT26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sAccountNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelACT12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sSavingType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelACT16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sAnnunity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(sMobilNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnExitCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnResetCA, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSaveCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -703,88 +681,62 @@ byte[] person_img = null;
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void sAccountNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sAccountNoActionPerformed
+    private void txtAccountNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccountNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sAccountNoActionPerformed
+    }//GEN-LAST:event_txtAccountNoActionPerformed
 
-    private void sFromNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sFromNOActionPerformed
+    private void txtProjectNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProjectNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sFromNOActionPerformed
+    }//GEN-LAST:event_txtProjectNameActionPerformed
 
-    private void sCardNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sCardNoActionPerformed
+    private void txtProjectLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProjectLocationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sCardNoActionPerformed
+    }//GEN-LAST:event_txtProjectLocationActionPerformed
 
-    private void sNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sNameActionPerformed
+    private void txtTotalInvestmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalInvestmentActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sNameActionPerformed
+    }//GEN-LAST:event_txtTotalInvestmentActionPerformed
 
-    private void sMotherNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sMotherNameActionPerformed
+    private void txtDateofBirthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateofBirthActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sMotherNameActionPerformed
+    }//GEN-LAST:event_txtDateofBirthActionPerformed
 
-    private void sFatherHusbendNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sFatherHusbendNameActionPerformed
+    private void txtNidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sFatherHusbendNameActionPerformed
+    }//GEN-LAST:event_txtNidActionPerformed
 
-    private void sDateofBirthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sDateofBirthActionPerformed
+    private void txtReligionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtReligionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sDateofBirthActionPerformed
+    }//GEN-LAST:event_txtReligionActionPerformed
 
-    private void sNIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sNIDActionPerformed
+    private void txtPresentAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPresentAddressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sNIDActionPerformed
+    }//GEN-LAST:event_txtPresentAddressActionPerformed
 
-    private void sReligionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sReligionActionPerformed
+    private void txtParmanetAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtParmanetAddressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sReligionActionPerformed
+    }//GEN-LAST:event_txtParmanetAddressActionPerformed
 
-    private void sPresentAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sPresentAddressActionPerformed
+    private void txtMobilNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMobilNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sPresentAddressActionPerformed
+    }//GEN-LAST:event_txtMobilNoActionPerformed
 
-    private void sParmanetAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sParmanetAddressActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sParmanetAddressActionPerformed
-
-    private void sAnnunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sAnnunityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sAnnunityActionPerformed
-
-    private void sNomineNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sNomineNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sNomineNameActionPerformed
-
-    private void sRelationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sRelationsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sRelationsActionPerformed
-
-    private void sShareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sShareActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sShareActionPerformed
-
-    private void sMobilNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sMobilNoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sMobilNoActionPerformed
-
-    private void btnExitCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitCA1ActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         JFrame frame = new JFrame("Exit");
         if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "SSBBSS System", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
             System.exit(0);
         }
-    }//GEN-LAST:event_btnExitCA1ActionPerformed
+    }//GEN-LAST:event_btnExitActionPerformed
 
-    private void btnResetCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCAActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         JTextField temp = null;
         for (Component c : jPanel1.getComponents()) {
             if (c.getClass().toString().contains("JTextField")) {
@@ -792,45 +744,38 @@ byte[] person_img = null;
                 temp.setText(null);
             }
         }
-    }//GEN-LAST:event_btnResetCAActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void btnSaveCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA1ActionPerformed
-        PersonDao pDao = new PersonDaoImp();
-        String accountNo = sAccountNo.getText();
-        String fromNO = sFromNO.getText();
-        String cardNo = sCardNo.getText();
-        Date admissionDate = new java.sql.Date(System.currentTimeMillis());
-        String name = sName.getText();
-        String motherName = sMotherName.getText();
-        String fatherHusbendName = sFatherHusbendName.getText();
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        InvestmentDao iDao = new InvestmentDaoImp();
+        String accountNo = txtAccountNo.getText();
+        String projectName = txtProjectName.getText();
+        String projectLocation = txtProjectLocation.getText();
+        Double totalInvestment = Double.parseDouble(txtTotalInvestment.getText());
+        Date txtStartDate = new java.sql.Date(System.currentTimeMillis());
+        int projectDuration = Integer.parseInt(txtProjectDuration.getText());
+        String directorName = txtDirectorName.getText();
         String gender = comGender.getItemAt(comGender.getSelectedIndex());
-        String religion = sReligion.getText();
-        String dateofBirth = sDateofBirth.getText();
-        String nIDNo = sNID.getText();
-        String mobileNo = sMobilNo.getText();
-        String presentAddress = sPresentAddress.getText();
-        String parmanetAddress = sParmanetAddress.getText();
-        String savingType = sSavingType.getItemAt(sSavingType.getSelectedIndex());
-        int annynity = Integer.parseInt(sAnnunity.getText());
-        String nomineName = sNomineName.getText();
-        String relations = sRelations.getText();
-        int share = Integer.parseInt(sShare.getText());;
+        String religion = txtReligion.getText();
+        String dateofBirth = txtDateofBirth.getText();
+        String nIDNo = txtNid.getText();
+        String mobileNo = txtMobilNo.getText();
+        String presentAddress = txtPresentAddress.getText();
+        String parmanetAddress = txtParmanetAddress.getText();
         Blob picture = null;
-       
-        
-        
+
         try {
-            Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, dateofBirth, religion, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share,picture);
-            pDao.save(p);
-            
-            SummaryDao summaryDao=new SummaryDaoImp();
-            Summary summary=new Summary(accountNo, name, savingType, Integer.parseInt(sAnnunity.getText().trim()), new Date(),Integer.parseInt(sAnnunity.getText().trim()), 0, Integer.parseInt(sAnnunity.getText().trim()),1,new Date(), 0);
-            summaryDao.save(summary);
+            Investment i = new Investment(accountNo, projectName, projectLocation, totalInvestment, txtStartDate, projectDuration, directorName, gender, religion, dateofBirth, nIDNo, mobileNo, presentAddress, parmanetAddress, picture);
+            iDao.save(i);
+
+//            SummaryDao summaryDao=new SummaryDaoImp();
+//            Summary summary=new Summary(accountNo, name, savingType, Integer.parseInt(sAnnunity.getText().trim()), new Date(),Integer.parseInt(sAnnunity.getText().trim()), 0, Integer.parseInt(sAnnunity.getText().trim()),1,new Date(), 0);
+//            summaryDao.save(summary);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-    }//GEN-LAST:event_btnSaveCA1ActionPerformed
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void lblCreateAccount2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount2MouseClicked
         this.setVisible(false);
@@ -856,14 +801,53 @@ byte[] person_img = null;
             FileInputStream fis = new FileInputStream(image);
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             byte[] buf = new byte[1024];
-            for (int readNum; (readNum = fis.read(buf)) !=1;) {
-                bos.write(buf,0,readNum);
+            for (int readNum; (readNum = fis.read(buf)) != 1;) {
+                bos.write(buf, 0, readNum);
             }
             person_img = bos.toByteArray();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnUplodeImgActionPerformed
+
+    private void txtStartDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStartDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStartDateActionPerformed
+
+    private void txtProjectDurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProjectDurationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProjectDurationActionPerformed
+
+    private void txtDirectorNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDirectorNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDirectorNameActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        InvestmentDao iDao = new InvestmentDaoImp();
+        Investment investment = iDao.getInvestmentinfoByAccontNo(txtAccountNo.getText().trim());
+       
+        txtProjectName.setText(investment.getProjectName());
+        txtProjectLocation.setText(investment.getProjectLocation());
+        txtTotalInvestment.setText(investment.getTotalInvestment()+"");
+        txtStartDate.setText(investment.getStartDate()+"");
+        txtProjectDuration.setText(investment.getProjectDuration()+"");
+        txtDirectorName.setText(investment.getDirectortName());
+        comGender.getItemAt(comGender.getSelectedIndex());
+        txtReligion.setText(investment.getReligion());;
+        txtDateofBirth.setText(investment.getDateofBirth());
+        txtNid.setText(investment.getnIDNo());
+        txtMobilNo.setText(investment.getMobileNo());
+        txtPresentAddress.setText(investment.getPresentAddress());
+        txtParmanetAddress.setText(investment.getParmanetAddress());
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void sAccountNo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sAccountNo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sAccountNo1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -902,53 +886,51 @@ byte[] person_img = null;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> AccountType2;
-    private javax.swing.JButton btnExitCA1;
-    private javax.swing.JButton btnResetCA;
-    private javax.swing.JButton btnSaveCA1;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUplodeImg;
     private javax.swing.JComboBox<String> comGender;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelACT;
     private javax.swing.JLabel jLabelACT1;
     private javax.swing.JLabel jLabelACT10;
-    private javax.swing.JLabel jLabelACT11;
-    private javax.swing.JLabel jLabelACT12;
-    private javax.swing.JLabel jLabelACT13;
-    private javax.swing.JLabel jLabelACT15;
-    private javax.swing.JLabel jLabelACT16;
+    private javax.swing.JLabel jLabelACT14;
+    private javax.swing.JLabel jLabelACT17;
+    private javax.swing.JLabel jLabelACT18;
+    private javax.swing.JLabel jLabelACT19;
     private javax.swing.JLabel jLabelACT20;
-    private javax.swing.JLabel jLabelACT24;
     private javax.swing.JLabel jLabelACT25;
+    private javax.swing.JLabel jLabelACT26;
     private javax.swing.JLabel jLabelACT4;
     private javax.swing.JLabel jLabelACT5;
     private javax.swing.JLabel jLabelACT6;
     private javax.swing.JLabel jLabelACT7;
     private javax.swing.JLabel jLabelACT8;
-    private javax.swing.JLabel jLabelACT9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCreateAccount;
     private javax.swing.JLabel lblCreateAccount1;
     private javax.swing.JLabel lblCreateAccount2;
     private javax.swing.JLabel lblImg;
-    private javax.swing.JTextField sAccountNo;
-    private javax.swing.JTextField sAnnunity;
-    private javax.swing.JTextField sCardNo;
-    private javax.swing.JTextField sDateofBirth;
-    private javax.swing.JTextField sFatherHusbendName;
-    private javax.swing.JTextField sFromNO;
-    private javax.swing.JTextField sMobilNo;
-    private javax.swing.JTextField sMotherName;
-    private javax.swing.JTextField sNID;
-    private javax.swing.JTextField sName;
-    private javax.swing.JTextField sNomineName;
-    private javax.swing.JTextField sParmanetAddress;
-    private javax.swing.JTextField sPresentAddress;
-    private javax.swing.JTextField sRelations;
-    private javax.swing.JTextField sReligion;
-    private javax.swing.JComboBox<String> sSavingType;
-    private javax.swing.JTextField sShare;
+    private javax.swing.JTextField sAccountNo1;
+    private javax.swing.JTable tblInvestmentA;
+    private javax.swing.JTextField txtAccountNo;
+    private javax.swing.JTextField txtDateofBirth;
+    private javax.swing.JTextField txtDirectorName;
+    private javax.swing.JTextField txtMobilNo;
+    private javax.swing.JTextField txtNid;
+    private javax.swing.JTextField txtParmanetAddress;
+    private javax.swing.JTextField txtPresentAddress;
+    private javax.swing.JTextField txtProjectDuration;
+    private javax.swing.JTextField txtProjectLocation;
+    private javax.swing.JTextField txtProjectName;
+    private javax.swing.JTextField txtReligion;
+    private javax.swing.JTextField txtStartDate;
+    private javax.swing.JTextField txtTotalInvestment;
     // End of variables declaration//GEN-END:variables
 }
