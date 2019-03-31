@@ -11,10 +11,12 @@ import com.sadria.Dao.SummaryDao;
 import com.sadria.pojo.InvestmentSummary;
 import com.sadria.pojo.Person;
 import com.sadria.pojo.Summary;
+import com.sadria.pojo.Transtion;
 import java.sql.Connection;
 import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,16 +50,17 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setDate(1, new java.sql.Date(is.getDate().getTime()));
-            pst.setString(2, is.getProjectName());
-            pst.setString(3, is.getProjectLocation());
-            pst.setDate(4, new java.sql.Date(is.getStartDate().getTime()));
-            pst.setString(5, is.getDirectortName());
+            pst.setString(2, is.getAccountNo());
+            pst.setString(3, is.getProjectName());
+            pst.setString(4, is.getProjectLocation());
+            pst.setDate(5, new java.sql.Date(is.getStartDate().getTime()));
+            pst.setString(6, is.getDirectortName());
 
            
-            pst.setDouble(6, is.getTotalInvestment());
-            pst.setDouble(7, is.getReturnAmount());
-            pst.setDouble(8, is.getBalance());
-            pst.setInt(9, is.getProjectDuration());
+            pst.setDouble(7, is.getTotalInvestment());
+            pst.setDouble(8, is.getReturnAmount());
+            pst.setDouble(9, is.getBalance());
+            pst.setInt(10, is.getProjectDuration());
 
             pst.executeUpdate();
 
@@ -105,7 +108,19 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
 
     @Override
     public List<InvestmentSummary> getInvestmentSummarys() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<InvestmentSummary> list= new ArrayList<>();
+        String sql = "select * from investmentsummary";
+        try {
+            PreparedStatement pst  = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {                
+                InvestmentSummary isamary = new InvestmentSummary(rs.getInt(1), rs.getDate(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getDouble(8), rs.getDouble(9), rs.getDouble(10), rs.getInt(11));
+                list.add(isamary);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
     @Override

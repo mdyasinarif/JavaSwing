@@ -9,14 +9,17 @@ import com.sadria.Dao.InvestmentDao;
 import com.sadria.Dao.InvestmentSummaryDao;
 import com.sadria.Dao.PersonDao;
 import com.sadria.Dao.SummaryDao;
+import com.sadria.Dao.TranstionDao;
 import com.sadria.DaoImp.InvestmentDaoImp;
 import com.sadria.DaoImp.InvestmentSummaryDaoImp;
 import com.sadria.DaoImp.PersonDaoImp;
 import com.sadria.DaoImp.SummaryDaoImp;
+import com.sadria.DaoImp.TranstionDaoImp;
 import com.sadria.pojo.Investment;
 import com.sadria.pojo.InvestmentSummary;
 import com.sadria.pojo.Person;
 import com.sadria.pojo.Summary;
+import com.sadria.pojo.Transtion;
 import static com.sadria.view.PersonInfoview.sourceForSave;
 import java.awt.Component;
 import java.awt.Image;
@@ -27,6 +30,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Blob;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -36,6 +40,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileSystemView;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -49,10 +54,37 @@ public class investmentView extends javax.swing.JFrame {
     public investmentView() {
         initComponents();
         setLocationRelativeTo(null);
+        displayTranstionTable();
     }
     String fileName = null;
     byte[] person_img = null;
+ public void clearSummaryTable() {
+        DefaultTableModel model = (DefaultTableModel) tblInvestmentA.getModel();
+        model.setRowCount(0);
+    }
 
+    public void displayTranstionTable() {
+        clearSummaryTable();
+        InvestmentSummaryDao tDao = new InvestmentSummaryDaoImp();
+        List<InvestmentSummary> list = tDao.getInvestmentSummarys();
+
+        DefaultTableModel model = (DefaultTableModel) tblInvestmentA.getModel();
+        Object[] col = new Object[11];
+        for (int i = 0; i < list.size(); i++) {
+            col[0] = list.get(i).getDate();
+            col[1] = list.get(i).getAccountNo();
+            col[2] = list.get(i).getProjectName();
+            col[3] = list.get(i).getProjectLocation();
+            col[4] = list.get(i).getStartDate();
+            col[5] = list.get(i).getDirectortName();
+            col[6] = list.get(i).getTotalInvestment();
+            col[7] = list.get(i).getReturnAmount();
+            col[8] = list.get(i).getBalance();
+            col[9] = list.get(i).getProjectDuration();
+            model.addRow(col);
+
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -544,9 +576,8 @@ public class investmentView extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnSearch, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnUplodeImg, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
+                            .addComponent(lblImg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnUplodeImg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                             .addComponent(txtAccountNo, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelACT26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -695,15 +726,16 @@ public class investmentView extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnReInvest)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReturn)
-                    .addComponent(jLabelACT26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelACT26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -818,7 +850,8 @@ public class investmentView extends javax.swing.JFrame {
             iDao.save(i, new File(sourceForSave));
 
             InvestmentSummaryDao isummaryDao = new InvestmentSummaryDaoImp();
-            InvestmentSummary investmentSummary = new InvestmentSummary(txtStartDate, accountNo, projectName, projectLocation, txtStartDate, directorName, totalInvestment, totalInvestment, totalInvestment, projectDuration);
+    //InvestmentSummary(Date date, String accountNo, String projectName, String ProjectLocation, Date startDate, String directortName, Double totalInvestment, Double returnAmount, Double balance, int projectDuration)
+            InvestmentSummary investmentSummary = new InvestmentSummary(new Date(), accountNo, projectName, projectLocation, new Date(), directorName, totalInvestment, 0.0, totalInvestment, projectDuration);
             isummaryDao.save(investmentSummary);
         } catch (Exception e) {
             e.printStackTrace();
