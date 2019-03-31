@@ -42,6 +42,16 @@ public class Investment {
         this.projectName = name;
     }
 
+    public Investment(String accountNo, String projectName, String projectLocation, double totalInvestment, Date startDate, int projectDuration, String directortName) {
+        this.accountNo = accountNo;
+        this.projectName = projectName;
+        this.projectLocation = projectLocation;
+        this.totalInvestment = totalInvestment;
+        this.startDate = startDate;
+        this.projectDuration = projectDuration;
+        this.directortName = directortName;
+    }
+
     public Investment(int id, String accountNo, String projectName, String projectLocation, double totalInvestment, Date startDate, int projectDuration, String directortName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, byte[] picture) {
         this.id = id;
         this.accountNo = accountNo;

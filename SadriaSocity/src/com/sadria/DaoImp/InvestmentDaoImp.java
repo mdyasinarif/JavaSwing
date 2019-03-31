@@ -131,7 +131,7 @@ Connection con = DBConnection.getConnet();
             pstm.setString(1, accountNo);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {                
-            i = new Investment(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), startDate, 0, accountNo, sql, sql, accountNo, sql, sql, accountNo, accountNo, picture);
+            i = new Investment(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getDate(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getBytes(16));
             }
         } catch (Exception e) {
             e.printStackTrace();

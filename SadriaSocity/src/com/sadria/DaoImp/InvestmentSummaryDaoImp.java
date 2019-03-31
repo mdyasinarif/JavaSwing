@@ -32,7 +32,7 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
 
     @Override
     public void createTable() {
-        String sql = "create table if not Exists investmentSummary(id int(4) auto_increment primary key,date date,accountNO varchar(20),projectName varchar(50),projectLocation varchar(20),startDate date,directorName varchar(50), totalInvestment double,return double,balance double,projectDuration int(20))";
+        String sql = "create table if not Exists investmentSummary(id int(4) auto_increment primary key,date date,accountNO varchar(20),projectName varchar(50),projectLocation varchar(20),startDate date,directorName varchar(50), totalInvestment Double , totalReturn Double , balance Double, projectDuration int(20))";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.execute();
@@ -44,7 +44,7 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
 
     @Override
     public void save(InvestmentSummary is) {
-        String sql = "insert into investmentSummary(date,accountNo ,projectName ,projectLocation ,startDate ,directorName,totalInvestment , return ,balance,projectDuration) values(?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into investmentSummary(date,accountNo ,projectName ,projectLocation ,startDate ,directorName,totalInvestment , totalReturn ,balance,projectDuration) values(?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setDate(1, new java.sql.Date(is.getDate().getTime()));
@@ -68,7 +68,7 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
 
     @Override
     public void updateForDeposit(InvestmentSummary is) {
-        String sql = "update investmentSummary set return = ? where accountNo = ?";
+        String sql = "update investmentSummary set totalReturn = ? where accountNo = ?";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setDouble(1, is.getReturnAmount());                     
@@ -94,7 +94,7 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
             pstm.setString(1, accountNo);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
-                s = new InvestmentSummary(rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getDate(6), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10), rs.getDate(11), rs.getInt(12));
+                is = new InvestmentSummary(rs.getInt(1), rs.getDate(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getDouble(9), rs.getDouble(10), rs.getDouble(11), rs.getInt(12));
 
             }
         } catch (Exception e) {
@@ -110,11 +110,11 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
 
     @Override
     public void updateForWithdraw(InvestmentSummary is) {
-         String sql = "update investmentSummary set totalWithdraw =? , balance=?, installmentNo = ? , coverDate = ? , due = ? where accountNo = ?";
+         String sql = "update investmentSummary set totalInvestment = ? where accountNo = ?";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, is.getTotalWithdraw());          
-            
+            pst.setDouble(1, is.getTotalInvestment());          
+             pst.setString(2, is.getAccountNo());
             pst.executeUpdate();
 
         } catch (Exception e) {

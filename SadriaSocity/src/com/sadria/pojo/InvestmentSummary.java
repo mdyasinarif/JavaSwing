@@ -12,7 +12,7 @@ import java.util.Date;
  * @author Md Yasin Arif
  */
 public class InvestmentSummary {
-     int id;
+    int id;
     Date date;
     String accountNo;    
     
@@ -26,6 +26,16 @@ public class InvestmentSummary {
     int projectDuration;
 
     public InvestmentSummary() {
+    }
+
+    public InvestmentSummary(Date date, String accountNo, String projectName, String ProjectLocation, Date startDate, String directortName, Double totalInvestment) {
+        this.date = date;
+        this.accountNo = accountNo;
+        this.projectName = projectName;
+        this.ProjectLocation = ProjectLocation;
+        this.startDate = startDate;
+        this.directortName = directortName;
+        this.totalInvestment = totalInvestment;
     }
 
     public InvestmentSummary(int id, Date date, String accountNo, String projectName, String ProjectLocation, Date startDate, String directortName, Double totalInvestment, Double returnAmount, Double balance, int projectDuration) {
