@@ -71,11 +71,12 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
 
     @Override
     public void updateForDeposit(InvestmentSummary is) {
-        String sql = "update investmentSummary set totalReturn = ? where accountNo = ?";
+        String sql = "update investmentSummary set totalReturn = ? ,balance=? where accountNo = ?";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setDouble(1, is.getReturnAmount());                     
-            pst.setString(2, is.getAccountNo());
+            pst.setDouble(2, is.getBalance());                     
+            pst.setString(3, is.getAccountNo());
             pst.executeUpdate();
 
         } catch (Exception e) {
@@ -97,7 +98,7 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
             pstm.setString(1, accountNo);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
-                is = new InvestmentSummary(rs.getInt(1), rs.getDate(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getDouble(9), rs.getDouble(10), rs.getDouble(11), rs.getInt(12));
+                is = new InvestmentSummary(rs.getDate(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getDouble(8), rs.getDouble(9), rs.getDouble(10), rs.getInt(11));
 
             }
         } catch (Exception e) {
@@ -137,4 +138,22 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
         }
     }
 
+    @Override
+    public double getInvestment() {
+        double totalInvestment = 0.0;
+        String sql = "SELECT sum(balance) FROM investmentsummary";
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                totalInvestment = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return totalInvestment;
+    }
+
 }
+ 
+    

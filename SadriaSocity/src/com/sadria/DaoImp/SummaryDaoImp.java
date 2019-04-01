@@ -51,7 +51,6 @@ public class SummaryDaoImp implements SummaryDao {
             pst.setInt(4, s.getAnnunity());
             pst.setDate(5, new java.sql.Date(s.getDate().getTime()));
 
-           
             pst.setInt(6, s.getTotalDeposit());
             pst.setInt(7, s.getTotalWithdraw());
             pst.setInt(8, s.getBalance());
@@ -71,11 +70,11 @@ public class SummaryDaoImp implements SummaryDao {
         String sql = "update summary set totalDeposit = ? ,balance = ? ,installmentNo = ? , coverDate = ? ,due = ? where accountNo = ?";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, s.getTotalDeposit());          
+            pst.setInt(1, s.getTotalDeposit());
             pst.setInt(2, s.getBalance());
-             pst.setInt(3, s.getInstallmentNo());
+            pst.setInt(3, s.getInstallmentNo());
             pst.setDate(4, new java.sql.Date(s.getCoverDate().getTime()));
-           
+
             pst.setInt(5, s.getDue());
             pst.setString(6, s.getAccountNo());
             pst.executeUpdate();
@@ -115,10 +114,10 @@ public class SummaryDaoImp implements SummaryDao {
 
     @Override
     public void updateForWithdraw(Summary s) {
-         String sql = "update summary set totalWithdraw =? , balance=?, installmentNo = ? , coverDate = ? , due = ? where accountNo = ?";
+        String sql = "update summary set totalWithdraw =? , balance=?, installmentNo = ? , coverDate = ? , due = ? where accountNo = ?";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, s.getTotalWithdraw());          
+            pst.setInt(1, s.getTotalWithdraw());
             pst.setInt(2, s.getBalance());
             pst.setInt(3, s.getInstallmentNo());
             pst.setDate(4, new java.sql.Date(s.getCoverDate().getTime()));
@@ -129,6 +128,22 @@ public class SummaryDaoImp implements SummaryDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int getDeposit() {
+        int totalDeposit = 0;
+        String sql = "SELECT sum(balance) FROM summary";
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                totalDeposit = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return totalDeposit;
     }
 
 }

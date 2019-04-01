@@ -19,9 +19,12 @@ public interface SummaryDao {
     void save(Summary s);
     void updateForDeposit(Summary s);
     void updateForWithdraw(Summary s);
+    public int getDeposit();
+    
     void delete(int id);
     Summary getSummaryByAccontNo(String accountNo);
-   
+  
     List<Summary> getSummarys();
+    
     
 }

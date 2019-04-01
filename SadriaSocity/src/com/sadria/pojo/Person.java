@@ -31,10 +31,10 @@ public class Person {
     String presentAddress;
     String parmanetAddress; 
     String savingType;
-    int annunity;
+    double annunity;
     String nomineName;
     String relations;
-    int share;
+    double share;
     byte[] picture;
     public Person() {
     }
@@ -44,7 +44,7 @@ public class Person {
         this.name = name;
     }
 
-    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share, byte[] picture) {
+    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, double annunity, String nomineName, String relations, double share, byte[] picture) {
         this.id = id;
         this.accountNo = accountNo;
         this.fromNO = fromNO;
@@ -68,7 +68,7 @@ public class Person {
         this.picture = picture;
     }
 
-    public Person(String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, int annunity, String nomineName, String relations, int share) {
+    public Person(String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, double annunity, String nomineName, String relations, double share, byte[] picture) {
         this.accountNo = accountNo;
         this.fromNO = fromNO;
         this.cardNo = cardNo;
@@ -88,10 +88,37 @@ public class Person {
         this.nomineName = nomineName;
         this.relations = relations;
         this.share = share;
-      
+        this.picture = picture;
     }
 
-    public Person(String accountNo,Date admissionDate, String name, String savingType, int annunity) {
+    public Person(int id, String accountNo, String fromNO, String cardNo, Date admissionDate, String name, String motherName, String fatherHusbendName, String gender, String religion, String dateofBirth, String nIDNo, String mobileNo, String presentAddress, String parmanetAddress, String savingType, double annunity, String nomineName, String relations, double share) {
+        this.id = id;
+        this.accountNo = accountNo;
+        this.fromNO = fromNO;
+        this.cardNo = cardNo;
+        this.admissionDate = admissionDate;
+        this.name = name;
+        this.motherName = motherName;
+        this.fatherHusbendName = fatherHusbendName;
+        this.gender = gender;
+        this.religion = religion;
+        this.dateofBirth = dateofBirth;
+        this.nIDNo = nIDNo;
+        this.mobileNo = mobileNo;
+        this.presentAddress = presentAddress;
+        this.parmanetAddress = parmanetAddress;
+        this.savingType = savingType;
+        this.annunity = annunity;
+        this.nomineName = nomineName;
+        this.relations = relations;
+        this.share = share;
+    }
+
+    
+
+    
+
+    public Person(String accountNo,Date admissionDate, String name, String savingType, double annunity) {
         this.accountNo = accountNo;
          this.admissionDate = admissionDate;
         this.name = name;
@@ -99,6 +126,8 @@ public class Person {
         this.annunity = annunity;
        
     }
+
+    
 
     
 
@@ -230,7 +259,7 @@ public class Person {
         this.savingType = savingType;
     }
 
-    public int getAnnunity() {
+    public double getAnnunity() {
         return annunity;
     }
 
@@ -254,7 +283,7 @@ public class Person {
         this.relations = relations;
     }
 
-    public int getShare() {
+    public double getShare() {
         return share;
     }
 

@@ -21,4 +21,5 @@ public interface TranstionDao {
     void delete(int id);
     List<Transtion> getTranstions();
     
+    
 }

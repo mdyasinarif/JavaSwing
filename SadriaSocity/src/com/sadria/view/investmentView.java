@@ -58,6 +58,7 @@ public class investmentView extends javax.swing.JFrame {
     }
     String fileName = null;
     byte[] person_img = null;
+    String accountNo ;
  public void clearSummaryTable() {
         DefaultTableModel model = (DefaultTableModel) tblInvestmentA.getModel();
         model.setRowCount(0);
@@ -142,7 +143,6 @@ public class investmentView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblInvestmentA = new javax.swing.JTable();
         btnReturn = new javax.swing.JButton();
-        btnReInvest = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -558,11 +558,6 @@ public class investmentView extends javax.swing.JFrame {
             }
         });
 
-        btnReInvest.setBackground(new java.awt.Color(0, 102, 51));
-        btnReInvest.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnReInvest.setForeground(new java.awt.Color(255, 255, 255));
-        btnReInvest.setText("RE Invest");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -652,17 +647,15 @@ public class investmentView extends javax.swing.JFrame {
                         .addComponent(txtReturn)
                         .addGap(18, 18, 18)
                         .addComponent(btnReturn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnReInvest)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
+                        .addGap(129, 129, 129))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -727,7 +720,6 @@ public class investmentView extends javax.swing.JFrame {
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnReInvest)
                     .addComponent(btnReturn)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -736,7 +728,7 @@ public class investmentView extends javax.swing.JFrame {
                         .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelACT26, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -830,7 +822,7 @@ public class investmentView extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         InvestmentDao iDao = new InvestmentDaoImp();
-        String accountNo = txtAccountNo.getText();
+        accountNo = txtAccountNo.getText();
         String projectName = txtProjectName.getText();
         String projectLocation = txtProjectLocation.getText();
         Double totalInvestment = Double.parseDouble(txtTotalInvestment.getText());
@@ -850,9 +842,10 @@ public class investmentView extends javax.swing.JFrame {
             iDao.save(i, new File(sourceForSave));
 
             InvestmentSummaryDao isummaryDao = new InvestmentSummaryDaoImp();
-    //InvestmentSummary(Date date, String accountNo, String projectName, String ProjectLocation, Date startDate, String directortName, Double totalInvestment, Double returnAmount, Double balance, int projectDuration)
+   
             InvestmentSummary investmentSummary = new InvestmentSummary(new Date(), accountNo, projectName, projectLocation, new Date(), directorName, totalInvestment, 0.0, totalInvestment, projectDuration);
             isummaryDao.save(investmentSummary);
+             displayTranstionTable();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -934,8 +927,18 @@ public class investmentView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtReturnActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        InvestmentDao iDao = new InvestmentDaoImp();
-
+       InvestmentDao iDao = new InvestmentDaoImp();
+       accountNo = txtAccountNo.getText();
+        InvestmentSummaryDao isammaryDao = new InvestmentSummaryDaoImp();
+        InvestmentSummary isammary = isammaryDao.getInvestmentSummaryByAccontNo(accountNo);
+        if(isammary.getAccountNo() != null){
+        double totalReturn = isammary.getReturnAmount()+Double.parseDouble(txtReturn.getText());
+        double balance = isammary.getTotalInvestment() - +(isammary.getReturnAmount()+Double.parseDouble(txtReturn.getText()));
+        
+        InvestmentSummary summaryUp = new InvestmentSummary(isammary.getAccountNo(), isammary.getTotalInvestment(),totalReturn, balance);
+        isammaryDao.updateForDeposit(summaryUp);
+        displayTranstionTable();
+        }
     }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
@@ -976,7 +979,6 @@ public class investmentView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnReInvest;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnSave;

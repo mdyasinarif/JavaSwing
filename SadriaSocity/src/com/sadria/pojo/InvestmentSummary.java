@@ -28,6 +28,13 @@ public class InvestmentSummary {
     public InvestmentSummary() {
     }
 
+    public InvestmentSummary(String accountNo, Double totalInvestment, Double returnAmount, Double balance) {
+        this.accountNo = accountNo;
+        this.totalInvestment = totalInvestment;
+        this.returnAmount = returnAmount;
+        this.balance = balance;
+    }
+
     public InvestmentSummary(Date date, String accountNo, String projectName, String ProjectLocation, Date startDate, String directortName, Double totalInvestment) {
         this.date = date;
         this.accountNo = accountNo;

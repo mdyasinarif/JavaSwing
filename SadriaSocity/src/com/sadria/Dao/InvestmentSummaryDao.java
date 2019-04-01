@@ -18,6 +18,7 @@ public interface InvestmentSummaryDao {
     void save(InvestmentSummary is);
     void updateForDeposit(InvestmentSummary is);
     void updateForWithdraw(InvestmentSummary is);
+    public double getInvestment();
     void delete(int id);
     InvestmentSummary getInvestmentSummaryByAccontNo(String accountNo);
    
