@@ -56,8 +56,6 @@ public class CreateSavingACView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblStatement = new javax.swing.JLabel();
         lblCreateAccount1 = new javax.swing.JLabel();
@@ -114,23 +112,6 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(0, 102, 51));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1206, 106, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 51));
 
@@ -878,7 +859,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
     private void btnResetCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetCAActionPerformed
         JTextField temp = null;
-        for (Component c : jPanel1.getComponents()) {
+        for (Component c : jPanel3.getComponents()) {
             if (c.getClass().toString().contains("JTextField")) {
                 temp = (JTextField) c;
                 temp.setText(null);
@@ -909,7 +890,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         int share = Integer.parseInt(sShare.getText());;
 
         try {
-            Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, dateofBirth, religion, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share);
+            Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender,religion,dateofBirth, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share);
             pDao.save(p, new File(sourceForSave));
 
             SummaryDao summaryDao = new SummaryDaoImp();
@@ -925,7 +906,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         this.setVisible(false);
         new InvestmentView().setVisible(false);
         new Transtionview().setVisible(true);
-        new PrintStatement().setVisible(false);
+        new StatementView().setVisible(false);
     }//GEN-LAST:event_lblTranstionMouseClicked
 
     private void lblCreateAccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount1MouseClicked
@@ -933,7 +914,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         this.setVisible(true);
         new Transtionview().setVisible(false);
         new InvestmentView().setVisible(false);
-        new PrintStatement().setVisible(false);
+        new StatementView().setVisible(false);
     }//GEN-LAST:event_lblCreateAccount1MouseClicked
     static String sourceForSave = "";
     private void btnUplodeImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUplodeImgActionPerformed
@@ -999,8 +980,9 @@ public class CreateSavingACView extends javax.swing.JFrame {
     private void lblInvestmentAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInvestmentAccountMouseClicked
         this.setVisible(false);
         new InvestmentView().setVisible(true);
+        new StatementView().setVisible(false);
         new Transtionview().setVisible(false);
-        new PrintStatement().setVisible(false);
+        
         
     }//GEN-LAST:event_lblInvestmentAccountMouseClicked
 
@@ -1011,8 +993,9 @@ public class CreateSavingACView extends javax.swing.JFrame {
     private void lblStatementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStatementMouseClicked
         this.setVisible(false);
         new InvestmentView().setVisible(false);
+        new StatementView().setVisible(true);
         new Transtionview().setVisible(false);
-        new PrintStatement().setVisible(true);
+        
     }//GEN-LAST:event_lblStatementMouseClicked
 
     /**
@@ -1061,7 +1044,6 @@ public class CreateSavingACView extends javax.swing.JFrame {
     private javax.swing.JButton btnUplodeImg;
     private javax.swing.JComboBox<String> comGender;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelACT;
     private javax.swing.JLabel jLabelACT1;
     private javax.swing.JLabel jLabelACT10;
@@ -1080,7 +1062,6 @@ public class CreateSavingACView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelACT7;
     private javax.swing.JLabel jLabelACT8;
     private javax.swing.JLabel jLabelACT9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

@@ -617,7 +617,7 @@ public class InvestmentView extends javax.swing.JFrame {
         this.setVisible(false);
         new InvestmentView().setVisible(false);
         new Transtionview().setVisible(false);
-        new PrintStatement().setVisible(true);
+        new StatementView().setVisible(true);
     }//GEN-LAST:event_lblStatementMouseClicked
 
     private void lblCreateAccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount1MouseClicked
@@ -625,21 +625,21 @@ public class InvestmentView extends javax.swing.JFrame {
         this.setVisible(false);
         new CreateSavingACView().setVisible(true);
         new InvestmentView().setVisible(false);
-        new PrintStatement().setVisible(false);
+        new StatementView().setVisible(false);
     }//GEN-LAST:event_lblCreateAccount1MouseClicked
 
     private void lblTranstionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTranstionMouseClicked
         this.setVisible(false);
         new CreateSavingACView().setVisible(false);
         new Transtionview().setVisible(true);
-        new PrintStatement().setVisible(false);
+        new StatementView().setVisible(false);
     }//GEN-LAST:event_lblTranstionMouseClicked
 
     private void lblInvestmentAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInvestmentAccountMouseClicked
         this.setVisible(true);
         new CreateSavingACView().setVisible(false);
         new Transtionview().setVisible(false);
-        new PrintStatement().setVisible(false);
+        new StatementView().setVisible(false);
 
     }//GEN-LAST:event_lblInvestmentAccountMouseClicked
 
