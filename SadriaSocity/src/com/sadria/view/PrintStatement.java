@@ -32,7 +32,7 @@ import javax.swing.table.DefaultTableModel;
 public class PrintStatement extends javax.swing.JFrame {
 
     /**
-     * Creates new form PersonInfoview
+     * Creates new form CreateSavingACView
      */
     public PrintStatement() {
         initComponents();
@@ -78,10 +78,6 @@ public class PrintStatement extends javax.swing.JFrame {
         lblHead = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        lblStatement = new javax.swing.JLabel();
-        lblCreateAccount1 = new javax.swing.JLabel();
-        lblTranstion = new javax.swing.JLabel();
         panalstatement = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtAccountNo = new javax.swing.JTextField();
@@ -89,10 +85,18 @@ public class PrintStatement extends javax.swing.JFrame {
         btnSave1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaStatement = new javax.swing.JTextArea();
+        jPanel2 = new javax.swing.JPanel();
+        lblStatement = new javax.swing.JLabel();
+        lblCreateAccount1 = new javax.swing.JLabel();
+        lblTranstion = new javax.swing.JLabel();
+        lblInvestmentAccount = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblHead.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/hedline2.png"))); // NOI18N
+        getContentPane().add(lblHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, -1, 165));
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 51));
 
@@ -109,60 +113,7 @@ public class PrintStatement extends javax.swing.JFrame {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 51));
-
-        lblStatement.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblStatement.setForeground(new java.awt.Color(255, 255, 255));
-        lblStatement.setText("Statement");
-
-        lblCreateAccount1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblCreateAccount1.setForeground(new java.awt.Color(255, 255, 255));
-        lblCreateAccount1.setText("Create Account");
-        lblCreateAccount1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCreateAccount1MouseClicked(evt);
-            }
-        });
-
-        lblTranstion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblTranstion.setForeground(new java.awt.Color(255, 255, 255));
-        lblTranstion.setText("Transtion");
-        lblTranstion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblTranstionMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblStatement, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                    .addComponent(lblTranstion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lblCreateAccount1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(lblTranstion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(lblStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(221, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(33, 33, 33)
-                    .addComponent(lblCreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(332, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1212, 0, -1, -1));
 
         panalstatement.setBackground(new java.awt.Color(0, 102, 51));
 
@@ -215,7 +166,7 @@ public class PrintStatement extends javax.swing.JFrame {
             .addGroup(panalstatementLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 961, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 943, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panalstatementLayout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -224,7 +175,7 @@ public class PrintStatement extends javax.swing.JFrame {
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSave1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         panalstatementLayout.setVerticalGroup(
             panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,54 +187,95 @@ public class PrintStatement extends javax.swing.JFrame {
                     .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                .addGap(149, 149, 149))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblHead)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panalstatement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        getContentPane().add(panalstatement, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 175, 970, 510));
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 51));
+
+        lblStatement.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblStatement.setForeground(new java.awt.Color(255, 255, 255));
+        lblStatement.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStatement.setText("Statement");
+        lblStatement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblStatementMouseClicked(evt);
+            }
+        });
+
+        lblCreateAccount1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblCreateAccount1.setForeground(new java.awt.Color(255, 255, 255));
+        lblCreateAccount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCreateAccount1.setText("Saving Account");
+        lblCreateAccount1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreateAccount1MouseClicked(evt);
+            }
+        });
+
+        lblTranstion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTranstion.setForeground(new java.awt.Color(255, 255, 255));
+        lblTranstion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTranstion.setText("Transtion");
+        lblTranstion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTranstionMouseClicked(evt);
+            }
+        });
+
+        lblInvestmentAccount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblInvestmentAccount.setForeground(new java.awt.Color(255, 255, 255));
+        lblInvestmentAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInvestmentAccount.setText("Investment Account");
+        lblInvestmentAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblInvestmentAccountMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblStatement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTranstion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblInvestmentAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(lblCreateAccount1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblHead, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panalstatement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(lblInvestmentAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTranstion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(305, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(33, 33, 33)
+                    .addComponent(lblCreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(452, Short.MAX_VALUE)))
         );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 169, 220, 520));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/logo.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 170));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lblCreateAccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount1MouseClicked
-
-        this.setVisible(false);
-        new PersonInfoview().setVisible(true);
-    }//GEN-LAST:event_lblCreateAccount1MouseClicked
-
-    private void lblTranstionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTranstionMouseClicked
-        this.setVisible(true);
-        new PersonInfoview().setVisible(false);
-    }//GEN-LAST:event_lblTranstionMouseClicked
 
     private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSave1ActionPerformed
         try {
@@ -337,6 +329,35 @@ public class PrintStatement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAccountNoActionPerformed
 
+    private void lblStatementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStatementMouseClicked
+        this.setVisible(false);
+        new InvestmentView().setVisible(false);
+        new Transtionview().setVisible(false);
+        new CreateSavingACView().setVisible(true);
+    }//GEN-LAST:event_lblStatementMouseClicked
+
+    private void lblCreateAccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount1MouseClicked
+
+        this.setVisible(true);
+        new CreateSavingACView().setVisible(false);
+        new InvestmentView().setVisible(false);
+        new CreateSavingACView().setVisible(false);
+    }//GEN-LAST:event_lblCreateAccount1MouseClicked
+
+    private void lblTranstionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTranstionMouseClicked
+        this.setVisible(false);
+        new CreateSavingACView().setVisible(false);
+        new Transtionview().setVisible(true);
+        new CreateSavingACView().setVisible(false);
+    }//GEN-LAST:event_lblTranstionMouseClicked
+
+    private void lblInvestmentAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInvestmentAccountMouseClicked
+        this.setVisible(false);
+        new CreateSavingACView().setVisible(true);
+        new Transtionview().setVisible(false);
+        new CreateSavingACView().setVisible(false);
+    }//GEN-LAST:event_lblInvestmentAccountMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -384,11 +405,13 @@ public class PrintStatement extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblCreateAccount1;
     private javax.swing.JLabel lblHead;
+    private javax.swing.JLabel lblInvestmentAccount;
     private javax.swing.JLabel lblStatement;
     private javax.swing.JLabel lblTranstion;
     private javax.swing.JPanel panalstatement;
