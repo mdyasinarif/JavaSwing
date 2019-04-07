@@ -94,5 +94,40 @@ Connection con = DBConnection.getConnet();
         }
         return list;
     }
+
+    @Override
+    public Transtion getTranstionByAccontNo(String accountNo) {
+        Transtion t = null;
+        String sql = "SELECT * FROM transtion where accountNo=?";
+        try {
+            PreparedStatement pst  = con.prepareStatement(sql);
+            pst.setString(1, accountNo);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {                
+               t = new Transtion(rs.getInt(1), rs.getDate(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getInt(6), rs.getInt(7));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return t;
+    }
+
+    @Override
+    public List<Transtion> getTranstion(String accountNo) {
+        List<Transtion> list= new ArrayList<>();
+        String sql = "SELECT * FROM transtion where accountNo=?";
+        try {
+            PreparedStatement pst  = con.prepareStatement(sql);
+            pst.setString(1, accountNo);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {                
+                Transtion transtion = new Transtion(rs.getInt(1), rs.getDate(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getInt(6), rs.getInt(7));
+                list.add(transtion);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
     
 }

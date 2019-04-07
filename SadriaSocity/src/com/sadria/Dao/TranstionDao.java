@@ -18,8 +18,10 @@ public interface TranstionDao {
     void createTable();
     void deposit(Transtion t);
     void withdraw(Transtion t);
+    Transtion getTranstionByAccontNo(String accountNo);
     void delete(int id);
     List<Transtion> getTranstions();
+    List<Transtion> getTranstion(String accountNo);
     
     
 }

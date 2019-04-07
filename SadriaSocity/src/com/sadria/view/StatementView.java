@@ -7,10 +7,16 @@ package com.sadria.view;
 
 import com.sadria.Dao.PersonDao;
 import com.sadria.Dao.SummaryDao;
+import com.sadria.Dao.TranstionDao;
 import com.sadria.DaoImp.PersonDaoImp;
 import com.sadria.DaoImp.SummaryDaoImp;
+import com.sadria.DaoImp.TranstionDaoImp;
 import com.sadria.pojo.Person;
 import com.sadria.pojo.Summary;
+import com.sadria.pojo.Transtion;
+import java.util.List;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,6 +30,31 @@ public class StatementView extends javax.swing.JFrame {
     public StatementView() {
         initComponents();
         setLocationRelativeTo(null);
+       
+    }
+
+    public void clearTable() {
+        DefaultTableModel model = (DefaultTableModel) tblTranscation.getModel();
+        model.setRowCount(0);
+    }
+
+    public void displayTranstionTable(JTextField acNo) {
+        clearTable();
+        TranstionDao tDao = new TranstionDaoImp();
+       
+         List<Transtion> list = tDao.getTranstion(acNo.getText());
+        DefaultTableModel model = (DefaultTableModel) tblTranscation.getModel();
+        Object[] col = new Object[7];
+         for (int i = 0; i < list.size(); i++) {
+        col[0] = list.get(i).getId();
+        col[1] = list.get(i).getDate();
+        col[2] = list.get(i).getAccountNo();
+        col[3] = list.get(i).getName();
+        col[4] = list.get(i).getSlipNo();
+        col[5] = list.get(i).getDeposit();
+        col[6] = list.get(i).getWithdraw();
+        model.addRow(col);
+         }
     }
 
     /**
@@ -45,9 +76,11 @@ public class StatementView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtAccountNo = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
-        btnSave1 = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaStatement = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblTranscation = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,7 +154,7 @@ public class StatementView extends javax.swing.JFrame {
                 .addComponent(lblTranstion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(33, 33, 33)
@@ -158,13 +191,13 @@ public class StatementView extends javax.swing.JFrame {
             }
         });
 
-        btnSave1.setBackground(new java.awt.Color(0, 102, 51));
-        btnSave1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnSave1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSave1.setText("Print");
-        btnSave1.addActionListener(new java.awt.event.ActionListener() {
+        btnPrint.setBackground(new java.awt.Color(0, 102, 51));
+        btnPrint.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnPrint.setForeground(new java.awt.Color(255, 255, 255));
+        btnPrint.setText("Print");
+        btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSave1ActionPerformed(evt);
+                btnPrintActionPerformed(evt);
             }
         });
 
@@ -173,14 +206,24 @@ public class StatementView extends javax.swing.JFrame {
         txtAreaStatement.setRows(5);
         jScrollPane2.setViewportView(txtAreaStatement);
 
+        tblTranscation.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Date", "Account NO", "Name", "SlipNo", "Deposit", "Withdraw"
+            }
+        ));
+        jScrollPane3.setViewportView(tblTranscation);
+
         javax.swing.GroupLayout panalstatementLayout = new javax.swing.GroupLayout(panalstatement);
         panalstatement.setLayout(panalstatementLayout);
         panalstatementLayout.setHorizontalGroup(
             panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panalstatementLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 943, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
                     .addGroup(panalstatementLayout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -188,7 +231,8 @@ public class StatementView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSave1)))
+                        .addComponent(btnPrint))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         panalstatementLayout.setVerticalGroup(
@@ -199,10 +243,12 @@ public class StatementView extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2)
-                .addContainerGap())
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -216,8 +262,7 @@ public class StatementView extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(panalstatement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel4)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,15 +311,15 @@ public class StatementView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAccountNoActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-
+        
         PersonDao personDao = new PersonDaoImp();
         Person person = personDao.getPersoninfoByAccontNo(txtAccountNo.getText().trim());
         SummaryDao summaryDao = new SummaryDaoImp();
         Summary summary = summaryDao.getSummaryByAccontNo(txtAccountNo.getText().trim());
-        txtAreaStatement.setText(txtAreaStatement.getText() +"SADRIA SOCITY BISUDHA BISAWAN SOMOBAY SOMITY\n");
-        txtAreaStatement.setText(txtAreaStatement.getText() +"***********************************************\n");
-        txtAreaStatement.setText(txtAreaStatement.getText() +"PERSONAL INFORMATION\n");
-        txtAreaStatement.setText(txtAreaStatement.getText() + "Name                :" + person.getName()  +"\n");
+        txtAreaStatement.setText(txtAreaStatement.getText() + "SADRIA SOCITY BISUDHA BISAWAN SOMOBAY SOMITY\n");
+        txtAreaStatement.setText(txtAreaStatement.getText() + "***********************************************\n");
+        txtAreaStatement.setText(txtAreaStatement.getText() + "PERSONAL INFORMATION\n");
+        txtAreaStatement.setText(txtAreaStatement.getText() + "Name                :" + person.getName() + "\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "Mother's Name       :" + person.getMotherName() + "\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "Father/Husbend Name :" + person.getFatherHusbendName() + "\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "Gender              :" + person.getGender() + "\n");
@@ -287,7 +332,7 @@ public class StatementView extends javax.swing.JFrame {
         txtAreaStatement.setText(txtAreaStatement.getText() + "Nomine Name         :" + person.getNomineName() + "\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "Relations           : " + person.getRelations() + "\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "% of Share          :" + person.getShare() + "\n\n");
-        txtAreaStatement.setText(txtAreaStatement.getText() +"ACCOUNTS DETAILS\n");
+        txtAreaStatement.setText(txtAreaStatement.getText() + "ACCOUNTS DETAILS\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "Account No          :" + person.getAccountNo() + "\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "From NO             :" + person.getFromNO() + "\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "Card No             :" + person.getCardNo() + "\n");
@@ -300,17 +345,19 @@ public class StatementView extends javax.swing.JFrame {
         txtAreaStatement.setText(txtAreaStatement.getText() + "Installment No      :" + summary.getInstallmentNo() + "\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "Coverv Date         :" + summary.getCoverDate() + "\n");
         txtAreaStatement.setText(txtAreaStatement.getText() + "Due                 :" + summary.getDue() + "\n\n");
-        txtAreaStatement.setText(txtAreaStatement.getText() +"                        -----------------\n");
-        txtAreaStatement.setText(txtAreaStatement.getText() +"                           signature");
+        txtAreaStatement.setText(txtAreaStatement.getText() + "                        -----------------\n");
+        txtAreaStatement.setText(txtAreaStatement.getText() + "                           signature");
+        displayTranstionTable(txtAccountNo);
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSave1ActionPerformed
+    private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         try {
             txtAreaStatement.print();
+            tblTranscation.print();
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }//GEN-LAST:event_btnSave1ActionPerformed
+    }//GEN-LAST:event_btnPrintActionPerformed
 
     /**
      * @param args the command line arguments
@@ -348,17 +395,19 @@ public class StatementView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSave1;
+    private javax.swing.JButton btnPrint;
     private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblCreateAccount1;
     private javax.swing.JLabel lblInvestmentAccount;
     private javax.swing.JLabel lblStatement;
     private javax.swing.JLabel lblTranstion;
     private javax.swing.JPanel panalstatement;
+    private javax.swing.JTable tblTranscation;
     private javax.swing.JTextField txtAccountNo;
     private javax.swing.JTextArea txtAreaStatement;
     // End of variables declaration//GEN-END:variables

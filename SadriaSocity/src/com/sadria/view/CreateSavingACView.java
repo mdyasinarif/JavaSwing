@@ -217,6 +217,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sAccountNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sAccountNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sAccountNo.setText("101-102");
         sAccountNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sAccountNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,6 +235,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sFromNO.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sFromNO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sFromNO.setText("101");
         sFromNO.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sFromNO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,6 +253,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sCardNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sCardNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sCardNo.setText("102");
         sCardNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sCardNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,6 +271,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sName.setText("Md Yasin Arif");
         sName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,6 +289,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sMotherName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sMotherName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sMotherName.setText("Yasmin Begum");
         sMotherName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sMotherName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,6 +305,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sFatherHusbendName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sFatherHusbendName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sFatherHusbendName.setText("Md Sharif Ahmed");
         sFatherHusbendName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sFatherHusbendName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,6 +323,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sDateofBirth.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sDateofBirth.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sDateofBirth.setText("1992-11-14");
         sDateofBirth.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sDateofBirth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -334,6 +341,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sNID.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sNID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sNID.setText("1987456321");
         sNID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sNID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,6 +372,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sReligion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sReligion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sReligion.setText("Islam");
         sReligion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sReligion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -381,6 +390,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sPresentAddress.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sPresentAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sPresentAddress.setText("59/5/4 Shatish Sharkar Road Gandaria Dhaka-1205");
         sPresentAddress.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sPresentAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -398,6 +408,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sParmanetAddress.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sParmanetAddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sParmanetAddress.setText("90/A S K Dash Road Gandaria Dhaka-1204");
         sParmanetAddress.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sParmanetAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -429,6 +440,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sAnnunity.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sAnnunity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sAnnunity.setText("500");
         sAnnunity.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sAnnunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -454,6 +466,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sNomineName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sNomineName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sNomineName.setText("Tawhida Sharif");
         sNomineName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sNomineName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -471,6 +484,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sRelations.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sRelations.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sRelations.setText("Sister");
         sRelations.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sRelations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -488,6 +502,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sShare.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sShare.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sShare.setText("100");
         sShare.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sShare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -497,6 +512,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sMobilNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sMobilNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sMobilNo.setText("01676555464");
         sMobilNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sMobilNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
