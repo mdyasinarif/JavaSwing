@@ -762,30 +762,30 @@ public class Transtionview extends javax.swing.JFrame {
     private void lblStatementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStatementMouseClicked
         this.setVisible(false);
         new InvestmentView().setVisible(false);
-        new StatementView().setVisible(false);
-        new CreateSavingACView().setVisible(true);
+        new StatementView().setVisible(true);
+        new CreateSavingACView().setVisible(false);
     }//GEN-LAST:event_lblStatementMouseClicked
 
     private void lblCreateAccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount1MouseClicked
 
-        this.setVisible(true);
-        new CreateSavingACView().setVisible(false);
+        this.setVisible(false);
+        new CreateSavingACView().setVisible(true);
         new StatementView().setVisible(false);
-        new CreateSavingACView().setVisible(false);
+        new InvestmentView().setVisible(false);
     }//GEN-LAST:event_lblCreateAccount1MouseClicked
 
     private void lblTranstionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTranstionMouseClicked
-        this.setVisible(false);
+        this.setVisible(true);
         new CreateSavingACView().setVisible(false);
-        new StatementView().setVisible(true);
-        new CreateSavingACView().setVisible(false);
+        new StatementView().setVisible(false);
+        new InvestmentView().setVisible(false);
     }//GEN-LAST:event_lblTranstionMouseClicked
 
     private void lblInvestmentAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInvestmentAccountMouseClicked
         this.setVisible(false);
-        new CreateSavingACView().setVisible(true);
-        new StatementView().setVisible(false);
         new CreateSavingACView().setVisible(false);
+        new StatementView().setVisible(false);
+        new InvestmentView().setVisible(true);
     }//GEN-LAST:event_lblInvestmentAccountMouseClicked
 
     /**

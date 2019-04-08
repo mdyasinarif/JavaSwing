@@ -615,7 +615,7 @@ public class InvestmentView extends javax.swing.JFrame {
     static String sourceForSave = "";
     private void lblStatementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStatementMouseClicked
         this.setVisible(false);
-        new InvestmentView().setVisible(false);
+        new CreateSavingACView().setVisible(false);
         new Transtionview().setVisible(false);
         new StatementView().setVisible(true);
     }//GEN-LAST:event_lblStatementMouseClicked

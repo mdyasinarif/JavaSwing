@@ -106,7 +106,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         jLabelACT14 = new javax.swing.JLabel();
         sAdmissionDate = new javax.swing.JTextField();
-        btnSaveCA2 = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -577,13 +577,13 @@ public class CreateSavingACView extends javax.swing.JFrame {
             }
         });
 
-        btnSaveCA2.setBackground(new java.awt.Color(0, 102, 51));
-        btnSaveCA2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnSaveCA2.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaveCA2.setText("Edit");
-        btnSaveCA2.addActionListener(new java.awt.event.ActionListener() {
+        btnEdit.setBackground(new java.awt.Color(0, 102, 51));
+        btnEdit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveCA2ActionPerformed(evt);
+                btnEditActionPerformed(evt);
             }
         });
 
@@ -603,7 +603,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSaveCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSaveCA2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
                         .addComponent(btnResetCA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -776,7 +776,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnResetCA, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnExitCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSaveCA2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -1002,9 +1002,9 @@ public class CreateSavingACView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_lblInvestmentAccountMouseClicked
 
-    private void btnSaveCA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSaveCA2ActionPerformed
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+       
+    }//GEN-LAST:event_btnEditActionPerformed
 
     private void lblStatementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStatementMouseClicked
         this.setVisible(false);
@@ -1052,10 +1052,10 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AccountType2;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnExitCA1;
     private javax.swing.JButton btnResetCA;
     private javax.swing.JButton btnSaveCA1;
-    private javax.swing.JButton btnSaveCA2;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUplodeImg;
     private javax.swing.JComboBox<String> comGender;
