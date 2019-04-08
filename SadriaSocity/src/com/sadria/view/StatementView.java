@@ -184,6 +184,7 @@ public class StatementView extends javax.swing.JFrame {
         btnSearch.setBackground(new java.awt.Color(0, 102, 51));
         btnSearch.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_search_18px_4.png"))); // NOI18N
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,6 +195,7 @@ public class StatementView extends javax.swing.JFrame {
         btnPrint.setBackground(new java.awt.Color(0, 102, 51));
         btnPrint.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnPrint.setForeground(new java.awt.Color(255, 255, 255));
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_print_18px.png"))); // NOI18N
         btnPrint.setText("Print");
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

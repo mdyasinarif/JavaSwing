@@ -107,6 +107,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         jLabelACT14 = new javax.swing.JLabel();
         sAdmissionDate = new javax.swing.JTextField();
         btnEdit = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -200,6 +201,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         btnUplodeImg.setBackground(new java.awt.Color(0, 102, 51));
         btnUplodeImg.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUplodeImg.setForeground(new java.awt.Color(255, 255, 255));
+        btnUplodeImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_image_18px.png"))); // NOI18N
         btnUplodeImg.setText("Upload Image");
         btnUplodeImg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -533,6 +535,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         btnResetCA.setBackground(new java.awt.Color(0, 102, 51));
         btnResetCA.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnResetCA.setForeground(new java.awt.Color(255, 255, 255));
+        btnResetCA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_refresh_18px_1.png"))); // NOI18N
         btnResetCA.setText("Reset");
         btnResetCA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -543,6 +546,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         btnSaveCA1.setBackground(new java.awt.Color(0, 102, 51));
         btnSaveCA1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnSaveCA1.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaveCA1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_save_18px.png"))); // NOI18N
         btnSaveCA1.setText("Save");
         btnSaveCA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -553,6 +557,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         btnSearch.setBackground(new java.awt.Color(0, 102, 51));
         btnSearch.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_search_18px_4.png"))); // NOI18N
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -580,10 +585,22 @@ public class CreateSavingACView extends javax.swing.JFrame {
         btnEdit.setBackground(new java.awt.Color(0, 102, 51));
         btnEdit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_edit_18px.png"))); // NOI18N
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
+            }
+        });
+
+        jButton3.setBackground(new java.awt.Color(0, 102, 51));
+        jButton3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_exit_18px.png"))); // NOI18N
+        jButton3.setText("Exit");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -596,20 +613,23 @@ public class CreateSavingACView extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabelACT25, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSaveCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addComponent(btnResetCA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(sAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSaveCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnResetCA)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnExitCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(253, 253, 253))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelACT20, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelACT8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -623,7 +643,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnUplodeImg, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
+                                    .addComponent(btnUplodeImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -766,18 +786,18 @@ public class CreateSavingACView extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabelACT4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(sMobilNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelACT25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelACT25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(sAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnSaveCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSaveCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnResetCA, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnExitCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addComponent(jButton3))
+                    .addComponent(btnExitCA1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 169, 970, 510));
@@ -906,7 +926,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         int share = Integer.parseInt(sShare.getText());;
 
         try {
-            Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender,religion,dateofBirth, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share);
+            Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, religion, dateofBirth, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share);
             pDao.save(p, new File(sourceForSave));
 
             SummaryDao summaryDao = new SummaryDaoImp();
@@ -985,7 +1005,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         sNomineName.setText(person.getNomineName());
         sRelations.setText(person.getRelations());
         sShare.setText(person.getShare() + "");
-        lblImg.setIcon(new ImageIcon(person.getPicture()));
+//        lblImg.setIcon(new ImageIcon(person.getPicture()));
         displaySummary(sAccountNo);
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -998,12 +1018,39 @@ public class CreateSavingACView extends javax.swing.JFrame {
         new InvestmentView().setVisible(true);
         new StatementView().setVisible(false);
         new Transtionview().setVisible(false);
-        
-        
+
+
     }//GEN-LAST:event_lblInvestmentAccountMouseClicked
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-       
+        PersonDao pDao = new PersonDaoImp();
+        String accountNo = sAccountNo.getText();
+        String fromNO = sFromNO.getText();
+        String cardNo = sCardNo.getText();
+        Date admissionDate = new java.sql.Date(System.currentTimeMillis());
+        String name = sName.getText();
+        String motherName = sMotherName.getText();
+        String fatherHusbendName = sFatherHusbendName.getText();
+        String gender = comGender.getItemAt(comGender.getSelectedIndex());
+        String religion = sReligion.getText();
+        String dateofBirth = sDateofBirth.getText();
+        String nIDNo = sNID.getText();
+        String mobileNo = sMobilNo.getText();
+        String presentAddress = sPresentAddress.getText();
+        String parmanetAddress = sParmanetAddress.getText();
+        String savingType = sSavingType.getItemAt(sSavingType.getSelectedIndex());
+        int annynity = Integer.parseInt(sAnnunity.getText());
+        String nomineName = sNomineName.getText();
+        String relations = sRelations.getText();
+        int share = Integer.parseInt(sShare.getText());;
+
+        try {
+            Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, religion, dateofBirth, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share);
+            pDao.update(p, new File(sourceForSave));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void lblStatementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStatementMouseClicked
@@ -1011,8 +1058,15 @@ public class CreateSavingACView extends javax.swing.JFrame {
         new InvestmentView().setVisible(false);
         new StatementView().setVisible(true);
         new Transtionview().setVisible(false);
-        
+
     }//GEN-LAST:event_lblStatementMouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        JFrame frame = new JFrame("Exit");
+        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "SSBBSS System", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1059,6 +1113,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUplodeImg;
     private javax.swing.JComboBox<String> comGender;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelACT;
     private javax.swing.JLabel jLabelACT1;

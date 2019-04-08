@@ -157,6 +157,7 @@ public class InvestmentView extends javax.swing.JFrame {
         btnUplodeImg.setBackground(new java.awt.Color(0, 102, 51));
         btnUplodeImg.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUplodeImg.setForeground(new java.awt.Color(255, 255, 255));
+        btnUplodeImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_image_18px.png"))); // NOI18N
         btnUplodeImg.setText("Upload Image");
         btnUplodeImg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,35 +365,38 @@ public class InvestmentView extends javax.swing.JFrame {
         btnExit.setBackground(new java.awt.Color(0, 102, 51));
         btnExit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_exit_18px.png"))); // NOI18N
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
-        jPanel3.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(821, 428, 100, 30));
+        jPanel3.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 430, 90, 30));
 
         btnUpdate.setBackground(new java.awt.Color(0, 102, 51));
         btnUpdate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_edit_18px.png"))); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        jPanel3.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(585, 428, 100, 30));
+        jPanel3.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, -1, 30));
 
         btnSave.setBackground(new java.awt.Color(0, 102, 51));
         btnSave.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_save_18px.png"))); // NOI18N
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
-        jPanel3.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(466, 428, 100, 30));
+        jPanel3.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, 100, 30));
 
         jLabelACT14.setBackground(new java.awt.Color(0, 102, 51));
         jLabelACT14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -463,13 +467,14 @@ public class InvestmentView extends javax.swing.JFrame {
         btnReset.setBackground(new java.awt.Color(0, 102, 51));
         btnReset.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnReset.setForeground(new java.awt.Color(255, 255, 255));
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_refresh_18px_1.png"))); // NOI18N
         btnReset.setText("Reset");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
             }
         });
-        jPanel3.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(703, 428, 100, 30));
+        jPanel3.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, 110, 30));
 
         btnSearch.setBackground(new java.awt.Color(0, 102, 51));
         btnSearch.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -525,7 +530,7 @@ public class InvestmentView extends javax.swing.JFrame {
                 btnReturnActionPerformed(evt);
             }
         });
-        jPanel3.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 428, -1, -1));
+        jPanel3.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 170, 970, 510));
 

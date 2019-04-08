@@ -122,28 +122,27 @@ public class Transtionview extends javax.swing.JFrame {
 
         lblHead = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        txtAccountNo = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        btnSearch = new javax.swing.JButton();
-        txtAmount = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txtSlipNo = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        btnWithdraw = new javax.swing.JButton();
-        btnDeposit = new javax.swing.JButton();
-        btnClear = new javax.swing.JButton();
-        btnClear1 = new javax.swing.JButton();
-        btnSearch1 = new javax.swing.JButton();
-        Connection = new javax.swing.JLabel();
-        lblTotal = new javax.swing.JLabel();
-        lblDate = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lblDeposit = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lblInvestment = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         lblBalance = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtAccountNo = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
+        txtSlipNo = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtAmount = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        btnDeposit = new javax.swing.JButton();
+        lblDate = new javax.swing.JLabel();
+        btnWithdraw = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSummary = new javax.swing.JTable();
@@ -163,6 +162,62 @@ public class Transtionview extends javax.swing.JFrame {
         getContentPane().add(lblHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, 166));
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 51));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setBackground(new java.awt.Color(0, 102, 51));
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_deposit_18px.png"))); // NOI18N
+        jLabel8.setText("Deposit");
+        jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 140, 40));
+
+        lblDeposit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblDeposit.setForeground(new java.awt.Color(255, 255, 255));
+        lblDeposit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDeposit.setText("0");
+        jPanel4.add(lblDeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 11, 70, 40));
+
+        jLabel9.setBackground(new java.awt.Color(0, 102, 51));
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_key_exchange_18px_2.png"))); // NOI18N
+        jLabel9.setText("Investment");
+        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 140, 40));
+
+        lblInvestment.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblInvestment.setForeground(new java.awt.Color(255, 255, 255));
+        lblInvestment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInvestment.setText("0");
+        jPanel4.add(lblInvestment, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 90, 40));
+
+        jLabel10.setBackground(new java.awt.Color(0, 102, 51));
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_add_to_collection_18px.png"))); // NOI18N
+        jLabel10.setText("Collection");
+        jLabel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(719, 10, 130, 40));
+
+        lblBalance.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblBalance.setForeground(new java.awt.Color(255, 255, 255));
+        lblBalance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBalance.setText("0");
+        jPanel4.add(lblBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 83, 40));
+
+        lblTotal.setBackground(new java.awt.Color(0, 102, 51));
+        lblTotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTotal.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTotal.setText("0");
+        jPanel4.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 91, 40));
 
         jLabel3.setBackground(new java.awt.Color(0, 102, 51));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -171,6 +226,7 @@ public class Transtionview extends javax.swing.JFrame {
         jLabel3.setText("Account No");
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 140, 40));
 
         txtAccountNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtAccountNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -180,6 +236,7 @@ public class Transtionview extends javax.swing.JFrame {
                 txtAccountNoActionPerformed(evt);
             }
         });
+        jPanel4.add(txtAccountNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 70, 157, 40));
 
         txtName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -189,33 +246,43 @@ public class Transtionview extends javax.swing.JFrame {
                 txtNameActionPerformed(evt);
             }
         });
+        jPanel4.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 70, 240, 40));
 
         btnSearch.setBackground(new java.awt.Color(0, 102, 51));
         btnSearch.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_search_18px_4.png"))); // NOI18N
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
             }
         });
+        jPanel4.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 70, -1, 40));
 
-        txtAmount.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        txtAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtAmount.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        txtAmount.addActionListener(new java.awt.event.ActionListener() {
+        btnEdit.setBackground(new java.awt.Color(0, 102, 51));
+        btnEdit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_edit_18px.png"))); // NOI18N
+        btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAmountActionPerformed(evt);
+                btnEditActionPerformed(evt);
             }
         });
+        jPanel4.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(726, 70, -1, 40));
 
-        jLabel7.setBackground(new java.awt.Color(0, 102, 51));
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Amount");
-        jLabel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClear.setBackground(new java.awt.Color(0, 102, 51));
+        btnClear.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
+        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_clear_formatting_18px.png"))); // NOI18N
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(833, 70, -1, 40));
 
         txtSlipNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtSlipNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -225,6 +292,7 @@ public class Transtionview extends javax.swing.JFrame {
                 txtSlipNoActionPerformed(evt);
             }
         });
+        jPanel4.add(txtSlipNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 139, 94, 40));
 
         jLabel6.setBackground(new java.awt.Color(0, 102, 51));
         jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -233,223 +301,67 @@ public class Transtionview extends javax.swing.JFrame {
         jLabel6.setText("Slip No");
         jLabel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 139, 80, 40));
 
-        btnWithdraw.setBackground(new java.awt.Color(0, 102, 51));
-        btnWithdraw.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnWithdraw.setForeground(new java.awt.Color(255, 255, 255));
-        btnWithdraw.setText("Withdraw");
-        btnWithdraw.addActionListener(new java.awt.event.ActionListener() {
+        txtAmount.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAmount.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnWithdrawActionPerformed(evt);
+                txtAmountActionPerformed(evt);
             }
         });
+        jPanel4.add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 129, 40));
+
+        jLabel7.setBackground(new java.awt.Color(0, 102, 51));
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Amount");
+        jLabel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 139, 100, 40));
 
         btnDeposit.setBackground(new java.awt.Color(0, 102, 51));
         btnDeposit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnDeposit.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeposit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_deposit_18px.png"))); // NOI18N
         btnDeposit.setText("Deposit");
         btnDeposit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDepositActionPerformed(evt);
             }
         });
-
-        btnClear.setBackground(new java.awt.Color(0, 102, 51));
-        btnClear.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnClear.setForeground(new java.awt.Color(255, 255, 255));
-        btnClear.setText("Clear");
-        btnClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClearActionPerformed(evt);
-            }
-        });
-
-        btnClear1.setBackground(new java.awt.Color(0, 102, 51));
-        btnClear1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnClear1.setForeground(new java.awt.Color(255, 255, 255));
-        btnClear1.setText("Clear Table");
-        btnClear1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClear1ActionPerformed(evt);
-            }
-        });
-
-        btnSearch1.setBackground(new java.awt.Color(0, 102, 51));
-        btnSearch1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnSearch1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSearch1.setText("Edit");
-        btnSearch1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearch1ActionPerformed(evt);
-            }
-        });
-
-        Connection.setBackground(new java.awt.Color(0, 102, 51));
-        Connection.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        Connection.setForeground(new java.awt.Color(255, 255, 255));
-        Connection.setText("Collection :");
-
-        lblTotal.setBackground(new java.awt.Color(0, 102, 51));
-        lblTotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblTotal.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTotal.setText("0");
+        jPanel4.add(btnDeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, 40));
 
         lblDate.setBackground(new java.awt.Color(0, 102, 51));
         lblDate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblDate.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 140, 200, 40));
 
-        jLabel8.setBackground(new java.awt.Color(0, 102, 51));
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Deposit");
-        jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnWithdraw.setBackground(new java.awt.Color(0, 102, 51));
+        btnWithdraw.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        btnWithdraw.setForeground(new java.awt.Color(255, 255, 255));
+        btnWithdraw.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_withdrawal_18px.png"))); // NOI18N
+        btnWithdraw.setText("Withdraw");
+        btnWithdraw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWithdrawActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnWithdraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, -1, 40));
 
-        lblDeposit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblDeposit.setForeground(new java.awt.Color(255, 255, 255));
-        lblDeposit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDeposit.setText("0");
+        jLabel12.setBackground(new java.awt.Color(0, 102, 51));
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_cash_in_hand_18px.png"))); // NOI18N
+        jLabel12.setText("Balance");
+        jLabel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 99, 40));
 
-        jLabel9.setBackground(new java.awt.Color(0, 102, 51));
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Investment");
-        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        lblInvestment.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblInvestment.setForeground(new java.awt.Color(255, 255, 255));
-        lblInvestment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblInvestment.setText("0");
-
-        jLabel10.setBackground(new java.awt.Color(0, 102, 51));
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Balance");
-        jLabel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        lblBalance.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblBalance.setForeground(new java.awt.Color(255, 255, 255));
-        lblBalance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBalance.setText("0");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblDeposit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtAccountNo, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSlipNo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Connection)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblInvestment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnDeposit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSearch1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblBalance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(4, 4, 4)))
-                .addGap(114, 114, 114)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(btnClear1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblInvestment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                        .addComponent(btnClear1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(46, 46, 46)))
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txtAccountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtSlipNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(Connection))
-                                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 166, 970, 170));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 166, 970, 190));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 51));
 
@@ -479,7 +391,7 @@ public class Transtionview extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblSummary);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 354, 970, 78));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 970, 78));
 
         tblTranscation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -491,7 +403,7 @@ public class Transtionview extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblTranscation);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 438, 970, 250));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 508, 970, 180));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 688, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 51));
@@ -499,6 +411,7 @@ public class Transtionview extends javax.swing.JFrame {
         lblStatement.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblStatement.setForeground(new java.awt.Color(255, 255, 255));
         lblStatement.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStatement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_purchase_order_18px.png"))); // NOI18N
         lblStatement.setText("Statement");
         lblStatement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -509,6 +422,7 @@ public class Transtionview extends javax.swing.JFrame {
         lblCreateAccount1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblCreateAccount1.setForeground(new java.awt.Color(255, 255, 255));
         lblCreateAccount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCreateAccount1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_bank_building_18px.png"))); // NOI18N
         lblCreateAccount1.setText("Saving Account");
         lblCreateAccount1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -519,7 +433,8 @@ public class Transtionview extends javax.swing.JFrame {
         lblTranstion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTranstion.setForeground(new java.awt.Color(255, 255, 255));
         lblTranstion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTranstion.setText("Transtion");
+        lblTranstion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_play_property_18px_1.png"))); // NOI18N
+        lblTranstion.setText("Transition");
         lblTranstion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblTranstionMouseClicked(evt);
@@ -529,6 +444,7 @@ public class Transtionview extends javax.swing.JFrame {
         lblInvestmentAccount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblInvestmentAccount.setForeground(new java.awt.Color(255, 255, 255));
         lblInvestmentAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInvestmentAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_key_exchange_18px_2.png"))); // NOI18N
         lblInvestmentAccount.setText("Investment Account");
         lblInvestmentAccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -550,19 +466,19 @@ public class Transtionview extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(lblCreateAccount1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCreateAccount1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(111, 111, 111)
                 .addComponent(lblInvestmentAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(44, 44, 44)
                 .addComponent(lblTranstion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(45, 45, 45)
                 .addComponent(lblStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(33, 33, 33)
@@ -750,14 +666,9 @@ public class Transtionview extends javax.swing.JFrame {
         txtAmount.setText("");
     }//GEN-LAST:event_btnClearActionPerformed
 
-    private void btnClear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClear1ActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tblTranscation.getModel();
-        model.setRowCount(0);
-    }//GEN-LAST:event_btnClear1ActionPerformed
-
-    private void btnSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch1ActionPerformed
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSearch1ActionPerformed
+    }//GEN-LAST:event_btnEditActionPerformed
 
     private void lblStatementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStatementMouseClicked
         this.setVisible(false);
@@ -825,14 +736,13 @@ public class Transtionview extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Connection;
     private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnClear1;
     private javax.swing.JButton btnDeposit;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnSearch1;
     private javax.swing.JButton btnWithdraw;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
