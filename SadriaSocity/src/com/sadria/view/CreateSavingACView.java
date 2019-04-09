@@ -56,11 +56,6 @@ public class CreateSavingACView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        lblStatement = new javax.swing.JLabel();
-        lblCreateAccount1 = new javax.swing.JLabel();
-        lblTranstion = new javax.swing.JLabel();
-        lblInvestmentAccount = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lblImg = new javax.swing.JLabel();
         btnUplodeImg = new javax.swing.JButton();
@@ -110,87 +105,14 @@ public class CreateSavingACView extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblStatement = new javax.swing.JLabel();
+        lblCreateAccount1 = new javax.swing.JLabel();
+        lblTranstion = new javax.swing.JLabel();
+        lblInvestmentAccount = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(0, 102, 51));
-
-        lblStatement.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblStatement.setForeground(new java.awt.Color(255, 255, 255));
-        lblStatement.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblStatement.setText("Statement");
-        lblStatement.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblStatementMouseClicked(evt);
-            }
-        });
-
-        lblCreateAccount1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblCreateAccount1.setForeground(new java.awt.Color(255, 255, 255));
-        lblCreateAccount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCreateAccount1.setText("Saving Account");
-        lblCreateAccount1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCreateAccount1MouseClicked(evt);
-            }
-        });
-
-        lblTranstion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblTranstion.setForeground(new java.awt.Color(255, 255, 255));
-        lblTranstion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTranstion.setText("Transtion");
-        lblTranstion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblTranstionMouseClicked(evt);
-            }
-        });
-
-        lblInvestmentAccount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblInvestmentAccount.setForeground(new java.awt.Color(255, 255, 255));
-        lblInvestmentAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblInvestmentAccount.setText("Investment Account");
-        lblInvestmentAccount.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblInvestmentAccountMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblStatement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblTranstion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblInvestmentAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lblCreateAccount1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(lblInvestmentAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblTranstion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(295, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(33, 33, 33)
-                    .addComponent(lblCreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(442, Short.MAX_VALUE)))
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 169, 220, 510));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 51));
 
@@ -800,7 +722,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 169, 970, 510));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 169, 960, 510));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/logo.png"))); // NOI18N
 
@@ -818,6 +740,89 @@ public class CreateSavingACView extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 51));
+
+        lblStatement.setBackground(new java.awt.Color(102, 204, 0));
+        lblStatement.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblStatement.setForeground(new java.awt.Color(255, 255, 255));
+        lblStatement.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStatement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_purchase_order_18px.png"))); // NOI18N
+        lblStatement.setText("Statement");
+        lblStatement.setOpaque(true);
+        lblStatement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblStatementMouseClicked(evt);
+            }
+        });
+
+        lblCreateAccount1.setBackground(new java.awt.Color(102, 204, 0));
+        lblCreateAccount1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblCreateAccount1.setForeground(new java.awt.Color(255, 255, 255));
+        lblCreateAccount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCreateAccount1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_bank_building_18px.png"))); // NOI18N
+        lblCreateAccount1.setText("Saving Account");
+        lblCreateAccount1.setOpaque(true);
+        lblCreateAccount1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreateAccount1MouseClicked(evt);
+            }
+        });
+
+        lblTranstion.setBackground(new java.awt.Color(102, 204, 0));
+        lblTranstion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTranstion.setForeground(new java.awt.Color(255, 255, 255));
+        lblTranstion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTranstion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_play_property_18px_1.png"))); // NOI18N
+        lblTranstion.setText("Transtion");
+        lblTranstion.setOpaque(true);
+        lblTranstion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTranstionMouseClicked(evt);
+            }
+        });
+
+        lblInvestmentAccount.setBackground(new java.awt.Color(102, 204, 0));
+        lblInvestmentAccount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblInvestmentAccount.setForeground(new java.awt.Color(255, 255, 255));
+        lblInvestmentAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInvestmentAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_key_exchange_18px_2.png"))); // NOI18N
+        lblInvestmentAccount.setText("Investment Account");
+        lblInvestmentAccount.setOpaque(true);
+        lblInvestmentAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblInvestmentAccountMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblInvestmentAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+            .addComponent(lblTranstion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblStatement, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(lblCreateAccount1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(lblInvestmentAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblTranstion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(280, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(33, 33, 33)
+                    .addComponent(lblCreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(442, Short.MAX_VALUE)))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -937,21 +942,6 @@ public class CreateSavingACView extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnSaveCA1ActionPerformed
-
-    private void lblTranstionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTranstionMouseClicked
-        this.setVisible(false);
-        new InvestmentView().setVisible(false);
-        new Transtionview().setVisible(true);
-        new StatementView().setVisible(false);
-    }//GEN-LAST:event_lblTranstionMouseClicked
-
-    private void lblCreateAccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount1MouseClicked
-
-        this.setVisible(true);
-        new Transtionview().setVisible(false);
-        new InvestmentView().setVisible(false);
-        new StatementView().setVisible(false);
-    }//GEN-LAST:event_lblCreateAccount1MouseClicked
     static String sourceForSave = "";
     private void btnUplodeImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUplodeImgActionPerformed
         // TODO add your handling code here:
@@ -1013,15 +1003,6 @@ public class CreateSavingACView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sAdmissionDateActionPerformed
 
-    private void lblInvestmentAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInvestmentAccountMouseClicked
-        this.setVisible(false);
-        new InvestmentView().setVisible(true);
-        new StatementView().setVisible(false);
-        new Transtionview().setVisible(false);
-
-
-    }//GEN-LAST:event_lblInvestmentAccountMouseClicked
-
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         PersonDao pDao = new PersonDaoImp();
         String accountNo = sAccountNo.getText();
@@ -1053,20 +1034,41 @@ public class CreateSavingACView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEditActionPerformed
 
-    private void lblStatementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStatementMouseClicked
-        this.setVisible(false);
-        new InvestmentView().setVisible(false);
-        new StatementView().setVisible(true);
-        new Transtionview().setVisible(false);
-
-    }//GEN-LAST:event_lblStatementMouseClicked
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         JFrame frame = new JFrame("Exit");
         if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "SSBBSS System", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
             System.exit(0);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void lblStatementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStatementMouseClicked
+        this.setVisible(false);
+        new InvestmentView().setVisible(false);
+        new Transtionview().setVisible(false);
+        new StatementView().setVisible(true);
+    }//GEN-LAST:event_lblStatementMouseClicked
+
+    private void lblCreateAccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreateAccount1MouseClicked
+
+        this.setVisible(true);
+        new InvestmentView().setVisible(false);
+        new Transtionview().setVisible(false);
+        new StatementView().setVisible(false);
+    }//GEN-LAST:event_lblCreateAccount1MouseClicked
+
+    private void lblTranstionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTranstionMouseClicked
+         this.setVisible(false);
+        new InvestmentView().setVisible(false);
+        new Transtionview().setVisible(true);
+        new StatementView().setVisible(false);
+    }//GEN-LAST:event_lblTranstionMouseClicked
+
+    private void lblInvestmentAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInvestmentAccountMouseClicked
+       this.setVisible(false);
+        new InvestmentView().setVisible(true);
+        new Transtionview().setVisible(false);
+        new StatementView().setVisible(false);
+    }//GEN-LAST:event_lblInvestmentAccountMouseClicked
 
     /**
      * @param args the command line arguments

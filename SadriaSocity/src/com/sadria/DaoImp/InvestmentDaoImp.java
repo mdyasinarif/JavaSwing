@@ -17,9 +17,12 @@ import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -36,13 +39,19 @@ Connection con = DBConnection.getConnet();
     }
     @Override
     public void createTable() {
-        String sql = "create table if not Exists investment(id int(4) auto_increment primary key,accountNo varchar(20),projectName varchar(50),projectLocation varchar(100), totalInvestment double,startDate date,projectDuration int(10),directortName varchar(20),gender varchar(20),religion varchar(20),dateofBirth varchar(20),nIDNo varchar(20),mobileNo varchar(20),presentAddress varchar(100),parmanetAddress varchar(100),picture BLOB)";
+        String sql = "create table if not Exists investment(id int(4) auto_increment primary key,accountNo varchar(20)unique,projectName varchar(50),projectLocation varchar(100), totalInvestment double,startDate date,projectDuration int(10),directortName varchar(20),gender varchar(20),religion varchar(20),dateofBirth varchar(20),nIDNo varchar(20),mobileNo varchar(20),presentAddress varchar(100),parmanetAddress varchar(100),picture BLOB)";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.execute();
             System.out.println("Table Created");
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -71,6 +80,12 @@ Connection con = DBConnection.getConnet();
             pst.executeUpdate();         
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -99,6 +114,12 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return list;
     }
@@ -116,6 +137,12 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return i;
     }
@@ -135,6 +162,12 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return i;
     }

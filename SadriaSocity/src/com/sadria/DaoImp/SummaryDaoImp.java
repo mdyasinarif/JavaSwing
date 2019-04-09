@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -37,6 +38,12 @@ public class SummaryDaoImp implements SummaryDao {
             System.out.println("Table created");
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -62,6 +69,12 @@ public class SummaryDaoImp implements SummaryDao {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -81,6 +94,12 @@ public class SummaryDaoImp implements SummaryDao {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -103,6 +122,12 @@ public class SummaryDaoImp implements SummaryDao {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return s;
     }
@@ -127,6 +152,12 @@ public class SummaryDaoImp implements SummaryDao {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -142,6 +173,12 @@ public class SummaryDaoImp implements SummaryDao {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return totalDeposit;
     }

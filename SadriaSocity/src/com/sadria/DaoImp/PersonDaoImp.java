@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,13 +30,19 @@ Connection con = DBConnection.getConnet();
     }
     @Override
     public void createTable() {
-        String sql = "create table if not Exists person(id int(4) auto_increment primary key,accountNo varchar(20),fromNO varchar(20),cardNo varchar(20),admissionDate date,name varchar(20),motherName varchar(20),fatherHusbendName varchar(20),gender varchar(20),religion varchar(20),dateofBirth varchar(20),nIDNo varchar(20),mobileNo varchar(20),presentAddress varchar(100),parmanetAddress varchar(100),savingType varchar(20),annunity int(20),nomineName varchar(20),relations varchar(20),share int(20),picture BLOB)";
+        String sql = "create table if not Exists person(id int(4) auto_increment primary key,accountNo varchar(20)unique,fromNO varchar(20)unique,cardNo varchar(20)unique,admissionDate date,name varchar(20),motherName varchar(20),fatherHusbendName varchar(20),gender varchar(20),religion varchar(20),dateofBirth varchar(20),nIDNo varchar(20),mobileNo varchar(20),presentAddress varchar(100),parmanetAddress varchar(100),savingType varchar(20),annunity int(20),nomineName varchar(20),relations varchar(20),share int(20),picture BLOB)";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.execute();
             System.out.println("Table Created");
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -69,6 +76,12 @@ Connection con = DBConnection.getConnet();
             pst.executeUpdate();         
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -102,6 +115,12 @@ Connection con = DBConnection.getConnet();
             pst.executeUpdate();         
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -128,6 +147,12 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return list;
     }
@@ -145,6 +170,12 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return p;
     }
@@ -162,6 +193,12 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return list;
     }
@@ -179,6 +216,12 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return p;
     }

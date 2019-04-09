@@ -78,6 +78,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         panalstatement.setBackground(new java.awt.Color(0, 102, 51));
+        panalstatement.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(0, 102, 51));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -86,6 +87,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("User Name");
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panalstatement.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 190, 140, 50));
 
         txtUsername.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -95,10 +97,12 @@ public class Login extends javax.swing.JFrame {
                 txtUsernameActionPerformed(evt);
             }
         });
+        panalstatement.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 190, 340, 50));
 
         txtPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPassword.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        panalstatement.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 280, 340, 50));
 
         jLabel2.setBackground(new java.awt.Color(0, 102, 51));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -107,6 +111,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("Password");
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panalstatement.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 280, 140, 50));
 
         jButton3.setBackground(new java.awt.Color(0, 102, 51));
         jButton3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -118,6 +123,7 @@ public class Login extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        panalstatement.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(541, 370, 100, 40));
 
         jButton4.setBackground(new java.awt.Color(0, 102, 51));
         jButton4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -129,6 +135,7 @@ public class Login extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+        panalstatement.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 370, 126, 40));
 
         btnLogin.setBackground(new java.awt.Color(0, 102, 51));
         btnLogin.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -140,56 +147,7 @@ public class Login extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panalstatementLayout = new javax.swing.GroupLayout(panalstatement);
-        panalstatement.setLayout(panalstatementLayout);
-        panalstatementLayout.setHorizontalGroup(
-            panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panalstatementLayout.createSequentialGroup()
-                .addGap(263, 263, 263)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panalstatementLayout.createSequentialGroup()
-                    .addGap(0, 121, Short.MAX_VALUE)
-                    .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panalstatementLayout.createSequentialGroup()
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(40, 40, 40)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panalstatementLayout.createSequentialGroup()
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(40, 40, 40)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panalstatementLayout.createSequentialGroup()
-                            .addGap(274, 274, 274)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(20, 20, 20)
-                            .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 310, Short.MAX_VALUE)))
-        );
-        panalstatementLayout.setVerticalGroup(
-            panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panalstatementLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(191, 191, 191))
-            .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panalstatementLayout.createSequentialGroup()
-                    .addGap(0, 190, Short.MAX_VALUE)
-                    .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(40, 40, 40)
-                    .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(40, 40, 40)
-                    .addGroup(panalstatementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 191, Short.MAX_VALUE)))
-        );
+        panalstatement.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 119, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -229,13 +187,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        JTextField temp = null;
-        for (Component c : panalstatement.getComponents()) {
-            if (c.getClass().toString().contains("JTextField")) {
-                temp = (JTextField) c;
-                temp.setText(null);
-            }
-        }
+        txtUsername.setText("");
+        txtPassword.setText("");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed

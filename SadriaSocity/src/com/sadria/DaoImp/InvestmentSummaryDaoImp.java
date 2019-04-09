@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,13 +35,19 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
 
     @Override
     public void createTable() {
-        String sql = "create table if not Exists investmentSummary(id int(4) auto_increment primary key,date date,accountNO varchar(20),projectName varchar(50),projectLocation varchar(20),startDate date,directorName varchar(50), totalInvestment Double , totalReturn Double , balance Double, projectDuration int(20))";
+        String sql = "create table if not Exists investmentSummary(id int(4) auto_increment primary key,date date,accountNO varchar(20),projectName varchar(50),projectLocation varchar(100),startDate date,directorName varchar(50), totalInvestment Double , totalReturn Double , balance Double, projectDuration int(20))";
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.execute();
             System.out.println("Table created");
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -66,6 +73,12 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -81,6 +94,12 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -103,6 +122,12 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return is;
     }
@@ -120,6 +145,12 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return list;
     }
@@ -135,6 +166,12 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -150,6 +187,12 @@ public class InvestmentSummaryDaoImp implements InvestmentSummaryDao {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return totalInvestment;
     }

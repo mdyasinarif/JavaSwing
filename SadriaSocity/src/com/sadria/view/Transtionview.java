@@ -361,7 +361,7 @@ public class Transtionview extends javax.swing.JFrame {
         jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 99, 40));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 166, 970, 190));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 166, 960, 190));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 51));
 
@@ -391,7 +391,7 @@ public class Transtionview extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblSummary);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 970, 78));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 950, 78));
 
         tblTranscation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -403,49 +403,57 @@ public class Transtionview extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblTranscation);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 508, 970, 180));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 508, 950, 180));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 688, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 51));
 
+        lblStatement.setBackground(new java.awt.Color(102, 204, 0));
         lblStatement.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblStatement.setForeground(new java.awt.Color(255, 255, 255));
         lblStatement.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblStatement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_purchase_order_18px.png"))); // NOI18N
         lblStatement.setText("Statement");
+        lblStatement.setOpaque(true);
         lblStatement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblStatementMouseClicked(evt);
             }
         });
 
+        lblCreateAccount1.setBackground(new java.awt.Color(102, 204, 0));
         lblCreateAccount1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblCreateAccount1.setForeground(new java.awt.Color(255, 255, 255));
         lblCreateAccount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCreateAccount1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_bank_building_18px.png"))); // NOI18N
         lblCreateAccount1.setText("Saving Account");
+        lblCreateAccount1.setOpaque(true);
         lblCreateAccount1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCreateAccount1MouseClicked(evt);
             }
         });
 
+        lblTranstion.setBackground(new java.awt.Color(102, 204, 0));
         lblTranstion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTranstion.setForeground(new java.awt.Color(255, 255, 255));
         lblTranstion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTranstion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_play_property_18px_1.png"))); // NOI18N
-        lblTranstion.setText("Transition");
+        lblTranstion.setText("Transtion");
+        lblTranstion.setOpaque(true);
         lblTranstion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblTranstionMouseClicked(evt);
             }
         });
 
+        lblInvestmentAccount.setBackground(new java.awt.Color(102, 204, 0));
         lblInvestmentAccount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblInvestmentAccount.setForeground(new java.awt.Color(255, 255, 255));
         lblInvestmentAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInvestmentAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_key_exchange_18px_2.png"))); // NOI18N
         lblInvestmentAccount.setText("Investment Account");
+        lblInvestmentAccount.setOpaque(true);
         lblInvestmentAccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblInvestmentAccountMouseClicked(evt);
@@ -456,29 +464,22 @@ public class Transtionview extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblStatement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblTranstion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblInvestmentAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(lblInvestmentAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+            .addComponent(lblTranstion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblStatement, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lblCreateAccount1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(lblCreateAccount1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(111, 111, 111)
+                .addGap(89, 89, 89)
                 .addComponent(lblInvestmentAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(18, 18, 18)
                 .addComponent(lblTranstion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(18, 18, 18)
                 .addComponent(lblStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(290, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(33, 33, 33)
@@ -486,7 +487,7 @@ public class Transtionview extends javax.swing.JFrame {
                     .addContainerGap(452, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 169, 220, 520));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -672,8 +673,8 @@ public class Transtionview extends javax.swing.JFrame {
 
     private void lblStatementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStatementMouseClicked
         this.setVisible(false);
-        new InvestmentView().setVisible(false);
         new StatementView().setVisible(true);
+        new Transtionview().setVisible(false);
         new CreateSavingACView().setVisible(false);
     }//GEN-LAST:event_lblStatementMouseClicked
 
@@ -681,22 +682,22 @@ public class Transtionview extends javax.swing.JFrame {
 
         this.setVisible(false);
         new CreateSavingACView().setVisible(true);
-        new StatementView().setVisible(false);
         new InvestmentView().setVisible(false);
+        new StatementView().setVisible(false);
     }//GEN-LAST:event_lblCreateAccount1MouseClicked
 
     private void lblTranstionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTranstionMouseClicked
         this.setVisible(true);
         new CreateSavingACView().setVisible(false);
-        new StatementView().setVisible(false);
         new InvestmentView().setVisible(false);
+        new StatementView().setVisible(false);
     }//GEN-LAST:event_lblTranstionMouseClicked
 
     private void lblInvestmentAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInvestmentAccountMouseClicked
         this.setVisible(false);
         new CreateSavingACView().setVisible(false);
-        new StatementView().setVisible(false);
         new InvestmentView().setVisible(true);
+        new StatementView().setVisible(false);
     }//GEN-LAST:event_lblInvestmentAccountMouseClicked
 
     /**
