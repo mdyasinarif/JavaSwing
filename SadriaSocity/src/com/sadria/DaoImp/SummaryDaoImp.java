@@ -38,12 +38,6 @@ public class SummaryDaoImp implements SummaryDao {
             System.out.println("Table created");
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -69,12 +63,6 @@ public class SummaryDaoImp implements SummaryDao {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -94,12 +82,6 @@ public class SummaryDaoImp implements SummaryDao {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -122,12 +104,6 @@ public class SummaryDaoImp implements SummaryDao {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return s;
     }
@@ -152,12 +128,6 @@ public class SummaryDaoImp implements SummaryDao {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -173,12 +143,6 @@ public class SummaryDaoImp implements SummaryDao {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return totalDeposit;
     }

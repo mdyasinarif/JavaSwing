@@ -141,7 +141,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sAccountNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sAccountNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sAccountNo.setText("101-102");
+        sAccountNo.setText("101");
         sAccountNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sAccountNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,7 +159,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sFromNO.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sFromNO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sFromNO.setText("101");
+        sFromNO.setText("F-001");
         sFromNO.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sFromNO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,7 +177,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         sCardNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         sCardNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sCardNo.setText("102");
+        sCardNo.setText("C-001");
         sCardNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         sCardNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -906,6 +906,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
                 temp.setText(null);
             }
         }
+        lblImg.setIcon(null);
     }//GEN-LAST:event_btnResetCAActionPerformed
 
     private void btnSaveCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA1ActionPerformed
@@ -937,7 +938,9 @@ public class CreateSavingACView extends javax.swing.JFrame {
             SummaryDao summaryDao = new SummaryDaoImp();
             Summary summary = new Summary(accountNo, name, savingType, Integer.parseInt(sAnnunity.getText().trim()), new Date(), Integer.parseInt(sAnnunity.getText().trim()), 0, Integer.parseInt(sAnnunity.getText().trim()), 1, new Date(), 0);
             summaryDao.save(summary);
+            JOptionPane.showMessageDialog(null, "Data Save Successfully");
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data not Save Successfully");
             e.printStackTrace();
         }
 
@@ -995,7 +998,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         sNomineName.setText(person.getNomineName());
         sRelations.setText(person.getRelations());
         sShare.setText(person.getShare() + "");
-//        lblImg.setIcon(new ImageIcon(person.getPicture()));
+       lblImg.setIcon(new ImageIcon(person.getPicture()));
         displaySummary(sAccountNo);
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -1028,7 +1031,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         try {
             Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, religion, dateofBirth, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share);
             pDao.update(p, new File(sourceForSave));
-
+JOptionPane.showMessageDialog(null, "Data Update Successfully");
         } catch (Exception e) {
             e.printStackTrace();
         }

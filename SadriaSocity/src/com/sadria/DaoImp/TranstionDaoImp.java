@@ -35,12 +35,6 @@ Connection con = DBConnection.getConnet();
             pst.execute();
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -60,12 +54,6 @@ Connection con = DBConnection.getConnet();
             pst.executeUpdate();   
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -83,12 +71,6 @@ Connection con = DBConnection.getConnet();
             pst.executeUpdate();   
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -110,12 +92,6 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return list;
     }
@@ -133,12 +109,6 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return t;
     }
@@ -157,12 +127,6 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return list;
     }

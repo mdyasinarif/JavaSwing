@@ -513,7 +513,6 @@ public class Transtionview extends javax.swing.JFrame {
         clearSummaryTable();
         SummaryDao summaryDao = new SummaryDaoImp();
         Summary summary = summaryDao.getSummaryByAccontNo(acNo.getText().trim());
-
         DefaultTableModel model = (DefaultTableModel) tblSummary.getModel();
         Object col[] = new Object[11];
         col[0] = summary.getAccountNo();
@@ -585,7 +584,9 @@ public class Transtionview extends javax.swing.JFrame {
                 displaySummary(txtAccountNo);
                 total -= Integer.parseInt(txtAmount.getText());
                 lblTotal.setText(total + "");
-               
+                deposit();
+                investment();
+                balance();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -651,7 +652,9 @@ public class Transtionview extends javax.swing.JFrame {
                 displaySummary(txtAccountNo);
                 total += Integer.parseInt(txtAmount.getText());
                 lblTotal.setText(total + "");
-                
+                deposit();
+                investment();
+                balance();
             }
 
         } catch (Exception e) {

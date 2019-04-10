@@ -37,12 +37,6 @@ Connection con = DBConnection.getConnet();
             System.out.println("Table Created");
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -76,51 +70,40 @@ Connection con = DBConnection.getConnet();
             pst.executeUpdate();         
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
     @Override
     public void update(Person p,File file) {
         FileInputStream inputStream = null;
-        String sql = "update person set accountNo=? ,fromNO=? ,cardNo=? ,admissionDate=? ,name=? ,motherName=?,fatherHusbendName=? ,gender=? ,religion=? ,dateofBirth=? ,nIDNo=? ,mobileNo=? ,presentAddress=? ,parmanetAddress=? ,savingType=? ,annunity=?,nomineName=? ,relations=? ,share=?,picture=?";
+        String sql = "update person set fromNO=? ,cardNo=? ,admissionDate=? ,name=? ,motherName=?,fatherHusbendName=? ,gender=? ,religion=? ,dateofBirth=? ,nIDNo=? ,mobileNo=? ,presentAddress=? ,parmanetAddress=? ,savingType=? ,annunity=?,nomineName=? ,relations=? ,share=?,picture=? where accountNo=?";
         try {
             inputStream = new FileInputStream(file);
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, p.getAccountNo());
-            pst.setString(2, p.getFromNO());
-            pst.setString(3, p.getCardNo());
-            pst.setDate(4, new java.sql.Date(p.getAdmissionDate().getTime()));
-            pst.setString(5, p.getName());
-            pst.setString(6, p.getMotherName());
-            pst.setString(7, p.getFatherHusbendName());
-            pst.setString(8, p.getGender());
-            pst.setString(9, p.getReligion());
-            pst.setString(10, p.getDateofBirth());
-            pst.setString(11, p.getnIDNo());
-            pst.setString(12, p.getMobileNo());
-            pst.setString(13, p.getPresentAddress());
-            pst.setString(14, p.getParmanetAddress());
-            pst.setString(15, p.getSavingType());
-            pst.setInt(16, p.getAnnunity());
-            pst.setString(17, p.getNomineName());
-            pst.setString(18, p.getRelations());
-            pst.setInt(19, p.getShare());
+            
+            pst.setString(1, p.getFromNO());
+            pst.setString(2, p.getCardNo());
+            pst.setDate(3, new java.sql.Date(p.getAdmissionDate().getTime()));
+            pst.setString(4, p.getName());
+            pst.setString(5, p.getMotherName());
+            pst.setString(6, p.getFatherHusbendName());
+            pst.setString(7, p.getGender());
+            pst.setString(8, p.getReligion());
+            pst.setString(9, p.getDateofBirth());
+            pst.setString(10, p.getnIDNo());
+            pst.setString(11, p.getMobileNo());
+            pst.setString(12, p.getPresentAddress());
+            pst.setString(13, p.getParmanetAddress());
+            pst.setString(14, p.getSavingType());
+            pst.setInt(15, p.getAnnunity());
+            pst.setString(16, p.getNomineName());
+            pst.setString(17, p.getRelations());
+            pst.setInt(18, p.getShare());
+            pst.setString(19, p.getAccountNo());
             pst.setBinaryStream(20, (InputStream) inputStream, (int) (file.length()));
             pst.executeUpdate();         
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -147,12 +130,6 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return list;
     }
@@ -170,12 +147,6 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return p;
     }
@@ -193,12 +164,6 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return list;
     }
@@ -216,12 +181,6 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return p;
     }

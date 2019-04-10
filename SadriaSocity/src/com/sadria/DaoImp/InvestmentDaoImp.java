@@ -46,12 +46,6 @@ Connection con = DBConnection.getConnet();
             System.out.println("Table Created");
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
@@ -80,18 +74,36 @@ Connection con = DBConnection.getConnet();
             pst.executeUpdate();         
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
     @Override
     public void update(Investment i,File file) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       FileInputStream inputStream = null;
+        String sql = "update investment set projectName=? ,projectLocation=? ,totalInvestment=? ,startDate=? ,projectDuration=?,directortName=?,gender=? ,religion=? ,dateofBirth=? ,nIDNo=? ,mobileNo=? ,presentAddress=? ,parmanetAddress=?,picture=? where accountNo=?";
+        try {
+            inputStream = new FileInputStream(file);
+            PreparedStatement pst = con.prepareStatement(sql);
+           
+            pst.setString(1, i.getProjectName());
+            pst.setString(2, i.getProjectLocation());
+            pst.setDouble(3, i.getTotalInvestment());
+            pst.setDate(4, new java.sql.Date(i.getStartDate().getTime()));
+            pst.setInt(5,i.getProjectDuration());
+            pst.setString(6, i.getDirectortName());
+            pst.setString(7, i.getGender());
+            pst.setString(8, i.getReligion());
+            pst.setString(9, i.getDateofBirth());
+            pst.setString(10, i.getnIDNo());
+            pst.setString(11, i.getMobileNo());
+            pst.setString(12, i.getPresentAddress());
+            pst.setString(13, i.getParmanetAddress());
+           pst.setBinaryStream(14, (InputStream) inputStream, (int) (file.length()));
+            pst.setString(15, i.getAccountNo());
+            pst.executeUpdate();         
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -114,12 +126,6 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return list;
     }
@@ -137,12 +143,6 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return i;
     }
@@ -162,12 +162,6 @@ Connection con = DBConnection.getConnet();
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
         }
         return i;
     }

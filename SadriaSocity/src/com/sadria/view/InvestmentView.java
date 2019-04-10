@@ -58,8 +58,9 @@ public class InvestmentView extends javax.swing.JFrame {
     }
     String fileName = null;
     byte[] person_img = null;
-    String accountNo ;
- public void clearSummaryTable() {
+    String accountNo;
+
+    public void clearSummaryTable() {
         DefaultTableModel model = (DefaultTableModel) tblInvestmentA.getModel();
         model.setRowCount(0);
     }
@@ -86,6 +87,29 @@ public class InvestmentView extends javax.swing.JFrame {
 
         }
     }
+
+    public void displayPersonalTranstionTable(JTextField acNo) {
+        clearSummaryTable();
+        InvestmentSummaryDao tDao = new InvestmentSummaryDaoImp();
+        InvestmentSummary isummary = tDao.getInvestmentSummaryByAccontNo(acNo.getText().trim());
+
+        DefaultTableModel model = (DefaultTableModel) tblInvestmentA.getModel();
+        Object[] col = new Object[10];
+
+        col[0] = isummary.getDate();
+        col[1] = isummary.getAccountNo();
+        col[2] = isummary.getProjectName();
+        col[3] = isummary.getProjectLocation();
+        col[4] = isummary.getStartDate();
+        col[5] = isummary.getDirectortName();
+        col[6] = isummary.getTotalInvestment();
+        col[7] = isummary.getReturnAmount();
+        col[8] = isummary.getBalance();
+        col[9] = isummary.getProjectDuration();
+        model.addRow(col);
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -196,7 +220,7 @@ public class InvestmentView extends javax.swing.JFrame {
 
         txtProjectName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtProjectName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtProjectName.setText("Fishind");
+        txtProjectName.setText("Fisharing");
         txtProjectName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtProjectName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -639,13 +663,13 @@ public class InvestmentView extends javax.swing.JFrame {
         accountNo = txtAccountNo.getText();
         InvestmentSummaryDao isammaryDao = new InvestmentSummaryDaoImp();
         InvestmentSummary isammary = isammaryDao.getInvestmentSummaryByAccontNo(accountNo);
-        if(isammary.getAccountNo() != null){
-            double totalReturn = isammary.getReturnAmount()+Double.parseDouble(txtReturn.getText());
-            double balance = isammary.getTotalInvestment() - +(isammary.getReturnAmount()+Double.parseDouble(txtReturn.getText()));
+        if (isammary.getAccountNo() != null) {
+            double totalReturn = isammary.getReturnAmount() + Double.parseDouble(txtReturn.getText());
+            double balance = isammary.getTotalInvestment() - +(isammary.getReturnAmount() + Double.parseDouble(txtReturn.getText()));
 
-            InvestmentSummary summaryUp = new InvestmentSummary(isammary.getAccountNo(), isammary.getTotalInvestment(),totalReturn, balance);
+            InvestmentSummary summaryUp = new InvestmentSummary(isammary.getAccountNo(), isammary.getTotalInvestment(), totalReturn, balance);
             isammaryDao.updateForDeposit(summaryUp);
-            displayTranstionTable();
+            displayPersonalTranstionTable(txtAccountNo);
         }
     }//GEN-LAST:event_btnReturnActionPerformed
 
@@ -671,16 +695,20 @@ public class InvestmentView extends javax.swing.JFrame {
         txtPresentAddress.setText(investment.getPresentAddress());
         txtParmanetAddress.setText(investment.getParmanetAddress());
         lblImg.setIcon(new ImageIcon(investment.getPicture()));
+        displayPersonalTranstionTable(txtAccountNo);
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-       JTextField temp = null;
+        JTextField temp = null;
         for (Component c : jPanel3.getComponents()) {
             if (c.getClass().toString().contains("JTextField")) {
                 temp = (JTextField) c;
                 temp.setText(null);
             }
         }
+        DefaultTableModel model = (DefaultTableModel) tblInvestmentA.getModel();
+        model.setRowCount(0);
+        lblImg.setIcon(null);
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void txtDirectorNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDirectorNameActionPerformed
@@ -721,18 +749,35 @@ public class InvestmentView extends javax.swing.JFrame {
             InvestmentSummary investmentSummary = new InvestmentSummary(new Date(), accountNo, projectName, projectLocation, new Date(), directorName, totalInvestment, 0.0, totalInvestment, projectDuration);
             isummaryDao.save(investmentSummary);
             displayTranstionTable();
+            JOptionPane.showMessageDialog(null, "Data Save Successfully");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        JTextField temp = null;
-        for (Component c : jPanel3.getComponents()) {
-            if (c.getClass().toString().contains("JTextField")) {
-                temp = (JTextField) c;
-                temp.setText(null);
-            }
+        InvestmentDao iDao = new InvestmentDaoImp();
+        accountNo = txtAccountNo.getText();
+        String projectName = txtProjectName.getText();
+        String projectLocation = txtProjectLocation.getText();
+        Double totalInvestment = Double.parseDouble(txtTotalInvestment.getText());
+        Date txtStartDate = new java.sql.Date(System.currentTimeMillis());
+        int projectDuration = Integer.parseInt(txtProjectDuration.getText());
+        String directorName = txtDirectorName.getText();
+        String gender = comGender.getItemAt(comGender.getSelectedIndex());
+        String religion = txtReligion.getText();
+        String dateofBirth = txtDateofBirth.getText();
+        String nIDNo = txtNid.getText();
+        String mobileNo = txtMobilNo.getText();
+        String presentAddress = txtPresentAddress.getText();
+        String parmanetAddress = txtParmanetAddress.getText();
+
+        try {
+            Investment i = new Investment(accountNo, projectName, projectLocation, totalInvestment, txtStartDate, projectDuration, directorName, gender, religion, dateofBirth, nIDNo, mobileNo, presentAddress, parmanetAddress);
+            iDao.update(i, new File(sourceForSave));
+            JOptionPane.showMessageDialog(null, "Data update Successfully");
+        }catch(Exception e) {
+            e.printStackTrace();
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -829,7 +874,7 @@ public class InvestmentView extends javax.swing.JFrame {
     }//GEN-LAST:event_lblTranstionMouseClicked
 
     private void lblInvestmentAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInvestmentAccountMouseClicked
-       this.setVisible(true);
+        this.setVisible(true);
         new CreateSavingACView().setVisible(false);
         new Transtionview().setVisible(false);
         new StatementView().setVisible(false);
