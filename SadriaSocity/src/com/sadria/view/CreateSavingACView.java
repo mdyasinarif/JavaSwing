@@ -756,7 +756,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
             }
         });
 
-        lblCreateAccount1.setBackground(new java.awt.Color(102, 204, 0));
+        lblCreateAccount1.setBackground(new java.awt.Color(0, 102, 51));
         lblCreateAccount1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblCreateAccount1.setForeground(new java.awt.Color(255, 255, 255));
         lblCreateAccount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -910,7 +910,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetCAActionPerformed
 
     private void btnSaveCA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCA1ActionPerformed
-        PersonDao pDao = new PersonDaoImp();
+
         String accountNo = sAccountNo.getText();
         String fromNO = sFromNO.getText();
         String cardNo = sCardNo.getText();
@@ -933,10 +933,11 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         try {
             Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, religion, dateofBirth, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share);
+            PersonDao pDao = new PersonDaoImp();
             pDao.save(p, new File(sourceForSave));
 
-            SummaryDao summaryDao = new SummaryDaoImp();
             Summary summary = new Summary(accountNo, name, savingType, Integer.parseInt(sAnnunity.getText().trim()), new Date(), Integer.parseInt(sAnnunity.getText().trim()), 0, Integer.parseInt(sAnnunity.getText().trim()), 1, new Date(), 0);
+            SummaryDao summaryDao = new SummaryDaoImp();
             summaryDao.save(summary);
             JOptionPane.showMessageDialog(null, "Data Save Successfully");
         } catch (Exception e) {
@@ -998,7 +999,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
         sNomineName.setText(person.getNomineName());
         sRelations.setText(person.getRelations());
         sShare.setText(person.getShare() + "");
-       lblImg.setIcon(new ImageIcon(person.getPicture()));
+        lblImg.setIcon(new ImageIcon(person.getPicture()));
         displaySummary(sAccountNo);
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -1007,7 +1008,7 @@ public class CreateSavingACView extends javax.swing.JFrame {
     }//GEN-LAST:event_sAdmissionDateActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        PersonDao pDao = new PersonDaoImp();
+
         String accountNo = sAccountNo.getText();
         String fromNO = sFromNO.getText();
         String cardNo = sCardNo.getText();
@@ -1030,8 +1031,9 @@ public class CreateSavingACView extends javax.swing.JFrame {
 
         try {
             Person p = new Person(accountNo, fromNO, cardNo, admissionDate, name, motherName, fatherHusbendName, gender, religion, dateofBirth, nIDNo, mobileNo, presentAddress, parmanetAddress, savingType, annynity, nomineName, relations, share);
+            PersonDao pDao = new PersonDaoImp();
             pDao.update(p, new File(sourceForSave));
-JOptionPane.showMessageDialog(null, "Data Update Successfully");
+            JOptionPane.showMessageDialog(null, "Data Update Successfully");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1060,14 +1062,14 @@ JOptionPane.showMessageDialog(null, "Data Update Successfully");
     }//GEN-LAST:event_lblCreateAccount1MouseClicked
 
     private void lblTranstionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTranstionMouseClicked
-         this.setVisible(false);
+        this.setVisible(false);
         new InvestmentView().setVisible(false);
         new Transtionview().setVisible(true);
         new StatementView().setVisible(false);
     }//GEN-LAST:event_lblTranstionMouseClicked
 
     private void lblInvestmentAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInvestmentAccountMouseClicked
-       this.setVisible(false);
+        this.setVisible(false);
         new InvestmentView().setVisible(true);
         new Transtionview().setVisible(false);
         new StatementView().setVisible(false);

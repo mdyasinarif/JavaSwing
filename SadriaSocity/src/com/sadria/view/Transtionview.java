@@ -6,10 +6,12 @@
 package com.sadria.view;
 
 import com.sadria.Dao.InvestmentSummaryDao;
+import com.sadria.Dao.MembersDao;
 import com.sadria.Dao.PersonDao;
 import com.sadria.Dao.SummaryDao;
 import com.sadria.Dao.TranstionDao;
 import com.sadria.DaoImp.InvestmentSummaryDaoImp;
+import com.sadria.DaoImp.MembersDaoImp;
 import com.sadria.DaoImp.PersonDaoImp;
 import com.sadria.DaoImp.SummaryDaoImp;
 import com.sadria.DaoImp.TranstionDaoImp;
@@ -17,6 +19,9 @@ import com.sadria.pojo.Person;
 import com.sadria.pojo.Summary;
 import com.sadria.pojo.Transtion;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -24,6 +29,7 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -42,9 +48,12 @@ public class Transtionview extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         displayTranstionTable();
         day();
+        showTime();
         deposit();
         investment();
         balance();
+        totalMember();
+        totalProject();
     }
     int id;
     Date date;
@@ -53,7 +62,16 @@ public class Transtionview extends javax.swing.JFrame {
     String slipNo;
     int deposit;
     int withdraw;
-    
+    public void totalMember(){
+        MembersDao mDao = new MembersDaoImp();
+        int totalMember = mDao.getTotalMember();
+        lblTotalMember.setText(totalMember+"");
+    }
+    public void totalProject(){
+        MembersDao mDao = new MembersDaoImp();
+        int project = mDao.getProject();
+        lblProject.setText(project+"");
+    }
     public void deposit(){
     SummaryDao summaryDao = new SummaryDaoImp();
     int totalDeposit=  summaryDao.getDeposit();
@@ -77,7 +95,20 @@ public class Transtionview extends javax.swing.JFrame {
         int month = cal.get(Calendar.MONTH);
         int year = cal.get(Calendar.YEAR);
 
-        lblDate.setText("Date :" + day + " : " + (month + 1) + " : " + year);
+        lblDate.setText("Date :" + day + ":" + (month + 1) + ":" + year);
+
+    }
+     void showTime() {
+
+        new Timer(0, new ActionListener() {
+           
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Date d = new Date();
+                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
+                 lblTime.setText(sdf.format(d));
+            }
+        }).start();
 
     }
 
@@ -120,6 +151,8 @@ public class Transtionview extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblDate = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
         lblHead = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -140,9 +173,12 @@ public class Transtionview extends javax.swing.JFrame {
         txtAmount = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         btnDeposit = new javax.swing.JButton();
-        lblDate = new javax.swing.JLabel();
         btnWithdraw = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        lblTotalMember = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lblProject = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSummary = new javax.swing.JTable();
@@ -158,6 +194,16 @@ public class Transtionview extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblDate.setBackground(new java.awt.Color(0, 102, 51));
+        lblDate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblDate.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 120, 190, 40));
+
+        lblTime.setBackground(new java.awt.Color(0, 102, 51));
+        lblTime.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTime.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 120, 140, 40));
+
         lblHead.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/logo.png"))); // NOI18N
         getContentPane().add(lblHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, 166));
 
@@ -169,16 +215,16 @@ public class Transtionview extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_deposit_18px.png"))); // NOI18N
-        jLabel8.setText("Deposit");
+        jLabel8.setText(" Mamber");
         jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 140, 40));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 160, 40));
 
         lblDeposit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblDeposit.setForeground(new java.awt.Color(255, 255, 255));
         lblDeposit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDeposit.setText("0");
-        jPanel4.add(lblDeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 11, 70, 40));
+        jPanel4.add(lblDeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 120, 40));
 
         jLabel9.setBackground(new java.awt.Color(0, 102, 51));
         jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -188,13 +234,13 @@ public class Transtionview extends javax.swing.JFrame {
         jLabel9.setText("Investment");
         jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 140, 40));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 160, 40));
 
         lblInvestment.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblInvestment.setForeground(new java.awt.Color(255, 255, 255));
         lblInvestment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInvestment.setText("0");
-        jPanel4.add(lblInvestment, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 90, 40));
+        jPanel4.add(lblInvestment, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 120, 40));
 
         jLabel10.setBackground(new java.awt.Color(0, 102, 51));
         jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -204,20 +250,20 @@ public class Transtionview extends javax.swing.JFrame {
         jLabel10.setText("Collection");
         jLabel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(719, 10, 130, 40));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 130, 40));
 
         lblBalance.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblBalance.setForeground(new java.awt.Color(255, 255, 255));
         lblBalance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBalance.setText("0");
-        jPanel4.add(lblBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 83, 40));
+        jPanel4.add(lblBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, 110, 40));
 
         lblTotal.setBackground(new java.awt.Color(0, 102, 51));
         lblTotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTotal.setForeground(new java.awt.Color(255, 255, 255));
         lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTotal.setText("0");
-        jPanel4.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 91, 40));
+        jPanel4.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 60, 110, 40));
 
         jLabel3.setBackground(new java.awt.Color(0, 102, 51));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -226,7 +272,7 @@ public class Transtionview extends javax.swing.JFrame {
         jLabel3.setText("Account No");
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 140, 40));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 140, 40));
 
         txtAccountNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtAccountNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -236,7 +282,7 @@ public class Transtionview extends javax.swing.JFrame {
                 txtAccountNoActionPerformed(evt);
             }
         });
-        jPanel4.add(txtAccountNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 70, 157, 40));
+        jPanel4.add(txtAccountNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 157, 40));
 
         txtName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -246,7 +292,7 @@ public class Transtionview extends javax.swing.JFrame {
                 txtNameActionPerformed(evt);
             }
         });
-        jPanel4.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 70, 240, 40));
+        jPanel4.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 450, 40));
 
         btnSearch.setBackground(new java.awt.Color(0, 102, 51));
         btnSearch.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -258,7 +304,7 @@ public class Transtionview extends javax.swing.JFrame {
                 btnSearchActionPerformed(evt);
             }
         });
-        jPanel4.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 70, -1, 40));
+        jPanel4.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(815, 120, 130, 40));
 
         btnEdit.setBackground(new java.awt.Color(0, 102, 51));
         btnEdit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -270,7 +316,7 @@ public class Transtionview extends javax.swing.JFrame {
                 btnEditActionPerformed(evt);
             }
         });
-        jPanel4.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(726, 70, -1, 40));
+        jPanel4.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, -1, 40));
 
         btnClear.setBackground(new java.awt.Color(0, 102, 51));
         btnClear.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -282,7 +328,7 @@ public class Transtionview extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
-        jPanel4.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(833, 70, -1, 40));
+        jPanel4.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, -1, 40));
 
         txtSlipNo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtSlipNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -292,7 +338,7 @@ public class Transtionview extends javax.swing.JFrame {
                 txtSlipNoActionPerformed(evt);
             }
         });
-        jPanel4.add(txtSlipNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 139, 94, 40));
+        jPanel4.add(txtSlipNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 94, 40));
 
         jLabel6.setBackground(new java.awt.Color(0, 102, 51));
         jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -301,7 +347,7 @@ public class Transtionview extends javax.swing.JFrame {
         jLabel6.setText("Slip No");
         jLabel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 139, 80, 40));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 80, 40));
 
         txtAmount.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -311,7 +357,7 @@ public class Transtionview extends javax.swing.JFrame {
                 txtAmountActionPerformed(evt);
             }
         });
-        jPanel4.add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 129, 40));
+        jPanel4.add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 129, 40));
 
         jLabel7.setBackground(new java.awt.Color(0, 102, 51));
         jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -320,7 +366,7 @@ public class Transtionview extends javax.swing.JFrame {
         jLabel7.setText("Amount");
         jLabel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 139, 100, 40));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 100, 40));
 
         btnDeposit.setBackground(new java.awt.Color(0, 102, 51));
         btnDeposit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -332,12 +378,7 @@ public class Transtionview extends javax.swing.JFrame {
                 btnDepositActionPerformed(evt);
             }
         });
-        jPanel4.add(btnDeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, 40));
-
-        lblDate.setBackground(new java.awt.Color(0, 102, 51));
-        lblDate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblDate.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel4.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 140, 200, 40));
+        jPanel4.add(btnDeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, -1, 40));
 
         btnWithdraw.setBackground(new java.awt.Color(0, 102, 51));
         btnWithdraw.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
@@ -349,7 +390,7 @@ public class Transtionview extends javax.swing.JFrame {
                 btnWithdrawActionPerformed(evt);
             }
         });
-        jPanel4.add(btnWithdraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, -1, 40));
+        jPanel4.add(btnWithdraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, -1, 40));
 
         jLabel12.setBackground(new java.awt.Color(0, 102, 51));
         jLabel12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -359,9 +400,41 @@ public class Transtionview extends javax.swing.JFrame {
         jLabel12.setText("Balance");
         jLabel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 99, 40));
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 130, 40));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 166, 960, 190));
+        lblTotalMember.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTotalMember.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalMember.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTotalMember.setText("0");
+        jPanel4.add(lblTotalMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 120, 40));
+
+        jLabel11.setBackground(new java.awt.Color(0, 102, 51));
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_deposit_18px.png"))); // NOI18N
+        jLabel11.setText("Deposit");
+        jLabel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 160, 40));
+
+        lblProject.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblProject.setForeground(new java.awt.Color(255, 255, 255));
+        lblProject.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblProject.setText("0");
+        jPanel4.add(lblProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 120, 40));
+
+        jLabel13.setBackground(new java.awt.Color(0, 102, 51));
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sadria/img/icons8_deposit_18px.png"))); // NOI18N
+        jLabel13.setText("Projects");
+        jLabel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 160, 40));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 166, 960, 240));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 51));
 
@@ -391,7 +464,7 @@ public class Transtionview extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblSummary);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 950, 78));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 950, 78));
 
         tblTranscation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -434,7 +507,7 @@ public class Transtionview extends javax.swing.JFrame {
             }
         });
 
-        lblTranstion.setBackground(new java.awt.Color(102, 204, 0));
+        lblTranstion.setBackground(new java.awt.Color(0, 102, 51));
         lblTranstion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTranstion.setForeground(new java.awt.Color(255, 255, 255));
         lblTranstion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -746,7 +819,9 @@ public class Transtionview extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnWithdraw;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
@@ -765,8 +840,11 @@ public class Transtionview extends javax.swing.JFrame {
     private javax.swing.JLabel lblHead;
     private javax.swing.JLabel lblInvestment;
     private javax.swing.JLabel lblInvestmentAccount;
+    private javax.swing.JLabel lblProject;
     private javax.swing.JLabel lblStatement;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTotal;
+    private javax.swing.JLabel lblTotalMember;
     private javax.swing.JLabel lblTranstion;
     private javax.swing.JTable tblSummary;
     private javax.swing.JTable tblTranscation;

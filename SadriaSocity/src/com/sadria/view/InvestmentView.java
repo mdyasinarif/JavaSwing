@@ -613,7 +613,7 @@ public class InvestmentView extends javax.swing.JFrame {
             }
         });
 
-        lblInvestmentAccount.setBackground(new java.awt.Color(102, 204, 0));
+        lblInvestmentAccount.setBackground(new java.awt.Color(0, 102, 51));
         lblInvestmentAccount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblInvestmentAccount.setForeground(new java.awt.Color(255, 255, 255));
         lblInvestmentAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

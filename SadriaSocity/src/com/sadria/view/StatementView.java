@@ -198,7 +198,7 @@ public class StatementView extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 51));
 
-        lblStatement.setBackground(new java.awt.Color(102, 204, 0));
+        lblStatement.setBackground(new java.awt.Color(0, 102, 51));
         lblStatement.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblStatement.setForeground(new java.awt.Color(255, 255, 255));
         lblStatement.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
